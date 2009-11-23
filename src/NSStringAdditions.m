@@ -1,6 +1,4 @@
 #import "PhotoViewer/TTGlobal.h"
-#import "PhotoViewer/TTURLMap.h"
-#import "PhotoViewer/TTNavigator.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -134,19 +132,6 @@
   } else {
     return [self stringByAppendingFormat:@"&%@", params];
   }
-}
-
-- (id)objectValue {
-  return [[TTNavigator navigator].URLMap objectForURL:self];
-}
-
-- (void)openURL {
-  [[TTNavigator navigator] openURL:self animated:YES];
-}
-
-- (void)openURLFromButton:(UIView*)button {
-  NSDictionary* query = [NSDictionary dictionaryWithObjectsAndKeys:button, @"__target__", nil];
-  [[TTNavigator navigator] openURL:self query:query animated:YES];
 }
 
 @end

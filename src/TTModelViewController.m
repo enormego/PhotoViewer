@@ -1,5 +1,4 @@
 #import "PhotoViewer/TTModelViewController.h"
-#import "PhotoViewer/TTNavigator.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -235,9 +234,6 @@
 
 - (id<TTModel>)model {
   if (!_model) {
-    if (![TTNavigator navigator].isDelayed) {
-      [self createModel];
-    }
     if (!_model) {
       [self createInterstitialModel];
     }

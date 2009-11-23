@@ -17,8 +17,6 @@
 		BE1288080F896A1900F65EA2 /* TTStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1288070F896A1900F65EA2 /* TTStyle.m */; };
 		BE1288CB0F89812E00F65EA2 /* TTShape.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1288CA0F89812E00F65EA2 /* TTShape.m */; };
 		BE1288CD0F89813A00F65EA2 /* TTShape.h in Headers */ = {isa = PBXBuildFile; fileRef = BE1288CC0F89813A00F65EA2 /* TTShape.h */; };
-		BE2178F4100093FA009329F2 /* TTURLMap.h in Headers */ = {isa = PBXBuildFile; fileRef = BE2178F3100093FA009329F2 /* TTURLMap.h */; };
-		BE2178F61000940D009329F2 /* TTURLMap.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2178F51000940D009329F2 /* TTURLMap.m */; };
 		BE23E798100B13E200F40C3B /* TTModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BE23E797100B13E200F40C3B /* TTModel.h */; };
 		BE42FB7A0F3BBF3500A3B65A /* TTTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BE42FB790F3BBF3400A3B65A /* TTTabBar.m */; };
 		BE42FB7C0F3BBF3D00A3B65A /* TTTabBar.h in Headers */ = {isa = PBXBuildFile; fileRef = BE42FB7B0F3BBF3D00A3B65A /* TTTabBar.h */; };
@@ -57,10 +55,6 @@
 		BEB210D40FA3E784007DEE5F /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = BEB210D30FA3E784007DEE5F /* NSStringAdditions.h */; };
 		BEB460830F8EE14C004B34A0 /* TTLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = BEB460820F8EE14C004B34A0 /* TTLabel.h */; };
 		BEB460850F8EE156004B34A0 /* TTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB460840F8EE156004B34A0 /* TTLabel.m */; };
-		BEBB12741003EB5400744230 /* TTURLPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = BEBB12721003EB5400744230 /* TTURLPattern.m */; };
-		BEBB198310068D0F00744230 /* TTNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = BEBB198210068D0F00744230 /* TTNavigator.m */; };
-		BEBB198E10068D5800744230 /* TTNavigator.h in Headers */ = {isa = PBXBuildFile; fileRef = BEBB198D10068D5800744230 /* TTNavigator.h */; };
-		BEBB199C100690FE00744230 /* TTURLPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = BEBB199B100690FE00744230 /* TTURLPattern.h */; };
 		BEC171D2102A71CC006B431A /* TTPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC171D1102A71CC006B431A /* TTPageControl.m */; };
 		BEC171D4102A71EE006B431A /* TTPageControl.h in Headers */ = {isa = PBXBuildFile; fileRef = BEC171D3102A71EE006B431A /* TTPageControl.h */; };
 		BEC270B20F8C9D1900EA638F /* TTLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = BEC270B10F8C9D1900EA638F /* TTLayout.h */; };
@@ -120,8 +114,6 @@
 		BE1288070F896A1900F65EA2 /* TTStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyle.m; sourceTree = "<group>"; };
 		BE1288CA0F89812E00F65EA2 /* TTShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTShape.m; sourceTree = "<group>"; };
 		BE1288CC0F89813A00F65EA2 /* TTShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTShape.h; path = PhotoViewer/TTShape.h; sourceTree = "<group>"; };
-		BE2178F3100093FA009329F2 /* TTURLMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTURLMap.h; path = PhotoViewer/TTURLMap.h; sourceTree = "<group>"; };
-		BE2178F51000940D009329F2 /* TTURLMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLMap.m; sourceTree = "<group>"; };
 		BE23E797100B13E200F40C3B /* TTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTModel.h; path = PhotoViewer/TTModel.h; sourceTree = "<group>"; };
 		BE42FB790F3BBF3400A3B65A /* TTTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTabBar.m; sourceTree = "<group>"; };
 		BE42FB7B0F3BBF3D00A3B65A /* TTTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTabBar.h; path = PhotoViewer/TTTabBar.h; sourceTree = "<group>"; };
@@ -160,10 +152,6 @@
 		BEB210D30FA3E784007DEE5F /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSStringAdditions.h; path = PhotoViewer/NSStringAdditions.h; sourceTree = "<group>"; };
 		BEB460820F8EE14C004B34A0 /* TTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTLabel.h; path = PhotoViewer/TTLabel.h; sourceTree = "<group>"; };
 		BEB460840F8EE156004B34A0 /* TTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLabel.m; sourceTree = "<group>"; };
-		BEBB12721003EB5400744230 /* TTURLPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLPattern.m; sourceTree = "<group>"; };
-		BEBB198210068D0F00744230 /* TTNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTNavigator.m; sourceTree = "<group>"; };
-		BEBB198D10068D5800744230 /* TTNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTNavigator.h; path = PhotoViewer/TTNavigator.h; sourceTree = "<group>"; };
-		BEBB199B100690FE00744230 /* TTURLPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTURLPattern.h; path = PhotoViewer/TTURLPattern.h; sourceTree = "<group>"; };
 		BEC171D1102A71CC006B431A /* TTPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPageControl.m; sourceTree = "<group>"; };
 		BEC171D3102A71EE006B431A /* TTPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTPageControl.h; path = PhotoViewer/TTPageControl.h; sourceTree = "<group>"; };
 		BEC270B10F8C9D1900EA638F /* TTLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTLayout.h; path = PhotoViewer/TTLayout.h; sourceTree = "<group>"; };
@@ -233,7 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				BEF321B10F353B25000DE5D2 /* Global */,
-				BEBB198A10068D1400744230 /* Navigator */,
 				BEF44D4F10182FD800E9EC07 /* Models */,
 				BE1287F40F8969C100F65EA2 /* Style */,
 				BEB46A860F8F8170004B34A0 /* Layout */,
@@ -332,19 +319,6 @@
 				BEC270B30F8C9D2600EA638F /* TTLayout.m */,
 			);
 			name = Layout;
-			sourceTree = "<group>";
-		};
-		BEBB198A10068D1400744230 /* Navigator */ = {
-			isa = PBXGroup;
-			children = (
-				BEBB198D10068D5800744230 /* TTNavigator.h */,
-				BEBB198210068D0F00744230 /* TTNavigator.m */,
-				BE2178F3100093FA009329F2 /* TTURLMap.h */,
-				BE2178F51000940D009329F2 /* TTURLMap.m */,
-				BEBB199B100690FE00744230 /* TTURLPattern.h */,
-				BEBB12721003EB5400744230 /* TTURLPattern.m */,
-			);
-			name = Navigator;
 			sourceTree = "<group>";
 		};
 		BED631A10F88554F009923D8 /* Buttons and Tabs */ = {
@@ -478,11 +452,8 @@
 				BED429450F97F7E50035B153 /* TTButtonBar.h in Headers */,
 				BEB210D40FA3E784007DEE5F /* NSStringAdditions.h in Headers */,
 				BEA762500FBA1E290091B567 /* NSDateAdditions.h in Headers */,
-				BE2178F4100093FA009329F2 /* TTURLMap.h in Headers */,
 				BE7DD3AB1001EDFF00662212 /* UINavigationControllerAdditions.h in Headers */,
 				BE7DD3AC1001EDFF00662212 /* UITabBarControllerAdditions.h in Headers */,
-				BEBB198E10068D5800744230 /* TTNavigator.h in Headers */,
-				BEBB199C100690FE00744230 /* TTURLPattern.h in Headers */,
 				BE23E798100B13E200F40C3B /* TTModel.h in Headers */,
 				BE52E93F100D7DEE00E03DB7 /* TTModelViewController.h in Headers */,
 				BEA6B8E41013FC3400B83B3A /* UIFontAdditions.h in Headers */,
@@ -569,11 +540,8 @@
 				BED429420F97F7DB0035B153 /* TTButtonBar.m in Sources */,
 				BEB210D20FA3E77E007DEE5F /* NSStringAdditions.m in Sources */,
 				BEA7624E0FBA1E220091B567 /* NSDateAdditions.m in Sources */,
-				BE2178F61000940D009329F2 /* TTURLMap.m in Sources */,
 				BE7DD3A71001EDE000662212 /* UINavigationControllerAdditions.m in Sources */,
 				BE7DD3A81001EDE000662212 /* UITabBarControllerAdditions.m in Sources */,
-				BEBB12741003EB5400744230 /* TTURLPattern.m in Sources */,
-				BEBB198310068D0F00744230 /* TTNavigator.m in Sources */,
 				BE52E941100D7DFD00E03DB7 /* TTModelViewController.m in Sources */,
 				BE52E994100D8EF800E03DB7 /* TTModel.m in Sources */,
 				BEA6B8E61013FC4900B83B3A /* UIFontAdditions.m in Sources */,

@@ -1,7 +1,5 @@
 #import "PhotoViewer/TTGlobal.h"
 #import "PhotoViewer/TTURLRequestQueue.h"
-#import "PhotoViewer/TTNavigator.h"
-#import "PhotoViewer/TTURLMap.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -31,14 +29,7 @@
 
 - (UIViewController*)popViewControllerAnimated2:(BOOL)animated {
   if (animated) {
-    NSString* URL = self.topViewController.originalNavigatorURL;
-    UIViewAnimationTransition transition = URL
-      ? [[TTNavigator navigator].URLMap transitionForURL:URL]
-      : UIViewAnimationTransitionNone;
-    if (transition) {
-      UIViewAnimationTransition inverseTransition = [self invertTransition:transition];
-      return [self popViewControllerAnimatedWithTransition:inverseTransition];
-    }
+      return [self popViewControllerAnimatedWithTransition:UIViewAnimationTransitionNone];
   }
   return [self popViewControllerAnimated2:animated];
 }
@@ -101,9 +92,7 @@
 }
 
 - (void)persistNavigationPath:(NSMutableArray*)path {
-  for (UIViewController* controller in self.viewControllers) {
-    [[TTNavigator navigator] persistController:controller path:path];
-  }
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

@@ -2,7 +2,6 @@
 #import "PhotoViewer/TTURLCache.h"
 #import "PhotoViewer/TTURLRequest.h"
 #import "PhotoViewer/TTPhotoView.h"
-#import "PhotoViewer/TTNavigator.h"
 #import "PhotoViewer/TTLabel.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -195,26 +194,12 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 - (void)showThumbnails {
-  NSString* URL = [self URLForThumbnails];
-  if (!_thumbsController) {
-    if (URL) {
-      // The photo source has a URL mapping in TTURLMap, so we use that to show the thumbs
-      NSDictionary* query = [NSDictionary dictionaryWithObject:self forKey:@"delegate"];
-      _thumbsController = [[[TTNavigator navigator] viewControllerForURL:URL query:query] retain];
-      [[TTNavigator navigator].URLMap setObject:_thumbsController forURL:URL];
-    } else {
-      // The photo source had no URL mapping in TTURLMap, so we let the subclass show the thumbs
-      _thumbsController = [[self createThumbsViewController] retain];
-      // _thumbsController.photoSource = _photoSource;
-    }
-  }
+	if (!_thumbsController) {
+		_thumbsController = [[self createThumbsViewController] retain];
+	}
     
-  if (URL) {
-    TTOpenURL(URL);
-  } else {
     [self.navigationController pushViewController:_thumbsController
-                               animatedWithTransition:UIViewAnimationTransitionCurlDown];
-  }
+						   animatedWithTransition:UIViewAnimationTransitionCurlDown];
 }
 
 - (void)slideshowTimer {

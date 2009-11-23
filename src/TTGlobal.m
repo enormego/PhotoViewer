@@ -1,5 +1,4 @@
 #import "PhotoViewer/TTGlobal.h"
-#import "PhotoViewer/TTNavigator.h"
 #import <objc/runtime.h>
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -60,12 +59,7 @@ UIDeviceOrientation TTDeviceOrientation() {
 }
 
 UIInterfaceOrientation TTInterfaceOrientation() {
-  UIInterfaceOrientation orient = [UIApplication sharedApplication].statusBarOrientation;
-  if (!orient) {
-    return [TTNavigator navigator].visibleViewController.interfaceOrientation;
-  } else {
-    return orient;
-  }
+  return [UIApplication sharedApplication].statusBarOrientation;
 }
 
 BOOL TTIsSupportedOrientation(UIInterfaceOrientation orientation) {

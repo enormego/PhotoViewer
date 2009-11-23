@@ -1,5 +1,4 @@
-#import "PhotoViewer/TTNavigator.h"
-#import "PhotoViewer/TTURLMap.h"
+#import "PhotoViewer/NSObjectAdditions.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -127,14 +126,6 @@
   } else {
     return nil;
   }
-}
-
-- (NSString*)URLValue {
-  return [[TTNavigator navigator].URLMap URLForObject:self];
-}
-
-- (NSString*)URLValueWithName:(NSString*)name {
-  return [[TTNavigator navigator].URLMap URLForObject:self withName:name];
 }
 
 @end

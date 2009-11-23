@@ -1,5 +1,5 @@
-#import "PhotoViewer/TTURLMap.h"
-#import "PhotoViewer/TTNavigator.h"
+#import "PhotoViewer/UIViewControllerAdditions.h"
+#import "TTGlobal.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -33,15 +33,6 @@ static NSMutableDictionary* gPopupViewControllers = nil;
   [super dealloc];
 }
 
-- (void)didAddSubview:(UIView*)subview {
-  TTDINFO(@"ADD %@", subview);
-}
-
-- (void)willRemoveSubview:(UIView*)subview {
-  TTDINFO(@"REMOVE %@", subview);
-  [self removeFromSuperview];
-}
-
 @end
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -53,12 +44,6 @@ static NSMutableDictionary* gPopupViewControllers = nil;
 
 // Swapped with dealloc by TTURLMap (only if you're using TTURLMap)
 - (void)ttdealloc {
-  NSString* URL = self.originalNavigatorURL;
-  if (URL) {
-    [[TTNavigator navigator].URLMap removeObjectForURL:URL];
-    self.originalNavigatorURL = nil;
-  }
-
   self.superController = nil;
   self.popupViewController = nil;
   
