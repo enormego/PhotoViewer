@@ -1,7 +1,6 @@
 #import "PhotoViewer/TTGlobal.h"
 
-@class TTURLRequest;
-
+@class TTURLRequest, TTRequestLoader;
 @interface TTURLRequestQueue : NSObject {
   NSMutableDictionary* _loaders;
   NSMutableArray* _loaderQueue;
@@ -12,6 +11,8 @@
   CGFloat _imageCompressionQuality;
   BOOL _suspended;
 }
+
+- (void)loader:(TTRequestLoader*)loader didLoadResponse:(NSHTTPURLResponse*)response data:(id)data;
 
 /**
  * Gets the flag that determines if new load requests are allowed to reach the network.

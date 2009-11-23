@@ -4,8 +4,6 @@
 
 #import "PhotoViewer/TTModel.h"
 
-#import "PhotoViewer/TTLayout.h"
-
 #import "PhotoViewer/TTViewController.h"
 
 #import "PhotoViewer/TTView.h"

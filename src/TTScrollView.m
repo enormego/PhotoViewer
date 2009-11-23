@@ -129,17 +129,17 @@ static const NSTimeInterval kOvershoot = 2;
 
 - (CGFloat)pageWidth {
   if (UIInterfaceOrientationIsLandscape(_orientation)) {
-    return self.height;
+    return self.frame.size.height;
   } else {
-    return self.width;
+    return self.frame.size.width;
   }
 }
 
 - (CGFloat)pageHeight {
   if (UIInterfaceOrientationIsLandscape(_orientation)) {
-    return self.width;
+    return self.frame.size.width;
   } else {
-    return self.height;
+    return self.frame.size.height;
   }
 }
 
@@ -166,24 +166,24 @@ static const NSTimeInterval kOvershoot = 2;
   CGFloat width, height;
   if (UIInterfaceOrientationIsLandscape(_orientation)) {
     if (size.width > size.height) {
-      height = size.width/size.height * self.width;
-      width = self.width;
+      height = size.width/size.height * self.frame.size.width;
+      width = self.frame.size.width;
     } else {
-      height = size.width/size.height * self.width;
-      width = self.width;
+      height = size.width/size.height * self.frame.size.width;
+      width = self.frame.size.width;
     }
   } else {
     if (size.width > size.height) {
-      width = self.width;
-      height = size.height/size.width * self.width;
+      width = self.frame.size.width;
+      height = size.height/size.width * self.frame.size.width;
     } else {
-      width = size.width/size.height * self.height;
-      height = self.height;
+      width = size.width/size.height * self.frame.size.height;
+      height = self.frame.size.height;
     }
   }
   
-  CGFloat xd = width - self.width;
-  CGFloat yd = height - self.height;
+  CGFloat xd = width - self.frame.size.width;
+  CGFloat yd = height - self.frame.size.height;
   return CGRectMake(-xd/2, -yd/2, width, height);
 }
 

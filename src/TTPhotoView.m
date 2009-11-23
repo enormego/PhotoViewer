@@ -109,8 +109,8 @@
 
 - (void)layoutSubviews {
   CGRect screenBounds = TTScreenBounds();
-  CGFloat width = self.width;
-  CGFloat height = self.height;
+  CGFloat width = self.frame.size.width;
+  CGFloat height = self.frame.size.height;
   CGFloat cx = self.bounds.origin.x + width/2;
   CGFloat cy = self.bounds.origin.y + height/2;
   CGFloat marginRight = 0, marginLeft = 0, marginBottom = TTToolbarHeight();
@@ -143,13 +143,12 @@
     _captionLabel.frame = CGRectZero;
   }
   
-  CGFloat spinnerTop = _captionLabel.height
-    ? _captionLabel.top - floor(_statusSpinner.height + _statusSpinner.height/2)
-    : screenOffset + imageBottom + floor(_statusSpinner.height/2);
+  CGFloat spinnerTop = _captionLabel.frame.size.height
+    ? _captionLabel.frame.origin.y - floor(_statusSpinner.frame.size.height + _statusSpinner.frame.size.height/2)
+    : screenOffset + imageBottom + floor(_statusSpinner.frame.size.height/2);
 
   _statusSpinner.frame =
-    CGRectMake(self.bounds.origin.x + floor(self.bounds.size.width/2 - _statusSpinner.width/2),
-               spinnerTop, _statusSpinner.width, _statusSpinner.height);
+    CGRectMake(self.bounds.origin.x + floor(self.bounds.size.width/2 - _statusSpinner.frame.size.width/2), spinnerTop, _statusSpinner.frame.size.width, _statusSpinner.frame.size.height);
 
 }
 

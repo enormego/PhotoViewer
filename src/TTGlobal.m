@@ -37,13 +37,6 @@ BOOL TTIsEmptyString(id object) {
   return [object isKindOfClass:[NSString class]] && ![(NSString*)object length];
 }
 
-BOOL TTIsKeyboardVisible() {
-  // Operates on the assumption that the keyboard is visible if and only if there is a first
-  // responder; i.e. a control responding to key events
-  UIWindow *window = [UIApplication sharedApplication].keyWindow;
-  return !![window findFirstResponder];
-}
-
 BOOL TTIsPhoneSupported() {
   NSString *deviceType = [UIDevice currentDevice].model;
   return [deviceType isEqualToString:@"iPhone"];

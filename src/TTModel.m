@@ -60,47 +60,51 @@
 // public
 
 - (void)didStartLoad {
-  [_delegates perform:@selector(modelDidStartLoad:) withObject:self];
+	[_delegates makeObjectsPerformSelector:@selector(modelDidStartLoad:) withObject:self];
 }
 
 - (void)didFinishLoad {
-  [_delegates perform:@selector(modelDidFinishLoad:) withObject:self];
+	[_delegates makeObjectsPerformSelector:@selector(modelDidFinishLoad:) withObject:self];
 }
 
 - (void)didFailLoadWithError:(NSError*)error {
-  [_delegates perform:@selector(model:didFailLoadWithError:) withObject:self
-    withObject:error];
+	for(id<TTModelDelegate> delegate in _delegates) {
+		[delegate model:self didFailLoadWithError:error];
+	}
 }
 
 - (void)didCancelLoad {
-  [_delegates perform:@selector(modelDidCancelLoad:) withObject:self];
+	[_delegates makeObjectsPerformSelector:@selector(modelDidCancelLoad:) withObject:self];
 }
 
 - (void)beginUpdates {
-  [_delegates perform:@selector(modelDidBeginUpdates:) withObject:self];
+	[_delegates makeObjectsPerformSelector:@selector(modelDidBeginUpdates:) withObject:self];
 }
 
 - (void)endUpdates {
-  [_delegates perform:@selector(modelDidEndUpdates:) withObject:self];
+	[_delegates makeObjectsPerformSelector:@selector(modelDidEndUpdates:) withObject:self];
 }
 
 - (void)didUpdateObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
-  [_delegates perform:@selector(model:didUpdateObject:atIndexPath:) withObject:self
-              withObject:object withObject:indexPath];
+	for(id<TTModelDelegate> delegate in _delegates) {
+		[delegate model:self didUpdateObject:object atIndexPath:indexPath];
+	}
 }
 
 - (void)didInsertObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
-  [_delegates perform:@selector(model:didInsertObject:atIndexPath:) withObject:self
-              withObject:object withObject:indexPath];
+	for(id<TTModelDelegate> delegate in _delegates) {
+		[delegate model:self didInsertObject:object atIndexPath:indexPath];
+	}
 }
 
 - (void)didDeleteObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
-  [_delegates perform:@selector(model:didDeleteObject:atIndexPath:) withObject:self
-              withObject:object withObject:indexPath];
+	for(id<TTModelDelegate> delegate in _delegates) {
+		[delegate model:self didDeleteObject:object atIndexPath:indexPath];
+	}
 }
 
 - (void)didChange {
-  [_delegates perform:@selector(modelDidChange:) withObject:self];
+	[_delegates makeObjectsPerformSelector:@selector(modelDidChange:) withObject:self];
 }
 @end
 

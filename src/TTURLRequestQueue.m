@@ -181,8 +181,7 @@ static TTURLRequestQueue* gMainQueue = nil;
   TTNetworkRequestStopped();
 
   if (_response.statusCode == 200) {
-    [_queue performSelector:@selector(loader:didLoadResponse:data:) withObject:self
-      withObject:_response withObject:_responseData];
+	  [_queue loader:self didLoadResponse:_response data:_responseData];
   } else {
     NSError* error = [NSError errorWithDomain:NSURLErrorDomain code:_response.statusCode
       userInfo:nil];

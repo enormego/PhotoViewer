@@ -1,22 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "PhotoViewer/NSObjectAdditions.h"
-#import "PhotoViewer/NSStringAdditions.h"
-#import "PhotoViewer/NSDateAdditions.h"
-#import "PhotoViewer/NSDataAdditions.h"
-#import "PhotoViewer/NSArrayAdditions.h"
-#import "PhotoViewer/NSMutableArrayAdditions.h"
-#import "PhotoViewer/NSMutableDictionaryAdditions.h"
-#import "PhotoViewer/UIColorAdditions.h"
-#import "PhotoViewer/UIFontAdditions.h"
-#import "PhotoViewer/UIImageAdditions.h"
 #import "PhotoViewer/UIViewControllerAdditions.h"
-#import "PhotoViewer/UIWindowAdditions.h"
-#import "PhotoViewer/UINavigationControllerAdditions.h"
-#import "PhotoViewer/UITabBarControllerAdditions.h"
-#import "PhotoViewer/UIViewAdditions.h"
-#import "PhotoViewer/UITableViewAdditions.h"
-#import "PhotoViewer/UIWebViewAdditions.h"
 #import "PhotoViewer/UIToolbarAdditions.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -178,11 +162,6 @@ BOOL TTIsEmptyArray(id object);
  * Tests if an object is a string which is empty.
  */
 BOOL TTIsEmptyString(id object);
-
-/**
- * Tests if the keyboard is visible.
- */
-BOOL TTIsKeyboardVisible();
 
 /**
  * Tests if the device has phone capabilities.

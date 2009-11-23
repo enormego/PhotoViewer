@@ -67,7 +67,7 @@ static const NSInteger kActivityLabelTag = 96;
     self.title = [NSString stringWithFormat: TTLocalizedString(@"%d of %d", @"Current page in photo browser (1 of 10)"), _centerPhotoIndex+1, _photoSource.numberOfPhotos];
   }
 
-  if (![self.previousViewController isKindOfClass:[TTThumbsViewController class]]) {
+  /*if (![self.previousViewController isKindOfClass:[TTThumbsViewController class]]) {
     if (_photoSource.numberOfPhotos > 1) {
       self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
         initWithTitle:TTLocalizedString(@"See All", @"See all photo thumbnails")
@@ -75,9 +75,9 @@ static const NSInteger kActivityLabelTag = 96;
     } else {
       self.navigationItem.rightBarButtonItem = nil;
     }
-  } else {
+  } else {*/
     self.navigationItem.rightBarButtonItem = nil;
-  }
+  //}
 
   UIBarButtonItem* playButton = [_toolbar itemWithTag:1];
   playButton.enabled = _photoSource.numberOfPhotos > 1;
@@ -86,12 +86,16 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 - (void)updateToolbarWithOrientation:(UIInterfaceOrientation)interfaceOrientation {
-  if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
-    _toolbar.height = TT_TOOLBAR_HEIGHT;
-  } else {
-    _toolbar.height = TT_LANDSCAPE_TOOLBAR_HEIGHT+1;
-  }
-  _toolbar.top = self.view.height - _toolbar.height;
+	CGRect toolbarRect = _toolbar.frame;
+	if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
+		toolbarRect.size.height = TT_TOOLBAR_HEIGHT;
+	} else {
+		toolbarRect.size.height = TT_LANDSCAPE_TOOLBAR_HEIGHT+1;
+	}
+	
+	toolbarRect.origin.y = self.view.frame.size.height - toolbarRect.size.height;
+	
+	_toolbar.frame = toolbarRect;
 }
 
 - (void)updatePhotoView {
@@ -198,8 +202,7 @@ static const NSInteger kActivityLabelTag = 96;
 		_thumbsController = [[self createThumbsViewController] retain];
 	}
     
-    [self.navigationController pushViewController:_thumbsController
-						   animatedWithTransition:UIViewAnimationTransitionCurlDown];
+    [self presentModalViewController:_thumbsController animated:YES];
 }
 
 - (void)slideshowTimer {
@@ -384,9 +387,9 @@ static const NSInteger kActivityLabelTag = 96;
 
   [_scrollView cancelTouches];
   [self pauseAction];
-  if (self.nextViewController) {
+  // if (self.nextViewController) {
     [self showBars:YES animated:NO];
-  }
+  // }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -621,8 +624,7 @@ static const NSInteger kActivityLabelTag = 96;
 
 - (void)thumbsViewController:(TTThumbsViewController*)controller didSelectPhoto:(id<TTPhoto>)photo {
   self.centerPhoto = photo;
-  [self.navigationController
-    popViewControllerAnimatedWithTransition:UIViewAnimationTransitionCurlUp];
+	[controller dismissModalViewControllerAnimated:YES];
 }
 
 - (BOOL)thumbsViewController:(TTThumbsViewController*)controller
