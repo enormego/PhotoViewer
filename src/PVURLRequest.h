@@ -1,8 +1,8 @@
-#import "TTGlobal.h"
+#import "PVGlobal.h"
 
-@protocol TTURLRequestDelegate, TTURLResponse;
+@protocol PVURLRequestDelegate, PVURLResponse;
 
-@interface TTURLRequest : NSObject {
+@interface PVURLRequest : NSObject {
   NSString* _URL;
   NSString* _httpMethod;
   NSData* _httpBody;
@@ -11,8 +11,8 @@
   NSString* _contentType;
   NSMutableArray* _delegates;
   NSMutableArray* _files;
-  id<TTURLResponse> _response;
-  TTURLRequestCachePolicy _cachePolicy;
+  id<PVURLResponse> _response;
+  PVURLRequestCachePolicy _cachePolicy;
   NSTimeInterval _cacheExpirationAge;
   NSString* _cacheKey;
   NSDate* _timestamp;
@@ -33,7 +33,7 @@
 /**
  * An object that handles the response data and may parse and validate it.
  */
-@property(nonatomic,retain) id<TTURLResponse> response;
+@property(nonatomic,retain) id<PVURLResponse> response;
 
 /**
  * The URL to be loaded by the request.
@@ -41,12 +41,12 @@
 @property(nonatomic,copy) NSString* URL;
 
 /**
- * The HTTP method to send with the request.
+ * The HPVP method to send with the request.
  */
 @property(nonatomic,copy) NSString* httpMethod;
 
 /**
- * The HTTP body to send with the request.
+ * The HPVP body to send with the request.
  */
 @property(nonatomic,retain) NSData* httpBody;
 
@@ -56,19 +56,19 @@
 @property(nonatomic,copy) NSString* contentType;
 
 /**
- * Parameters to use for an HTTP post.
+ * Parameters to use for an HPVP post.
  */
 @property(nonatomic,readonly) NSMutableDictionary* parameters;
 
 /**
- * Custom HTTP headers.
+ * Custom HPVP headers.
  */
 @property(nonatomic,readonly) NSMutableDictionary* headers;
 
 /**
  * Defaults to "any".
  */
-@property(nonatomic) TTURLRequestCachePolicy cachePolicy;
+@property(nonatomic) PVURLRequestCachePolicy cachePolicy;
 
 /**
  * The maximum age of cached data that can be used as a response.
@@ -96,13 +96,13 @@
  */
 @property(nonatomic,assign) BOOL filterPasswordLogging;
 
-+ (TTURLRequest*)request;
++ (PVURLRequest*)request;
 
-+ (TTURLRequest*)requestWithURL:(NSString*)URL delegate:(id<TTURLRequestDelegate>)delegate;
++ (PVURLRequest*)requestWithURL:(NSString*)URL delegate:(id<PVURLRequestDelegate>)delegate;
 
-- (id)initWithURL:(NSString*)URL delegate:(id<TTURLRequestDelegate>)delegate;
+- (id)initWithURL:(NSString*)URL delegate:(id<PVURLRequestDelegate>)delegate;
 
-- (void)setValue:(NSString *)value forHTTPHeaderField:(NSString *)field;
+- (void)setValue:(NSString *)value forHPVPHeaderField:(NSString *)field;
 
 /**
  * Adds a file whose data will be posted.
@@ -133,38 +133,38 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-@protocol TTURLRequestDelegate <NSObject>
+@protocol PVURLRequestDelegate <NSObject>
 
 @optional
 
 /**
  * The request has begun loading.
  */
-- (void)requestDidStartLoad:(TTURLRequest*)request;
+- (void)requestDidStartLoad:(PVURLRequest*)request;
 
 /**
  * The request has loaded some more data.
  *
  * Check the totalBytesLoaded and totalBytesExpected properties for details.
  */
-- (void)requestDidUploadData:(TTURLRequest*)request;
+- (void)requestDidUploadData:(PVURLRequest*)request;
 
 /**
  * The request has loaded data has loaded and been processed into a response.
  *
  * If the request is served from the cache, this is the only delegate method that will be called.
  */
-- (void)requestDidFinishLoad:(TTURLRequest*)request;
+- (void)requestDidFinishLoad:(PVURLRequest*)request;
 
 /**
  *
  */
-- (void)request:(TTURLRequest*)request didFailLoadWithError:(NSError*)error;
+- (void)request:(PVURLRequest*)request didFailLoadWithError:(NSError*)error;
 
 /**
  *
  */
-- (void)requestDidCancelLoad:(TTURLRequest*)request;
+- (void)requestDidCancelLoad:(PVURLRequest*)request;
 
 @end
 
@@ -174,12 +174,12 @@
  * A helper class for storing user info to help identify a request.
  *
  * This class lets you store both a strong reference and a weak reference for the duration of
- * the request.  The weak reference is special because TTURLRequestQueue will examine it when
+ * the request.  The weak reference is special because PVURLRequestQueue will examine it when
  * you call cancelRequestsWithDelegate to see if the weak object is the delegate in question.
  * For this reason, this object is a safe way to store an object that may be destroyed before
  * the request completes if you call cancelRequestsWithDelegate in the object's destructor.
  */
-@interface TTUserInfo : NSObject {
+@interface PVUserInfo : NSObject {
   NSString* _topic;
   id _strong;
   id _weak;

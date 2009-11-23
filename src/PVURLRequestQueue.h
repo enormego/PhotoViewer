@@ -1,7 +1,7 @@
-#import "TTGlobal.h"
+#import "PVGlobal.h"
 
-@class TTURLRequest, TTRequestLoader;
-@interface TTURLRequestQueue : NSObject {
+@class PVURLRequest, PVRequestLoader;
+@interface PVURLRequestQueue : NSObject {
   NSMutableDictionary* _loaders;
   NSMutableArray* _loaderQueue;
   NSTimer* _loaderQueueTimer;
@@ -12,7 +12,7 @@
   BOOL _suspended;
 }
 
-- (void)loader:(TTRequestLoader*)loader didLoadResponse:(NSHTTPURLResponse*)response data:(id)data;
+- (void)loader:(PVRequestLoader*)loader didLoadResponse:(NSHTTPURLResponse*)response data:(id)data;
 
 /**
  * Gets the flag that determines if new load requests are allowed to reach the network.
@@ -45,24 +45,24 @@
 /**
  * Gets the shared cache singleton used across the application.
  */
-+ (TTURLRequestQueue*)mainQueue;
++ (PVURLRequestQueue*)mainQueue;
 
 /**
  * Sets the shared cache singleton used across the application.
  */
-+ (void)setMainQueue:(TTURLRequestQueue*)queue;
++ (void)setMainQueue:(PVURLRequestQueue*)queue;
 
 /**
  * Loads a request from the cache or the network if it is not in the cache.
  *
  * @return YES if the request was loaded synchronously from the cache.
  */
-- (BOOL)sendRequest:(TTURLRequest*)request;
+- (BOOL)sendRequest:(PVURLRequest*)request;
 
 /**
  * Cancels a request that is in progress.
  */
-- (void)cancelRequest:(TTURLRequest*)request;
+- (void)cancelRequest:(PVURLRequest*)request;
 
 /**
  * Cancels all active or pending requests whose delegate or response is an object.
@@ -80,6 +80,6 @@
 /**
  * Creates a Cocoa URL request from a Three20 URL request.
  */
-- (NSURLRequest*)createNSURLRequest:(TTURLRequest*)request URL:(NSURL*)URL;
+- (NSURLRequest*)createNSURLRequest:(PVURLRequest*)request URL:(NSURL*)URL;
 
 @end

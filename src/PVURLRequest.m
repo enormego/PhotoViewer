@@ -1,6 +1,6 @@
-#import "TTURLRequest.h"
-#import "TTURLResponse.h"
-#import "TTURLRequestQueue.h"
+#import "PVURLRequest.h"
+#import "PVURLResponse.h"
+#import "PVURLRequestQueue.h"
 #import <CommonCrypto/CommonDigest.h>
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -9,7 +9,7 @@ static NSString* kStringBoundary = @"3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f";
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation TTURLRequest
+@implementation PVURLRequest
 
 @synthesize delegates = _delegates, URL = _URL, response = _response, httpMethod = _httpMethod,
   httpBody = _httpBody, parameters = _parameters, contentType = _contentType,
@@ -19,15 +19,15 @@ static NSString* kStringBoundary = @"3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f";
   totalBytesExpected = _totalBytesExpected, respondedFromCache = _respondedFromCache,
   headers = _headers, filterPasswordLogging = _filterPasswordLogging;
 
-+ (TTURLRequest*)request {
-  return [[[TTURLRequest alloc] init] autorelease];
++ (PVURLRequest*)request {
+  return [[[PVURLRequest alloc] init] autorelease];
 }
 
-+ (TTURLRequest*)requestWithURL:(NSString*)URL delegate:(id<TTURLRequestDelegate>)delegate {
-  return [[[TTURLRequest alloc] initWithURL:URL delegate:delegate] autorelease];
++ (PVURLRequest*)requestWithURL:(NSString*)URL delegate:(id<PVURLRequestDelegate>)delegate {
+  return [[[PVURLRequest alloc] initWithURL:URL delegate:delegate] autorelease];
 }
 
-- (id)initWithURL:(NSString*)URL delegate:(id<TTURLRequestDelegate>)delegate {
+- (id)initWithURL:(NSString*)URL delegate:(id<PVURLRequestDelegate>)delegate {
   if (self = [self init]) {
     _URL = [URL retain];
     if (delegate) {
@@ -45,11 +45,11 @@ static NSString* kStringBoundary = @"3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f";
     _headers = nil;
     _parameters = nil;
     _contentType = nil;
-    _delegates = TTCreateNonRetainingArray();
+    _delegates = PVCreateNonRetainingArray();
     _files = nil;
     _response = nil;
-    _cachePolicy = TTURLRequestCachePolicyDefault;
-    _cacheExpirationAge = TT_DEFAULT_CACHE_EXPIRATION_AGE;
+    _cachePolicy = PVURLRequestCachePolicyDefault;
+    _cacheExpirationAge = PV_DEFAULT_CACHE_EXPIRATION_AGE;
     _timestamp = nil;
     _cacheKey = nil;
     _userInfo = nil;
@@ -64,23 +64,23 @@ static NSString* kStringBoundary = @"3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f";
 }
 
 - (void)dealloc {
-  TT_RELEASE_SAFELY(_URL);
-  TT_RELEASE_SAFELY(_httpMethod);
-  TT_RELEASE_SAFELY(_httpBody);
-  TT_RELEASE_SAFELY(_headers);
-  TT_RELEASE_SAFELY(_parameters);
-  TT_RELEASE_SAFELY(_contentType);
-  TT_RELEASE_SAFELY(_delegates);
-  TT_RELEASE_SAFELY(_files);
-  TT_RELEASE_SAFELY(_response);
-  TT_RELEASE_SAFELY(_timestamp);
-  TT_RELEASE_SAFELY(_cacheKey);
-  TT_RELEASE_SAFELY(_userInfo);
+  PV_RELEASE_SAFELY(_URL);
+  PV_RELEASE_SAFELY(_httpMethod);
+  PV_RELEASE_SAFELY(_httpBody);
+  PV_RELEASE_SAFELY(_headers);
+  PV_RELEASE_SAFELY(_parameters);
+  PV_RELEASE_SAFELY(_contentType);
+  PV_RELEASE_SAFELY(_delegates);
+  PV_RELEASE_SAFELY(_files);
+  PV_RELEASE_SAFELY(_response);
+  PV_RELEASE_SAFELY(_timestamp);
+  PV_RELEASE_SAFELY(_cacheKey);
+  PV_RELEASE_SAFELY(_userInfo);
   [super dealloc];
 }
 
 - (NSString*)description {
-  return [NSString stringWithFormat:@"<TTURLRequest %@>", _URL];
+  return [NSString stringWithFormat:@"<PVURLRequest %@>", _URL];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -138,7 +138,7 @@ static NSString* kStringBoundary = @"3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f";
   for (id key in [_parameters keyEnumerator]) {
     if ([[_parameters objectForKey:key] isKindOfClass:[UIImage class]]) {
       UIImage* image = [_parameters objectForKey:key];
-      CGFloat quality = [TTURLRequestQueue mainQueue].imageCompressionQuality;
+      CGFloat quality = [PVURLRequestQueue mainQueue].imageCompressionQuality;
       NSData* data = UIImageJPEGRepresentation(image, quality);
       
       [body appendData:[beginLine dataUsingEncoding:NSUTF8StringEncoding]];
@@ -183,7 +183,7 @@ static NSString* kStringBoundary = @"3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f";
     [_parameters removeObjectForKey:imageKey];
   }
 
-  //TTDINFO(@"Sending %s", [body bytes]);
+  //PVDINFO(@"Sending %s", [body bytes]);
   return body;
 }
 
@@ -223,7 +223,7 @@ static NSString* kStringBoundary = @"3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f";
   return _cacheKey;
 }
 
-- (void)setValue:(NSString *)value forHTTPHeaderField:(NSString *)field {
+- (void)setValue:(NSString *)value forHPVPHeaderField:(NSString *)field {
   if (!_headers) {
     _headers = [[NSMutableDictionary alloc] init];
   }
@@ -252,22 +252,22 @@ static NSString* kStringBoundary = @"3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f";
       [_parameters setObject:password forKey:@"password"];
     }
   }
-  return [[TTURLRequestQueue mainQueue] sendRequest:self];
+  return [[PVURLRequestQueue mainQueue] sendRequest:self];
 }
 
 - (void)cancel {
-  [[TTURLRequestQueue mainQueue] cancelRequest:self];
+  [[PVURLRequestQueue mainQueue] cancelRequest:self];
 }
 
 - (NSURLRequest*)createNSURLRequest {
-  return [[TTURLRequestQueue mainQueue] createNSURLRequest:self URL:nil];
+  return [[PVURLRequestQueue mainQueue] createNSURLRequest:self URL:nil];
 }
 
 @end
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation TTUserInfo
+@implementation PVUserInfo
 
 @synthesize topic = _topic, strong = _strong, weak = _weak;
 
@@ -275,15 +275,15 @@ static NSString* kStringBoundary = @"3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f";
 // class public
 
 + (id)topic:(NSString*)topic strong:(id)strong weak:(id)weak {
-  return [[[TTUserInfo alloc] initWithTopic:topic strong:strong weak:weak] autorelease];
+  return [[[PVUserInfo alloc] initWithTopic:topic strong:strong weak:weak] autorelease];
 }
 
 + (id)topic:(NSString*)topic {
-  return [[[TTUserInfo alloc] initWithTopic:topic strong:nil weak:nil] autorelease];
+  return [[[PVUserInfo alloc] initWithTopic:topic strong:nil weak:nil] autorelease];
 }
 
 + (id)weak:(id)weak {
-  return [[[TTUserInfo alloc] initWithTopic:nil strong:nil weak:weak] autorelease];
+  return [[[PVUserInfo alloc] initWithTopic:nil strong:nil weak:weak] autorelease];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -299,8 +299,8 @@ static NSString* kStringBoundary = @"3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f";
 }
 
 - (void)dealloc {
-  TT_RELEASE_SAFELY(_topic);
-  TT_RELEASE_SAFELY(_strong);
+  PV_RELEASE_SAFELY(_topic);
+  PV_RELEASE_SAFELY(_strong);
   [super dealloc];
 }
 

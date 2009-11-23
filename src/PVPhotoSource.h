@@ -1,23 +1,23 @@
-#import "TTModel.h"
+#import "PVModel.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define TT_NULL_PHOTO_INDEX NSIntegerMax
+#define PV_NULL_PHOTO_INDEX NSIntegerMax
 
-@protocol TTPhoto;
-@class TTURLRequest;
+@protocol PVPhoto;
+@class PVURLRequest;
 
 typedef enum {
-  TTPhotoVersionNone,
-  TTPhotoVersionLarge,
-  TTPhotoVersionMedium,
-  TTPhotoVersionSmall,
-  TTPhotoVersionThumbnail
-} TTPhotoVersion;
+  PVPhotoVersionNone,
+  PVPhotoVersionLarge,
+  PVPhotoVersionMedium,
+  PVPhotoVersionSmall,
+  PVPhotoVersionThumbnail
+} PVPhotoVersion;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-@protocol TTPhotoSource <TTModel>
+@protocol PVPhotoSource <PVModel>
 
 /**
  * The title of this collection of photos.
@@ -37,18 +37,18 @@ typedef enum {
 /**
  *
  */
-- (id<TTPhoto>)photoAtIndex:(NSInteger)index;
+- (id<PVPhoto>)photoAtIndex:(NSInteger)index;
 
 @end
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-@protocol TTPhoto <NSObject>
+@protocol PVPhoto <NSObject>
 
 /**
  * The photo source that the photo belongs to.
  */
-@property(nonatomic,assign) id<TTPhotoSource> photoSource;
+@property(nonatomic,assign) id<PVPhotoSource> photoSource;
 
 /**
  * The index of the photo within its photo source.
@@ -68,6 +68,6 @@ typedef enum {
 /**
  * Gets the URL of one of the differently sized versions of the photo.
  */
-- (NSString*)URLForVersion:(TTPhotoVersion)version;
+- (NSString*)URLForVersion:(PVPhotoVersion)version;
 
 @end

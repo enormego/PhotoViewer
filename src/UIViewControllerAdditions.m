@@ -1,14 +1,14 @@
 #import "UIViewControllerAdditions.h"
-#import "TTGlobal.h"
+#import "PVGlobal.h"
 
-@implementation UIViewController (TTCategory)
+@implementation UIViewController (TVCategory)
 
 - (void)showBars:(BOOL)show animated:(BOOL)animated {
 	[[UIApplication sharedApplication] setStatusBarHidden:!show animated:animated];
 	
 	if(animated) {
 		[UIView beginAnimations:nil context:NULL];
-		[UIView setAnimationDuration:TT_TRANSITION_DURATION];
+		[UIView setAnimationDuration:PV_TRANSITION_DURATION];
 	}
 	
 	self.navigationController.navigationBar.alpha = show ? 1 : 0;

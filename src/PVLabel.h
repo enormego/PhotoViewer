@@ -1,6 +1,6 @@
-#import "TTView.h"
+#import "PVView.h"
 
-@interface TTLabel : TTView {
+@interface PVLabel : PVView {
   NSString* _text;
   UIFont* _font;
 }

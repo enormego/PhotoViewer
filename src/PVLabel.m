@@ -1,8 +1,8 @@
-#import "TTLabel.h"
+#import "PVLabel.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation TTLabel
+@implementation PVLabel
 
 @synthesize font = _font, text = _text;
 
@@ -25,8 +25,8 @@
 }
 
 - (void)dealloc {
-  TT_RELEASE_SAFELY(_text);
-  TT_RELEASE_SAFELY(_font);
+  PV_RELEASE_SAFELY(_text);
+  PV_RELEASE_SAFELY(_font);
   [super dealloc];
 }
 

@@ -1,23 +1,23 @@
-#import "TTPhotoSource.h"
-#import "TTScrollView.h"
-#import "TTThumbsViewController.h"
-#import "TTModel.h"
+#import "PVPhotoSource.h"
+#import "PVScrollView.h"
+#import "PVThumbsViewController.h"
+#import "PVModel.h"
 
-@class TTScrollView, TTPhotoView;
+@class PVScrollView, PVPhotoView;
 
-@interface TTPhotoViewController : UIViewController <TTModelDelegate, TTScrollViewDelegate, TTScrollViewDataSource/*, TTThumbsViewControllerDelegate*/> {
-	id<TTPhotoSource> _photoSource;
-	id<TTPhoto> _centerPhoto;
+@interface PVPhotoViewController : UIViewController <PVModelDelegate, PVScrollViewDelegate, PVScrollViewDataSource/*, PVThumbsViewControllerDelegate*/> {
+	id<PVPhotoSource> _photoSource;
+	id<PVPhoto> _centerPhoto;
 	NSInteger _centerPhotoIndex;
 	UIView* _innerView;
-	TTScrollView* _scrollView;
-	TTPhotoView* _photoStatusView;
+	PVScrollView* _scrollView;
+	PVPhotoView* _photoStatusView;
 	UIToolbar* _toolbar;
 	UIBarButtonItem* _nextButton;
 	UIBarButtonItem* _previousButton;
 	UIImage* _defaultImage;
 	NSString* _statusText;
-	TTThumbsViewController* _thumbsController;
+	PVThumbsViewController* _thumbsController;
 	NSTimer* _slideshowTimer;
 	NSTimer* _loadTimer;
 	BOOL _delayLoad;
@@ -25,7 +25,7 @@
 	BOOL _hasViewAppeared;
 	
 	// ModelViewController
-	id<TTModel> _model;
+	id<PVModel> _model;
 	NSError* _modelError;
 	
 	struct {
@@ -47,14 +47,14 @@
 /**
  * The source of a sequential photo collection that will be displayed.
  */
-@property(nonatomic,retain) id<TTPhotoSource> photoSource;
+@property(nonatomic,retain) id<PVPhotoSource> photoSource;
 
 /**
  * The photo that is currently visible and centered.
  *
  * You can assign this directly to change the photoSource to the one that contains the photo.
  */
-@property(nonatomic,retain) id<TTPhoto> centerPhoto;
+@property(nonatomic,retain) id<PVPhoto> centerPhoto;
 
 /**
  * The index of the currently visible photo.
@@ -70,27 +70,27 @@
 @property(nonatomic,retain) UIImage* defaultImage;
 
 
-- (id)initWithPhoto:(id<TTPhoto>)photo;
-- (id)initWithPhotoSource:(id<TTPhotoSource>)photoSource;
+- (id)initWithPhoto:(id<PVPhoto>)photo;
+- (id)initWithPhotoSource:(id<PVPhotoSource>)photoSource;
 
 /**
  * Creates a photo view for a new page.
  *
  * Do not call this directly. It is meant to be overriden by subclasses.
  */
-- (TTPhotoView*)createPhotoView;
+- (PVPhotoView*)createPhotoView;
 
 /**
  * Creates the thumbnail controller used by the "See All" button.
  *
  * Do not call this directly. It is meant to be overriden by subclasses.
  */
-- (TTThumbsViewController*)createThumbsViewController;
+- (PVThumbsViewController*)createThumbsViewController;
 
 /**
  * Sent to the controller after it moves from one photo to another.
  */
-- (void)didMoveToPhoto:(id<TTPhoto>)photo fromPhoto:(id<TTPhoto>)fromPhoto;
+- (void)didMoveToPhoto:(id<PVPhoto>)photo fromPhoto:(id<PVPhoto>)fromPhoto;
 
 /**
  * Shows or hides an activity label on top of the photo.
@@ -112,7 +112,7 @@
 /**
  *
  */
-@property(nonatomic,retain) id<TTModel> model;
+@property(nonatomic,retain) id<PVModel> model;
 
 /**
  * An error that occurred while trying to load content.

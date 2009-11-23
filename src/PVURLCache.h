@@ -1,8 +1,8 @@
-#import "TTGlobal.h"
+#import "PVGlobal.h"
 
-@class TTURLRequest;
+@class PVURLRequest;
 
-@interface TTURLCache : NSObject {
+@interface PVURLCache : NSObject {
   NSString* _name;
   NSString* _cachePath;
   NSMutableDictionary* _imageCache;
@@ -46,17 +46,17 @@
 /**
  * Gets a shared cache identified with a unique name.
  */
-+ (TTURLCache*)cacheWithName:(NSString*)name;
++ (PVURLCache*)cacheWithName:(NSString*)name;
 
 /**
  * Gets the shared cache singleton used across the application.
  */
-+ (TTURLCache*)sharedCache;
++ (PVURLCache*)sharedCache;
 
 /**
  * Sets the shared cache singleton used across the application.
  */
-+ (void)setSharedCache:(TTURLCache*)cache;
++ (void)setSharedCache:(PVURLCache*)cache;
 
 /**
  * 

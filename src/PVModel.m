@@ -1,10 +1,10 @@
-#import "TTModel.h"
-#import "TTURLCache.h"
-#import "TTURLRequestQueue.h"
+#import "PVModel.h"
+#import "PVURLCache.h"
+#import "PVURLRequestQueue.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation TTModel
+@implementation PVModel
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // NSObject
@@ -17,16 +17,16 @@
 }
 
 - (void)dealloc {
-  TT_RELEASE_SAFELY(_delegates);
+  PV_RELEASE_SAFELY(_delegates);
   [super dealloc];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTModel
+// PVModel
 
 - (NSMutableArray*)delegates {
   if (!_delegates) {
-    _delegates = TTCreateNonRetainingArray();
+    _delegates = PVCreateNonRetainingArray();
   }
   return _delegates;
 }
@@ -47,7 +47,7 @@
   return NO;
 }
 
-- (void)load:(TTURLRequestCachePolicy)cachePolicy more:(BOOL)more {
+- (void)load:(PVURLRequestCachePolicy)cachePolicy more:(BOOL)more {
 }
 
 - (void)cancel {
@@ -68,7 +68,7 @@
 }
 
 - (void)didFailLoadWithError:(NSError*)error {
-	for(id<TTModelDelegate> delegate in _delegates) {
+	for(id<PVModelDelegate> delegate in _delegates) {
 		[delegate model:self didFailLoadWithError:error];
 	}
 }
@@ -86,19 +86,19 @@
 }
 
 - (void)didUpdateObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
-	for(id<TTModelDelegate> delegate in _delegates) {
+	for(id<PVModelDelegate> delegate in _delegates) {
 		[delegate model:self didUpdateObject:object atIndexPath:indexPath];
 	}
 }
 
 - (void)didInsertObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
-	for(id<TTModelDelegate> delegate in _delegates) {
+	for(id<PVModelDelegate> delegate in _delegates) {
 		[delegate model:self didInsertObject:object atIndexPath:indexPath];
 	}
 }
 
 - (void)didDeleteObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
-	for(id<TTModelDelegate> delegate in _delegates) {
+	for(id<PVModelDelegate> delegate in _delegates) {
 		[delegate model:self didDeleteObject:object atIndexPath:indexPath];
 	}
 }
@@ -110,7 +110,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation TTURLRequestModel
+@implementation PVURLRequestModel
 
 @synthesize loadedTime = _loadedTime, cacheKey = _cacheKey, hasNoMore = _hasNoMore;
 
@@ -128,16 +128,16 @@
 }
 
 - (void)dealloc {
-  [[TTURLRequestQueue mainQueue] cancelRequestsWithDelegate:self];
+  [[PVURLRequestQueue mainQueue] cancelRequestsWithDelegate:self];
   [_loadingRequest cancel];
-  TT_RELEASE_SAFELY(_loadingRequest);
-  TT_RELEASE_SAFELY(_loadedTime);
-  TT_RELEASE_SAFELY(_cacheKey);
+  PV_RELEASE_SAFELY(_loadingRequest);
+  PV_RELEASE_SAFELY(_loadedTime);
+  PV_RELEASE_SAFELY(_cacheKey);
   [super dealloc];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTModel
+// PVModel
 
 - (BOOL)isLoaded {
   return !!_loadedTime;
@@ -159,7 +159,7 @@
   } else {
     NSDate* loadedTime = self.loadedTime;
     if (loadedTime) {
-      return -[loadedTime timeIntervalSinceNow] > [TTURLCache sharedCache].invalidationAge;
+      return -[loadedTime timeIntervalSinceNow] > [PVURLCache sharedCache].invalidationAge;
     } else {
       return NO;
     }
@@ -173,41 +173,41 @@
 - (void)invalidate:(BOOL)erase {
   if (_cacheKey) {
     if (erase) {
-      [[TTURLCache sharedCache] removeKey:_cacheKey];
+      [[PVURLCache sharedCache] removeKey:_cacheKey];
     } else {
-      [[TTURLCache sharedCache] invalidateKey:_cacheKey];
+      [[PVURLCache sharedCache] invalidateKey:_cacheKey];
     }
-    TT_RELEASE_SAFELY(_cacheKey);
+    PV_RELEASE_SAFELY(_cacheKey);
   }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTURLRequestDelegate
+// PVURLRequestDelegate
 
-- (void)requestDidStartLoad:(TTURLRequest*)request {
+- (void)requestDidStartLoad:(PVURLRequest*)request {
   [_loadingRequest release];
   _loadingRequest = [request retain];
   [self didStartLoad];
 }
 
-- (void)requestDidFinishLoad:(TTURLRequest*)request {
+- (void)requestDidFinishLoad:(PVURLRequest*)request {
   if (!self.isLoadingMore) {
     [_loadedTime release];
     _loadedTime = [request.timestamp retain];
     self.cacheKey = request.cacheKey;
   }
   
-  TT_RELEASE_SAFELY(_loadingRequest);
+  PV_RELEASE_SAFELY(_loadingRequest);
   [self didFinishLoad];
 }
 
-- (void)request:(TTURLRequest*)request didFailLoadWithError:(NSError*)error {
-  TT_RELEASE_SAFELY(_loadingRequest);
+- (void)request:(PVURLRequest*)request didFailLoadWithError:(NSError*)error {
+  PV_RELEASE_SAFELY(_loadingRequest);
   [self didFailLoadWithError:error];
 }
 
-- (void)requestDidCancelLoad:(TTURLRequest*)request {
-  TT_RELEASE_SAFELY(_loadingRequest);
+- (void)requestDidCancelLoad:(PVURLRequest*)request {
+  PV_RELEASE_SAFELY(_loadingRequest);
   [self didCancelLoad];
 }
 
@@ -215,8 +215,8 @@
 // public
 
 - (void)reset {
-  TT_RELEASE_SAFELY(_cacheKey);
-  TT_RELEASE_SAFELY(_loadedTime);
+  PV_RELEASE_SAFELY(_cacheKey);
+  PV_RELEASE_SAFELY(_loadedTime);
 }
 
 @end

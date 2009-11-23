@@ -34,20 +34,20 @@
 		1D6058910D05DD3D006BFB54 /* PhotoViewerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoViewerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		284F7DEE10BB3F9A00B01F9B /* PhotoViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewer.h; sourceTree = "<group>"; };
-		284F7DEF10BB3F9A00B01F9B /* TTGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlobal.h; sourceTree = "<group>"; };
-		284F7DF010BB3F9A00B01F9B /* TTImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTImageView.h; sourceTree = "<group>"; };
-		284F7DF110BB3F9A00B01F9B /* TTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLabel.h; sourceTree = "<group>"; };
-		284F7DF210BB3F9A00B01F9B /* TTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTModel.h; sourceTree = "<group>"; };
-		284F7DF310BB3F9A00B01F9B /* TTPhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPhotoSource.h; sourceTree = "<group>"; };
-		284F7DF410BB3F9A00B01F9B /* TTPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPhotoView.h; sourceTree = "<group>"; };
-		284F7DF510BB3F9A00B01F9B /* TTPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPhotoViewController.h; sourceTree = "<group>"; };
-		284F7DF610BB3F9A00B01F9B /* TTScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTScrollView.h; sourceTree = "<group>"; };
-		284F7DF710BB3F9A00B01F9B /* TTThumbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTThumbsViewController.h; sourceTree = "<group>"; };
-		284F7DF810BB3F9A00B01F9B /* TTURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLCache.h; sourceTree = "<group>"; };
-		284F7DF910BB3F9A00B01F9B /* TTURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLRequest.h; sourceTree = "<group>"; };
-		284F7DFA10BB3F9A00B01F9B /* TTURLRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLRequestQueue.h; sourceTree = "<group>"; };
-		284F7DFB10BB3F9A00B01F9B /* TTURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLResponse.h; sourceTree = "<group>"; };
-		284F7DFC10BB3F9A00B01F9B /* TTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTView.h; sourceTree = "<group>"; };
+		284F7DEF10BB3F9A00B01F9B /* PVGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVGlobal.h; sourceTree = "<group>"; };
+		284F7DF010BB3F9A00B01F9B /* PVImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVImageView.h; sourceTree = "<group>"; };
+		284F7DF110BB3F9A00B01F9B /* PVLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVLabel.h; sourceTree = "<group>"; };
+		284F7DF210BB3F9A00B01F9B /* PVModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVModel.h; sourceTree = "<group>"; };
+		284F7DF310BB3F9A00B01F9B /* PVPhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVPhotoSource.h; sourceTree = "<group>"; };
+		284F7DF410BB3F9A00B01F9B /* PVPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVPhotoView.h; sourceTree = "<group>"; };
+		284F7DF510BB3F9A00B01F9B /* PVPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVPhotoViewController.h; sourceTree = "<group>"; };
+		284F7DF610BB3F9A00B01F9B /* PVScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVScrollView.h; sourceTree = "<group>"; };
+		284F7DF710BB3F9A00B01F9B /* PVThumbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVThumbsViewController.h; sourceTree = "<group>"; };
+		284F7DF810BB3F9A00B01F9B /* PVURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVURLCache.h; sourceTree = "<group>"; };
+		284F7DF910BB3F9A00B01F9B /* PVURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVURLRequest.h; sourceTree = "<group>"; };
+		284F7DFA10BB3F9A00B01F9B /* PVURLRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVURLRequestQueue.h; sourceTree = "<group>"; };
+		284F7DFB10BB3F9A00B01F9B /* PVURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVURLResponse.h; sourceTree = "<group>"; };
+		284F7DFC10BB3F9A00B01F9B /* PVView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVView.h; sourceTree = "<group>"; };
 		284F7DFD10BB3F9A00B01F9B /* UIToolbarAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIToolbarAdditions.h; sourceTree = "<group>"; };
 		284F7DFE10BB3F9A00B01F9B /* UIViewControllerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerAdditions.h; sourceTree = "<group>"; };
 		284F7DFF10BB3F9A00B01F9B /* libPhotoViewer-device.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPhotoViewer-device.a"; sourceTree = "<group>"; };
@@ -126,20 +126,20 @@
 			isa = PBXGroup;
 			children = (
 				284F7DEE10BB3F9A00B01F9B /* PhotoViewer.h */,
-				284F7DEF10BB3F9A00B01F9B /* TTGlobal.h */,
-				284F7DF010BB3F9A00B01F9B /* TTImageView.h */,
-				284F7DF110BB3F9A00B01F9B /* TTLabel.h */,
-				284F7DF210BB3F9A00B01F9B /* TTModel.h */,
-				284F7DF310BB3F9A00B01F9B /* TTPhotoSource.h */,
-				284F7DF410BB3F9A00B01F9B /* TTPhotoView.h */,
-				284F7DF510BB3F9A00B01F9B /* TTPhotoViewController.h */,
-				284F7DF610BB3F9A00B01F9B /* TTScrollView.h */,
-				284F7DF710BB3F9A00B01F9B /* TTThumbsViewController.h */,
-				284F7DF810BB3F9A00B01F9B /* TTURLCache.h */,
-				284F7DF910BB3F9A00B01F9B /* TTURLRequest.h */,
-				284F7DFA10BB3F9A00B01F9B /* TTURLRequestQueue.h */,
-				284F7DFB10BB3F9A00B01F9B /* TTURLResponse.h */,
-				284F7DFC10BB3F9A00B01F9B /* TTView.h */,
+				284F7DEF10BB3F9A00B01F9B /* PVGlobal.h */,
+				284F7DF010BB3F9A00B01F9B /* PVImageView.h */,
+				284F7DF110BB3F9A00B01F9B /* PVLabel.h */,
+				284F7DF210BB3F9A00B01F9B /* PVModel.h */,
+				284F7DF310BB3F9A00B01F9B /* PVPhotoSource.h */,
+				284F7DF410BB3F9A00B01F9B /* PVPhotoView.h */,
+				284F7DF510BB3F9A00B01F9B /* PVPhotoViewController.h */,
+				284F7DF610BB3F9A00B01F9B /* PVScrollView.h */,
+				284F7DF710BB3F9A00B01F9B /* PVThumbsViewController.h */,
+				284F7DF810BB3F9A00B01F9B /* PVURLCache.h */,
+				284F7DF910BB3F9A00B01F9B /* PVURLRequest.h */,
+				284F7DFA10BB3F9A00B01F9B /* PVURLRequestQueue.h */,
+				284F7DFB10BB3F9A00B01F9B /* PVURLResponse.h */,
+				284F7DFC10BB3F9A00B01F9B /* PVView.h */,
 				284F7DFD10BB3F9A00B01F9B /* UIToolbarAdditions.h */,
 				284F7DFE10BB3F9A00B01F9B /* UIViewControllerAdditions.h */,
 			);

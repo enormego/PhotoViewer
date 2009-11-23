@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface UIToolbar (TTCategory)
+@interface UIToolbar (TVCategory)
 
 - (UIBarButtonItem*)itemWithTag:(NSInteger)tag;
 

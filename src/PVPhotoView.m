@@ -1,21 +1,21 @@
-#import "TTPhotoView.h"
-#import "TTImageView.h"
-#import "TTLabel.h"
-#import "TTURLCache.h"
-#import "TTURLRequestQueue.h"
+#import "PVPhotoView.h"
+#import "PVImageView.h"
+#import "PVLabel.h"
+#import "PVURLCache.h"
+#import "PVURLRequestQueue.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation TTPhotoView
+@implementation PVPhotoView
 @synthesize photo = _photo, hidesExtras = _hidesExtras, hidesCaption = _hidesCaption;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // private
 
-- (BOOL)loadVersion:(TTPhotoVersion)version fromNetwork:(BOOL)fromNetwork {
+- (BOOL)loadVersion:(PVPhotoVersion)version fromNetwork:(BOOL)fromNetwork {
   NSString* URL = [_photo URLForVersion:version];
   if (URL) {
-    UIImage* image = [[TTURLCache sharedCache] imageForURL:URL];
+    UIImage* image = [[PVURLCache sharedCache] imageForURL:URL];
     if (image || fromNetwork) {
       _photoVersion = version;
       self.URL = URL;
@@ -28,7 +28,7 @@
 - (void)showCaption:(NSString*)caption {
   if (caption) {
     if (!_captionLabel) {
-      _captionLabel = [[TTLabel alloc] init];
+      _captionLabel = [[PVLabel alloc] init];
       _captionLabel.opaque = NO;
       _captionLabel.alpha = _hidesCaption ? 0 : 1;
       [self addSubview:_captionLabel];
@@ -48,7 +48,7 @@
     _statusSpinner = nil;
     _statusLabel = nil;
     _captionLabel = nil;
-    _photoVersion = TTPhotoVersionNone;
+    _photoVersion = PVPhotoVersionNone;
     _hidesExtras = NO;
     _hidesCaption = NO;
     
@@ -58,12 +58,12 @@
 }
 
 - (void)dealloc {
-  [[TTURLRequestQueue mainQueue] cancelRequestsWithDelegate:self];
+  [[PVURLRequestQueue mainQueue] cancelRequestsWithDelegate:self];
   [super setDelegate:nil];
-  TT_RELEASE_SAFELY(_photo);
-  TT_RELEASE_SAFELY(_captionLabel);
-  TT_RELEASE_SAFELY(_statusSpinner);
-  TT_RELEASE_SAFELY(_statusLabel);
+  PV_RELEASE_SAFELY(_photo);
+  PV_RELEASE_SAFELY(_captionLabel);
+  PV_RELEASE_SAFELY(_statusSpinner);
+  PV_RELEASE_SAFELY(_statusLabel);
   [super dealloc];
 }
 
@@ -71,7 +71,7 @@
 // UIImageView
 
 - (void)setImage:(UIImage*)image {
-  if (image != _defaultImage || !_photo || self.URL != [_photo URLForVersion:TTPhotoVersionLarge]) {
+  if (image != _defaultImage || !_photo || self.URL != [_photo URLForVersion:PVPhotoVersionLarge]) {
     if (image == _defaultImage) {
       self.contentMode = UIViewContentModeCenter;
     } else {
@@ -100,7 +100,7 @@
 - (void)imageViewDidFailLoadWithError:(NSError*)error {
   [self showProgress:0];
   if (error) {
-    [self showStatus:TTDescriptionForError(error)];
+    [self showStatus:PVDescriptionForError(error)];
   }
 }
 
@@ -108,12 +108,12 @@
 // UIView
 
 - (void)layoutSubviews {
-  CGRect screenBounds = TTScreenBounds();
+  CGRect screenBounds = PVScreenBounds();
   CGFloat width = self.frame.size.width;
   CGFloat height = self.frame.size.height;
   CGFloat cx = self.bounds.origin.x + width/2;
   CGFloat cy = self.bounds.origin.y + height/2;
-  CGFloat marginRight = 0, marginLeft = 0, marginBottom = TTToolbarHeight();
+  CGFloat marginRight = 0, marginLeft = 0, marginBottom = PVToolbarHeight();
 
   // Since the photo view is constrained to the size of the image, but we want to position
   // the status views relative to the screen, offset by the difference
@@ -155,11 +155,11 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // public
 
-- (void)setPhoto:(id<TTPhoto>)photo {
+- (void)setPhoto:(id<PVPhoto>)photo {
   if (!photo || photo != _photo) {
     [_photo release];
     _photo = [photo retain];
-    _photoVersion = TTPhotoVersionNone;
+    _photoVersion = PVPhotoVersionNone;
     
     self.URL = nil;
     
@@ -176,7 +176,7 @@
 - (void)setHidesExtras:(BOOL)hidesExtras {
   if (!hidesExtras) {
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:TT_FAST_TRANSITION_DURATION];
+    [UIView setAnimationDuration:PV_FAST_TRANSITION_DURATION];
   }
   _hidesExtras = hidesExtras;
   _statusSpinner.alpha = _hidesExtras ? 0 : 1;
@@ -193,9 +193,9 @@
 }
 
 - (BOOL)loadPreview:(BOOL)fromNetwork {
-  if (![self loadVersion:TTPhotoVersionLarge fromNetwork:NO]) {
-    if (![self loadVersion:TTPhotoVersionSmall fromNetwork:NO]) {
-      if (![self loadVersion:TTPhotoVersionThumbnail fromNetwork:fromNetwork]) {
+  if (![self loadVersion:PVPhotoVersionLarge fromNetwork:NO]) {
+    if (![self loadVersion:PVPhotoVersionSmall fromNetwork:NO]) {
+      if (![self loadVersion:PVPhotoVersionThumbnail fromNetwork:fromNetwork]) {
         return NO;
       }
     }
@@ -206,8 +206,8 @@
 
 - (void)loadImage {
   if (_photo) {
-    _photoVersion = TTPhotoVersionLarge;
-    self.URL = [_photo URLForVersion:TTPhotoVersionLarge];
+    _photoVersion = PVPhotoVersionLarge;
+    self.URL = [_photo URLForVersion:PVPhotoVersionLarge];
   }
 }
 
@@ -233,7 +233,7 @@
 - (void)showStatus:(NSString*)text {
   if (text) {
     if (!_statusLabel) {
-      _statusLabel = [[TTLabel alloc] init];
+      _statusLabel = [[PVLabel alloc] init];
       _statusLabel.opaque = NO;
       [self addSubview:_statusLabel];
     }

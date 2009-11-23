@@ -1,6 +1,6 @@
-#import "Three20/TTUnclippedView.h"
+#import "Three20/PVUnclippedView.h"
 
-@implementation TTUnclippedView
+@implementation PVUnclippedView
 
 - (void)didMoveToSuperview {
   for (UIView* p = self; p; p = p.superview) {

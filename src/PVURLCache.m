@@ -1,19 +1,19 @@
-#import "TTURLCache.h"
+#import "PVURLCache.h"
 #import <CommonCrypto/CommonDigest.h>
 #import <QuartzCore/QuartzCore.h>
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
   
-#define TT_LARGE_IMAGE_SIZE (600*400)
+#define PV_LARGE_IMAGE_SIZE (600*400)
 
 static NSString* kDefaultCacheName = @"Three20";
 
-static TTURLCache* gSharedCache = nil;
+static PVURLCache* gSharedCache = nil;
 static NSMutableDictionary* gNamedCaches = nil;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation TTURLCache
+@implementation PVURLCache
 
 @synthesize disableDiskCache = _disableDiskCache, disableImageCache = _disableImageCache,
   cachePath = _cachePath, maxPixelCount = _maxPixelCount, invalidationAge = _invalidationAge;
@@ -22,26 +22,26 @@ static NSMutableDictionary* gNamedCaches = nil;
 // class public
 
 
-+ (TTURLCache*)cacheWithName:(NSString*)name {
++ (PVURLCache*)cacheWithName:(NSString*)name {
   if (!gNamedCaches) {
     gNamedCaches = [[NSMutableDictionary alloc] init];
   }
-  TTURLCache* cache = [gNamedCaches objectForKey:name];
+  PVURLCache* cache = [gNamedCaches objectForKey:name];
   if (!cache) {
-    cache = [[[TTURLCache alloc] initWithName:name] autorelease];
+    cache = [[[PVURLCache alloc] initWithName:name] autorelease];
     [gNamedCaches setObject:cache forKey:name];
   }
   return cache;
 }
 
-+ (TTURLCache*)sharedCache {
++ (PVURLCache*)sharedCache {
   if (!gSharedCache) {
-    gSharedCache = [[TTURLCache alloc] init];
+    gSharedCache = [[PVURLCache alloc] init];
   }
   return gSharedCache;
 }
 
-+ (void)setSharedCache:(TTURLCache*)cache {
++ (void)setSharedCache:(PVURLCache*)cache {
   if (gSharedCache != cache) {
     [gSharedCache release];
     gSharedCache = [cache retain];
@@ -69,7 +69,7 @@ static NSMutableDictionary* gNamedCaches = nil;
   while (_imageSortedList.count) {
     NSString* key = [_imageSortedList objectAtIndex:0];
     UIImage* image = [_imageCache objectForKey:key];
-    // TTDINFO(@"EXPIRING %@", key);
+    // PVDINFO(@"EXPIRING %@", key);
 
     _totalPixelCount -= image.size.width * image.size.height;
     [_imageCache removeObjectForKey:key];
@@ -84,7 +84,7 @@ static NSMutableDictionary* gNamedCaches = nil;
 - (void)storeImage:(UIImage*)image forURL:(NSString*)URL force:(BOOL)force {
   if (image && (force || !_disableImageCache)) {
     int pixelCount = image.size.width * image.size.height;
-    if (force || pixelCount < TT_LARGE_IMAGE_SIZE) {
+    if (force || pixelCount < PV_LARGE_IMAGE_SIZE) {
       _totalPixelCount += pixelCount;
       if (_totalPixelCount > _maxPixelCount && _maxPixelCount) {
         [self expireImagesFromMemory];
@@ -104,13 +104,13 @@ static NSMutableDictionary* gNamedCaches = nil;
 }
 
 - (UIImage*)loadImageFromBundle:(NSString*)URL {
-  NSString* path = TTPathForBundleResource([URL substringFromIndex:9]);
+  NSString* path = PVPathForBundleResource([URL substringFromIndex:9]);
   NSData* data = [NSData dataWithContentsOfFile:path];
   return [UIImage imageWithData:data];
 }
 
 - (UIImage*)loadImageFromDocuments:(NSString*)URL {
-  NSString* path = TTPathForDocumentsResource([URL substringFromIndex:12]);
+  NSString* path = PVPathForDocumentsResource([URL substringFromIndex:12]);
   NSData* data = [NSData dataWithContentsOfFile:path];
   return [UIImage imageWithData:data];
 }
@@ -137,13 +137,13 @@ static NSMutableDictionary* gNamedCaches = nil;
 - (id)initWithName:(NSString*)name {
   if (self == [super init]) {
     _name = [name copy];
-    _cachePath = [[TTURLCache cachePathWithName:name] retain];
+    _cachePath = [[PVURLCache cachePathWithName:name] retain];
     _imageCache = nil;
     _imageSortedList = nil;
     _totalLoading = 0;
     _disableDiskCache = NO;
     _disableImageCache = NO;
-    _invalidationAge = TT_DEFAULT_CACHE_INVALIDATION_AGE;
+    _invalidationAge = PV_DEFAULT_CACHE_INVALIDATION_AGE;
     _maxPixelCount = 0;
     _totalPixelCount = 0;
     
@@ -169,10 +169,10 @@ static NSMutableDictionary* gNamedCaches = nil;
   [[NSNotificationCenter defaultCenter] removeObserver:self
                                         name:UIApplicationDidReceiveMemoryWarningNotification  
                                         object:nil];  
-  TT_RELEASE_SAFELY(_name);
-  TT_RELEASE_SAFELY(_imageCache);
-  TT_RELEASE_SAFELY(_imageSortedList);
-  TT_RELEASE_SAFELY(_cachePath);
+  PV_RELEASE_SAFELY(_name);
+  PV_RELEASE_SAFELY(_imageCache);
+  PV_RELEASE_SAFELY(_imageSortedList);
+  PV_RELEASE_SAFELY(_cachePath);
   [super dealloc];
 }
 
@@ -215,7 +215,7 @@ static NSMutableDictionary* gNamedCaches = nil;
 }
 
 - (NSData*)dataForURL:(NSString*)URL {
-  return [self dataForURL:URL expires:TT_CACHE_EXPIRATION_AGE_NEVER timestamp:nil];
+  return [self dataForURL:URL expires:PV_CACHE_EXPIRATION_AGE_NEVER timestamp:nil];
 }
 
 - (NSData*)dataForURL:(NSString*)URL expires:(NSTimeInterval)expirationAge
@@ -251,10 +251,10 @@ static NSMutableDictionary* gNamedCaches = nil;
 - (id)imageForURL:(NSString*)URL fromDisk:(BOOL)fromDisk {
   UIImage* image = [_imageCache objectForKey:URL];
   if (!image && fromDisk) {
-    if (TTIsBundleURL(URL)) {
+    if (PVIsBundleURL(URL)) {
       image = [self loadImageFromBundle:URL];
       [self storeImage:image forURL:URL];
-    } else if (TTIsDocumentsURL(URL)) {
+    } else if (PVIsDocumentsURL(URL)) {
       image = [self loadImageFromDocuments:URL];
       [self storeImage:image forURL:URL];
     }

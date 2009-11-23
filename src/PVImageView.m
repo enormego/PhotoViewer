@@ -1,19 +1,19 @@
-#import "TTImageView.h"
-#import "TTURLCache.h"
-#import "TTURLResponse.h"
+#import "PVImageView.h"
+#import "PVURLCache.h"
+#import "PVURLResponse.h"
 #import "QuartzCore/CALayer.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-@interface TTImageLayer : CALayer {
-  TTImageView* _override;
+@interface PVImageLayer : CALayer {
+  PVImageView* _override;
 }
 
-@property(nonatomic,assign) TTImageView* override;
+@property(nonatomic,assign) PVImageView* override;
 
 @end
 
-@implementation TTImageLayer
+@implementation PVImageLayer
 
 @synthesize override = _override;
 
@@ -40,7 +40,7 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation TTImageView
+@implementation PVImageView
 
 @synthesize delegate = _delegate, URL = _URL, image = _image, defaultImage = _defaultImage,
   autoresizesToImage = _autoresizesToImage;
@@ -49,7 +49,7 @@
 // private
 
 - (void)updateLayer {
-  TTImageLayer* layer = (TTImageLayer*)self.layer;
+  PVImageLayer* layer = (PVImageLayer*)self.layer;
     // This is dramatically faster than calling drawRect.  Since we don't have any styles
     // to draw in this case, we can take this shortcut.
     layer.override = self;
@@ -74,10 +74,10 @@
 - (void)dealloc {
   _delegate = nil;
   [_request cancel];
-  TT_RELEASE_SAFELY(_request);
-  TT_RELEASE_SAFELY(_URL);
-  TT_RELEASE_SAFELY(_image);
-  TT_RELEASE_SAFELY(_defaultImage);
+  PV_RELEASE_SAFELY(_request);
+  PV_RELEASE_SAFELY(_URL);
+  PV_RELEASE_SAFELY(_image);
+  PV_RELEASE_SAFELY(_defaultImage);
   [super dealloc];
 }
 
@@ -85,7 +85,7 @@
 // UIView
 
 + (Class)layerClass {
-  return [TTImageLayer class];
+  return [PVImageLayer class];
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -93,9 +93,9 @@
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-// TTURLRequestDelegate
+// PVURLRequestDelegate
 
-- (void)requestDidStartLoad:(TTURLRequest*)request {
+- (void)requestDidStartLoad:(PVURLRequest*)request {
   [_request release];
   _request = [request retain];
   
@@ -105,15 +105,15 @@
   }
 }
 
-- (void)requestDidFinishLoad:(TTURLRequest*)request {
-  TTURLImageResponse* response = request.response;
+- (void)requestDidFinishLoad:(PVURLRequest*)request {
+  PVURLImageResponse* response = request.response;
   self.image = response.image;
   
-  TT_RELEASE_SAFELY(_request);
+  PV_RELEASE_SAFELY(_request);
 }
 
-- (void)request:(TTURLRequest*)request didFailLoadWithError:(NSError*)error {
-  TT_RELEASE_SAFELY(_request);
+- (void)request:(PVURLRequest*)request didFailLoadWithError:(NSError*)error {
+  PV_RELEASE_SAFELY(_request);
 
   [self imageViewDidFailLoadWithError:error];
   if ([_delegate respondsToSelector:@selector(imageView:didFailLoadWithError:)]) {
@@ -121,8 +121,8 @@
   }
 }
 
-- (void)requestDidCancelLoad:(TTURLRequest*)request {
-  TT_RELEASE_SAFELY(_request);
+- (void)requestDidCancelLoad:(PVURLRequest*)request {
+  PV_RELEASE_SAFELY(_request);
 
   [self imageViewDidFailLoadWithError:nil];
   if ([_delegate respondsToSelector:@selector(imageView:didFailLoadWithError:)]) {
@@ -131,10 +131,10 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTStyleDelegate
+// PVStyleDelegate
 
-/*- (void)drawLayer:(TTStyleContext*)context withStyle:(TTStyle*)style {
-  if ([style isKindOfClass:[TTContentStyle class]]) {
+/*- (void)drawLayer:(PVStyleContext*)context withStyle:(PVStyle*)style {
+  if ([style isKindOfClass:[PVContentStyle class]]) {
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextSaveGState(ctx);
 
@@ -208,12 +208,12 @@
 
 - (void)reload {
   if (!_request && _URL) {
-    UIImage* image = [[TTURLCache sharedCache] imageForURL:_URL];
+    UIImage* image = [[PVURLCache sharedCache] imageForURL:_URL];
     if (image) {
       self.image = image;
     } else {
-      TTURLRequest* request = [TTURLRequest requestWithURL:_URL delegate:self];
-      request.response = [[[TTURLImageResponse alloc] init] autorelease];
+      PVURLRequest* request = [PVURLRequest requestWithURL:_URL delegate:self];
+      request.response = [[[PVURLImageResponse alloc] init] autorelease];
       if (_URL && ![request send]) {
         // Put the default image in place while waiting for the request to load
         if (_defaultImage && self.image != _defaultImage) {

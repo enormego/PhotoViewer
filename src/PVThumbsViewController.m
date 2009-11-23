@@ -1,15 +1,15 @@
 //
-//  TTThumbsViewController.m
+//  PVThumbsViewController.m
 //  PhotoViewer
 //
 //  Created by Shaun Harrison on 11/23/09.
 //  Copyright 2009 enormego. All rights reserved.
 //
 
-#import "TTThumbsViewController.h"
+#import "PVThumbsViewController.h"
 
 
-@implementation TTThumbsViewController
+@implementation PVThumbsViewController
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {

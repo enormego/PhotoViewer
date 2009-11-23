@@ -1,9 +1,9 @@
-#import "TTPhotoViewController.h"
-#import "TTURLRequestQueue.h"
-#import "TTURLCache.h"
-#import "TTURLRequest.h"
-#import "TTPhotoView.h"
-#import "TTLabel.h"
+#import "PVPhotoViewController.h"
+#import "PVURLRequestQueue.h"
+#import "PVURLCache.h"
+#import "PVURLRequest.h"
+#import "PVPhotoView.h"
+#import "PVLabel.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // global
@@ -15,7 +15,7 @@ static const NSInteger kActivityLabelTag = 96;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation TTPhotoViewController
+@implementation PVPhotoViewController
 
 @synthesize photoSource = _photoSource, centerPhoto = _centerPhoto,
 	centerPhotoIndex = _centerPhotoIndex, defaultImage = _defaultImage, isViewAppearing = _isViewAppearing, hasViewAppeared = _hasViewAppeared,
@@ -24,8 +24,8 @@ static const NSInteger kActivityLabelTag = 96;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // private
 
-- (TTPhotoView*)centerPhotoView {
-  return (TTPhotoView*)_scrollView.centerPage;
+- (PVPhotoView*)centerPhotoView {
+  return (PVPhotoView*)_scrollView.centerPage;
 }
 
 - (void)loadImageDelayed {
@@ -45,8 +45,8 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 - (void)loadImages {
-  TTPhotoView* centerPhotoView = self.centerPhotoView;
-  for (TTPhotoView* photoView in _scrollView.visiblePages.objectEnumerator) {
+  PVPhotoView* centerPhotoView = self.centerPhotoView;
+  for (PVPhotoView* photoView in _scrollView.visiblePages.objectEnumerator) {
     if (photoView == centerPhotoView) {
       [photoView loadPreview:NO];
     } else {
@@ -66,13 +66,13 @@ static const NSInteger kActivityLabelTag = 96;
   if (_photoSource.numberOfPhotos < 2) {
     self.title = _photoSource.title;
   } else {
-    self.title = [NSString stringWithFormat: TTLocalizedString(@"%d of %d", @"Current page in photo browser (1 of 10)"), _centerPhotoIndex+1, _photoSource.numberOfPhotos];
+    self.title = [NSString stringWithFormat: PVLocalizedString(@"%d of %d", @"Current page in photo browser (1 of 10)"), _centerPhotoIndex+1, _photoSource.numberOfPhotos];
   }
 
-  /*if (![self.previousViewController isKindOfClass:[TTThumbsViewController class]]) {
+  /*if (![self.previousViewController isKindOfClass:[PVThumbsViewController class]]) {
     if (_photoSource.numberOfPhotos > 1) {
       self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-        initWithTitle:TTLocalizedString(@"See All", @"See all photo thumbnails")
+        initWithTitle:PVLocalizedString(@"See All", @"See all photo thumbnails")
         style:UIBarButtonItemStyleBordered target:self action:@selector(showThumbnails)];
     } else {
       self.navigationItem.rightBarButtonItem = nil;
@@ -90,9 +90,9 @@ static const NSInteger kActivityLabelTag = 96;
 - (void)updateToolbarWithOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	CGRect toolbarRect = _toolbar.frame;
 	if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
-		toolbarRect.size.height = TT_TOOLBAR_HEIGHT;
+		toolbarRect.size.height = PV_TOOLBAR_HEIGHT;
 	} else {
-		toolbarRect.size.height = TT_LANDSCAPE_TOOLBAR_HEIGHT+1;
+		toolbarRect.size.height = PV_LANDSCAPE_TOOLBAR_HEIGHT+1;
 	}
 	
 	toolbarRect.origin.y = self.view.frame.size.height - toolbarRect.size.height;
@@ -106,19 +106,19 @@ static const NSInteger kActivityLabelTag = 96;
   [self updateChrome];
 }
 
-- (void)moveToPhoto:(id<TTPhoto>)photo {
-  id<TTPhoto> previousPhoto = [_centerPhoto autorelease];
+- (void)moveToPhoto:(id<PVPhoto>)photo {
+  id<PVPhoto> previousPhoto = [_centerPhoto autorelease];
   _centerPhoto = [photo retain];
   [self didMoveToPhoto:_centerPhoto fromPhoto:previousPhoto];
 }
 
 - (void)moveToPhotoAtIndex:(NSInteger)photoIndex withDelay:(BOOL)withDelay {
-  _centerPhotoIndex = photoIndex == TT_NULL_PHOTO_INDEX ? 0 : photoIndex;
+  _centerPhotoIndex = photoIndex == PV_NULL_PHOTO_INDEX ? 0 : photoIndex;
   [self moveToPhoto:[_photoSource photoAtIndex:_centerPhotoIndex]];
   _delayLoad = withDelay;
 }
 
-- (void)showPhoto:(id<TTPhoto>)photo inView:(TTPhotoView*)photoView {
+- (void)showPhoto:(id<PVPhoto>)photo inView:(PVPhotoView*)photoView {
   photoView.photo = photo;
   if (!photoView.photo && _statusText) {
     [photoView showStatus:_statusText];
@@ -130,17 +130,17 @@ static const NSInteger kActivityLabelTag = 96;
 
   NSDictionary* photoViews = _scrollView.visiblePages;
   for (NSNumber* key in photoViews.keyEnumerator) {
-    TTPhotoView* photoView = [photoViews objectForKey:key];
+    PVPhotoView* photoView = [photoViews objectForKey:key];
     [photoView showProgress:-1];
 
-    id<TTPhoto> photo = [_photoSource photoAtIndex:key.intValue];
+    id<PVPhoto> photo = [_photoSource photoAtIndex:key.intValue];
     [self showPhoto:photo inView:photoView];
   }
 }
 
 - (void)resetVisiblePhotoViews {
   NSDictionary* photoViews = _scrollView.visiblePages;
-  for (TTPhotoView* photoView in photoViews.objectEnumerator) {
+  for (PVPhotoView* photoView in photoViews.objectEnumerator) {
     if (!photoView.isLoading) {
       [photoView showProgress:-1];
     }
@@ -152,9 +152,9 @@ static const NSInteger kActivityLabelTag = 96;
   return bar ? bar.alpha != 0 : 1;
 }
 
-- (TTPhotoView*)statusView {
+- (PVPhotoView*)statusView {
   if (!_photoStatusView) {
-    _photoStatusView = [[TTPhotoView alloc] initWithFrame:_scrollView.frame];
+    _photoStatusView = [[PVPhotoView alloc] initWithFrame:_scrollView.frame];
     _photoStatusView.defaultImage = _defaultImage;
     _photoStatusView.photo = nil;
     [_innerView addSubview:_photoStatusView];
@@ -185,7 +185,7 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 - (void)showCaptions:(BOOL)show {
-  for (TTPhotoView* photoView in _scrollView.visiblePages.objectEnumerator) {
+  for (PVPhotoView* photoView in _scrollView.visiblePages.objectEnumerator) {
     photoView.hidesCaption = !show;
   }
 }
@@ -193,7 +193,7 @@ static const NSInteger kActivityLabelTag = 96;
 - (NSString*)URLForThumbnails {
   if ([self.photoSource respondsToSelector:@selector(URLValueWithName:)]) {
     return [self.photoSource performSelector:@selector(URLValueWithName:)
-                             withObject:@"TTThumbsViewController"];
+                             withObject:@"PVThumbsViewController"];
   } else {
     return nil;
   }
@@ -266,14 +266,14 @@ static const NSInteger kActivityLabelTag = 96;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // NSObject
 
-- (id)initWithPhoto:(id<TTPhoto>)photo {
+- (id)initWithPhoto:(id<PVPhoto>)photo {
   if (self = [self init]) {
     self.centerPhoto = photo;
   }
   return self;
 }
 
-- (id)initWithPhotoSource:(id<TTPhotoSource>)photoSource {
+- (id)initWithPhotoSource:(id<PVPhotoSource>)photoSource {
   if (self = [self init]) {
     self.photoSource = photoSource;
   }
@@ -313,7 +313,7 @@ static const NSInteger kActivityLabelTag = 96;
     _delayLoad = NO;
     
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:
-      TTLocalizedString(@"Photo", @"Title for back button that returns to photo browser")
+      PVLocalizedString(@"Photo", @"Title for back button that returns to photo browser")
       style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
 
     self.wantsFullScreenLayout = YES;
@@ -326,17 +326,17 @@ static const NSInteger kActivityLabelTag = 96;
 
 - (void)dealloc {
   // _thumbsController.delegate = nil;
-  TT_INVALIDATE_TIMER(_slideshowTimer);
-  TT_INVALIDATE_TIMER(_loadTimer);
-  TT_RELEASE_SAFELY(_thumbsController);
-  TT_RELEASE_SAFELY(_centerPhoto);
-  TT_RELEASE_SAFELY(_photoSource);
-  TT_RELEASE_SAFELY(_statusText);
-  TT_RELEASE_SAFELY(_defaultImage);
+  PV_INVALIDATE_TIMER(_slideshowTimer);
+  PV_INVALIDATE_TIMER(_loadTimer);
+  PV_RELEASE_SAFELY(_thumbsController);
+  PV_RELEASE_SAFELY(_centerPhoto);
+  PV_RELEASE_SAFELY(_photoSource);
+  PV_RELEASE_SAFELY(_statusText);
+  PV_RELEASE_SAFELY(_defaultImage);
 	
 	[_model.delegates removeObject:self];
-	TT_RELEASE_SAFELY(_model);
-	TT_RELEASE_SAFELY(_modelError);
+	PV_RELEASE_SAFELY(_model);
+	PV_RELEASE_SAFELY(_modelError);
 	
   [super dealloc];
 }
@@ -354,17 +354,22 @@ static const NSInteger kActivityLabelTag = 96;
   _innerView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
   [self.view addSubview:_innerView];
   
-  _scrollView = [[TTScrollView alloc] initWithFrame:screenFrame];
+  _scrollView = [[PVScrollView alloc] initWithFrame:screenFrame];
   _scrollView.delegate = self;
   _scrollView.dataSource = self;
   _scrollView.backgroundColor = [UIColor blackColor];
   _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
   [_innerView addSubview:_scrollView];
   
-  _nextButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pv_img_nextIcon.png"];
-     style:UIBarButtonItemStylePlain target:self action:@selector(nextAction)];
-  _previousButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pv_img_previousIcon.png"];
-     style:UIBarButtonItemStylePlain target:self action:@selector(previousAction)];
+  _nextButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pv_img_nextIcon.png"]
+												 style:UIBarButtonItemStylePlain
+												target:self
+												action:@selector(nextAction)];
+	
+  _previousButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pv_img_previousIcon.png"]
+													 style:UIBarButtonItemStylePlain
+													target:self
+													action:@selector(previousAction)];
 
   UIBarButtonItem* playButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:
     UIBarButtonSystemItemPlay target:self action:@selector(playAction)] autorelease];
@@ -374,8 +379,8 @@ static const NSInteger kActivityLabelTag = 96;
    UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
 
   _toolbar = [[UIToolbar alloc] initWithFrame:
-    CGRectMake(0, screenFrame.size.height - TT_ROW_HEIGHT,
-               screenFrame.size.width, TT_ROW_HEIGHT)];
+    CGRectMake(0, screenFrame.size.height - PV_ROW_HEIGHT,
+               screenFrame.size.width, PV_ROW_HEIGHT)];
   _toolbar.barStyle = self.navigationController.navigationBar.barStyle;
   _toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin;
   _toolbar.items = [NSArray arrayWithObjects:
@@ -387,12 +392,12 @@ static const NSInteger kActivityLabelTag = 96;
   [super viewDidUnload];
   _scrollView.delegate = nil;
   _scrollView.dataSource = nil;
-  TT_RELEASE_SAFELY(_innerView);
-  TT_RELEASE_SAFELY(_scrollView);
-  TT_RELEASE_SAFELY(_photoStatusView);
-  TT_RELEASE_SAFELY(_nextButton);
-  TT_RELEASE_SAFELY(_previousButton);
-  TT_RELEASE_SAFELY(_toolbar);
+  PV_RELEASE_SAFELY(_innerView);
+  PV_RELEASE_SAFELY(_scrollView);
+  PV_RELEASE_SAFELY(_photoStatusView);
+  PV_RELEASE_SAFELY(_nextButton);
+  PV_RELEASE_SAFELY(_previousButton);
+  PV_RELEASE_SAFELY(_toolbar);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -403,14 +408,14 @@ static const NSInteger kActivityLabelTag = 96;
 	
 	[super viewWillAppear:animated];
 
-	[TTURLRequestQueue mainQueue].suspended = YES;
+	[PVURLRequestQueue mainQueue].suspended = YES;
 	
 	[self updateToolbarWithOrientation:self.interfaceOrientation];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
-	[TTURLRequestQueue mainQueue].suspended = NO;
+	[PVURLRequestQueue mainQueue].suspended = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -425,7 +430,7 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-  return TTIsSupportedOrientation(interfaceOrientation);
+  return PVIsSupportedOrientation(interfaceOrientation);
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
@@ -439,7 +444,7 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// UIViewController (TTCategory)
+// UIViewController (PVCategory)
 
 - (void)showBars:(BOOL)show animated:(BOOL)animated {
   [super showBars:show animated:animated];
@@ -450,7 +455,7 @@ static const NSInteger kActivityLabelTag = 96;
   
   if (animated) {
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:TT_TRANSITION_DURATION];
+    [UIView setAnimationDuration:PV_TRANSITION_DURATION];
     [UIView setAnimationDelegate:self];
     if (show) {
       [UIView setAnimationDidStopSelector:@selector(showBarsAnimationDidStop)];
@@ -475,7 +480,7 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTModelViewController
+// PVModelViewController
 
 - (BOOL)shouldLoad {
   return NO;
@@ -506,7 +511,7 @@ static const NSInteger kActivityLabelTag = 96;
 - (void)showEmpty:(BOOL)show {
   if (show) {
     [_scrollView reloadData];
-    [self showStatus:TTLocalizedString(@"This photo set contains no photos.", @"")];
+    [self showStatus:PVLocalizedString(@"This photo set contains no photos.", @"")];
   } else {
     [self showStatus:nil];
   }
@@ -514,7 +519,7 @@ static const NSInteger kActivityLabelTag = 96;
 
 - (void)showError:(BOOL)show {
   if (show) {
-    [self showStatus:TTDescriptionForError(_modelError)];
+    [self showStatus:PVDescriptionForError(_modelError)];
   } else {
     [self showStatus:nil];
   }
@@ -530,9 +535,9 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTModelDelegate
+// PVModelDelegate
 
-- (void)modelDidFinishLoad:(id<TTModel>)model {
+- (void)modelDidFinishLoad:(id<PVModel>)model {
   if (model == _model) {
     if (_centerPhotoIndex >= _photoSource.numberOfPhotos) {
       [self moveToNextValidPhoto];
@@ -544,33 +549,33 @@ static const NSInteger kActivityLabelTag = 96;
   }
 	
 	if (model == _model) {
-		TT_RELEASE_SAFELY(_modelError);
+		PV_RELEASE_SAFELY(_modelError);
 		_flags.isModelDidLoadInvalid = YES;
 		[self invalidateView];
 	}
 }
 
-- (void)model:(id<TTModel>)model didFailLoadWithError:(NSError*)error {
+- (void)model:(id<PVModel>)model didFailLoadWithError:(NSError*)error {
   if (model == _model) {
     [self resetVisiblePhotoViews];
 	  self.modelError = error;
   }
 }
 
-- (void)modelDidCancelLoad:(id<TTModel>)model {
+- (void)modelDidCancelLoad:(id<PVModel>)model {
   if (model == _model) {
     [self resetVisiblePhotoViews];
 	  [self invalidateView];
   }
 }
 
-- (void)model:(id<TTModel>)model didUpdateObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
+- (void)model:(id<PVModel>)model didUpdateObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
 }
 
-- (void)model:(id<TTModel>)model didInsertObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
+- (void)model:(id<PVModel>)model didInsertObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
 }
 
-- (void)model:(id<TTModel>)model didDeleteObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
+- (void)model:(id<PVModel>)model didDeleteObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
   if (object == self.centerPhoto) {
     [self showActivity:nil];
     [self moveToNextValidPhoto];
@@ -580,47 +585,47 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTScrollViewDelegate
+// PVScrollViewDelegate
 
-- (void)scrollView:(TTScrollView*)scrollView didMoveToPageAtIndex:(NSInteger)pageIndex {
+- (void)scrollView:(PVScrollView*)scrollView didMoveToPageAtIndex:(NSInteger)pageIndex {
   if (pageIndex != _centerPhotoIndex) {
     [self moveToPhotoAtIndex:pageIndex withDelay:YES];
     [self refresh];
   }
 }
 
-- (void)scrollViewWillBeginDragging:(TTScrollView *)scrollView {
+- (void)scrollViewWillBeginDragging:(PVScrollView *)scrollView {
   [self cancelImageLoadTimer];
   [self showCaptions:NO];
   [self showBars:NO animated:YES];
 }
 
-- (void)scrollViewDidEndDecelerating:(TTScrollView*)scrollView {
+- (void)scrollViewDidEndDecelerating:(PVScrollView*)scrollView {
   [self startImageLoadTimer:kPhotoLoadShortDelay];
 }
 
-- (void)scrollViewWillRotate:(TTScrollView*)scrollView
+- (void)scrollViewWillRotate:(PVScrollView*)scrollView
         toOrientation:(UIInterfaceOrientation)orientation {
   self.centerPhotoView.hidesExtras = YES;
 }
 
-- (void)scrollViewDidRotate:(TTScrollView*)scrollView {
+- (void)scrollViewDidRotate:(PVScrollView*)scrollView {
   self.centerPhotoView.hidesExtras = NO;
 }
 
-- (BOOL)scrollViewShouldZoom:(TTScrollView*)scrollView {
+- (BOOL)scrollViewShouldZoom:(PVScrollView*)scrollView {
   return self.centerPhotoView.image != self.centerPhotoView.defaultImage;
 }
 
-- (void)scrollViewDidBeginZooming:(TTScrollView*)scrollView {
+- (void)scrollViewDidBeginZooming:(PVScrollView*)scrollView {
   self.centerPhotoView.hidesExtras = YES;
 }
 
-- (void)scrollViewDidEndZooming:(TTScrollView*)scrollView {
+- (void)scrollViewDidEndZooming:(PVScrollView*)scrollView {
   self.centerPhotoView.hidesExtras = NO;
 }
 
-- (void)scrollView:(TTScrollView*)scrollView tapped:(UITouch*)touch {
+- (void)scrollView:(PVScrollView*)scrollView tapped:(UITouch*)touch {
   if ([self isShowingChrome]) {
     [self showBars:NO animated:YES];
   } else {
@@ -629,48 +634,48 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTScrollViewDataSource
+// PVScrollViewDataSource
 
-- (NSInteger)numberOfPagesInScrollView:(TTScrollView*)scrollView {
+- (NSInteger)numberOfPagesInScrollView:(PVScrollView*)scrollView {
   return _photoSource.numberOfPhotos;
 }
 
-- (UIView*)scrollView:(TTScrollView*)scrollView pageAtIndex:(NSInteger)pageIndex {
-  TTPhotoView* photoView = (TTPhotoView*)[_scrollView dequeueReusablePage];
+- (UIView*)scrollView:(PVScrollView*)scrollView pageAtIndex:(NSInteger)pageIndex {
+  PVPhotoView* photoView = (PVPhotoView*)[_scrollView dequeueReusablePage];
   if (!photoView) {
     photoView = [self createPhotoView];
     photoView.defaultImage = _defaultImage;
     photoView.hidesCaption = _toolbar.alpha == 0;
   }
 
-  id<TTPhoto> photo = [_photoSource photoAtIndex:pageIndex];
+  id<PVPhoto> photo = [_photoSource photoAtIndex:pageIndex];
   [self showPhoto:photo inView:photoView];
   
   return photoView;
 }
 
-- (CGSize)scrollView:(TTScrollView*)scrollView sizeOfPageAtIndex:(NSInteger)pageIndex {
-  id<TTPhoto> photo = [_photoSource photoAtIndex:pageIndex];
+- (CGSize)scrollView:(PVScrollView*)scrollView sizeOfPageAtIndex:(NSInteger)pageIndex {
+  id<PVPhoto> photo = [_photoSource photoAtIndex:pageIndex];
   return photo ? photo.size : CGSizeZero;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTThumbsViewControllerDelegate
+// PVThumbsViewControllerDelegate
 
-- (void)thumbsViewController:(TTThumbsViewController*)controller didSelectPhoto:(id<TTPhoto>)photo {
+- (void)thumbsViewController:(PVThumbsViewController*)controller didSelectPhoto:(id<PVPhoto>)photo {
   self.centerPhoto = photo;
 	[controller dismissModalViewControllerAnimated:YES];
 }
 
-- (BOOL)thumbsViewController:(TTThumbsViewController*)controller
-        shouldNavigateToPhoto:(id<TTPhoto>)photo {
+- (BOOL)thumbsViewController:(PVThumbsViewController*)controller
+        shouldNavigateToPhoto:(id<PVPhoto>)photo {
   return NO;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // public
 
-- (void)setPhotoSource:(id<TTPhotoSource>)photoSource {
+- (void)setPhotoSource:(id<PVPhotoSource>)photoSource {
   if (_photoSource != photoSource) {
     [_photoSource release];
     _photoSource = [photoSource retain];
@@ -680,7 +685,7 @@ static const NSInteger kActivityLabelTag = 96;
   }
 }
 
-- (void)setCenterPhoto:(id<TTPhoto>)photo {
+- (void)setCenterPhoto:(id<PVPhoto>)photo {
   if (_centerPhoto != photo) {
     if (photo.photoSource != _photoSource) {
       [_photoSource release];
@@ -695,20 +700,20 @@ static const NSInteger kActivityLabelTag = 96;
   }
 }
 
-- (TTPhotoView*)createPhotoView {
-  return [[[TTPhotoView alloc] init] autorelease];
+- (PVPhotoView*)createPhotoView {
+  return [[[PVPhotoView alloc] init] autorelease];
 }
 
-- (TTThumbsViewController*)createThumbsViewController {
-  return [[[TTThumbsViewController alloc] init/*WithDelegate:self*/] autorelease];
+- (PVThumbsViewController*)createThumbsViewController {
+  return [[[PVThumbsViewController alloc] init/*WithDelegate:self*/] autorelease];
 }
 
-- (void)didMoveToPhoto:(id<TTPhoto>)photo fromPhoto:(id<TTPhoto>)fromPhoto {
+- (void)didMoveToPhoto:(id<PVPhoto>)photo fromPhoto:(id<PVPhoto>)fromPhoto {
 }
 
 - (void)showActivity:(NSString*)title {
   if (title) {
-    TTLabel* label = [[[TTLabel alloc] init] autorelease];
+    PVLabel* label = [[[PVLabel alloc] init] autorelease];
     label.tag = kActivityLabelTag;
     label.text = title;
     label.frame = _scrollView.frame;
@@ -827,7 +832,7 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 - (void)createInterstitialModel {
-	self.model = [[[TTModel alloc] init] autorelease];
+	self.model = [[[PVModel alloc] init] autorelease];
 }
 
 - (void)delayDidEnd {
@@ -835,9 +840,9 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTModelDelegate
+// PVModelDelegate
 
-- (void)modelDidStartLoad:(id<TTModel>)model {
+- (void)modelDidStartLoad:(id<PVModel>)model {
 	if (model == self.model) {
 		_flags.isModelWillLoadInvalid = YES;
 		_flags.isModelDidLoadFirstTimeInvalid = YES;
@@ -845,19 +850,19 @@ static const NSInteger kActivityLabelTag = 96;
 	}
 }
 
-- (void)modelDidChange:(id<TTModel>)model {
+- (void)modelDidChange:(id<PVModel>)model {
 	if (model == _model) {
 		[self refresh];
 	}
 }
 
-- (void)modelDidBeginUpdates:(id<TTModel>)model {
+- (void)modelDidBeginUpdates:(id<PVModel>)model {
 	if (model == _model) {
 		[self beginUpdates];
 	}
 }
 
-- (void)modelDidEndUpdates:(id<TTModel>)model {
+- (void)modelDidEndUpdates:(id<PVModel>)model {
 	if (model == _model) {
 		[self endUpdates];
 	}
@@ -866,7 +871,7 @@ static const NSInteger kActivityLabelTag = 96;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // public
 
-- (id<TTModel>)model {
+- (id<PVModel>)model {
 	if (!_model) {
 		if (!_model) {
 			[self createInterstitialModel];
@@ -875,13 +880,13 @@ static const NSInteger kActivityLabelTag = 96;
 	return _model;
 }
 
-- (void)setModel:(id<TTModel>)model {
+- (void)setModel:(id<PVModel>)model {
 	if (_model != model) {
 		[_model.delegates removeObject:self];
 		[_model release];
 		_model = [model retain];
 		[_model.delegates addObject:self];
-		TT_RELEASE_SAFELY(_modelError);
+		PV_RELEASE_SAFELY(_modelError);
 		
 		if (_model) {
 			_flags.isModelWillLoadInvalid = NO;
@@ -910,7 +915,7 @@ static const NSInteger kActivityLabelTag = 96;
 	BOOL wasModelCreated = self.isModelCreated;
 	[self resetViewStates];
 	[_model.delegates removeObject:self];
-	TT_RELEASE_SAFELY(_model);
+	PV_RELEASE_SAFELY(_model);
 	if (wasModelCreated) {
 		self.model;
 	}
@@ -926,7 +931,7 @@ static const NSInteger kActivityLabelTag = 96;
 
 - (void)reload {
 	_flags.isViewInvalid = YES;
-	[self.model load:TTURLRequestCachePolicyNetwork more:NO];
+	[self.model load:PVURLRequestCachePolicyNetwork more:NO];
 }
 
 - (void)reloadIfNeeded {
@@ -942,11 +947,11 @@ static const NSInteger kActivityLabelTag = 96;
 	BOOL loading = self.model.isLoading;
 	BOOL loaded = self.model.isLoaded;
 	if (!loading && !loaded && [self shouldLoad]) {
-		[self.model load:TTURLRequestCachePolicyDefault more:NO];
+		[self.model load:PVURLRequestCachePolicyDefault more:NO];
 	} else if (!loading && loaded && [self shouldReload]) {
-		[self.model load:TTURLRequestCachePolicyNetwork more:NO];
+		[self.model load:PVURLRequestCachePolicyNetwork more:NO];
 	} else if (!loading && [self shouldLoadMore]) {
-		[self.model load:TTURLRequestCachePolicyDefault more:YES];
+		[self.model load:PVURLRequestCachePolicyDefault more:YES];
 	} else {
 		_flags.isModelDidLoadInvalid = YES;
 		if (_isViewAppearing) {

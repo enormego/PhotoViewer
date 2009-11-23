@@ -1,20 +1,20 @@
-#import "TTGlobal.h"
+#import "PVGlobal.h"
 
-@class TTURLRequest;
+@class PVURLRequest;
 
-@protocol TTURLResponse <NSObject>
+@protocol PVURLResponse <NSObject>
 
 /**
  * Processes the data from a successful request and determines if it is valid.
  *
  * If the data is not valid, return an error.  The data will not be cached if there is an error.
  */
-- (NSError*)request:(TTURLRequest*)request processResponse:(NSHTTPURLResponse*)response
+- (NSError*)request:(PVURLRequest*)request processResponse:(NSHTTPURLResponse*)response
             data:(id)data;
 
 @end
 
-@interface TTURLDataResponse : NSObject <TTURLResponse> {
+@interface PVURLDataResponse : NSObject <PVURLResponse> {
   NSData* _data;
 }
 
@@ -22,7 +22,7 @@
 
 @end
 
-@interface TTURLImageResponse : NSObject <TTURLResponse> {
+@interface PVURLImageResponse : NSObject <PVURLResponse> {
   UIImage* _image;
 }
 

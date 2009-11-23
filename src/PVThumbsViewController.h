@@ -1,5 +1,5 @@
 //
-//  TTThumbsViewController.h
+//  PVThumbsViewController.h
 //  PhotoViewer
 //
 //  Created by Shaun Harrison on 11/23/09.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface TTThumbsViewController : UITableViewController {
+@interface PVThumbsViewController : UITableViewController {
 
 }
 

@@ -1,10 +1,10 @@
-#import "TTURLResponse.h"
-#import "TTURLRequest.h"
-#import "TTURLCache.h"
+#import "PVURLResponse.h"
+#import "PVURLRequest.h"
+#import "PVURLCache.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation TTURLDataResponse
+@implementation PVURLDataResponse
 
 @synthesize data = _data;
 
@@ -16,14 +16,14 @@
 }
 
 - (void)dealloc {
-  TT_RELEASE_SAFELY(_data);
+  PV_RELEASE_SAFELY(_data);
   [super dealloc];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-// TTURLResponse
+// PVURLResponse
 
-- (NSError*)request:(TTURLRequest*)request processResponse:(NSHTTPURLResponse*)response
+- (NSError*)request:(PVURLRequest*)request processResponse:(NSHTTPURLResponse*)response
             data:(id)data {
   if ([data isKindOfClass:[NSData class]]) {
     _data = [data retain];
@@ -35,7 +35,7 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation TTURLImageResponse
+@implementation PVURLImageResponse
 
 @synthesize image = _image;
 
@@ -47,29 +47,29 @@
 }
 
 - (void)dealloc {
-  TT_RELEASE_SAFELY(_image);
+  PV_RELEASE_SAFELY(_image);
   [super dealloc];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-// TTURLResponse
+// PVURLResponse
 
-- (NSError*)request:(TTURLRequest*)request processResponse:(NSHTTPURLResponse*)response
+- (NSError*)request:(PVURLRequest*)request processResponse:(NSHTTPURLResponse*)response
             data:(id)data {
   if ([data isKindOfClass:[UIImage class]]) {
     _image = [data retain];
   } else if ([data isKindOfClass:[NSData class]]) {
-    UIImage* image = [[TTURLCache sharedCache] imageForURL:request.URL fromDisk:NO];
+    UIImage* image = [[PVURLCache sharedCache] imageForURL:request.URL fromDisk:NO];
     if (!image) {
       image = [UIImage imageWithData:data];
     }
     if (image) {
       if (!request.respondedFromCache) {
-        [[TTURLCache sharedCache] storeImage:image forURL:request.URL];
+        [[PVURLCache sharedCache] storeImage:image forURL:request.URL];
       }
       _image = [image retain];
     } else {
-      return [NSError errorWithDomain:TT_ERROR_DOMAIN code:TT_EC_INVALID_IMAGE
+      return [NSError errorWithDomain:PV_ERROR_DOMAIN code:PV_EC_INVALID_IMAGE
                       userInfo:nil];
     }
   }

@@ -1,4 +1,4 @@
-#import "TTGlobal.h"
+#import "PVGlobal.h"
 #import <objc/runtime.h>
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -7,42 +7,42 @@ static int gNetworkTaskCount = 0;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-static const void* TTRetainNoOp(CFAllocatorRef allocator, const void *value) { return value; }
-static void TTReleaseNoOp(CFAllocatorRef allocator, const void *value) { }
+static const void* PVRetainNoOp(CFAllocatorRef allocator, const void *value) { return value; }
+static void PVReleaseNoOp(CFAllocatorRef allocator, const void *value) { }
 
-NSMutableArray* TTCreateNonRetainingArray() {
+NSMutableArray* PVCreateNonRetainingArray() {
   CFArrayCallBacks callbacks = kCFTypeArrayCallBacks;
-  callbacks.retain = TTRetainNoOp;
-  callbacks.release = TTReleaseNoOp;
+  callbacks.retain = PVRetainNoOp;
+  callbacks.release = PVReleaseNoOp;
   return (NSMutableArray*)CFArrayCreateMutable(nil, 0, &callbacks);
 }
 
-NSMutableDictionary* TTCreateNonRetainingDictionary() {
+NSMutableDictionary* PVCreateNonRetainingDictionary() {
   CFDictionaryKeyCallBacks keyCallbacks = kCFTypeDictionaryKeyCallBacks;
   CFDictionaryValueCallBacks callbacks = kCFTypeDictionaryValueCallBacks;
-  callbacks.retain = TTRetainNoOp;
-  callbacks.release = TTReleaseNoOp;
+  callbacks.retain = PVRetainNoOp;
+  callbacks.release = PVReleaseNoOp;
   return (NSMutableDictionary*)CFDictionaryCreateMutable(nil, 0, &keyCallbacks, &callbacks);
 }
 
-BOOL TTIsEmptyArray(id object) {
+BOOL PVIsEmptyArray(id object) {
   return [object isKindOfClass:[NSArray class]] && ![(NSArray*)object count];
 }
 
-BOOL TTIsEmptySet(id object) {
+BOOL PVIsEmptySet(id object) {
   return [object isKindOfClass:[NSSet class]] && ![(NSSet*)object count];
 }
 
-BOOL TTIsEmptyString(id object) {
+BOOL PVIsEmptyString(id object) {
   return [object isKindOfClass:[NSString class]] && ![(NSString*)object length];
 }
 
-BOOL TTIsPhoneSupported() {
+BOOL PVIsPhoneSupported() {
   NSString *deviceType = [UIDevice currentDevice].model;
   return [deviceType isEqualToString:@"iPhone"];
 }
 
-UIDeviceOrientation TTDeviceOrientation() {
+UIDeviceOrientation PVDeviceOrientation() {
   UIDeviceOrientation orient = [UIDevice currentDevice].orientation;
   if (!orient) {
     return UIDeviceOrientationPortrait;
@@ -51,11 +51,11 @@ UIDeviceOrientation TTDeviceOrientation() {
   }
 }
 
-UIInterfaceOrientation TTInterfaceOrientation() {
+UIInterfaceOrientation PVInterfaceOrientation() {
   return [UIApplication sharedApplication].statusBarOrientation;
 }
 
-BOOL TTIsSupportedOrientation(UIInterfaceOrientation orientation) {
+BOOL PVIsSupportedOrientation(UIInterfaceOrientation orientation) {
   switch (orientation) {
     case UIInterfaceOrientationPortrait:
     case UIInterfaceOrientationLandscapeLeft:
@@ -66,7 +66,7 @@ BOOL TTIsSupportedOrientation(UIInterfaceOrientation orientation) {
   }
 }
 
-CGAffineTransform TTRotateTransformForOrientation(UIInterfaceOrientation orientation) {
+CGAffineTransform PVRotateTransformForOrientation(UIInterfaceOrientation orientation) {
   if (orientation == UIInterfaceOrientationLandscapeLeft) {
     return CGAffineTransformMakeRotation(M_PI*1.5);
   } else if (orientation == UIInterfaceOrientationLandscapeRight) {
@@ -78,9 +78,9 @@ CGAffineTransform TTRotateTransformForOrientation(UIInterfaceOrientation orienta
   }
 }
 
-CGRect TTScreenBounds() {
+CGRect PVScreenBounds() {
   CGRect bounds = [UIScreen mainScreen].bounds;
-  if (UIInterfaceOrientationIsLandscape(TTInterfaceOrientation())) {
+  if (UIInterfaceOrientationIsLandscape(PVInterfaceOrientation())) {
     CGFloat width = bounds.size.width;
     bounds.size.width = bounds.size.height;
     bounds.size.height = width;
@@ -88,27 +88,27 @@ CGRect TTScreenBounds() {
   return bounds;
 }
 
-CGRect TTApplicationFrame() {
+CGRect PVApplicationFrame() {
   CGRect frame = [UIScreen mainScreen].applicationFrame;
   return CGRectMake(0, 0, frame.size.width, frame.size.height);
 }
 
-CGRect TTNavigationFrame() {
+CGRect PVNavigationFrame() {
   CGRect frame = [UIScreen mainScreen].applicationFrame;
-  return CGRectMake(0, 0, frame.size.width, frame.size.height - TTToolbarHeight());
+  return CGRectMake(0, 0, frame.size.width, frame.size.height - PVToolbarHeight());
 }
 
-CGRect TTKeyboardNavigationFrame() {
-  return TTRectContract(TTNavigationFrame(), 0, TTKeyboardHeight());
+CGRect PVKeyboardNavigationFrame() {
+  return PVRectContract(PVNavigationFrame(), 0, PVKeyboardHeight());
 }
 
-CGRect TTToolbarNavigationFrame() {
+CGRect PVToolbarNavigationFrame() {
   CGRect frame = [UIScreen mainScreen].applicationFrame;
-  return CGRectMake(0, 0, frame.size.width, frame.size.height - TTToolbarHeight()*2);
+  return CGRectMake(0, 0, frame.size.width, frame.size.height - PVToolbarHeight()*2);
 }
 
-CGFloat TTStatusHeight() {
-  UIInterfaceOrientation orientation = TTInterfaceOrientation();
+CGFloat PVStatusHeight() {
+  UIInterfaceOrientation orientation = PVInterfaceOrientation();
   if (orientation == UIInterfaceOrientationLandscapeLeft) {
     return [UIScreen mainScreen].applicationFrame.origin.x;
   } else if (orientation == UIInterfaceOrientationLandscapeRight) {
@@ -118,86 +118,86 @@ CGFloat TTStatusHeight() {
   }
 }
 
-CGFloat TTBarsHeight() {
+CGFloat PVBarsHeight() {
   CGRect frame = [UIApplication sharedApplication].statusBarFrame;
-  if (UIInterfaceOrientationIsPortrait(TTInterfaceOrientation())) {
-    return frame.size.height + TT_ROW_HEIGHT;
+  if (UIInterfaceOrientationIsPortrait(PVInterfaceOrientation())) {
+    return frame.size.height + PV_ROW_HEIGHT;
   } else {
-    return frame.size.width + TT_LANDSCAPE_TOOLBAR_HEIGHT;
+    return frame.size.width + PV_LANDSCAPE_TOOLBAR_HEIGHT;
   }
 }
 
-CGFloat TTToolbarHeight() {
-  return TTToolbarHeightForOrientation(TTInterfaceOrientation());
+CGFloat PVToolbarHeight() {
+  return PVToolbarHeightForOrientation(PVInterfaceOrientation());
 }
 
-CGFloat TTToolbarHeightForOrientation(UIInterfaceOrientation orientation) {
+CGFloat PVToolbarHeightForOrientation(UIInterfaceOrientation orientation) {
   if (UIInterfaceOrientationIsPortrait(orientation)) {
-    return TT_ROW_HEIGHT;
+    return PV_ROW_HEIGHT;
   } else {
-    return TT_LANDSCAPE_TOOLBAR_HEIGHT;
+    return PV_LANDSCAPE_TOOLBAR_HEIGHT;
   }
 }
 
-CGFloat TTKeyboardHeight() {
-  return TTKeyboardHeightForOrientation(TTInterfaceOrientation());
+CGFloat PVKeyboardHeight() {
+  return PVKeyboardHeightForOrientation(PVInterfaceOrientation());
 }
 
-CGFloat TTKeyboardHeightForOrientation(UIInterfaceOrientation orientation) {
+CGFloat PVKeyboardHeightForOrientation(UIInterfaceOrientation orientation) {
   if (UIInterfaceOrientationIsPortrait(orientation)) {
-    return TT_KEYBOARD_HEIGHT;
+    return PV_KEYBOARD_HEIGHT;
   } else {
-    return TT_LANDSCAPE_KEYBOARD_HEIGHT;
+    return PV_LANDSCAPE_KEYBOARD_HEIGHT;
   }
 }
 
-CGRect TTRectContract(CGRect rect, CGFloat dx, CGFloat dy) {
+CGRect PVRectContract(CGRect rect, CGFloat dx, CGFloat dy) {
   return CGRectMake(rect.origin.x, rect.origin.y, rect.size.width - dx, rect.size.height - dy);
 }
 
-CGRect TTRectShift(CGRect rect, CGFloat dx, CGFloat dy) {
-  return CGRectOffset(TTRectContract(rect, dx, dy), dx, dy);
+CGRect PVRectShift(CGRect rect, CGFloat dx, CGFloat dy) {
+  return CGRectOffset(PVRectContract(rect, dx, dy), dx, dy);
 }
 
-CGRect TTRectInset(CGRect rect, UIEdgeInsets insets) {
+CGRect PVRectInset(CGRect rect, UIEdgeInsets insets) {
   return CGRectMake(rect.origin.x + insets.left, rect.origin.y + insets.top,
                     rect.size.width - (insets.left + insets.right),
                     rect.size.height - (insets.top + insets.bottom));
 }
 
-void TTNetworkRequestStarted() {
+void PVNetworkRequestStarted() {
   if (gNetworkTaskCount++ == 0) {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
   }
 }
 
-void TTNetworkRequestStopped() {
+void PVNetworkRequestStopped() {
   if (--gNetworkTaskCount == 0) {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
   }
 }
 
-void TTAlert(NSString* message) {
-  UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:TTLocalizedString(@"Alert", @"")
+void PVAlert(NSString* message) {
+  UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:PVLocalizedString(@"Alert", @"")
                                              message:message delegate:nil
-                                             cancelButtonTitle:TTLocalizedString(@"OK", @"")
+                                             cancelButtonTitle:PVLocalizedString(@"OK", @"")
                                              otherButtonTitles:nil] autorelease];
   [alert show];
 }
 
-void TTAlertError(NSString* message) {
-  UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:TTLocalizedString(@"Alert", @"")
+void PVAlertError(NSString* message) {
+  UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:PVLocalizedString(@"Alert", @"")
                                               message:message delegate:nil
-                                              cancelButtonTitle:TTLocalizedString(@"OK", @"")
+                                              cancelButtonTitle:PVLocalizedString(@"OK", @"")
                                               otherButtonTitles:nil] autorelease];
   [alert show];
 }
 
-float TTOSVersion() {
+float PVOSVersion() {
   return [[[UIDevice currentDevice] systemVersion] floatValue];
 }
 
-BOOL TTOSVersionIsAtLeast(float version) {
+BOOL PVOSVersionIsAtLeast(float version) {
   #ifdef __IPHONE_3_0
     return 3.0 >= version;
   #endif
@@ -213,7 +213,7 @@ BOOL TTOSVersionIsAtLeast(float version) {
   return NO;
 }
 
-NSLocale* TTCurrentLocale() {
+NSLocale* PVCurrentLocale() {
   NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
   NSArray* languages = [defaults objectForKey:@"AppleLanguages"];
   if (languages.count > 0) {
@@ -224,7 +224,7 @@ NSLocale* TTCurrentLocale() {
   }
 }
 
-NSString* TTLocalizedString(NSString* key, NSString* comment) {
+NSString* PVLocalizedString(NSString* key, NSString* comment) {
   static NSBundle* bundle = nil;
   if (!bundle) {
     NSString* path = [[[NSBundle mainBundle] resourcePath]
@@ -235,7 +235,7 @@ NSString* TTLocalizedString(NSString* key, NSString* comment) {
   return [bundle localizedStringForKey:key value:key table:nil];
 }
 
-NSString* TTFormatInteger(NSInteger num) {
+NSString* PVFormatInteger(NSInteger num) {
   NSNumber* number = [NSNumber numberWithInt:num];
   NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
   [formatter setNumberStyle:kCFNumberFormatterDecimalStyle];
@@ -245,20 +245,20 @@ NSString* TTFormatInteger(NSInteger num) {
   return formatted;
 }
 
-NSString* TTDescriptionForError(NSError* error) {
+NSString* PVDescriptionForError(NSError* error) {
   if ([error.domain isEqualToString:NSURLErrorDomain]) {
     if (error.code == NSURLErrorTimedOut) {
-      return TTLocalizedString(@"Connection Timed Out", @"");
+      return PVLocalizedString(@"Connection Timed Out", @"");
     } else if (error.code == NSURLErrorNotConnectedToInternet) {
-      return TTLocalizedString(@"No Internet Connection", @"");
+      return PVLocalizedString(@"No Internet Connection", @"");
     } else {
-      return TTLocalizedString(@"Connection Error", @"");
+      return PVLocalizedString(@"Connection Error", @"");
     }
   }
-  return TTLocalizedString(@"Error", @"");
+  return PVLocalizedString(@"Error", @"");
 }
 
-BOOL TTIsBundleURL(NSString* URL) {
+BOOL PVIsBundleURL(NSString* URL) {
   if (URL.length >= 9) {
     return [URL rangeOfString:@"bundle://" options:0 range:NSMakeRange(0,9)].location == 0;
   } else {
@@ -266,7 +266,7 @@ BOOL TTIsBundleURL(NSString* URL) {
   }
 }
 
-BOOL TTIsDocumentsURL(NSString* URL) {
+BOOL PVIsDocumentsURL(NSString* URL) {
   if (URL.length >= 12) {
     return [URL rangeOfString:@"documents://" options:0 range:NSMakeRange(0,12)].location == 0;
   } else {
@@ -274,12 +274,12 @@ BOOL TTIsDocumentsURL(NSString* URL) {
   }
 }
 
-NSString* TTPathForBundleResource(NSString* relativePath) {
+NSString* PVPathForBundleResource(NSString* relativePath) {
   NSString* resourcePath = [[NSBundle mainBundle] resourcePath];
   return [resourcePath stringByAppendingPathComponent:relativePath];
 }
 
-NSString* TTPathForDocumentsResource(NSString* relativePath) {
+NSString* PVPathForDocumentsResource(NSString* relativePath) {
   static NSString* documentsPath = nil;
   if (!documentsPath) {
     NSArray* dirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -288,7 +288,7 @@ NSString* TTPathForDocumentsResource(NSString* relativePath) {
   return [documentsPath stringByAppendingPathComponent:relativePath];
 }
 
-void TTSwapMethods(Class cls, SEL originalSel, SEL newSel) {
+void PVSwapMethods(Class cls, SEL originalSel, SEL newSel) {
   Method originalMethod = class_getInstanceMethod(cls, originalSel);
   Method newMethod = class_getInstanceMethod(cls, newSel);
   method_exchangeImplementations(originalMethod, newMethod);

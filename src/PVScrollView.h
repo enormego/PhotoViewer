@@ -1,11 +1,11 @@
-#import "TTGlobal.h"
+#import "PVGlobal.h"
 
-@protocol TTScrollViewDelegate;
-@protocol TTScrollViewDataSource;
+@protocol PVScrollViewDelegate;
+@protocol PVScrollViewDataSource;
 
-@interface TTScrollView : UIView {
-  id<TTScrollViewDelegate> _delegate;
-  id<TTScrollViewDataSource> _dataSource;
+@interface PVScrollView : UIView {
+  id<PVScrollViewDelegate> _delegate;
+  id<PVScrollViewDataSource> _dataSource;
   NSInteger _centerPageIndex;
   NSInteger _visiblePageIndex;
   BOOL _scrollEnabled;
@@ -41,12 +41,12 @@
 /**
  *
  */
-@property(nonatomic,assign) id<TTScrollViewDelegate> delegate;
+@property(nonatomic,assign) id<PVScrollViewDelegate> delegate;
 
 /**
  *
  */
-@property(nonatomic,assign) id<TTScrollViewDataSource> dataSource;
+@property(nonatomic,assign) id<PVScrollViewDataSource> dataSource;
 
 /**
  *
@@ -144,96 +144,96 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-@protocol TTScrollViewDelegate <NSObject>
+@protocol PVScrollViewDelegate <NSObject>
 
 /**
  *
  */
-- (void)scrollView:(TTScrollView*)scrollView didMoveToPageAtIndex:(NSInteger)pageIndex;
+- (void)scrollView:(PVScrollView*)scrollView didMoveToPageAtIndex:(NSInteger)pageIndex;
 
 @optional
 
 /**
  *
  */
-- (void)scrollViewWillRotate:(TTScrollView*)scrollView
+- (void)scrollViewWillRotate:(PVScrollView*)scrollView
         toOrientation:(UIInterfaceOrientation)orientation;
 
 /**
  *
  */
-- (void)scrollViewDidRotate:(TTScrollView*)scrollView;
+- (void)scrollViewDidRotate:(PVScrollView*)scrollView;
 
 /**
  *
  */
-- (void)scrollViewWillBeginDragging:(TTScrollView*)scrollView;
+- (void)scrollViewWillBeginDragging:(PVScrollView*)scrollView;
 
 /**
  *
  */
-- (void)scrollViewDidEndDragging:(TTScrollView*)scrollView willDecelerate:(BOOL)willDecelerate;
+- (void)scrollViewDidEndDragging:(PVScrollView*)scrollView willDecelerate:(BOOL)willDecelerate;
 
 /**
  *
  */
-- (void)scrollViewDidEndDecelerating:(TTScrollView*)scrollView;
+- (void)scrollViewDidEndDecelerating:(PVScrollView*)scrollView;
 
 /**
  *
  */
-- (BOOL)scrollViewShouldZoom:(TTScrollView*)scrollView;
+- (BOOL)scrollViewShouldZoom:(PVScrollView*)scrollView;
 
 /**
  *
  */
-- (void)scrollViewDidBeginZooming:(TTScrollView*)scrollView;
+- (void)scrollViewDidBeginZooming:(PVScrollView*)scrollView;
 
 /**
  *
  */
-- (void)scrollViewDidEndZooming:(TTScrollView*)scrollView;
+- (void)scrollViewDidEndZooming:(PVScrollView*)scrollView;
 
 /**
  *
  */
-- (void)scrollView:(TTScrollView*)scrollView touchedDown:(UITouch*)touch;
+- (void)scrollView:(PVScrollView*)scrollView touchedDown:(UITouch*)touch;
 
 /**
  *
  */
-- (void)scrollView:(TTScrollView*)scrollView touchedUpInside:(UITouch*)touch;
+- (void)scrollView:(PVScrollView*)scrollView touchedUpInside:(UITouch*)touch;
 
 /**
  *
  */
-- (void)scrollView:(TTScrollView*)scrollView tapped:(UITouch*)touch;
+- (void)scrollView:(PVScrollView*)scrollView tapped:(UITouch*)touch;
 
 /**
  *
  */
-- (void)scrollViewDidBeginHolding:(TTScrollView*)scrollView;
+- (void)scrollViewDidBeginHolding:(PVScrollView*)scrollView;
 
 /**
  *
  */
-- (void)scrollViewDidEndHolding:(TTScrollView*)scrollView;
+- (void)scrollViewDidEndHolding:(PVScrollView*)scrollView;
 
 @optional
 
-- (BOOL)scrollView:(TTScrollView*)scrollView 
+- (BOOL)scrollView:(PVScrollView*)scrollView 
         shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation;
 
 @end
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-@protocol TTScrollViewDataSource <NSObject>
+@protocol PVScrollViewDataSource <NSObject>
 
 /**
  *
  */
-- (NSInteger)numberOfPagesInScrollView:(TTScrollView*)scrollView;
+- (NSInteger)numberOfPagesInScrollView:(PVScrollView*)scrollView;
 
 /**
  * Gets a view to display for the page at the given index.
@@ -241,7 +241,7 @@
  * You do not need to position or size the view as that is done for you later.  You should
  * call dequeueReusablePage first, and only create a new view if it returns nil.
  */
-- (UIView*)scrollView:(TTScrollView*)scrollView pageAtIndex:(NSInteger)pageIndex;
+- (UIView*)scrollView:(PVScrollView*)scrollView pageAtIndex:(NSInteger)pageIndex;
 
 /**
  * Gets the natural size of the page. 
@@ -249,6 +249,6 @@
  * The actual width and height are not as important as the ratio between width and height.
  * This is used to determine how to 
  */
-- (CGSize)scrollView:(TTScrollView*)scrollView sizeOfPageAtIndex:(NSInteger)pageIndex;
+- (CGSize)scrollView:(PVScrollView*)scrollView sizeOfPageAtIndex:(NSInteger)pageIndex;
 
 @end

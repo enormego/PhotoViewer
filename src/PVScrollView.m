@@ -1,4 +1,4 @@
-#import "TTScrollView.h"
+#import "PVScrollView.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -14,7 +14,7 @@ static const NSTimeInterval kOvershoot = 2;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation TTScrollView
+@implementation PVScrollView
 
 @synthesize delegate = _delegate, dataSource = _dataSource, centerPageIndex = _centerPageIndex,
   pageSpacing = _pageSpacing, scrollEnabled = _scrollEnabled, zoomEnabled = _zoomEnabled,
@@ -74,9 +74,9 @@ static const NSTimeInterval kOvershoot = 2;
   _delegate = nil;
   [_animationTimer invalidate];
   [_tapTimer invalidate];
-  TT_RELEASE_SAFELY(_animationStartTime);
-  TT_RELEASE_SAFELY(_pages);
-  TT_RELEASE_SAFELY(_pageQueue);
+  PV_RELEASE_SAFELY(_animationStartTime);
+  PV_RELEASE_SAFELY(_pages);
+  PV_RELEASE_SAFELY(_pageQueue);
   [super dealloc];
 }
 
@@ -384,7 +384,7 @@ static const NSTimeInterval kOvershoot = 2;
 - (void)layoutPage {
   UIView* page = [self pageAtIndex:_centerPageIndex create:YES];
   if (page) {
-    CGAffineTransform rotation = TTRotateTransformForOrientation(_orientation);
+    CGAffineTransform rotation = PVRotateTransformForOrientation(_orientation);
     CGPoint offset = [self offsetForOrientation:_pageEdges.left y:_pageEdges.top];
     CGRect frame = [self frameOfPageAtIndex:_centerPageIndex];
     
@@ -406,7 +406,7 @@ static const NSTimeInterval kOvershoot = 2;
 - (void)layoutAdjacentPages {
   BOOL flipped = self.flipped;
   BOOL pinched = self.pinched;
-  CGAffineTransform rotation = TTRotateTransformForOrientation(_orientation);
+  CGAffineTransform rotation = PVRotateTransformForOrientation(_orientation);
 
   NSInteger minPageIndex = _centerPageIndex - kOffscreenPages;
   NSInteger maxPageIndex = _centerPageIndex + kOffscreenPages;
@@ -785,7 +785,7 @@ static const NSTimeInterval kOvershoot = 2;
   if (!_animationTimer) {
     _pageStartEdges = _pageEdges;
     [self updateZooming:edges];
-    TT_INVALIDATE_TIMER(_tapTimer);
+    PV_INVALIDATE_TIMER(_tapTimer);
 
     _animateEdges = edges;
     _animationDuration = duration;
@@ -799,7 +799,7 @@ static const NSTimeInterval kOvershoot = 2;
   if (_animationTimer) {
     [_animationTimer invalidate];
     _animationTimer = nil;
-    TT_RELEASE_SAFELY(_animationStartTime);
+    PV_RELEASE_SAFELY(_animationStartTime);
     _overshoot = 0;
     [self updateZooming:UIEdgeInsetsZero];
     
@@ -831,7 +831,7 @@ static const NSTimeInterval kOvershoot = 2;
     [self layoutIfNeeded];
 
     if (_overshoot) {
-      TT_RELEASE_SAFELY(_animationStartTime);
+      PV_RELEASE_SAFELY(_animationStartTime);
       [_animationTimer invalidate];
       _animationTimer = nil;
       [self startAnimationTo:UIEdgeInsetsMake(0, self.overshoot, 0, self.overshoot) duration:0.1];
@@ -908,7 +908,7 @@ static const NSTimeInterval kOvershoot = 2;
       }
       
       if (touch.tapCount == 2) {
-        TT_INVALIDATE_TIMER(_tapTimer);
+        PV_INVALIDATE_TIMER(_tapTimer);
       }
     }
   }
@@ -916,12 +916,12 @@ static const NSTimeInterval kOvershoot = 2;
 
 - (void)touchesMoved:(NSSet*)touches withEvent:(UIEvent *)event {
   [super touchesMoved:touches withEvent:event];
-  TT_INVALIDATE_TIMER(_holdingTimer);
+  PV_INVALIDATE_TIMER(_holdingTimer);
   
   if (_scrollEnabled && !_holding && _touchCount && !_animationTimer) {
     if (!_dragging) {
       _dragging = YES;
-      TT_INVALIDATE_TIMER(_tapTimer);
+      PV_INVALIDATE_TIMER(_tapTimer);
       
       if ([_delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)]) {
         [_delegate scrollViewWillBeginDragging:self];
@@ -962,7 +962,7 @@ static const NSTimeInterval kOvershoot = 2;
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
   [super touchesCancelled:touches withEvent:event];
-  TT_INVALIDATE_TIMER(_holdingTimer);
+  PV_INVALIDATE_TIMER(_holdingTimer);
 
   for (UITouch* touch in touches) {
     [self removeTouch:touch];
@@ -980,7 +980,7 @@ static const NSTimeInterval kOvershoot = 2;
 
 - (void)touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event {
   [super touchesEnded:touches withEvent:event];
-  TT_INVALIDATE_TIMER(_holdingTimer);
+  PV_INVALIDATE_TIMER(_holdingTimer);
   if (_holding) {
     [self endHolding];
   }
@@ -1045,7 +1045,7 @@ static const NSTimeInterval kOvershoot = 2;
 // UIDeviceOrientationDidChangeNotification
 
 - (void)deviceOrientationDidChange:(void*)object {
-//  UIInterfaceOrientation orientation = TTDeviceOrientation();
+//  UIInterfaceOrientation orientation = PVDeviceOrientation();
 //  if (_rotateEnabled && !_holding
 //      && (![_delegate respondsToSelector:@selector(scrollView:shouldAutorotateToInterfaceOrientation:)]
 //      || [_delegate scrollView:self shouldAutorotateToInterfaceOrientation:orientation])) {
@@ -1059,7 +1059,7 @@ static const NSTimeInterval kOvershoot = 2;
   return _pageEdges.left != _pageEdges.right || _pageEdges.top != _pageEdges.bottom;
 }
 
-- (void)setDataSource:(id<TTScrollViewDataSource>)dataSource {
+- (void)setDataSource:(id<PVScrollViewDataSource>)dataSource {
   _dataSource = dataSource;
   [self reloadData];
 }
@@ -1118,7 +1118,7 @@ static const NSTimeInterval kOvershoot = 2;
 
     if (animated) {
       [UIView beginAnimations:nil context:nil];
-      [UIView setAnimationDuration:TT_TRANSITION_DURATION];
+      [UIView setAnimationDuration:PV_TRANSITION_DURATION];
       [UIView setAnimationDelegate:self];
       [UIView setAnimationDidStopSelector:@selector(rotationDidStop)];
       [self layoutPage];
