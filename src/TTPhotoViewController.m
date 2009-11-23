@@ -1,4 +1,5 @@
 #import "PhotoViewer/TTPhotoViewController.h"
+#import "PhotoViewer/TTURLRequestQueue.h"
 #import "PhotoViewer/TTURLCache.h"
 #import "PhotoViewer/TTURLRequest.h"
 #import "PhotoViewer/TTPhotoView.h"
@@ -17,7 +18,8 @@ static const NSInteger kActivityLabelTag = 96;
 @implementation TTPhotoViewController
 
 @synthesize photoSource = _photoSource, centerPhoto = _centerPhoto,
-  centerPhotoIndex = _centerPhotoIndex, defaultImage = _defaultImage, captionStyle = _captionStyle;
+	centerPhotoIndex = _centerPhotoIndex, defaultImage = _defaultImage, isViewAppearing = _isViewAppearing, hasViewAppeared = _hasViewAppeared,
+	model = _model, modelError = _modelError;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // private
@@ -280,6 +282,21 @@ static const NSInteger kActivityLabelTag = 96;
 
 - (id)init {
   if (self = [super init]) {
+	  _model = nil;
+	  _modelError = nil;
+	  _flags.isModelDidRefreshInvalid = NO;
+	  _flags.isModelWillLoadInvalid = NO;
+	  _flags.isModelDidLoadInvalid = NO;
+	  _flags.isModelDidLoadFirstTimeInvalid = NO;
+	  _flags.isModelDidShowFirstTimeInvalid = NO;
+	  _flags.isViewInvalid = YES;
+	  _flags.isViewSuspended = NO;
+	  _flags.isUpdatingView = NO;
+	  _flags.isShowingEmpty = NO;
+	  _flags.isShowingLoading = NO;
+	  _flags.isShowingModel = NO;
+	  _flags.isShowingError = NO;
+	  
     _photoSource = nil;
     _centerPhoto = nil;
     _centerPhotoIndex = 0;
@@ -287,7 +304,6 @@ static const NSInteger kActivityLabelTag = 96;
     _photoStatusView = nil;
     _toolbar = nil;
     _defaultImage = nil;
-    _captionStyle = nil;
     _nextButton = nil;
     _previousButton = nil;
     _statusText = nil;
@@ -303,7 +319,7 @@ static const NSInteger kActivityLabelTag = 96;
     self.wantsFullScreenLayout = YES;
     self.hidesBottomBarWhenPushed = YES;
 
-    self.defaultImage = TTIMAGE(@"bundle://Three20.bundle/images/photoDefault.png");
+    self.defaultImage = TTIMAGE(@"bundle://PhotoViewer.bundle/images/photoDefault.png");
   }
   return self;
 }
@@ -316,8 +332,12 @@ static const NSInteger kActivityLabelTag = 96;
   TT_RELEASE_SAFELY(_centerPhoto);
   TT_RELEASE_SAFELY(_photoSource);
   TT_RELEASE_SAFELY(_statusText);
-  TT_RELEASE_SAFELY(_captionStyle);
   TT_RELEASE_SAFELY(_defaultImage);
+	
+	[_model.delegates removeObject:self];
+	TT_RELEASE_SAFELY(_model);
+	TT_RELEASE_SAFELY(_modelError);
+	
   [super dealloc];
 }
 
@@ -378,12 +398,26 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  [super viewWillAppear:animated];
-  [self updateToolbarWithOrientation:self.interfaceOrientation];
+	_isViewAppearing = YES;
+	_hasViewAppeared = YES;
+	
+	[self updateView];
+	
+	[super viewWillAppear:animated];
+
+	[TTURLRequestQueue mainQueue].suspended = YES;
+	
+	[self updateToolbarWithOrientation:self.interfaceOrientation];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	[TTURLRequestQueue mainQueue].suspended = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
   [super viewWillDisappear:animated];
+	_isViewAppearing = NO;
 
   [_scrollView cancelTouches];
   [self pauseAction];
@@ -458,12 +492,10 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 - (void)didRefreshModel {
-  [super didRefreshModel];
   [self updatePhotoView];
 }
 
 - (void)didLoadModel:(BOOL)firstTime {
-  [super didLoadModel:firstTime];
   if (firstTime) {
     [self updatePhotoView];
   }
@@ -512,21 +544,26 @@ static const NSInteger kActivityLabelTag = 96;
       [self updateVisiblePhotoViews];
     }
   }
-  [super modelDidFinishLoad:model];
+	
+	if (model == _model) {
+		TT_RELEASE_SAFELY(_modelError);
+		_flags.isModelDidLoadInvalid = YES;
+		[self invalidateView];
+	}
 }
 
 - (void)model:(id<TTModel>)model didFailLoadWithError:(NSError*)error {
   if (model == _model) {
     [self resetVisiblePhotoViews];
+	  self.modelError = error;
   }
-  [super model:model didFailLoadWithError:error];
 }
 
 - (void)modelDidCancelLoad:(id<TTModel>)model {
   if (model == _model) {
     [self resetVisiblePhotoViews];
+	  [self invalidateView];
   }
-  [super modelDidCancelLoad:model];
 }
 
 - (void)model:(id<TTModel>)model didUpdateObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
@@ -688,6 +725,274 @@ static const NSInteger kActivityLabelTag = 96;
 
     _scrollView.scrollEnabled = YES;
   }
+}
+
+// Model View Controller
+- (void)resetViewStates {
+	if (_flags.isShowingLoading) {
+		[self showLoading:NO];
+		_flags.isShowingLoading = NO;
+	}
+	if (_flags.isShowingModel) {
+		[self showModel:NO];
+		_flags.isShowingModel = NO;
+	}
+	if (_flags.isShowingError) {
+		[self showError:NO];
+		_flags.isShowingError = NO;
+	}
+	if (_flags.isShowingEmpty) {
+		[self showEmpty:NO];
+		_flags.isShowingEmpty = NO;
+	}
+}
+
+- (void)updateViewStates {
+	if (_flags.isModelDidRefreshInvalid) {
+		[self didRefreshModel];
+		_flags.isModelDidRefreshInvalid = NO;
+	}
+	if (_flags.isModelWillLoadInvalid) {
+		[self willLoadModel];
+		_flags.isModelWillLoadInvalid = NO;
+	}
+	if (_flags.isModelDidLoadInvalid) {
+		[self didLoadModel:_flags.isModelDidLoadFirstTimeInvalid];
+		_flags.isModelDidLoadInvalid = NO;
+		_flags.isModelDidLoadFirstTimeInvalid = NO;
+		_flags.isShowingModel = NO;
+	}
+	
+	BOOL showModel = NO, showLoading = NO, showError = NO, showEmpty = NO;
+	
+	if (_model.isLoaded || ![self shouldLoad]) {
+		if ([self canShowModel]) {
+			showModel = !_flags.isShowingModel;
+			_flags.isShowingModel = YES;
+		} else {
+			if (_flags.isShowingModel) {
+				[self showModel:NO];
+				_flags.isShowingModel = NO;
+			}
+		}
+	} else {
+		if (_flags.isShowingModel) {
+			[self showModel:NO];
+			_flags.isShowingModel = NO;
+		}
+	}
+	
+	if (_model.isLoading) {
+		showLoading = !_flags.isShowingLoading;
+		_flags.isShowingLoading = YES;
+	} else {
+		if (_flags.isShowingLoading) {
+			[self showLoading:NO];
+			_flags.isShowingLoading = NO;
+		}
+	}
+	
+	if (_modelError) {
+		showError = !_flags.isShowingError;
+		_flags.isShowingError = YES;
+	} else {
+		if (_flags.isShowingError) {
+			[self showError:NO];
+			_flags.isShowingError = NO;
+		}
+	}
+	
+	if (!_flags.isShowingLoading && !_flags.isShowingModel && !_flags.isShowingError) {
+		showEmpty = !_flags.isShowingEmpty;
+		_flags.isShowingEmpty = YES;
+	} else {
+		if (_flags.isShowingEmpty) {
+			[self showEmpty:NO];
+			_flags.isShowingEmpty = NO;
+		}
+	}
+	
+	if (showModel) {
+		[self showModel:YES];
+		[self didShowModel:_flags.isModelDidShowFirstTimeInvalid];
+		_flags.isModelDidShowFirstTimeInvalid = NO;
+	}
+	if (showEmpty) {
+		[self showEmpty:YES];
+	}
+	if (showError) {
+		[self showError:YES];
+	}
+	if (showLoading) {
+		[self showLoading:YES];
+	}
+}
+
+- (void)createInterstitialModel {
+	self.model = [[[TTModel alloc] init] autorelease];
+}
+
+- (void)delayDidEnd {
+	[self invalidateModel];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// TTModelDelegate
+
+- (void)modelDidStartLoad:(id<TTModel>)model {
+	if (model == self.model) {
+		_flags.isModelWillLoadInvalid = YES;
+		_flags.isModelDidLoadFirstTimeInvalid = YES;
+		[self invalidateView];
+	}
+}
+
+- (void)modelDidChange:(id<TTModel>)model {
+	if (model == _model) {
+		[self refresh];
+	}
+}
+
+- (void)modelDidBeginUpdates:(id<TTModel>)model {
+	if (model == _model) {
+		[self beginUpdates];
+	}
+}
+
+- (void)modelDidEndUpdates:(id<TTModel>)model {
+	if (model == _model) {
+		[self endUpdates];
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// public
+
+- (id<TTModel>)model {
+	if (!_model) {
+		if (!_model) {
+			[self createInterstitialModel];
+		}
+	}
+	return _model;
+}
+
+- (void)setModel:(id<TTModel>)model {
+	if (_model != model) {
+		[_model.delegates removeObject:self];
+		[_model release];
+		_model = [model retain];
+		[_model.delegates addObject:self];
+		TT_RELEASE_SAFELY(_modelError);
+		
+		if (_model) {
+			_flags.isModelWillLoadInvalid = NO;
+			_flags.isModelDidLoadInvalid = NO;
+			_flags.isModelDidLoadFirstTimeInvalid = NO;
+			_flags.isModelDidShowFirstTimeInvalid = YES;
+		}
+		
+		[self refresh];
+	}
+}
+
+- (void)setModelError:(NSError*)error {
+	if (error != _modelError) {
+		[_modelError release];
+		_modelError = [error retain];
+		
+		[self invalidateView];
+	}
+}
+
+- (void)createModel {
+}
+
+- (void)invalidateModel {
+	BOOL wasModelCreated = self.isModelCreated;
+	[self resetViewStates];
+	[_model.delegates removeObject:self];
+	TT_RELEASE_SAFELY(_model);
+	if (wasModelCreated) {
+		self.model;
+	}
+}
+
+- (BOOL)isModelCreated {
+	return !!_model;
+}
+
+- (BOOL)shouldReload {
+	return !_modelError && self.model.isOutdated;
+}
+
+- (void)reload {
+	_flags.isViewInvalid = YES;
+	[self.model load:TTURLRequestCachePolicyNetwork more:NO];
+}
+
+- (void)reloadIfNeeded {
+	if ([self shouldReload] && !self.model.isLoading) {
+		[self reload];
+	}
+}
+
+- (void)refresh {
+	_flags.isViewInvalid = YES;
+	_flags.isModelDidRefreshInvalid = YES;
+	
+	BOOL loading = self.model.isLoading;
+	BOOL loaded = self.model.isLoaded;
+	if (!loading && !loaded && [self shouldLoad]) {
+		[self.model load:TTURLRequestCachePolicyDefault more:NO];
+	} else if (!loading && loaded && [self shouldReload]) {
+		[self.model load:TTURLRequestCachePolicyNetwork more:NO];
+	} else if (!loading && [self shouldLoadMore]) {
+		[self.model load:TTURLRequestCachePolicyDefault more:YES];
+	} else {
+		_flags.isModelDidLoadInvalid = YES;
+		if (_isViewAppearing) {
+			[self updateView];
+		}
+	}
+}
+
+- (void)beginUpdates {
+	_flags.isViewSuspended = YES;
+}
+
+- (void)endUpdates {
+	_flags.isViewSuspended = NO;
+	[self updateView];
+}
+
+- (void)invalidateView {
+	_flags.isViewInvalid = YES;
+	if (_isViewAppearing) {
+		[self updateView];
+	}
+}
+
+- (void)updateView {
+	if (_flags.isViewInvalid && !_flags.isViewSuspended && !_flags.isUpdatingView) {
+		_flags.isUpdatingView = YES;
+		
+		// Ensure the model is created
+		self.model;
+		// Ensure the view is created
+		self.view;
+		
+		[self updateViewStates];
+	}
+}
+
+- (void)willLoadModel {
+}
+
+- (void)didShowModel:(BOOL)firstTime {
+}
+
+- (void)showModel:(BOOL)show {
 }
 
 @end
