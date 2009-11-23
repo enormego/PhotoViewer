@@ -2,7 +2,6 @@
 #import "PhotoViewer/TTURLMap.h"
 #import "PhotoViewer/TTURLPattern.h"
 #import "PhotoViewer/TTTableViewController.h"
-#import "PhotoViewer/TTPopupViewController.h"
 #import "PhotoViewer/TTSearchDisplayController.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -119,13 +118,6 @@
   }
 }
 
-- (void)presentPopupController:(TTPopupViewController*)controller
-        parent:(UIViewController*)parentController animated:(BOOL)animated {
-  parentController.popupViewController = controller;
-  controller.superController = parentController;
-  [controller showInView:parentController.view animated:animated];
-}
-
 - (void)presentModalController:(UIViewController*)controller
         parent:(UIViewController*)parentController animated:(BOOL)animated
         transition:(NSInteger)transition {
@@ -156,16 +148,6 @@
         }
       }
       return NO;
-    } else if (parentController) {
-      if ([controller isKindOfClass:[TTPopupViewController class]]) {
-        TTPopupViewController* popupViewController  = (TTPopupViewController*)controller;
-        [self presentPopupController:popupViewController parent:parentController animated:animated];
-      } else if (mode == TTNavigationModeModal) {
-        [self presentModalController:controller parent:parentController animated:animated
-              transition:transition];
-      } else {
-        [parentController addSubcontroller:controller animated:animated transition:transition];
-      }
     }
   }
   return YES;

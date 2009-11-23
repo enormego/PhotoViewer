@@ -363,16 +363,6 @@
     self.view;
 
     [self updateViewStates];
-
-    if (_frozenState && _flags.isShowingModel) {
-      [self restoreView:_frozenState];
-      TT_RELEASE_SAFELY(_frozenState);
-    }
-
-    _flags.isViewInvalid = NO;
-    _flags.isUpdatingView = NO;
-
-    [self reloadIfNeeded];
   }
 }
 

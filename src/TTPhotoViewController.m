@@ -65,9 +65,7 @@ static const NSInteger kActivityLabelTag = 96;
   if (_photoSource.numberOfPhotos < 2) {
     self.title = _photoSource.title;
   } else {
-    self.title = [NSString stringWithFormat:
-      TTLocalizedString(@"%d of %d", @"Current page in photo browser (1 of 10)"),
-      _centerPhotoIndex+1, _photoSource.numberOfPhotos];
+    self.title = [NSString stringWithFormat: TTLocalizedString(@"%d of %d", @"Current page in photo browser (1 of 10)"), _centerPhotoIndex+1, _photoSource.numberOfPhotos];
   }
 
   if (![self.previousViewController isKindOfClass:[TTThumbsViewController class]]) {
@@ -314,9 +312,6 @@ static const NSInteger kActivityLabelTag = 96;
       TTLocalizedString(@"Photo", @"Title for back button that returns to photo browser")
       style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
 
-    self.statusBarStyle = UIStatusBarStyleBlackTranslucent;
-    self.navigationBarStyle = UIBarStyleBlackTranslucent;
-    self.navigationBarTintColor = nil;
     self.wantsFullScreenLayout = YES;
     self.hidesBottomBarWhenPushed = YES;
 
@@ -375,7 +370,7 @@ static const NSInteger kActivityLabelTag = 96;
   _toolbar = [[UIToolbar alloc] initWithFrame:
     CGRectMake(0, screenFrame.size.height - TT_ROW_HEIGHT,
                screenFrame.size.width, TT_ROW_HEIGHT)];
-  _toolbar.barStyle = self.navigationBarStyle;
+  _toolbar.barStyle = self.navigationController.navigationBar.barStyle;
   _toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin;
   _toolbar.items = [NSArray arrayWithObjects:
                    space, _previousButton, space, _nextButton, space, nil];

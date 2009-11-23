@@ -224,28 +224,6 @@ static const CGFloat kBannerViewHeight = 22;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTViewController
-
-- (void)keyboardDidAppear:(BOOL)animated withBounds:(CGRect)bounds {
-  [super keyboardDidAppear:animated withBounds:bounds];
-  self.tableView.frame = TTRectContract(self.tableView.frame, 0, bounds.size.height);
-  [self.tableView scrollFirstResponderIntoView];
-  [self layoutOverlayView];
-  [self layoutBannerView];
-}
-
-- (void)keyboardWillDisappear:(BOOL)animated withBounds:(CGRect)bounds {
-  [super keyboardWillDisappear:animated withBounds:bounds];
-  self.tableView.frame = TTRectContract(self.tableView.frame, 0, -bounds.size.height);
-}
-
-- (void)keyboardDidDisappear:(BOOL)animated withBounds:(CGRect)bounds {
-  [super keyboardDidDisappear:animated withBounds:bounds];
-  [self layoutOverlayView];
-  [self layoutBannerView];
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 // TTModelViewController
 
 - (void)beginUpdates {

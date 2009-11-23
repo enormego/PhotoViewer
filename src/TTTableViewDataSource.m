@@ -2,7 +2,6 @@
 #import "PhotoViewer/TTTableItem.h"
 #import "PhotoViewer/TTTableItemCell.h"
 #import "PhotoViewer/TTURLCache.h"
-#import "PhotoViewer/TTTextEditor.h"
 #import "PhotoViewer/TTStyledText.h"
 #import <objc/runtime.h>
 
@@ -182,10 +181,6 @@
     }
   } else if ([object isKindOfClass:[TTStyledText class]]) {
     return [TTStyledTextTableCell class];
-  } else if ([object isKindOfClass:[UIControl class]]
-             || [object isKindOfClass:[UITextView class]]
-             || [object isKindOfClass:[TTTextEditor class]]) {
-    return [TTTableControlCell class];
   } else if ([object isKindOfClass:[UIView class]]) {
     return [TTTableFlushViewCell class];
   }

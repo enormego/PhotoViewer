@@ -22,12 +22,8 @@
 		BE23E72B100B0A7200F40C3B /* TTListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = BE23E72A100B0A7200F40C3B /* TTListDataSource.h */; };
 		BE23E72D100B0ACD00F40C3B /* TTListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BE23E72C100B0ACD00F40C3B /* TTListDataSource.m */; };
 		BE23E798100B13E200F40C3B /* TTModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BE23E797100B13E200F40C3B /* TTModel.h */; };
-		BE30DB791056FD7D00FEB457 /* TTTextBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = BE30DB781056FD7D00FEB457 /* TTTextBarController.h */; };
-		BE30DB7B1056FD8700FEB457 /* TTTextBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE30DB7A1056FD8700FEB457 /* TTTextBarController.m */; };
 		BE3EDE410F80C78500A732BE /* TTStyledText.h in Headers */ = {isa = PBXBuildFile; fileRef = BE3EDE400F80C78500A732BE /* TTStyledText.h */; };
 		BE3EDE430F80C79600A732BE /* TTStyledText.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3EDE420F80C79600A732BE /* TTStyledText.m */; };
-		BE42FB130F3BBAA900A3B65A /* TTLink.m in Sources */ = {isa = PBXBuildFile; fileRef = BE42FB120F3BBAA900A3B65A /* TTLink.m */; };
-		BE42FB160F3BBAB400A3B65A /* TTLink.h in Headers */ = {isa = PBXBuildFile; fileRef = BE42FB150F3BBAB400A3B65A /* TTLink.h */; };
 		BE42FB7A0F3BBF3500A3B65A /* TTTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BE42FB790F3BBF3400A3B65A /* TTTabBar.m */; };
 		BE42FB7C0F3BBF3D00A3B65A /* TTTabBar.h in Headers */ = {isa = PBXBuildFile; fileRef = BE42FB7B0F3BBF3D00A3B65A /* TTTabBar.h */; };
 		BE52E93F100D7DEE00E03DB7 /* TTModelViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BE52E93E100D7DEE00E03DB7 /* TTModelViewController.h */; };
@@ -57,8 +53,6 @@
 		BE8A9C190F4143DA00FD8C43 /* TTURLRequestQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = BE8A9C180F4143DA00FD8C43 /* TTURLRequestQueue.h */; };
 		BE8AA1910F428A3700FD8C43 /* UIViewControllerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8AA1900F428A3700FD8C43 /* UIViewControllerAdditions.m */; };
 		BE8AA1930F428A4900FD8C43 /* UIViewControllerAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = BE8AA1920F428A4900FD8C43 /* UIViewControllerAdditions.h */; };
-		BEA69ECB0FAC0FD600DA7DDC /* TTWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA69ECA0FAC0FD600DA7DDC /* TTWebController.m */; };
-		BEA69ECD0FAC0FEC00DA7DDC /* TTWebController.h in Headers */ = {isa = PBXBuildFile; fileRef = BEA69ECC0FAC0FEC00DA7DDC /* TTWebController.h */; };
 		BEA6B8E41013FC3400B83B3A /* UIFontAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = BEA6B8E31013FC3400B83B3A /* UIFontAdditions.h */; };
 		BEA6B8E61013FC4900B83B3A /* UIFontAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA6B8E51013FC4900B83B3A /* UIFontAdditions.m */; };
 		BEA7624E0FBA1E220091B567 /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA7624D0FBA1E220091B567 /* NSDateAdditions.m */; };
@@ -81,7 +75,6 @@
 		BEB210D40FA3E784007DEE5F /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = BEB210D30FA3E784007DEE5F /* NSStringAdditions.h */; };
 		BEB460830F8EE14C004B34A0 /* TTLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = BEB460820F8EE14C004B34A0 /* TTLabel.h */; };
 		BEB460850F8EE156004B34A0 /* TTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB460840F8EE156004B34A0 /* TTLabel.m */; };
-		BEB463DD0F8F2DB5004B34A0 /* developer.h in Headers */ = {isa = PBXBuildFile; fileRef = BEB463DC0F8F2DB5004B34A0 /* developer.h */; };
 		BEBB12741003EB5400744230 /* TTURLPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = BEBB12721003EB5400744230 /* TTURLPattern.m */; };
 		BEBB198310068D0F00744230 /* TTNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = BEBB198210068D0F00744230 /* TTNavigator.m */; };
 		BEBB198E10068D5800744230 /* TTNavigator.h in Headers */ = {isa = PBXBuildFile; fileRef = BEBB198D10068D5800744230 /* TTNavigator.h */; };
@@ -92,20 +85,8 @@
 		BEC270B40F8C9D2600EA638F /* TTLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC270B30F8C9D2600EA638F /* TTLayout.m */; };
 		BEC5EC3F0F8C29DA007622CD /* TTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5EC3E0F8C29DA007622CD /* TTButton.m */; };
 		BEC5EC410F8C29EA007622CD /* TTButton.h in Headers */ = {isa = PBXBuildFile; fileRef = BEC5EC400F8C29EA007622CD /* TTButton.h */; };
-		BEC787461040A33A005C00CF /* TTLauncherView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC787451040A33A005C00CF /* TTLauncherView.m */; };
-		BEC787481040A34E005C00CF /* TTLauncherView.h in Headers */ = {isa = PBXBuildFile; fileRef = BEC787471040A34E005C00CF /* TTLauncherView.h */; };
-		BEC787951040A6C7005C00CF /* TTLauncherButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC787931040A6C7005C00CF /* TTLauncherButton.m */; };
-		BEC787971040A6EC005C00CF /* TTLauncherButton.h in Headers */ = {isa = PBXBuildFile; fileRef = BEC787961040A6EC005C00CF /* TTLauncherButton.h */; };
-		BEC787B51040A79F005C00CF /* TTLauncherItem.h in Headers */ = {isa = PBXBuildFile; fileRef = BEC787B41040A79F005C00CF /* TTLauncherItem.h */; };
-		BEC787B71040A7AA005C00CF /* TTLauncherItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC787B61040A7AA005C00CF /* TTLauncherItem.m */; };
 		BECB1EC60F46C39F00AE5B52 /* TTStyleSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = BECB1EC50F46C39F00AE5B52 /* TTStyleSheet.h */; };
 		BECB1EC80F46C3B000AE5B52 /* TTStyleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = BECB1EC70F46C3B000AE5B52 /* TTStyleSheet.m */; };
-		BED036EB10090FAA0083AC18 /* TTAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED036EA10090FAA0083AC18 /* TTAlertViewController.m */; };
-		BED036ED10090FB90083AC18 /* TTAlertViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BED036EC10090FB90083AC18 /* TTAlertViewController.h */; };
-		BED03764100915700083AC18 /* TTActionSheetController.h in Headers */ = {isa = PBXBuildFile; fileRef = BED03763100915700083AC18 /* TTActionSheetController.h */; };
-		BED03766100915820083AC18 /* TTActionSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED03765100915820083AC18 /* TTActionSheetController.m */; };
-		BED037A1100920C60083AC18 /* TTPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BED037A0100920C60083AC18 /* TTPopupViewController.m */; };
-		BED037A3100920CC0083AC18 /* TTPopupViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BED037A2100920CC0083AC18 /* TTPopupViewController.h */; };
 		BED4290F0F97F5C70035B153 /* TTTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = BED4290E0F97F5C70035B153 /* TTTableView.h */; };
 		BED429110F97F5DD0035B153 /* TTTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BED429100F97F5DD0035B153 /* TTTableView.m */; };
 		BED429420F97F7DB0035B153 /* TTButtonBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BED429410F97F7DB0035B153 /* TTButtonBar.m */; };
@@ -116,18 +97,6 @@
 		BED62FDB0F882FE3009923D8 /* TTTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BED62FDA0F882FE3009923D8 /* TTTableViewDelegate.m */; };
 		BEDCF3270F4EBE1D0060B7D1 /* TTURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDCF3260F4EBE1D0060B7D1 /* TTURLResponse.m */; };
 		BEDCF3290F4EBE2F0060B7D1 /* TTURLResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = BEDCF3280F4EBE2F0060B7D1 /* TTURLResponse.h */; };
-		BEE3419D0F480B87008C826E /* TTPickerTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = BEE3419C0F480B87008C826E /* TTPickerTextField.h */; };
-		BEE341A60F480BA2008C826E /* TTPickerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE341A50F480BA2008C826E /* TTPickerTextField.m */; };
-		BEE341BE0F48133F008C826E /* TTPickerViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = BEE341BD0F48133F008C826E /* TTPickerViewCell.h */; };
-		BEE341C00F481345008C826E /* TTPickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE341BF0F481345008C826E /* TTPickerViewCell.m */; };
-		BEE341CD0F48159F008C826E /* TTSearchTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = BEE341CC0F48159F008C826E /* TTSearchTextField.h */; };
-		BEE341CF0F4815B0008C826E /* TTSearchTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE341CE0F4815B0008C826E /* TTSearchTextField.m */; };
-		BEE3476E0F48F5F6008C826E /* TTSearchBar.h in Headers */ = {isa = PBXBuildFile; fileRef = BEE3476D0F48F5F6008C826E /* TTSearchBar.h */; };
-		BEE347700F48F604008C826E /* TTSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE3476F0F48F604008C826E /* TTSearchBar.m */; };
-		BEE34EAE0F495C42008C826E /* TTMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE34EAD0F495C42008C826E /* TTMessageController.m */; };
-		BEE34EB00F495C4A008C826E /* TTMessageController.h in Headers */ = {isa = PBXBuildFile; fileRef = BEE34EAF0F495C4A008C826E /* TTMessageController.h */; };
-		BEE34F250F496615008C826E /* TTTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE34F240F496615008C826E /* TTTextEditor.m */; };
-		BEE34F270F496620008C826E /* TTTextEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = BEE34F260F496620008C826E /* TTTextEditor.h */; };
 		BEF198E00F818A1C0010D36E /* TTStyledNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF198DF0F818A1C0010D36E /* TTStyledNode.m */; };
 		BEF198E20F818A240010D36E /* TTStyledNode.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF198E10F818A240010D36E /* TTStyledNode.h */; };
 		BEF19D6B0F81B8440010D36E /* TTStyledTextParser.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF19D6A0F81B8440010D36E /* TTStyledTextParser.h */; };
@@ -148,7 +117,6 @@
 		BEF31F7E0F352E64000DE5D2 /* TTURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F540F352E64000DE5D2 /* TTURLCache.m */; };
 		BEF31F800F352E64000DE5D2 /* TTURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F560F352E64000DE5D2 /* TTURLRequest.m */; };
 		BEF31F810F352E64000DE5D2 /* TTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F570F352E64000DE5D2 /* TTViewController.m */; };
-		BEF31F820F352E64000DE5D2 /* TTYouTubeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F580F352E64000DE5D2 /* TTYouTubeView.m */; };
 		BEF31F830F352E64000DE5D2 /* TTActivityLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F5A0F352E64000DE5D2 /* TTActivityLabel.h */; };
 		BEF31F840F352E64000DE5D2 /* TTErrorView.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F5B0F352E64000DE5D2 /* TTErrorView.h */; };
 		BEF31F850F352E64000DE5D2 /* TTGlobal.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F5C0F352E64000DE5D2 /* TTGlobal.h */; };
@@ -166,15 +134,12 @@
 		BEF31F930F352E64000DE5D2 /* TTURLCache.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F6A0F352E64000DE5D2 /* TTURLCache.h */; };
 		BEF31F950F352E64000DE5D2 /* TTURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F6C0F352E64000DE5D2 /* TTURLRequest.h */; };
 		BEF31F960F352E64000DE5D2 /* TTViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F6D0F352E64000DE5D2 /* TTViewController.h */; };
-		BEF31F970F352E64000DE5D2 /* TTYouTubeView.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F6E0F352E64000DE5D2 /* TTYouTubeView.h */; };
 		BEF31F980F352E64000DE5D2 /* PhotoViewer.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F6F0F352E64000DE5D2 /* PhotoViewer.h */; };
 		BEF320350F352E7A000DE5D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		BEF320360F352E7A000DE5D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		BEF320370F352E7A000DE5D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		BEF341950F8042440027E93C /* TTStyledTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF341940F8042440027E93C /* TTStyledTextLabel.m */; };
 		BEF341970F8042520027E93C /* TTStyledTextLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF341960F8042520027E93C /* TTStyledTextLabel.h */; };
-		BEF45BC61019CA4400E9EC07 /* TTPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF45BC41019CA4400E9EC07 /* TTPostController.m */; };
-		BEF45BC81019CA8500E9EC07 /* TTPostController.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF45BC71019CA8500E9EC07 /* TTPostController.h */; };
 		C6620EAD109CEDA400EC35C6 /* UIWindowAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C6620EAB109CEDA400EC35C6 /* UIWindowAdditions.h */; };
 		C6620EAE109CEDA400EC35C6 /* UIWindowAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C6620EAC109CEDA400EC35C6 /* UIWindowAdditions.m */; };
 		EB1F6C5F10B36C32003DAA1F /* TTDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1F6C5D10B36C32003DAA1F /* TTDebug.m */; };
@@ -202,12 +167,8 @@
 		BE23E72A100B0A7200F40C3B /* TTListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTListDataSource.h; path = PhotoViewer/TTListDataSource.h; sourceTree = "<group>"; };
 		BE23E72C100B0ACD00F40C3B /* TTListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTListDataSource.m; sourceTree = "<group>"; };
 		BE23E797100B13E200F40C3B /* TTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTModel.h; path = PhotoViewer/TTModel.h; sourceTree = "<group>"; };
-		BE30DB781056FD7D00FEB457 /* TTTextBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTextBarController.h; path = PhotoViewer/TTTextBarController.h; sourceTree = "<group>"; };
-		BE30DB7A1056FD8700FEB457 /* TTTextBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTextBarController.m; sourceTree = "<group>"; };
 		BE3EDE400F80C78500A732BE /* TTStyledText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTStyledText.h; path = PhotoViewer/TTStyledText.h; sourceTree = "<group>"; };
 		BE3EDE420F80C79600A732BE /* TTStyledText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledText.m; sourceTree = "<group>"; };
-		BE42FB120F3BBAA900A3B65A /* TTLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLink.m; sourceTree = "<group>"; };
-		BE42FB150F3BBAB400A3B65A /* TTLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTLink.h; path = PhotoViewer/TTLink.h; sourceTree = "<group>"; };
 		BE42FB790F3BBF3400A3B65A /* TTTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTabBar.m; sourceTree = "<group>"; };
 		BE42FB7B0F3BBF3D00A3B65A /* TTTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTabBar.h; path = PhotoViewer/TTTabBar.h; sourceTree = "<group>"; };
 		BE52E93E100D7DEE00E03DB7 /* TTModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTModelViewController.h; path = PhotoViewer/TTModelViewController.h; sourceTree = "<group>"; };
@@ -237,8 +198,6 @@
 		BE8A9C180F4143DA00FD8C43 /* TTURLRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTURLRequestQueue.h; path = PhotoViewer/TTURLRequestQueue.h; sourceTree = "<group>"; };
 		BE8AA1900F428A3700FD8C43 /* UIViewControllerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerAdditions.m; sourceTree = "<group>"; };
 		BE8AA1920F428A4900FD8C43 /* UIViewControllerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewControllerAdditions.h; path = PhotoViewer/UIViewControllerAdditions.h; sourceTree = "<group>"; };
-		BEA69ECA0FAC0FD600DA7DDC /* TTWebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebController.m; sourceTree = "<group>"; };
-		BEA69ECC0FAC0FEC00DA7DDC /* TTWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTWebController.h; path = PhotoViewer/TTWebController.h; sourceTree = "<group>"; };
 		BEA6B8E31013FC3400B83B3A /* UIFontAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIFontAdditions.h; path = PhotoViewer/UIFontAdditions.h; sourceTree = "<group>"; };
 		BEA6B8E51013FC4900B83B3A /* UIFontAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFontAdditions.m; sourceTree = "<group>"; };
 		BEA7624D0FBA1E220091B567 /* NSDateAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateAdditions.m; sourceTree = "<group>"; };
@@ -261,7 +220,6 @@
 		BEB210D30FA3E784007DEE5F /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSStringAdditions.h; path = PhotoViewer/NSStringAdditions.h; sourceTree = "<group>"; };
 		BEB460820F8EE14C004B34A0 /* TTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTLabel.h; path = PhotoViewer/TTLabel.h; sourceTree = "<group>"; };
 		BEB460840F8EE156004B34A0 /* TTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLabel.m; sourceTree = "<group>"; };
-		BEB463DC0F8F2DB5004B34A0 /* developer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = developer.h; path = PhotoViewer/developer.h; sourceTree = "<group>"; };
 		BEBB12721003EB5400744230 /* TTURLPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLPattern.m; sourceTree = "<group>"; };
 		BEBB198210068D0F00744230 /* TTNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTNavigator.m; sourceTree = "<group>"; };
 		BEBB198D10068D5800744230 /* TTNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTNavigator.h; path = PhotoViewer/TTNavigator.h; sourceTree = "<group>"; };
@@ -272,20 +230,8 @@
 		BEC270B30F8C9D2600EA638F /* TTLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLayout.m; sourceTree = "<group>"; };
 		BEC5EC3E0F8C29DA007622CD /* TTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTButton.m; sourceTree = "<group>"; };
 		BEC5EC400F8C29EA007622CD /* TTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTButton.h; path = PhotoViewer/TTButton.h; sourceTree = "<group>"; };
-		BEC787451040A33A005C00CF /* TTLauncherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLauncherView.m; sourceTree = "<group>"; };
-		BEC787471040A34E005C00CF /* TTLauncherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTLauncherView.h; path = PhotoViewer/TTLauncherView.h; sourceTree = "<group>"; };
-		BEC787931040A6C7005C00CF /* TTLauncherButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLauncherButton.m; sourceTree = "<group>"; };
-		BEC787961040A6EC005C00CF /* TTLauncherButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTLauncherButton.h; path = PhotoViewer/TTLauncherButton.h; sourceTree = "<group>"; };
-		BEC787B41040A79F005C00CF /* TTLauncherItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTLauncherItem.h; path = PhotoViewer/TTLauncherItem.h; sourceTree = "<group>"; };
-		BEC787B61040A7AA005C00CF /* TTLauncherItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLauncherItem.m; sourceTree = "<group>"; };
 		BECB1EC50F46C39F00AE5B52 /* TTStyleSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTStyleSheet.h; path = PhotoViewer/TTStyleSheet.h; sourceTree = "<group>"; };
 		BECB1EC70F46C3B000AE5B52 /* TTStyleSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyleSheet.m; sourceTree = "<group>"; };
-		BED036EA10090FAA0083AC18 /* TTAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAlertViewController.m; sourceTree = "<group>"; };
-		BED036EC10090FB90083AC18 /* TTAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTAlertViewController.h; path = PhotoViewer/TTAlertViewController.h; sourceTree = "<group>"; };
-		BED03763100915700083AC18 /* TTActionSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTActionSheetController.h; path = PhotoViewer/TTActionSheetController.h; sourceTree = "<group>"; };
-		BED03765100915820083AC18 /* TTActionSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTActionSheetController.m; sourceTree = "<group>"; };
-		BED037A0100920C60083AC18 /* TTPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPopupViewController.m; sourceTree = "<group>"; };
-		BED037A2100920CC0083AC18 /* TTPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTPopupViewController.h; path = PhotoViewer/TTPopupViewController.h; sourceTree = "<group>"; };
 		BED4290E0F97F5C70035B153 /* TTTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTableView.h; path = PhotoViewer/TTTableView.h; sourceTree = "<group>"; };
 		BED429100F97F5DD0035B153 /* TTTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTableView.m; sourceTree = "<group>"; };
 		BED429410F97F7DB0035B153 /* TTButtonBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTButtonBar.m; sourceTree = "<group>"; };
@@ -296,18 +242,6 @@
 		BED62FDA0F882FE3009923D8 /* TTTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTableViewDelegate.m; sourceTree = "<group>"; };
 		BEDCF3260F4EBE1D0060B7D1 /* TTURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLResponse.m; sourceTree = "<group>"; };
 		BEDCF3280F4EBE2F0060B7D1 /* TTURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTURLResponse.h; path = PhotoViewer/TTURLResponse.h; sourceTree = "<group>"; };
-		BEE3419C0F480B87008C826E /* TTPickerTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTPickerTextField.h; path = PhotoViewer/TTPickerTextField.h; sourceTree = "<group>"; };
-		BEE341A50F480BA2008C826E /* TTPickerTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPickerTextField.m; sourceTree = "<group>"; };
-		BEE341BD0F48133F008C826E /* TTPickerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTPickerViewCell.h; path = PhotoViewer/TTPickerViewCell.h; sourceTree = "<group>"; };
-		BEE341BF0F481345008C826E /* TTPickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPickerViewCell.m; sourceTree = "<group>"; };
-		BEE341CC0F48159F008C826E /* TTSearchTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSearchTextField.h; path = PhotoViewer/TTSearchTextField.h; sourceTree = "<group>"; };
-		BEE341CE0F4815B0008C826E /* TTSearchTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSearchTextField.m; sourceTree = "<group>"; };
-		BEE3476D0F48F5F6008C826E /* TTSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSearchBar.h; path = PhotoViewer/TTSearchBar.h; sourceTree = "<group>"; };
-		BEE3476F0F48F604008C826E /* TTSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSearchBar.m; sourceTree = "<group>"; };
-		BEE34EAD0F495C42008C826E /* TTMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMessageController.m; sourceTree = "<group>"; };
-		BEE34EAF0F495C4A008C826E /* TTMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTMessageController.h; path = PhotoViewer/TTMessageController.h; sourceTree = "<group>"; };
-		BEE34F240F496615008C826E /* TTTextEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTextEditor.m; sourceTree = "<group>"; };
-		BEE34F260F496620008C826E /* TTTextEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTextEditor.h; path = PhotoViewer/TTTextEditor.h; sourceTree = "<group>"; };
 		BEF198DF0F818A1C0010D36E /* TTStyledNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledNode.m; sourceTree = "<group>"; };
 		BEF198E10F818A240010D36E /* TTStyledNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTStyledNode.h; path = PhotoViewer/TTStyledNode.h; sourceTree = "<group>"; };
 		BEF19D6A0F81B8440010D36E /* TTStyledTextParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTStyledTextParser.h; path = PhotoViewer/TTStyledTextParser.h; sourceTree = "<group>"; };
@@ -329,7 +263,6 @@
 		BEF31F540F352E64000DE5D2 /* TTURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLCache.m; sourceTree = "<group>"; };
 		BEF31F560F352E64000DE5D2 /* TTURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLRequest.m; sourceTree = "<group>"; };
 		BEF31F570F352E64000DE5D2 /* TTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTViewController.m; sourceTree = "<group>"; };
-		BEF31F580F352E64000DE5D2 /* TTYouTubeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTYouTubeView.m; sourceTree = "<group>"; };
 		BEF31F5A0F352E64000DE5D2 /* TTActivityLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTActivityLabel.h; path = PhotoViewer/TTActivityLabel.h; sourceTree = "<group>"; };
 		BEF31F5B0F352E64000DE5D2 /* TTErrorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTErrorView.h; path = PhotoViewer/TTErrorView.h; sourceTree = "<group>"; };
 		BEF31F5C0F352E64000DE5D2 /* TTGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTGlobal.h; path = PhotoViewer/TTGlobal.h; sourceTree = "<group>"; };
@@ -347,12 +280,9 @@
 		BEF31F6A0F352E64000DE5D2 /* TTURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTURLCache.h; path = PhotoViewer/TTURLCache.h; sourceTree = "<group>"; };
 		BEF31F6C0F352E64000DE5D2 /* TTURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTURLRequest.h; path = PhotoViewer/TTURLRequest.h; sourceTree = "<group>"; };
 		BEF31F6D0F352E64000DE5D2 /* TTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTViewController.h; path = PhotoViewer/TTViewController.h; sourceTree = "<group>"; };
-		BEF31F6E0F352E64000DE5D2 /* TTYouTubeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTYouTubeView.h; path = PhotoViewer/TTYouTubeView.h; sourceTree = "<group>"; };
 		BEF31F6F0F352E64000DE5D2 /* PhotoViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoViewer.h; path = PhotoViewer/PhotoViewer.h; sourceTree = "<group>"; };
 		BEF341940F8042440027E93C /* TTStyledTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledTextLabel.m; sourceTree = "<group>"; };
 		BEF341960F8042520027E93C /* TTStyledTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTStyledTextLabel.h; path = PhotoViewer/TTStyledTextLabel.h; sourceTree = "<group>"; };
-		BEF45BC41019CA4400E9EC07 /* TTPostController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPostController.m; sourceTree = "<group>"; };
-		BEF45BC71019CA8500E9EC07 /* TTPostController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTPostController.h; path = PhotoViewer/TTPostController.h; sourceTree = "<group>"; };
 		C6620EAB109CEDA400EC35C6 /* UIWindowAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIWindowAdditions.h; path = PhotoViewer/UIWindowAdditions.h; sourceTree = "<group>"; };
 		C6620EAC109CEDA400EC35C6 /* UIWindowAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWindowAdditions.m; sourceTree = "<group>"; };
 		EB1F6C5D10B36C32003DAA1F /* TTDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDebug.m; sourceTree = "<group>"; };
@@ -396,15 +326,12 @@
 				BEF31F450F352E64000DE5D2 /* Views */,
 				BEB460380F8EDE60004B34A0 /* Labels */,
 				BED631A10F88554F009923D8 /* Buttons and Tabs */,
-				BEE341A40F480B91008C826E /* Text Fields */,
 				BE702EEF0F43F46E0028A119 /* Tables */,
 				BEF321B20F353B50000DE5D2 /* Photos */,
-				BEC787A51040A783005C00CF /* Springboard */,
 				BEF321B00F353B15000DE5D2 /* Network */,
 				BE8AA1870F428A0F00FD8C43 /* Additions */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				BEB463DC0F8F2DB5004B34A0 /* developer.h */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -558,26 +485,11 @@
 			name = Navigator;
 			sourceTree = "<group>";
 		};
-		BEC787A51040A783005C00CF /* Springboard */ = {
-			isa = PBXGroup;
-			children = (
-				BEC787471040A34E005C00CF /* TTLauncherView.h */,
-				BEC787451040A33A005C00CF /* TTLauncherView.m */,
-				BEC787B41040A79F005C00CF /* TTLauncherItem.h */,
-				BEC787B61040A7AA005C00CF /* TTLauncherItem.m */,
-				BEC787961040A6EC005C00CF /* TTLauncherButton.h */,
-				BEC787931040A6C7005C00CF /* TTLauncherButton.m */,
-			);
-			name = Springboard;
-			sourceTree = "<group>";
-		};
 		BED631A10F88554F009923D8 /* Buttons and Tabs */ = {
 			isa = PBXGroup;
 			children = (
 				BEC5EC400F8C29EA007622CD /* TTButton.h */,
 				BEC5EC3E0F8C29DA007622CD /* TTButton.m */,
-				BE42FB150F3BBAB400A3B65A /* TTLink.h */,
-				BE42FB120F3BBAA900A3B65A /* TTLink.m */,
 				BE42FB7B0F3BBF3D00A3B65A /* TTTabBar.h */,
 				BE42FB790F3BBF3400A3B65A /* TTTabBar.m */,
 				BED429440F97F7E50035B153 /* TTButtonBar.h */,
@@ -588,23 +500,6 @@
 			name = "Buttons and Tabs";
 			sourceTree = "<group>";
 		};
-		BEE341A40F480B91008C826E /* Text Fields */ = {
-			isa = PBXGroup;
-			children = (
-				BEE34F260F496620008C826E /* TTTextEditor.h */,
-				BEE34F240F496615008C826E /* TTTextEditor.m */,
-				BEE341CC0F48159F008C826E /* TTSearchTextField.h */,
-				BEE341CE0F4815B0008C826E /* TTSearchTextField.m */,
-				BEE3419C0F480B87008C826E /* TTPickerTextField.h */,
-				BEE341A50F480BA2008C826E /* TTPickerTextField.m */,
-				BEE341BD0F48133F008C826E /* TTPickerViewCell.h */,
-				BEE341BF0F481345008C826E /* TTPickerViewCell.m */,
-				BEE3476D0F48F5F6008C826E /* TTSearchBar.h */,
-				BEE3476F0F48F604008C826E /* TTSearchBar.m */,
-			);
-			name = "Text Fields";
-			sourceTree = "<group>";
-		};
 		BEF31F450F352E64000DE5D2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,8 +507,6 @@
 				BEF31F4A0F352E64000DE5D2 /* TTView.m */,
 				BEF31F5D0F352E64000DE5D2 /* TTImageView.h */,
 				BEF31F490F352E64000DE5D2 /* TTImageView.m */,
-				BEF31F6E0F352E64000DE5D2 /* TTYouTubeView.h */,
-				BEF31F580F352E64000DE5D2 /* TTYouTubeView.m */,
 				BEF31F630F352E64000DE5D2 /* TTScrollView.h */,
 				BEF31F4D0F352E64000DE5D2 /* TTScrollView.m */,
 			);
@@ -672,20 +565,6 @@
 			children = (
 				BEF31F6D0F352E64000DE5D2 /* TTViewController.h */,
 				BEF31F570F352E64000DE5D2 /* TTViewController.m */,
-				BEA69ECC0FAC0FEC00DA7DDC /* TTWebController.h */,
-				BEA69ECA0FAC0FD600DA7DDC /* TTWebController.m */,
-				BEE34EAF0F495C4A008C826E /* TTMessageController.h */,
-				BEE34EAD0F495C42008C826E /* TTMessageController.m */,
-				BED037A2100920CC0083AC18 /* TTPopupViewController.h */,
-				BED037A0100920C60083AC18 /* TTPopupViewController.m */,
-				BED036EC10090FB90083AC18 /* TTAlertViewController.h */,
-				BED036EA10090FAA0083AC18 /* TTAlertViewController.m */,
-				BED03763100915700083AC18 /* TTActionSheetController.h */,
-				BED03765100915820083AC18 /* TTActionSheetController.m */,
-				BEF45BC71019CA8500E9EC07 /* TTPostController.h */,
-				BEF45BC41019CA4400E9EC07 /* TTPostController.m */,
-				BE30DB781056FD7D00FEB457 /* TTTextBarController.h */,
-				BE30DB7A1056FD8700FEB457 /* TTTextBarController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -725,9 +604,7 @@
 				BEF31F930F352E64000DE5D2 /* TTURLCache.h in Headers */,
 				BEF31F950F352E64000DE5D2 /* TTURLRequest.h in Headers */,
 				BEF31F960F352E64000DE5D2 /* TTViewController.h in Headers */,
-				BEF31F970F352E64000DE5D2 /* TTYouTubeView.h in Headers */,
 				BEF31F980F352E64000DE5D2 /* PhotoViewer.h in Headers */,
-				BE42FB160F3BBAB400A3B65A /* TTLink.h in Headers */,
 				BE42FB7C0F3BBF3D00A3B65A /* TTTabBar.h in Headers */,
 				BE8A9C190F4143DA00FD8C43 /* TTURLRequestQueue.h in Headers */,
 				BE8AA1930F428A4900FD8C43 /* UIViewControllerAdditions.h in Headers */,
@@ -736,12 +613,6 @@
 				BE702EFB0F43F9DC0028A119 /* TTTableItem.h in Headers */,
 				BE6E4A540F465243001CE9B4 /* TTTableViewCell.h in Headers */,
 				BECB1EC60F46C39F00AE5B52 /* TTStyleSheet.h in Headers */,
-				BEE3419D0F480B87008C826E /* TTPickerTextField.h in Headers */,
-				BEE341BE0F48133F008C826E /* TTPickerViewCell.h in Headers */,
-				BEE341CD0F48159F008C826E /* TTSearchTextField.h in Headers */,
-				BEE3476E0F48F5F6008C826E /* TTSearchBar.h in Headers */,
-				BEE34EB00F495C4A008C826E /* TTMessageController.h in Headers */,
-				BEE34F270F496620008C826E /* TTTextEditor.h in Headers */,
 				BEAF213C0F4D32E100D75F3B /* NSObjectAdditions.h in Headers */,
 				BEAF213D0F4D32E100D75F3B /* UIColorAdditions.h in Headers */,
 				BEAF213E0F4D32E100D75F3B /* UIImageAdditions.h in Headers */,
@@ -763,33 +634,23 @@
 				BEC270B20F8C9D1900EA638F /* TTLayout.h in Headers */,
 				BE7604DB0F8DE02100C9F4BB /* TTDefaultStyleSheet.h in Headers */,
 				BEB460830F8EE14C004B34A0 /* TTLabel.h in Headers */,
-				BEB463DD0F8F2DB5004B34A0 /* developer.h in Headers */,
 				BED4290F0F97F5C70035B153 /* TTTableView.h in Headers */,
 				BED429450F97F7E50035B153 /* TTButtonBar.h in Headers */,
 				BE8541010F998FA900DA3E9E /* TTStyledFrame.h in Headers */,
 				BE1942770F9ACE85005F4EFC /* TTStyledLayout.h in Headers */,
 				BEB210D40FA3E784007DEE5F /* NSStringAdditions.h in Headers */,
-				BEA69ECD0FAC0FEC00DA7DDC /* TTWebController.h in Headers */,
 				BEA762500FBA1E290091B567 /* NSDateAdditions.h in Headers */,
 				BE2178F4100093FA009329F2 /* TTURLMap.h in Headers */,
 				BE7DD3AB1001EDFF00662212 /* UINavigationControllerAdditions.h in Headers */,
 				BE7DD3AC1001EDFF00662212 /* UITabBarControllerAdditions.h in Headers */,
 				BEBB198E10068D5800744230 /* TTNavigator.h in Headers */,
 				BEBB199C100690FE00744230 /* TTURLPattern.h in Headers */,
-				BED036ED10090FB90083AC18 /* TTAlertViewController.h in Headers */,
-				BED03764100915700083AC18 /* TTActionSheetController.h in Headers */,
-				BED037A3100920CC0083AC18 /* TTPopupViewController.h in Headers */,
 				BE23E72B100B0A7200F40C3B /* TTListDataSource.h in Headers */,
 				BE23E798100B13E200F40C3B /* TTModel.h in Headers */,
 				BE52E93F100D7DEE00E03DB7 /* TTModelViewController.h in Headers */,
 				BE781809100ECF21001FACA5 /* TTSearchDisplayController.h in Headers */,
 				BEA6B8E41013FC3400B83B3A /* UIFontAdditions.h in Headers */,
-				BEF45BC81019CA8500E9EC07 /* TTPostController.h in Headers */,
 				BEC171D4102A71EE006B431A /* TTPageControl.h in Headers */,
-				BEC787481040A34E005C00CF /* TTLauncherView.h in Headers */,
-				BEC787971040A6EC005C00CF /* TTLauncherButton.h in Headers */,
-				BEC787B51040A79F005C00CF /* TTLauncherItem.h in Headers */,
-				BE30DB791056FD7D00FEB457 /* TTTextBarController.h in Headers */,
 				6E35CCFD10912C870066B478 /* NSMutableDictionaryAdditions.h in Headers */,
 				6E35CCFE10912C870066B478 /* NSMutableArrayAdditions.h in Headers */,
 				EBBB349710B36CCE00AD5BCF /* TTDebug.h in Headers */,
@@ -856,8 +717,6 @@
 				BEF31F7E0F352E64000DE5D2 /* TTURLCache.m in Sources */,
 				BEF31F800F352E64000DE5D2 /* TTURLRequest.m in Sources */,
 				BEF31F810F352E64000DE5D2 /* TTViewController.m in Sources */,
-				BEF31F820F352E64000DE5D2 /* TTYouTubeView.m in Sources */,
-				BE42FB130F3BBAA900A3B65A /* TTLink.m in Sources */,
 				BE42FB7A0F3BBF3500A3B65A /* TTTabBar.m in Sources */,
 				BE8A9C170F4143C800FD8C43 /* TTURLRequestQueue.m in Sources */,
 				BE8AA1910F428A3700FD8C43 /* UIViewControllerAdditions.m in Sources */,
@@ -866,12 +725,6 @@
 				BE702EF90F43F9D20028A119 /* TTTableItem.m in Sources */,
 				BE6E4A520F465237001CE9B4 /* TTTableViewCell.m in Sources */,
 				BECB1EC80F46C3B000AE5B52 /* TTStyleSheet.m in Sources */,
-				BEE341A60F480BA2008C826E /* TTPickerTextField.m in Sources */,
-				BEE341C00F481345008C826E /* TTPickerViewCell.m in Sources */,
-				BEE341CF0F4815B0008C826E /* TTSearchTextField.m in Sources */,
-				BEE347700F48F604008C826E /* TTSearchBar.m in Sources */,
-				BEE34EAE0F495C42008C826E /* TTMessageController.m in Sources */,
-				BEE34F250F496615008C826E /* TTTextEditor.m in Sources */,
 				BEAF21220F4D329600D75F3B /* NSObjectAdditions.m in Sources */,
 				BEAF21230F4D329600D75F3B /* UIColorAdditions.m in Sources */,
 				BEAF21240F4D329600D75F3B /* UIImageAdditions.m in Sources */,
@@ -898,27 +751,18 @@
 				BE8541030F998FB800DA3E9E /* TTStyledFrame.m in Sources */,
 				BE1942880F9ACEA7005F4EFC /* TTStyledLayout.m in Sources */,
 				BEB210D20FA3E77E007DEE5F /* NSStringAdditions.m in Sources */,
-				BEA69ECB0FAC0FD600DA7DDC /* TTWebController.m in Sources */,
 				BEA7624E0FBA1E220091B567 /* NSDateAdditions.m in Sources */,
 				BE2178F61000940D009329F2 /* TTURLMap.m in Sources */,
 				BE7DD3A71001EDE000662212 /* UINavigationControllerAdditions.m in Sources */,
 				BE7DD3A81001EDE000662212 /* UITabBarControllerAdditions.m in Sources */,
 				BEBB12741003EB5400744230 /* TTURLPattern.m in Sources */,
 				BEBB198310068D0F00744230 /* TTNavigator.m in Sources */,
-				BED036EB10090FAA0083AC18 /* TTAlertViewController.m in Sources */,
-				BED03766100915820083AC18 /* TTActionSheetController.m in Sources */,
-				BED037A1100920C60083AC18 /* TTPopupViewController.m in Sources */,
 				BE23E72D100B0ACD00F40C3B /* TTListDataSource.m in Sources */,
 				BE52E941100D7DFD00E03DB7 /* TTModelViewController.m in Sources */,
 				BE52E994100D8EF800E03DB7 /* TTModel.m in Sources */,
 				BE781807100ECF0F001FACA5 /* TTSearchDisplayController.m in Sources */,
 				BEA6B8E61013FC4900B83B3A /* UIFontAdditions.m in Sources */,
-				BEF45BC61019CA4400E9EC07 /* TTPostController.m in Sources */,
 				BEC171D2102A71CC006B431A /* TTPageControl.m in Sources */,
-				BEC787461040A33A005C00CF /* TTLauncherView.m in Sources */,
-				BEC787951040A6C7005C00CF /* TTLauncherButton.m in Sources */,
-				BEC787B71040A7AA005C00CF /* TTLauncherItem.m in Sources */,
-				BE30DB7B1056FD8700FEB457 /* TTTextBarController.m in Sources */,
 				6E35CCB610912B210066B478 /* NSMutableArrayAdditions.m in Sources */,
 				6E35CCC210912BE10066B478 /* NSMutableDictionaryAdditions.m in Sources */,
 				EB1F6C5F10B36C32003DAA1F /* TTDebug.m in Sources */,

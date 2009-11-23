@@ -197,9 +197,6 @@ static CGFloat kThumbSpacing = 4;
     _delegate = nil;
     _photoSource = nil;
     
-    self.statusBarStyle = UIStatusBarStyleBlackTranslucent;
-    self.navigationBarStyle = UIBarStyleBlackTranslucent;
-    self.navigationBarTintColor = nil;
     self.wantsFullScreenLayout = YES;
     self.hidesBottomBarWhenPushed = YES;
   }

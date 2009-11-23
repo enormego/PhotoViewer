@@ -241,7 +241,7 @@ NSString* TTLocalizedString(NSString* key, NSString* comment) {
   static NSBundle* bundle = nil;
   if (!bundle) {
     NSString* path = [[[NSBundle mainBundle] resourcePath]
-          stringByAppendingPathComponent:@"Three20.bundle"];
+          stringByAppendingPathComponent:@"PhotoViewer.bundle"];
     bundle = [[NSBundle bundleWithPath:path] retain];
   }
   

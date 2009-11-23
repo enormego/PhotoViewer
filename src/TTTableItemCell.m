@@ -6,7 +6,6 @@
 #import "PhotoViewer/TTStyledText.h"
 #import "PhotoViewer/TTStyledTextLabel.h"
 #import "PhotoViewer/TTActivityLabel.h"
-#import "PhotoViewer/TTTextEditor.h"
 #import "PhotoViewer/TTURLMap.h"
 #import "PhotoViewer/TTNavigator.h"
 #import "PhotoViewer/TTURLCache.h"
@@ -1193,8 +1192,7 @@ static const CGFloat kDefaultMessageImageHeight = 34;
 }
 
 + (BOOL)shouldSizeControlToFit:(UIView*)view {
-  return [view isKindOfClass:[UITextView class]]
-         || [view isKindOfClass:[TTTextEditor class]];
+  return NO;
 }
 
 + (BOOL)shouldRespectControlPadding:(UIView*)view {
@@ -1219,10 +1217,6 @@ static const CGFloat kDefaultMessageImageHeight = 34;
     if ([view isKindOfClass:[UITextView class]]) {
       UITextView* textView = (UITextView*)view;
       CGFloat lineHeight = textView.font.lineHeight;
-      height = lineHeight * kDefaultTextViewLines;
-    } else if ([view isKindOfClass:[TTTextEditor class]]) {
-      TTTextEditor* textEditor = (TTTextEditor*)view;
-      CGFloat lineHeight = textEditor.font.lineHeight;
       height = lineHeight * kDefaultTextViewLines;
     } else if ([view isKindOfClass:[UITextField class]]) {
       UITextField* textField = (UITextField*)view;
