@@ -1,4 +1,4 @@
-#import "PhotoViewer/TTURLRequest.h"
+#import "TTURLRequest.h"
 
 /**
  * TTModel describes the state of an object that can be loaded from a remote source.

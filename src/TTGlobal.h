@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "PhotoViewer/UIViewControllerAdditions.h"
-#import "PhotoViewer/UIToolbarAdditions.h"
+#import "UIViewControllerAdditions.h"
+#import "UIToolbarAdditions.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Logging Helpers
@@ -39,7 +39,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Errors
 
-#define TT_ERROR_DOMAIN @"three20.net"
+#define TT_ERROR_DOMAIN @"google.com"
 
 #define TT_EC_INVALID_IMAGE 101
 

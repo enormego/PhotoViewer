@@ -1,4 +1,4 @@
-#import "PhotoViewer/UIViewControllerAdditions.h"
+#import "UIViewControllerAdditions.h"
 #import "TTGlobal.h"
 
 @implementation UIViewController (TTCategory)

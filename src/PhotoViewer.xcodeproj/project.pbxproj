@@ -6,21 +6,68 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		284F7C0410BB2D7200B01F9B /* PhotoViewerFramework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 284F7C0D10BB2D9200B01F9B /* Build configuration list for PBXAggregateTarget "PhotoViewerFramework" */;
+			buildPhases = (
+				284F7C1310BB2E1300B01F9B /* Copy Header Files */,
+				284F7C4510BB306300B01F9B /* Copy Resources */,
+				284F7D5110BB391E00B01F9B /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = PhotoViewerFramework;
+			productName = PhotoViewerFramework;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		286D1C7E10BAEAEE00093AD8 /* TTThumbsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 286D1C7C10BAEAEE00093AD8 /* TTThumbsViewController.h */; };
+		284F7C1410BB2E1300B01F9B /* TTGlobal.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEF31F5C0F352E64000DE5D2 /* TTGlobal.h */; };
+		284F7C1510BB2E1300B01F9B /* TTImageView.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEF31F5D0F352E64000DE5D2 /* TTImageView.h */; };
+		284F7C1610BB2E1300B01F9B /* TTView.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEF31F5F0F352E64000DE5D2 /* TTView.h */; };
+		284F7C1710BB2E1300B01F9B /* TTPhotoSource.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEF31F600F352E64000DE5D2 /* TTPhotoSource.h */; };
+		284F7C1810BB2E1300B01F9B /* TTPhotoView.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEF31F610F352E64000DE5D2 /* TTPhotoView.h */; };
+		284F7C1910BB2E1300B01F9B /* TTPhotoViewController.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEF31F620F352E64000DE5D2 /* TTPhotoViewController.h */; };
+		284F7C1A10BB2E1300B01F9B /* TTScrollView.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEF31F630F352E64000DE5D2 /* TTScrollView.h */; };
+		284F7C1B10BB2E1300B01F9B /* TTURLCache.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEF31F6A0F352E64000DE5D2 /* TTURLCache.h */; };
+		284F7C1C10BB2E1300B01F9B /* TTURLRequest.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEF31F6C0F352E64000DE5D2 /* TTURLRequest.h */; };
+		284F7C1D10BB2E1300B01F9B /* PhotoViewer.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEF31F6F0F352E64000DE5D2 /* PhotoViewer.h */; };
+		284F7C1E10BB2E1300B01F9B /* TTURLRequestQueue.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BE8A9C180F4143DA00FD8C43 /* TTURLRequestQueue.h */; };
+		284F7C1F10BB2E1300B01F9B /* UIViewControllerAdditions.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BE8AA1920F428A4900FD8C43 /* UIViewControllerAdditions.h */; };
+		284F7C2010BB2E1300B01F9B /* UIToolbarAdditions.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEAF21390F4D32E100D75F3B /* UIToolbarAdditions.h */; };
+		284F7C2110BB2E1300B01F9B /* TTURLResponse.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEDCF3280F4EBE2F0060B7D1 /* TTURLResponse.h */; };
+		284F7C2210BB2E1300B01F9B /* TTLabel.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEB460820F8EE14C004B34A0 /* TTLabel.h */; };
+		284F7C2310BB2E1300B01F9B /* TTModel.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BE23E797100B13E200F40C3B /* TTModel.h */; };
+		284F7C2410BB2E1300B01F9B /* TTThumbsViewController.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = 286D1C7C10BAEAEE00093AD8 /* TTThumbsViewController.h */; };
+		284F7CE610BB350A00B01F9B /* TTGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F480F352E64000DE5D2 /* TTGlobal.m */; };
+		284F7CE710BB350A00B01F9B /* TTImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F490F352E64000DE5D2 /* TTImageView.m */; };
+		284F7CE810BB350A00B01F9B /* TTView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F4A0F352E64000DE5D2 /* TTView.m */; };
+		284F7CE910BB350A00B01F9B /* TTPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F4B0F352E64000DE5D2 /* TTPhotoView.m */; };
+		284F7CEA10BB350A00B01F9B /* TTPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F4C0F352E64000DE5D2 /* TTPhotoViewController.m */; };
+		284F7CEB10BB350A00B01F9B /* TTScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F4D0F352E64000DE5D2 /* TTScrollView.m */; };
+		284F7CEC10BB350A00B01F9B /* TTURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F540F352E64000DE5D2 /* TTURLCache.m */; };
+		284F7CED10BB350A00B01F9B /* TTURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F560F352E64000DE5D2 /* TTURLRequest.m */; };
+		284F7CEE10BB350A00B01F9B /* TTURLRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8A9C160F4143C800FD8C43 /* TTURLRequestQueue.m */; };
+		284F7CEF10BB350A00B01F9B /* UIViewControllerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8AA1900F428A3700FD8C43 /* UIViewControllerAdditions.m */; };
+		284F7CF010BB350A00B01F9B /* UIToolbarAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAF211F0F4D329600D75F3B /* UIToolbarAdditions.m */; };
+		284F7CF110BB350A00B01F9B /* TTURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDCF3260F4EBE1D0060B7D1 /* TTURLResponse.m */; };
+		284F7CF210BB350A00B01F9B /* TTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB460840F8EE156004B34A0 /* TTLabel.m */; };
+		284F7CF310BB350A00B01F9B /* TTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52E993100D8EF800E03DB7 /* TTModel.m */; };
+		284F7CF410BB350A00B01F9B /* TTThumbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 286D1C7D10BAEAEE00093AD8 /* TTThumbsViewController.m */; };
+		284F7CF610BB350A00B01F9B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		284F7CF710BB350A00B01F9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		284F7CF810BB350A00B01F9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		284F7DAD10BB3EB900B01F9B /* pv_img_nextIcon.png in Copy Resources */ = {isa = PBXBuildFile; fileRef = 284F7DA810BB3EAD00B01F9B /* pv_img_nextIcon.png */; };
+		284F7DAE10BB3EB900B01F9B /* pv_img_photoDefault.png in Copy Resources */ = {isa = PBXBuildFile; fileRef = 284F7DA910BB3EAD00B01F9B /* pv_img_photoDefault.png */; };
+		284F7DAF10BB3EB900B01F9B /* pv_img_previousIcon.png in Copy Resources */ = {isa = PBXBuildFile; fileRef = 284F7DAA10BB3EAD00B01F9B /* pv_img_previousIcon.png */; };
 		286D1C7F10BAEAEE00093AD8 /* TTThumbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 286D1C7D10BAEAEE00093AD8 /* TTThumbsViewController.m */; };
-		BE23E798100B13E200F40C3B /* TTModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BE23E797100B13E200F40C3B /* TTModel.h */; };
 		BE52E994100D8EF800E03DB7 /* TTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52E993100D8EF800E03DB7 /* TTModel.m */; };
 		BE8A9C170F4143C800FD8C43 /* TTURLRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8A9C160F4143C800FD8C43 /* TTURLRequestQueue.m */; };
-		BE8A9C190F4143DA00FD8C43 /* TTURLRequestQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = BE8A9C180F4143DA00FD8C43 /* TTURLRequestQueue.h */; };
 		BE8AA1910F428A3700FD8C43 /* UIViewControllerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8AA1900F428A3700FD8C43 /* UIViewControllerAdditions.m */; };
-		BE8AA1930F428A4900FD8C43 /* UIViewControllerAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = BE8AA1920F428A4900FD8C43 /* UIViewControllerAdditions.h */; };
 		BEAF21260F4D329600D75F3B /* UIToolbarAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAF211F0F4D329600D75F3B /* UIToolbarAdditions.m */; };
-		BEAF21400F4D32E100D75F3B /* UIToolbarAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = BEAF21390F4D32E100D75F3B /* UIToolbarAdditions.h */; };
-		BEB460830F8EE14C004B34A0 /* TTLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = BEB460820F8EE14C004B34A0 /* TTLabel.h */; };
 		BEB460850F8EE156004B34A0 /* TTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB460840F8EE156004B34A0 /* TTLabel.m */; };
 		BEDCF3270F4EBE1D0060B7D1 /* TTURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDCF3260F4EBE1D0060B7D1 /* TTURLResponse.m */; };
-		BEDCF3290F4EBE2F0060B7D1 /* TTURLResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = BEDCF3280F4EBE2F0060B7D1 /* TTURLResponse.h */; };
 		BEF31F720F352E64000DE5D2 /* TTGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F480F352E64000DE5D2 /* TTGlobal.m */; };
 		BEF31F730F352E64000DE5D2 /* TTImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F490F352E64000DE5D2 /* TTImageView.m */; };
 		BEF31F740F352E64000DE5D2 /* TTView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F4A0F352E64000DE5D2 /* TTView.m */; };
@@ -29,40 +76,77 @@
 		BEF31F770F352E64000DE5D2 /* TTScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F4D0F352E64000DE5D2 /* TTScrollView.m */; };
 		BEF31F7E0F352E64000DE5D2 /* TTURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F540F352E64000DE5D2 /* TTURLCache.m */; };
 		BEF31F800F352E64000DE5D2 /* TTURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F560F352E64000DE5D2 /* TTURLRequest.m */; };
-		BEF31F850F352E64000DE5D2 /* TTGlobal.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F5C0F352E64000DE5D2 /* TTGlobal.h */; };
-		BEF31F860F352E64000DE5D2 /* TTImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F5D0F352E64000DE5D2 /* TTImageView.h */; };
-		BEF31F880F352E64000DE5D2 /* TTView.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F5F0F352E64000DE5D2 /* TTView.h */; };
-		BEF31F890F352E64000DE5D2 /* TTPhotoSource.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F600F352E64000DE5D2 /* TTPhotoSource.h */; };
-		BEF31F8A0F352E64000DE5D2 /* TTPhotoView.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F610F352E64000DE5D2 /* TTPhotoView.h */; };
-		BEF31F8B0F352E64000DE5D2 /* TTPhotoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F620F352E64000DE5D2 /* TTPhotoViewController.h */; };
-		BEF31F8C0F352E64000DE5D2 /* TTScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F630F352E64000DE5D2 /* TTScrollView.h */; };
-		BEF31F930F352E64000DE5D2 /* TTURLCache.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F6A0F352E64000DE5D2 /* TTURLCache.h */; };
-		BEF31F950F352E64000DE5D2 /* TTURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F6C0F352E64000DE5D2 /* TTURLRequest.h */; };
-		BEF31F980F352E64000DE5D2 /* PhotoViewer.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F6F0F352E64000DE5D2 /* PhotoViewer.h */; };
 		BEF320350F352E7A000DE5D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		BEF320360F352E7A000DE5D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		BEF320370F352E7A000DE5D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		284F7C1310BB2E1300B01F9B /* Copy Header Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = __FRAMEWORK_HEADERS;
+			dstSubfolderSpec = 16;
+			files = (
+				284F7C1D10BB2E1300B01F9B /* PhotoViewer.h in Copy Header Files */,
+				284F7C1410BB2E1300B01F9B /* TTGlobal.h in Copy Header Files */,
+				284F7C1510BB2E1300B01F9B /* TTImageView.h in Copy Header Files */,
+				284F7C1610BB2E1300B01F9B /* TTView.h in Copy Header Files */,
+				284F7C1710BB2E1300B01F9B /* TTPhotoSource.h in Copy Header Files */,
+				284F7C1810BB2E1300B01F9B /* TTPhotoView.h in Copy Header Files */,
+				284F7C1910BB2E1300B01F9B /* TTPhotoViewController.h in Copy Header Files */,
+				284F7C1A10BB2E1300B01F9B /* TTScrollView.h in Copy Header Files */,
+				284F7C1B10BB2E1300B01F9B /* TTURLCache.h in Copy Header Files */,
+				284F7C1C10BB2E1300B01F9B /* TTURLRequest.h in Copy Header Files */,
+				284F7C1E10BB2E1300B01F9B /* TTURLRequestQueue.h in Copy Header Files */,
+				284F7C1F10BB2E1300B01F9B /* UIViewControllerAdditions.h in Copy Header Files */,
+				284F7C2010BB2E1300B01F9B /* UIToolbarAdditions.h in Copy Header Files */,
+				284F7C2110BB2E1300B01F9B /* TTURLResponse.h in Copy Header Files */,
+				284F7C2210BB2E1300B01F9B /* TTLabel.h in Copy Header Files */,
+				284F7C2310BB2E1300B01F9B /* TTModel.h in Copy Header Files */,
+				284F7C2410BB2E1300B01F9B /* TTThumbsViewController.h in Copy Header Files */,
+			);
+			name = "Copy Header Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		284F7C4510BB306300B01F9B /* Copy Resources */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = __FRAMEWORK_RESOURCES;
+			dstSubfolderSpec = 16;
+			files = (
+				284F7DAD10BB3EB900B01F9B /* pv_img_nextIcon.png in Copy Resources */,
+				284F7DAE10BB3EB900B01F9B /* pv_img_photoDefault.png in Copy Resources */,
+				284F7DAF10BB3EB900B01F9B /* pv_img_previousIcon.png in Copy Resources */,
+			);
+			name = "Copy Resources";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		286D1C7C10BAEAEE00093AD8 /* TTThumbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTThumbsViewController.h; path = PhotoViewer/TTThumbsViewController.h; sourceTree = "<group>"; };
+		284F7CFC10BB350A00B01F9B /* libPhotoViewer-device.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPhotoViewer-device.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		284F7DA810BB3EAD00B01F9B /* pv_img_nextIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pv_img_nextIcon.png; sourceTree = "<group>"; };
+		284F7DA910BB3EAD00B01F9B /* pv_img_photoDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pv_img_photoDefault.png; sourceTree = "<group>"; };
+		284F7DAA10BB3EAD00B01F9B /* pv_img_previousIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pv_img_previousIcon.png; sourceTree = "<group>"; };
+		286D1C7C10BAEAEE00093AD8 /* TTThumbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTThumbsViewController.h; sourceTree = "<group>"; };
 		286D1C7D10BAEAEE00093AD8 /* TTThumbsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTThumbsViewController.m; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		BE23E797100B13E200F40C3B /* TTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTModel.h; path = PhotoViewer/TTModel.h; sourceTree = "<group>"; };
+		BE23E797100B13E200F40C3B /* TTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTModel.h; sourceTree = "<group>"; };
 		BE52E993100D8EF800E03DB7 /* TTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTModel.m; sourceTree = "<group>"; };
 		BE8A9C160F4143C800FD8C43 /* TTURLRequestQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLRequestQueue.m; sourceTree = "<group>"; };
-		BE8A9C180F4143DA00FD8C43 /* TTURLRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTURLRequestQueue.h; path = PhotoViewer/TTURLRequestQueue.h; sourceTree = "<group>"; };
+		BE8A9C180F4143DA00FD8C43 /* TTURLRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLRequestQueue.h; sourceTree = "<group>"; };
 		BE8AA1900F428A3700FD8C43 /* UIViewControllerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerAdditions.m; sourceTree = "<group>"; };
-		BE8AA1920F428A4900FD8C43 /* UIViewControllerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewControllerAdditions.h; path = PhotoViewer/UIViewControllerAdditions.h; sourceTree = "<group>"; };
+		BE8AA1920F428A4900FD8C43 /* UIViewControllerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerAdditions.h; sourceTree = "<group>"; };
 		BEAF211F0F4D329600D75F3B /* UIToolbarAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIToolbarAdditions.m; sourceTree = "<group>"; };
-		BEAF21390F4D32E100D75F3B /* UIToolbarAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIToolbarAdditions.h; path = PhotoViewer/UIToolbarAdditions.h; sourceTree = "<group>"; };
-		BEB460820F8EE14C004B34A0 /* TTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTLabel.h; path = PhotoViewer/TTLabel.h; sourceTree = "<group>"; };
+		BEAF21390F4D32E100D75F3B /* UIToolbarAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIToolbarAdditions.h; sourceTree = "<group>"; };
+		BEB460820F8EE14C004B34A0 /* TTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLabel.h; sourceTree = "<group>"; };
 		BEB460840F8EE156004B34A0 /* TTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLabel.m; sourceTree = "<group>"; };
 		BEDCF3260F4EBE1D0060B7D1 /* TTURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLResponse.m; sourceTree = "<group>"; };
-		BEDCF3280F4EBE2F0060B7D1 /* TTURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTURLResponse.h; path = PhotoViewer/TTURLResponse.h; sourceTree = "<group>"; };
-		BEF31F3A0F352DF5000DE5D2 /* libPhotoViewer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhotoViewer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEDCF3280F4EBE2F0060B7D1 /* TTURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLResponse.h; sourceTree = "<group>"; };
+		BEF31F3A0F352DF5000DE5D2 /* libPhotoViewer-simulator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPhotoViewer-simulator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF31F480F352E64000DE5D2 /* TTGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGlobal.m; sourceTree = "<group>"; };
 		BEF31F490F352E64000DE5D2 /* TTImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTImageView.m; sourceTree = "<group>"; };
 		BEF31F4A0F352E64000DE5D2 /* TTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTView.m; sourceTree = "<group>"; };
@@ -71,19 +155,29 @@
 		BEF31F4D0F352E64000DE5D2 /* TTScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTScrollView.m; sourceTree = "<group>"; };
 		BEF31F540F352E64000DE5D2 /* TTURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLCache.m; sourceTree = "<group>"; };
 		BEF31F560F352E64000DE5D2 /* TTURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLRequest.m; sourceTree = "<group>"; };
-		BEF31F5C0F352E64000DE5D2 /* TTGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTGlobal.h; path = PhotoViewer/TTGlobal.h; sourceTree = "<group>"; };
-		BEF31F5D0F352E64000DE5D2 /* TTImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTImageView.h; path = PhotoViewer/TTImageView.h; sourceTree = "<group>"; };
-		BEF31F5F0F352E64000DE5D2 /* TTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTView.h; path = PhotoViewer/TTView.h; sourceTree = "<group>"; };
-		BEF31F600F352E64000DE5D2 /* TTPhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTPhotoSource.h; path = PhotoViewer/TTPhotoSource.h; sourceTree = "<group>"; };
-		BEF31F610F352E64000DE5D2 /* TTPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTPhotoView.h; path = PhotoViewer/TTPhotoView.h; sourceTree = "<group>"; };
-		BEF31F620F352E64000DE5D2 /* TTPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTPhotoViewController.h; path = PhotoViewer/TTPhotoViewController.h; sourceTree = "<group>"; };
-		BEF31F630F352E64000DE5D2 /* TTScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTScrollView.h; path = PhotoViewer/TTScrollView.h; sourceTree = "<group>"; };
-		BEF31F6A0F352E64000DE5D2 /* TTURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTURLCache.h; path = PhotoViewer/TTURLCache.h; sourceTree = "<group>"; };
-		BEF31F6C0F352E64000DE5D2 /* TTURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTURLRequest.h; path = PhotoViewer/TTURLRequest.h; sourceTree = "<group>"; };
-		BEF31F6F0F352E64000DE5D2 /* PhotoViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoViewer.h; path = PhotoViewer/PhotoViewer.h; sourceTree = "<group>"; };
+		BEF31F5C0F352E64000DE5D2 /* TTGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlobal.h; sourceTree = "<group>"; };
+		BEF31F5D0F352E64000DE5D2 /* TTImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTImageView.h; sourceTree = "<group>"; };
+		BEF31F5F0F352E64000DE5D2 /* TTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTView.h; sourceTree = "<group>"; };
+		BEF31F600F352E64000DE5D2 /* TTPhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPhotoSource.h; sourceTree = "<group>"; };
+		BEF31F610F352E64000DE5D2 /* TTPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPhotoView.h; sourceTree = "<group>"; };
+		BEF31F620F352E64000DE5D2 /* TTPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPhotoViewController.h; sourceTree = "<group>"; };
+		BEF31F630F352E64000DE5D2 /* TTScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTScrollView.h; sourceTree = "<group>"; };
+		BEF31F6A0F352E64000DE5D2 /* TTURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLCache.h; sourceTree = "<group>"; };
+		BEF31F6C0F352E64000DE5D2 /* TTURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLRequest.h; sourceTree = "<group>"; };
+		BEF31F6F0F352E64000DE5D2 /* PhotoViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		284F7CF510BB350A00B01F9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				284F7CF610BB350A00B01F9B /* UIKit.framework in Frameworks */,
+				284F7CF710BB350A00B01F9B /* Foundation.framework in Frameworks */,
+				284F7CF810BB350A00B01F9B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BEF31F380F352DF5000DE5D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -100,14 +194,26 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BEF31F3A0F352DF5000DE5D2 /* libPhotoViewer.a */,
+				BEF31F3A0F352DF5000DE5D2 /* libPhotoViewer-simulator.a */,
+				284F7CFC10BB350A00B01F9B /* libPhotoViewer-device.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		284F7D8110BB3D8E00B01F9B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				284F7DA810BB3EAD00B01F9B /* pv_img_nextIcon.png */,
+				284F7DA910BB3EAD00B01F9B /* pv_img_photoDefault.png */,
+				284F7DAA10BB3EAD00B01F9B /* pv_img_previousIcon.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				284F7D8110BB3D8E00B01F9B /* Resources */,
 				BEF321B10F353B25000DE5D2 /* Global */,
 				BEF44D4F10182FD800E9EC07 /* Models */,
 				BEF31F450F352E64000DE5D2 /* Views */,
@@ -214,39 +320,27 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		BEF31F360F352DF5000DE5D2 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BEF31F850F352E64000DE5D2 /* TTGlobal.h in Headers */,
-				BEF31F860F352E64000DE5D2 /* TTImageView.h in Headers */,
-				BEF31F880F352E64000DE5D2 /* TTView.h in Headers */,
-				BEF31F890F352E64000DE5D2 /* TTPhotoSource.h in Headers */,
-				BEF31F8A0F352E64000DE5D2 /* TTPhotoView.h in Headers */,
-				BEF31F8B0F352E64000DE5D2 /* TTPhotoViewController.h in Headers */,
-				BEF31F8C0F352E64000DE5D2 /* TTScrollView.h in Headers */,
-				BEF31F930F352E64000DE5D2 /* TTURLCache.h in Headers */,
-				BEF31F950F352E64000DE5D2 /* TTURLRequest.h in Headers */,
-				BEF31F980F352E64000DE5D2 /* PhotoViewer.h in Headers */,
-				BE8A9C190F4143DA00FD8C43 /* TTURLRequestQueue.h in Headers */,
-				BE8AA1930F428A4900FD8C43 /* UIViewControllerAdditions.h in Headers */,
-				BEAF21400F4D32E100D75F3B /* UIToolbarAdditions.h in Headers */,
-				BEDCF3290F4EBE2F0060B7D1 /* TTURLResponse.h in Headers */,
-				BEB460830F8EE14C004B34A0 /* TTLabel.h in Headers */,
-				BE23E798100B13E200F40C3B /* TTModel.h in Headers */,
-				286D1C7E10BAEAEE00093AD8 /* TTThumbsViewController.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		BEF31F390F352DF5000DE5D2 /* PhotoViewer */ = {
+		284F7CE410BB350A00B01F9B /* PhotoViewer-device */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BEF31F410F352E14000DE5D2 /* Build configuration list for PBXNativeTarget "PhotoViewer" */;
+			buildConfigurationList = 284F7CF910BB350A00B01F9B /* Build configuration list for PBXNativeTarget "PhotoViewer-device" */;
 			buildPhases = (
-				BEF31F360F352DF5000DE5D2 /* Headers */,
+				284F7CE510BB350A00B01F9B /* Sources */,
+				284F7CF510BB350A00B01F9B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PhotoViewer-device";
+			productName = PhotoViewer;
+			productReference = 284F7CFC10BB350A00B01F9B /* libPhotoViewer-device.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BEF31F390F352DF5000DE5D2 /* PhotoViewer-simulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEF31F410F352E14000DE5D2 /* Build configuration list for PBXNativeTarget "PhotoViewer-simulator" */;
+			buildPhases = (
 				BEF31F370F352DF5000DE5D2 /* Sources */,
 				BEF31F380F352DF5000DE5D2 /* Frameworks */,
 			);
@@ -254,9 +348,9 @@
 			);
 			dependencies = (
 			);
-			name = PhotoViewer;
+			name = "PhotoViewer-simulator";
 			productName = PhotoViewer;
-			productReference = BEF31F3A0F352DF5000DE5D2 /* libPhotoViewer.a */;
+			productReference = BEF31F3A0F352DF5000DE5D2 /* libPhotoViewer-simulator.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -271,12 +365,52 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BEF31F390F352DF5000DE5D2 /* PhotoViewer */,
+				BEF31F390F352DF5000DE5D2 /* PhotoViewer-simulator */,
+				284F7CE410BB350A00B01F9B /* PhotoViewer-device */,
+				284F7C0410BB2D7200B01F9B /* PhotoViewerFramework */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		284F7D5110BB391E00B01F9B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd ${TARGET_BUILD_DIR};\nBUILD_BASE=`pwd | sed \"s/\\-iphonesimulator//g\" | sed \"s/\\-iphoneos//g\"`\nmkdir -p ${BUILD_BASE}-universal/${PRODUCT_NAME:rfc1034identifier}.${BUNDLE_EXT}/\ncp ${BUILD_BASE}-iphonesimulator/*.a ${BUILD_BASE}-universal/${PRODUCT_NAME:rfc1034identifier}.${BUNDLE_EXT}/\ncp ${BUILD_BASE}-iphoneos/*.a ${BUILD_BASE}-universal/${PRODUCT_NAME:rfc1034identifier}.${BUNDLE_EXT}/\nmkdir -p ${TARGET_BUILD_DIR}/__FRAMEWORK_HEADERS\nrm -fr ${BUILD_BASE}-universal/${PRODUCT_NAME:rfc1034identifier}.${BUNDLE_EXT}/Headers/\nmkdir -p ${BUILD_BASE}-universal/${PRODUCT_NAME:rfc1034identifier}.${BUNDLE_EXT}/Headers/\nmv ${TARGET_BUILD_DIR}/__FRAMEWORK_HEADERS/* ${BUILD_BASE}-universal/${PRODUCT_NAME:rfc1034identifier}.${BUNDLE_EXT}/Headers/\nrm -fr ${TARGET_BUILD_DIR}/__FRAMEWORK_HEADERS\nmkdir -p ${TARGET_BUILD_DIR}/__FRAMEWORK_RESOURCES\nrm -fr ${BUILD_BASE}-universal/${PRODUCT_NAME:rfc1034identifier}.${BUNDLE_EXT}/Resources/\nmkdir -p ${BUILD_BASE}-universal/${PRODUCT_NAME:rfc1034identifier}.${BUNDLE_EXT}/Resources/\nmv ${TARGET_BUILD_DIR}/__FRAMEWORK_RESOURCES/* ${BUILD_BASE}-universal/${PRODUCT_NAME:rfc1034identifier}.${BUNDLE_EXT}/Resources/\nrm -fr ${TARGET_BUILD_DIR}/__FRAMEWORK_RESOURCES";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		284F7CE510BB350A00B01F9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				284F7CE610BB350A00B01F9B /* TTGlobal.m in Sources */,
+				284F7CE710BB350A00B01F9B /* TTImageView.m in Sources */,
+				284F7CE810BB350A00B01F9B /* TTView.m in Sources */,
+				284F7CE910BB350A00B01F9B /* TTPhotoView.m in Sources */,
+				284F7CEA10BB350A00B01F9B /* TTPhotoViewController.m in Sources */,
+				284F7CEB10BB350A00B01F9B /* TTScrollView.m in Sources */,
+				284F7CEC10BB350A00B01F9B /* TTURLCache.m in Sources */,
+				284F7CED10BB350A00B01F9B /* TTURLRequest.m in Sources */,
+				284F7CEE10BB350A00B01F9B /* TTURLRequestQueue.m in Sources */,
+				284F7CEF10BB350A00B01F9B /* UIViewControllerAdditions.m in Sources */,
+				284F7CF010BB350A00B01F9B /* UIToolbarAdditions.m in Sources */,
+				284F7CF110BB350A00B01F9B /* TTURLResponse.m in Sources */,
+				284F7CF210BB350A00B01F9B /* TTLabel.m in Sources */,
+				284F7CF310BB350A00B01F9B /* TTModel.m in Sources */,
+				284F7CF410BB350A00B01F9B /* TTThumbsViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BEF31F370F352DF5000DE5D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -302,6 +436,57 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		284F7C0510BB2D7200B01F9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_EXT = fmwk;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = PhotoViewer;
+			};
+			name = Debug;
+		};
+		284F7C0610BB2D7200B01F9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_EXT = fmwk;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = PhotoViewer;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		284F7CFA10BB350A00B01F9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				PREBINDING = NO;
+				PRODUCT_NAME = "PhotoViewer-device";
+			};
+			name = Debug;
+		};
+		284F7CFB10BB350A00B01F9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = "PhotoViewer-device";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		BEF31F3B0F352DF6000DE5D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -311,7 +496,8 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				PREBINDING = NO;
-				PRODUCT_NAME = PhotoViewer;
+				PRODUCT_NAME = "PhotoViewer-simulator";
+				SDKROOT = iphonesimulator3.0;
 			};
 			name = Debug;
 		};
@@ -323,7 +509,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PREBINDING = NO;
-				PRODUCT_NAME = PhotoViewer;
+				PRODUCT_NAME = "PhotoViewer-simulator";
+				SDKROOT = iphonesimulator3.0;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -339,7 +526,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator3.0;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;
 		};
@@ -352,14 +539,32 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator3.0;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BEF31F410F352E14000DE5D2 /* Build configuration list for PBXNativeTarget "PhotoViewer" */ = {
+		284F7C0D10BB2D9200B01F9B /* Build configuration list for PBXAggregateTarget "PhotoViewerFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				284F7C0510BB2D7200B01F9B /* Debug */,
+				284F7C0610BB2D7200B01F9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		284F7CF910BB350A00B01F9B /* Build configuration list for PBXNativeTarget "PhotoViewer-device" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				284F7CFA10BB350A00B01F9B /* Debug */,
+				284F7CFB10BB350A00B01F9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEF31F410F352E14000DE5D2 /* Build configuration list for PBXNativeTarget "PhotoViewer-simulator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BEF31F3B0F352DF6000DE5D2 /* Debug */,

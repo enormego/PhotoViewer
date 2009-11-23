@@ -1,4 +1,4 @@
-#import "PhotoViewer/TTView.h"
+#import "TTView.h"
 
 @interface TTLabel : TTView {
   NSString* _text;

@@ -1,6 +1,6 @@
-#import "PhotoViewer/TTURLRequest.h"
-#import "PhotoViewer/TTURLResponse.h"
-#import "PhotoViewer/TTURLRequestQueue.h"
+#import "TTURLRequest.h"
+#import "TTURLResponse.h"
+#import "TTURLRequestQueue.h"
 #import <CommonCrypto/CommonDigest.h>
 
 //////////////////////////////////////////////////////////////////////////////////////////////////

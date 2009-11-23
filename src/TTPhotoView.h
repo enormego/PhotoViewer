@@ -1,5 +1,5 @@
-#import "PhotoViewer/TTImageView.h"
-#import "PhotoViewer/TTPhotoSource.h"
+#import "TTImageView.h"
+#import "TTPhotoSource.h"
 
 @protocol TTPhoto;
 @class TTActivityLabel, TTLabel;

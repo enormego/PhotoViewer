@@ -1,5 +1,5 @@
-#import "PhotoViewer/TTView.h"
-#import "PhotoViewer/TTURLRequest.h"
+#import "TTView.h"
+#import "TTURLRequest.h"
 
 @protocol TTImageViewDelegate;
 

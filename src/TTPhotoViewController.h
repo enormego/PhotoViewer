@@ -1,7 +1,7 @@
-#import "PhotoViewer/TTPhotoSource.h"
-#import "PhotoViewer/TTScrollView.h"
-#import "PhotoViewer/TTThumbsViewController.h"
-#import "PhotoViewer/TTModel.h"
+#import "TTPhotoSource.h"
+#import "TTScrollView.h"
+#import "TTThumbsViewController.h"
+#import "TTModel.h"
 
 @class TTScrollView, TTPhotoView;
 

@@ -1,8 +1,8 @@
-#import "PhotoViewer/TTPhotoView.h"
-#import "PhotoViewer/TTImageView.h"
-#import "PhotoViewer/TTLabel.h"
-#import "PhotoViewer/TTURLCache.h"
-#import "PhotoViewer/TTURLRequestQueue.h"
+#import "TTPhotoView.h"
+#import "TTImageView.h"
+#import "TTLabel.h"
+#import "TTURLCache.h"
+#import "TTURLRequestQueue.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

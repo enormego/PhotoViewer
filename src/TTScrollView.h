@@ -1,4 +1,4 @@
-#import "PhotoViewer/TTGlobal.h"
+#import "TTGlobal.h"
 
 @protocol TTScrollViewDelegate;
 @protocol TTScrollViewDataSource;

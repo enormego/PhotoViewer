@@ -11,11 +11,15 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		284F7E0510BB3F9A00B01F9B /* libPhotoViewer-device.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 284F7DFF10BB3F9A00B01F9B /* libPhotoViewer-device.a */; };
+		284F7E0610BB3F9A00B01F9B /* libPhotoViewer-simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 284F7E0010BB3F9A00B01F9B /* libPhotoViewer-simulator.a */; };
+		284F7E0710BB3F9A00B01F9B /* pv_img_nextIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 284F7E0210BB3F9A00B01F9B /* pv_img_nextIcon.png */; };
+		284F7E0810BB3F9A00B01F9B /* pv_img_photoDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 284F7E0310BB3F9A00B01F9B /* pv_img_photoDefault.png */; };
+		284F7E0910BB3F9A00B01F9B /* pv_img_previousIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 284F7E0410BB3F9A00B01F9B /* pv_img_previousIcon.png */; };
 		286D1B8510BADD7A00093AD8 /* MockPhotoSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 286D1B7E10BADD7A00093AD8 /* MockPhotoSource.m */; };
 		286D1B8610BADD7A00093AD8 /* PhotoTest1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 286D1B8110BADD7A00093AD8 /* PhotoTest1Controller.m */; };
 		286D1B8710BADD7A00093AD8 /* PhotoTest2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 286D1B8410BADD7A00093AD8 /* PhotoTest2Controller.m */; };
 		286D1BB110BADD9800093AD8 /* PhotoViewer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 286D1BB010BADD9800093AD8 /* PhotoViewer.bundle */; };
-		286D1BD610BADEB200093AD8 /* libPhotoViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 286D1BB710BADDA300093AD8 /* libPhotoViewer.a */; };
 		286D1BDB10BADEC700093AD8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286D1BDA10BADEC700093AD8 /* QuartzCore.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
@@ -23,22 +27,34 @@
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		286D1BB610BADDA300093AD8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 286D1BB210BADDA300093AD8 /* PhotoViewer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2 /* libPhotoViewer.a */;
-			remoteInfo = PhotoViewer;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* PhotoViewerDemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewerDemoAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* PhotoViewerDemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewerDemoAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* PhotoViewerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoViewerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		284F7DEE10BB3F9A00B01F9B /* PhotoViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewer.h; sourceTree = "<group>"; };
+		284F7DEF10BB3F9A00B01F9B /* TTGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlobal.h; sourceTree = "<group>"; };
+		284F7DF010BB3F9A00B01F9B /* TTImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTImageView.h; sourceTree = "<group>"; };
+		284F7DF110BB3F9A00B01F9B /* TTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLabel.h; sourceTree = "<group>"; };
+		284F7DF210BB3F9A00B01F9B /* TTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTModel.h; sourceTree = "<group>"; };
+		284F7DF310BB3F9A00B01F9B /* TTPhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPhotoSource.h; sourceTree = "<group>"; };
+		284F7DF410BB3F9A00B01F9B /* TTPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPhotoView.h; sourceTree = "<group>"; };
+		284F7DF510BB3F9A00B01F9B /* TTPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPhotoViewController.h; sourceTree = "<group>"; };
+		284F7DF610BB3F9A00B01F9B /* TTScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTScrollView.h; sourceTree = "<group>"; };
+		284F7DF710BB3F9A00B01F9B /* TTThumbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTThumbsViewController.h; sourceTree = "<group>"; };
+		284F7DF810BB3F9A00B01F9B /* TTURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLCache.h; sourceTree = "<group>"; };
+		284F7DF910BB3F9A00B01F9B /* TTURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLRequest.h; sourceTree = "<group>"; };
+		284F7DFA10BB3F9A00B01F9B /* TTURLRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLRequestQueue.h; sourceTree = "<group>"; };
+		284F7DFB10BB3F9A00B01F9B /* TTURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLResponse.h; sourceTree = "<group>"; };
+		284F7DFC10BB3F9A00B01F9B /* TTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTView.h; sourceTree = "<group>"; };
+		284F7DFD10BB3F9A00B01F9B /* UIToolbarAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIToolbarAdditions.h; sourceTree = "<group>"; };
+		284F7DFE10BB3F9A00B01F9B /* UIViewControllerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerAdditions.h; sourceTree = "<group>"; };
+		284F7DFF10BB3F9A00B01F9B /* libPhotoViewer-device.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPhotoViewer-device.a"; sourceTree = "<group>"; };
+		284F7E0010BB3F9A00B01F9B /* libPhotoViewer-simulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPhotoViewer-simulator.a"; sourceTree = "<group>"; };
+		284F7E0210BB3F9A00B01F9B /* pv_img_nextIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pv_img_nextIcon.png; sourceTree = "<group>"; };
+		284F7E0310BB3F9A00B01F9B /* pv_img_photoDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pv_img_photoDefault.png; sourceTree = "<group>"; };
+		284F7E0410BB3F9A00B01F9B /* pv_img_previousIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pv_img_previousIcon.png; sourceTree = "<group>"; };
 		286D1B7D10BADD7A00093AD8 /* MockPhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockPhotoSource.h; sourceTree = "<group>"; };
 		286D1B7E10BADD7A00093AD8 /* MockPhotoSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockPhotoSource.m; sourceTree = "<group>"; };
 		286D1B8010BADD7A00093AD8 /* PhotoTest1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTest1Controller.h; sourceTree = "<group>"; };
@@ -46,7 +62,6 @@
 		286D1B8310BADD7A00093AD8 /* PhotoTest2Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTest2Controller.h; sourceTree = "<group>"; };
 		286D1B8410BADD7A00093AD8 /* PhotoTest2Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTest2Controller.m; sourceTree = "<group>"; };
 		286D1BB010BADD9800093AD8 /* PhotoViewer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PhotoViewer.bundle; path = ../src/PhotoViewer.bundle; sourceTree = SOURCE_ROOT; };
-		286D1BB210BADDA300093AD8 /* PhotoViewer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PhotoViewer.xcodeproj; path = ../src/PhotoViewer.xcodeproj; sourceTree = SOURCE_ROOT; };
 		286D1BDA10BADEC700093AD8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* PhotoViewerDemo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewerDemo_Prefix.pch; sourceTree = "<group>"; };
@@ -66,8 +81,9 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
-				286D1BD610BADEB200093AD8 /* libPhotoViewer.a in Frameworks */,
 				286D1BDB10BADEC700093AD8 /* QuartzCore.framework in Frameworks */,
+				284F7E0510BB3F9A00B01F9B /* libPhotoViewer-device.a in Frameworks */,
+				284F7E0610BB3F9A00B01F9B /* libPhotoViewer-simulator.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +108,52 @@
 				1D6058910D05DD3D006BFB54 /* PhotoViewerDemo.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		284F7DEC10BB3F9A00B01F9B /* PhotoViewer.fmwk */ = {
+			isa = PBXGroup;
+			children = (
+				284F7DED10BB3F9A00B01F9B /* Headers */,
+				284F7DFF10BB3F9A00B01F9B /* libPhotoViewer-device.a */,
+				284F7E0010BB3F9A00B01F9B /* libPhotoViewer-simulator.a */,
+				284F7E0110BB3F9A00B01F9B /* Resources */,
+			);
+			name = PhotoViewer.fmwk;
+			path = "../src/build/Release-universal/PhotoViewer.fmwk";
+			sourceTree = SOURCE_ROOT;
+		};
+		284F7DED10BB3F9A00B01F9B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				284F7DEE10BB3F9A00B01F9B /* PhotoViewer.h */,
+				284F7DEF10BB3F9A00B01F9B /* TTGlobal.h */,
+				284F7DF010BB3F9A00B01F9B /* TTImageView.h */,
+				284F7DF110BB3F9A00B01F9B /* TTLabel.h */,
+				284F7DF210BB3F9A00B01F9B /* TTModel.h */,
+				284F7DF310BB3F9A00B01F9B /* TTPhotoSource.h */,
+				284F7DF410BB3F9A00B01F9B /* TTPhotoView.h */,
+				284F7DF510BB3F9A00B01F9B /* TTPhotoViewController.h */,
+				284F7DF610BB3F9A00B01F9B /* TTScrollView.h */,
+				284F7DF710BB3F9A00B01F9B /* TTThumbsViewController.h */,
+				284F7DF810BB3F9A00B01F9B /* TTURLCache.h */,
+				284F7DF910BB3F9A00B01F9B /* TTURLRequest.h */,
+				284F7DFA10BB3F9A00B01F9B /* TTURLRequestQueue.h */,
+				284F7DFB10BB3F9A00B01F9B /* TTURLResponse.h */,
+				284F7DFC10BB3F9A00B01F9B /* TTView.h */,
+				284F7DFD10BB3F9A00B01F9B /* UIToolbarAdditions.h */,
+				284F7DFE10BB3F9A00B01F9B /* UIViewControllerAdditions.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		284F7E0110BB3F9A00B01F9B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				284F7E0210BB3F9A00B01F9B /* pv_img_nextIcon.png */,
+				284F7E0310BB3F9A00B01F9B /* pv_img_photoDefault.png */,
+				284F7E0410BB3F9A00B01F9B /* pv_img_previousIcon.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		286D1B7C10BADD7A00093AD8 /* Photos */ = {
@@ -121,14 +183,6 @@
 				286D1B8410BADD7A00093AD8 /* PhotoTest2Controller.m */,
 			);
 			name = "Photo Thumbnails";
-			sourceTree = "<group>";
-		};
-		286D1BB310BADDA300093AD8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				286D1BB710BADDA300093AD8 /* libPhotoViewer.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
@@ -166,8 +220,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				284F7DEC10BB3F9A00B01F9B /* PhotoViewer.fmwk */,
 				286D1BDA10BADEC700093AD8 /* QuartzCore.framework */,
-				286D1BB210BADDA300093AD8 /* PhotoViewer.xcodeproj */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
@@ -212,28 +266,12 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 286D1BB310BADDA300093AD8 /* Products */;
-					ProjectRef = 286D1BB210BADDA300093AD8 /* PhotoViewer.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* PhotoViewerDemo */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		286D1BB710BADDA300093AD8 /* libPhotoViewer.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libPhotoViewer.a;
-			remoteRef = 286D1BB610BADDA300093AD8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
@@ -243,6 +281,9 @@
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
 				286D1BB110BADD9800093AD8 /* PhotoViewer.bundle in Resources */,
+				284F7E0710BB3F9A00B01F9B /* pv_img_nextIcon.png in Resources */,
+				284F7E0810BB3F9A00B01F9B /* pv_img_photoDefault.png in Resources */,
+				284F7E0910BB3F9A00B01F9B /* pv_img_previousIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,12 +311,20 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../src/build/Debug-iphonesimulator\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PhotoViewerDemo_Prefix.pch;
-				HEADER_SEARCH_PATHS = ../src;
 				INFOPLIST_FILE = "PhotoViewerDemo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../src/build/Debug-iphonesimulator/PhotoViewer.pkgg\"",
+					"\"$(SRCROOT)/../src/build/Release-universal/PhotoViewer.fmwk\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -289,10 +338,18 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../src/build/Debug-iphonesimulator\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PhotoViewerDemo_Prefix.pch;
-				HEADER_SEARCH_PATHS = ../src;
 				INFOPLIST_FILE = "PhotoViewerDemo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../src/build/Debug-iphonesimulator/PhotoViewer.pkgg\"",
+					"\"$(SRCROOT)/../src/build/Release-universal/PhotoViewer.fmwk\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",

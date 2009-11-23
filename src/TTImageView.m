@@ -1,6 +1,6 @@
-#import "PhotoViewer/TTImageView.h"
-#import "PhotoViewer/TTURLCache.h"
-#import "PhotoViewer/TTURLResponse.h"
+#import "TTImageView.h"
+#import "TTURLCache.h"
+#import "TTURLResponse.h"
 #import "QuartzCore/CALayer.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////

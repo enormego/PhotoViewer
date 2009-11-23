@@ -1,7 +1,7 @@
-#import "PhotoViewer/TTURLRequestQueue.h"
-#import "PhotoViewer/TTURLRequest.h"
-#import "PhotoViewer/TTURLResponse.h"
-#import "PhotoViewer/TTURLCache.h"
+#import "TTURLRequestQueue.h"
+#import "TTURLRequest.h"
+#import "TTURLResponse.h"
+#import "TTURLCache.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
   

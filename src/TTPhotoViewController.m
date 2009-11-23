@@ -1,9 +1,9 @@
-#import "PhotoViewer/TTPhotoViewController.h"
-#import "PhotoViewer/TTURLRequestQueue.h"
-#import "PhotoViewer/TTURLCache.h"
-#import "PhotoViewer/TTURLRequest.h"
-#import "PhotoViewer/TTPhotoView.h"
-#import "PhotoViewer/TTLabel.h"
+#import "TTPhotoViewController.h"
+#import "TTURLRequestQueue.h"
+#import "TTURLCache.h"
+#import "TTURLRequest.h"
+#import "TTPhotoView.h"
+#import "TTLabel.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // global
@@ -319,7 +319,7 @@ static const NSInteger kActivityLabelTag = 96;
     self.wantsFullScreenLayout = YES;
     self.hidesBottomBarWhenPushed = YES;
 
-    self.defaultImage = TTIMAGE(@"bundle://PhotoViewer.bundle/images/photoDefault.png");
+	  self.defaultImage = [UIImage imageNamed:@"pv_img_photoDefault.png"];
   }
   return self;
 }
@@ -361,11 +361,9 @@ static const NSInteger kActivityLabelTag = 96;
   _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
   [_innerView addSubview:_scrollView];
   
-  _nextButton = [[UIBarButtonItem alloc] initWithImage:
-    TTIMAGE(@"bundle://Three20.bundle/images/nextIcon.png")
+  _nextButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pv_img_nextIcon.png"];
      style:UIBarButtonItemStylePlain target:self action:@selector(nextAction)];
-  _previousButton = [[UIBarButtonItem alloc] initWithImage:
-    TTIMAGE(@"bundle://Three20.bundle/images/previousIcon.png")
+  _previousButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"pv_img_previousIcon.png"];
      style:UIBarButtonItemStylePlain target:self action:@selector(previousAction)];
 
   UIBarButtonItem* playButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:

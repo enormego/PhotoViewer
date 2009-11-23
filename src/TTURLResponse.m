@@ -1,6 +1,6 @@
-#import "PhotoViewer/TTURLResponse.h"
-#import "PhotoViewer/TTURLRequest.h"
-#import "PhotoViewer/TTURLCache.h"
+#import "TTURLResponse.h"
+#import "TTURLRequest.h"
+#import "TTURLCache.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

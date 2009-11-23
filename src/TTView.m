@@ -1,4 +1,4 @@
-#import "PhotoViewer/TTView.h"
+#import "TTView.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -8,14 +8,14 @@
 // NSObject
 
 - (id)initWithFrame:(CGRect)frame {
-  if (self = [super initWithFrame:frame]) {
-    self.contentMode = UIViewContentModeRedraw;
-  }
-  return self;
+	if (self = [super initWithFrame:frame]) {
+		self.contentMode = UIViewContentModeRedraw;
+	}
+	return self;
 }
 
 - (void)dealloc {
-  [super dealloc];
+	[super dealloc];
 }
 
 @end
