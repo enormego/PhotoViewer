@@ -1,5 +1,4 @@
 #import "PhotoViewer/TTLabel.h"
-#import "PhotoViewer/TTDefaultStyleSheet.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -35,25 +34,11 @@
 // UIView
 
 - (void)drawRect:(CGRect)rect {
-  TTStyleContext* context = [[[TTStyleContext alloc] init] autorelease];
-  context.delegate = self;
-  context.frame = self.bounds;
-  context.contentFrame = context.frame;
-  context.font = _font;
-
-  [self.style draw:context];
-  if (!context.didDrawContent) {
-    [self drawContent:self.bounds];
-  }
+	[self.text drawInRect:rect withFont:self.font];
 }
 
 - (CGSize)sizeThatFits:(CGSize)size {
-  TTStyleContext* context = [[[TTStyleContext alloc] init] autorelease];
-  context.delegate = self;
-  context.font = _font;
-  context.frame = CGRectMake(0, 0, size.width, size.height);
-  context.contentFrame = context.frame;
-  return [_style addToSize:CGSizeZero context:context];
+	return [self.text sizeWithFont:self.font];
 }
 
 
@@ -73,19 +58,13 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTStyleDelegate
-
-- (NSString*)textForLayerWithStyle:(TTStyle*)style {
-  return self.text;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 // public
 
 - (UIFont*)font {
   if (!_font) {
-    _font = [TTSTYLEVAR(font) retain];
+	  _font = [[UIFont boldSystemFontOfSize:12.0f] retain];
   }
+	
   return _font;
 }
 

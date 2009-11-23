@@ -1,5 +1,4 @@
 #import "PhotoViewer/TTPhotoView.h"
-#import "PhotoViewer/TTDefaultStyleSheet.h"
 #import "PhotoViewer/TTImageView.h"
 #import "PhotoViewer/TTLabel.h"
 #import "PhotoViewer/TTURLCache.h"
@@ -8,9 +7,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 @implementation TTPhotoView
-
-@synthesize photo = _photo, captionStyle = _captionStyle, hidesExtras = _hidesExtras,
-            hidesCaption = _hidesCaption;
+@synthesize photo = _photo, hidesExtras = _hidesExtras, hidesCaption = _hidesCaption;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // private
@@ -33,7 +30,6 @@
     if (!_captionLabel) {
       _captionLabel = [[TTLabel alloc] init];
       _captionLabel.opaque = NO;
-      _captionLabel.style = _captionStyle ? _captionStyle : TTSTYLE(photoCaption);
       _captionLabel.alpha = _hidesCaption ? 0 : 1;
       [self addSubview:_captionLabel];
     }
@@ -51,7 +47,6 @@
     _photo = nil;
     _statusSpinner = nil;
     _statusLabel = nil;
-    _captionStyle = nil;
     _captionLabel = nil;
     _photoVersion = TTPhotoVersionNone;
     _hidesExtras = NO;
@@ -67,7 +62,6 @@
   [super setDelegate:nil];
   TT_RELEASE_SAFELY(_photo);
   TT_RELEASE_SAFELY(_captionLabel);
-  TT_RELEASE_SAFELY(_captionStyle);
   TT_RELEASE_SAFELY(_statusSpinner);
   TT_RELEASE_SAFELY(_statusLabel);
   [super dealloc];
@@ -241,7 +235,6 @@
   if (text) {
     if (!_statusLabel) {
       _statusLabel = [[TTLabel alloc] init];
-      _statusLabel.style = TTSTYLE(photoStatusLabel);
       _statusLabel.opaque = NO;
       [self addSubview:_statusLabel];
     }

@@ -1,7 +1,6 @@
 #import "PhotoViewer/TTImageView.h"
 #import "PhotoViewer/TTURLCache.h"
 #import "PhotoViewer/TTURLResponse.h"
-#import "PhotoViewer/TTShape.h"
 #import "QuartzCore/CALayer.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,13 +50,9 @@
 
 - (void)updateLayer {
   TTImageLayer* layer = (TTImageLayer*)self.layer;
-  if (self.style) {
-    layer.override = nil;
-  } else {
     // This is dramatically faster than calling drawRect.  Since we don't have any styles
     // to draw in this case, we can take this shortcut.
     layer.override = self;
-  }
   [layer setNeedsDisplay];
 }
 
@@ -94,27 +89,7 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-  if (self.style) {
-    [super drawRect:rect];
-  }
-}
 
-//////////////////////////////////////////////////////////////////////////////////////////////////
-// TTView
-
-- (void)drawContent:(CGRect)rect {
-  if (_image) {
-    [_image drawInRect:rect contentMode:self.contentMode];
-  } else {
-    [_defaultImage drawInRect:rect contentMode:self.contentMode];
-  }
-}
-
-- (void)setStyle:(TTStyle*)style {
-  if (style != _style) {
-    [super setStyle:style];
-    [self updateLayer];
-  }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -158,7 +133,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // TTStyleDelegate
 
-- (void)drawLayer:(TTStyleContext*)context withStyle:(TTStyle*)style {
+/*- (void)drawLayer:(TTStyleContext*)context withStyle:(TTStyle*)style {
   if ([style isKindOfClass:[TTContentStyle class]]) {
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextSaveGState(ctx);
@@ -171,7 +146,7 @@
 
     CGContextRestoreGState(ctx);
   }
-}
+}*/
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // public

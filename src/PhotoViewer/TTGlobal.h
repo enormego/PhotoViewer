@@ -18,7 +18,6 @@
 #import "PhotoViewer/UITableViewAdditions.h"
 #import "PhotoViewer/UIWebViewAdditions.h"
 #import "PhotoViewer/UIToolbarAdditions.h"
-#import "PhotoViewer/TTDebug.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Logging Helpers

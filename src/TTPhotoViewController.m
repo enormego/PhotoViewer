@@ -601,7 +601,6 @@ static const NSInteger kActivityLabelTag = 96;
   TTPhotoView* photoView = (TTPhotoView*)[_scrollView dequeueReusablePage];
   if (!photoView) {
     photoView = [self createPhotoView];
-    photoView.captionStyle = _captionStyle;
     photoView.defaultImage = _defaultImage;
     photoView.hidesCaption = _toolbar.alpha == 0;
   }

@@ -9,14 +9,12 @@
   UIActivityIndicatorView* _statusSpinner;
   TTLabel* _statusLabel;
   TTLabel* _captionLabel;
-  TTStyle* _captionStyle;
   TTPhotoVersion _photoVersion;
   BOOL _hidesExtras;
   BOOL _hidesCaption;
 }
 
 @property(nonatomic,retain) id<TTPhoto> photo;
-@property(nonatomic,retain) TTStyle* captionStyle;
 @property(nonatomic) BOOL hidesExtras;
 @property(nonatomic) BOOL hidesCaption;
 

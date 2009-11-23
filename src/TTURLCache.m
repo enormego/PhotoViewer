@@ -412,14 +412,7 @@ static NSMutableDictionary* gNamedCaches = nil;
 }
 
 - (void)logMemoryUsage {
-#if TTLOGLEVEL_INFO <= TTMAXLOGLEVEL
-  TTDINFO(@"======= IMAGE CACHE: %d images, %d pixels ========", _imageCache.count, _totalPixelCount);
-  NSEnumerator* e = [_imageCache keyEnumerator];
-  for (NSString* key ; key = [e nextObject]; ) {
-    UIImage* image = [_imageCache objectForKey:key];
-    TTDINFO(@"  %f x %f %@", image.size.width, image.size.height, key);
-  }
-#endif
+
 }
 
 @end

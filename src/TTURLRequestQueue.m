@@ -84,7 +84,6 @@ static TTURLRequestQueue* gMainQueue = nil;
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (void)connectToURL:(NSURL*)URL {
-  TTDINFO(@"Connecting to %@", _URL);
   TTNetworkRequestStarted();
 
   TTURLRequest* request = _requests.count == 1 ? [_requests objectAtIndex:0] : nil;
@@ -157,7 +156,6 @@ static TTURLRequestQueue* gMainQueue = nil;
   NSDictionary* headers = [response allHeaderFields];
   int contentLength = [[headers objectForKey:@"Content-Length"] intValue];
   if (contentLength > _queue.maxContentLength && _queue.maxContentLength) {
-    TTDINFO(@"MAX CONTENT LENGTH EXCEEDED (%d) %@", contentLength, _URL);
     [self cancel];
   }
 
@@ -186,7 +184,6 @@ static TTURLRequestQueue* gMainQueue = nil;
     [_queue performSelector:@selector(loader:didLoadResponse:data:) withObject:self
       withObject:_response withObject:_responseData];
   } else {
-    TTDINFO(@"  FAILED LOADING (%d) %@", _response.statusCode, _URL);
     NSError* error = [NSError errorWithDomain:NSURLErrorDomain code:_response.statusCode
       userInfo:nil];
     [_queue performSelector:@selector(loader:didFailLoadWithError:) withObject:self
@@ -198,8 +195,6 @@ static TTURLRequestQueue* gMainQueue = nil;
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {  
-  TTDINFO(@"  FAILED LOADING %@ FOR %@", _URL, error);
-
   TTNetworkRequestStopped();
   
   TT_RELEASE_SAFELY(_responseData);
@@ -482,7 +477,6 @@ static TTURLRequestQueue* gMainQueue = nil;
 }
 
 - (void)loader:(TTRequestLoader*)loader didFailLoadWithError:(NSError*)error {
-  TTDINFO(@"ERROR: %@", error);
   [self removeLoader:loader];
   [loader dispatchError:error];
   [self loadNextInQueue];
@@ -500,7 +494,6 @@ static TTURLRequestQueue* gMainQueue = nil;
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (void)setSuspended:(BOOL)isSuspended {
-  // TTDINFO(@"SUSPEND LOADING %d", isSuspended);
   _suspended = isSuspended;
   
   if (!_suspended) {

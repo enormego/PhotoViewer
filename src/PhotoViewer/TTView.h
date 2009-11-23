@@ -1,18 +1,7 @@
-#import "PhotoViewer/TTStyle.h"
+#import "PhotoViewer/TTGlobal.h"
 
-@class TTStyle, TTLayout;
+@interface TTView : UIView {
 
-/**
- * A decorational view that can styled using a TTStyle object.
- */
-@interface TTView : UIView <TTStyleDelegate> {
-  TTStyle* _style;
-  TTLayout* _layout;
 }
-
-@property(nonatomic,retain) TTStyle* style;
-@property(nonatomic,retain) TTLayout* layout;
-
-- (void)drawContent:(CGRect)rect;
 
 @end

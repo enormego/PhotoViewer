@@ -248,8 +248,6 @@ static NSString* kStringBoundary = @"3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f";
       [_parameters setObject:@"[FILTERED]" forKey:@"password"];
     }
 
-    TTDINFO(@"SEND %@ %@", self.URL, self.parameters);
-
     if (password) {
       [_parameters setObject:password forKey:@"password"];
     }
