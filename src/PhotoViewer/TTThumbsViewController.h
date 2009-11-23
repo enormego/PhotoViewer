@@ -1,50 +1,16 @@
-#import "PhotoViewer/TTTableViewController.h"
-#import "PhotoViewer/TTThumbsTableViewCell.h"
-#import "PhotoViewer/TTPhotoSource.h"
+//
+//  TTThumbsViewController.h
+//  PhotoViewer
+//
+//  Created by Shaun Harrison on 11/23/09.
+//  Copyright 2009 enormego. All rights reserved.
+//
 
-@protocol TTThumbsViewControllerDelegate, TTPhotoSource;
-@class TTPhotoViewController;
+#import <UIKit/UIKit.h>
 
-@interface TTThumbsViewController : TTTableViewController <TTThumbsTableViewCellDelegate> {
-  id<TTThumbsViewControllerDelegate> _delegate;
-  id<TTPhotoSource> _photoSource;
+
+@interface TTThumbsViewController : UITableViewController {
+
 }
-
-@property(nonatomic,assign) id<TTThumbsViewControllerDelegate> delegate;
-@property(nonatomic,retain) id<TTPhotoSource> photoSource;
-
-- (id)initWithDelegate:(id<TTThumbsViewControllerDelegate>)delegate;
-- (id)initWithQuery:(NSDictionary*)query;
-
-- (TTPhotoViewController*)createPhotoViewController;
-- (id<TTTableViewDataSource>)createDataSource;
-
-@end
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-@interface TTThumbsDataSource : TTTableViewDataSource {
-  id<TTThumbsTableViewCellDelegate> _delegate;
-  id<TTPhotoSource> _photoSource;
-}
-
-@property(nonatomic,assign) id<TTThumbsTableViewCellDelegate> delegate;
-@property(nonatomic,retain) id<TTPhotoSource> photoSource;
-
-- (id)initWithPhotoSource:(id<TTPhotoSource>)photoSource
-      delegate:(id<TTThumbsTableViewCellDelegate>)delegate;
-
-@end
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-@protocol TTThumbsViewControllerDelegate <NSObject>
-
-- (void)thumbsViewController:(TTThumbsViewController*)controller didSelectPhoto:(id<TTPhoto>)photo;
-
-@optional
-
-- (BOOL)thumbsViewController:(TTThumbsViewController*)controller
-        shouldNavigateToPhoto:(id<TTPhoto>)photo;
 
 @end

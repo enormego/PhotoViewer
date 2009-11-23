@@ -1,8 +1,6 @@
 #import "PhotoViewer/TTNavigator.h"
 #import "PhotoViewer/TTURLMap.h"
 #import "PhotoViewer/TTURLPattern.h"
-#import "PhotoViewer/TTTableViewController.h"
-#import "PhotoViewer/TTSearchDisplayController.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -212,11 +210,6 @@
     if (state) {
       [controller restoreView:state];
       controller.frozenState = state;
-
-      if ([controller isKindOfClass:[TTModelViewController class]]) {
-        TTModelViewController* modelViewController = (TTModelViewController*)controller;
-        modelViewController.model;
-      }
     }
     
     if ([_delegate respondsToSelector:@selector(navigator:willOpenURL:inViewController:)]) {
@@ -313,13 +306,7 @@
   while (controller) {
     UIViewController* child = controller.modalViewController;
     if (!child) {
-      UISearchDisplayController* search = controller.searchDisplayController;
-      if (search && search.active && [search isKindOfClass:[TTSearchDisplayController class]]) {
-        TTSearchDisplayController* ttsearch = (TTSearchDisplayController*)search;
-        child = ttsearch.searchResultsViewController;
-      } else {
         child = controller.topSubcontroller;
-      }
     }
     if (child) {
       controller = child;
@@ -623,11 +610,7 @@
 }
 
 - (void)reload {
-  UIViewController* controller = self.visibleViewController;
-  if ([controller isKindOfClass:[TTModelViewController class]]) {
-    TTModelViewController* ttcontroller = (TTModelViewController*)controller;
-    [ttcontroller reload];
-  }
+
 }
 
 @end

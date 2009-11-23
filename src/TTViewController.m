@@ -1,7 +1,5 @@
 #import "PhotoViewer/TTViewController.h"
-#import "PhotoViewer/TTTableViewController.h"
 #import "PhotoViewer/TTURLRequestQueue.h"
-#import "PhotoViewer/TTSearchDisplayController.h"
 #import "PhotoViewer/TTStyleSheet.h"
 #import "PhotoViewer/TTNavigator.h"
 

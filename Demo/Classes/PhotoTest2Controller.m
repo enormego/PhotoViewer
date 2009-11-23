@@ -4,7 +4,7 @@
 @implementation PhotoTest2Controller
 
 - (void)viewDidLoad {
-  self.photoSource = [[MockPhotoSource alloc]
+  /*self.photoSource = [[MockPhotoSource alloc]
     initWithType:MockPhotoSourceNormal
     //initWithType:MockPhotoSourceDelayed
     // initWithType:MockPhotoSourceLoadError
@@ -273,7 +273,7 @@
 //      smallURL:@"http://farm4.static.flickr.com/3280/2949707060_8139284ba5_t.jpg"
 //      size:CGSizeMake(800, 533)] autorelease],
 //    nil]
-  ];
+  ];*/
 }
 
 @end

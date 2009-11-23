@@ -6,7 +6,7 @@
 @class TTScrollView, TTPhotoView, TTStyle;
 
 @interface TTPhotoViewController : TTModelViewController
-          <TTScrollViewDelegate, TTScrollViewDataSource, TTThumbsViewControllerDelegate> {
+          <TTScrollViewDelegate, TTScrollViewDataSource/*, TTThumbsViewControllerDelegate*/> {
   id<TTPhotoSource> _photoSource;
   id<TTPhoto> _centerPhoto;
   NSInteger _centerPhotoIndex;

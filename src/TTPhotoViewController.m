@@ -2,8 +2,8 @@
 #import "PhotoViewer/TTURLCache.h"
 #import "PhotoViewer/TTURLRequest.h"
 #import "PhotoViewer/TTPhotoView.h"
-#import "PhotoViewer/TTActivityLabel.h"
 #import "PhotoViewer/TTNavigator.h"
+#import "PhotoViewer/TTLabel.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // global
@@ -205,7 +205,7 @@ static const NSInteger kActivityLabelTag = 96;
     } else {
       // The photo source had no URL mapping in TTURLMap, so we let the subclass show the thumbs
       _thumbsController = [[self createThumbsViewController] retain];
-      _thumbsController.photoSource = _photoSource;
+      // _thumbsController.photoSource = _photoSource;
     }
   }
     
@@ -321,7 +321,7 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 - (void)dealloc {
-  _thumbsController.delegate = nil;
+  // _thumbsController.delegate = nil;
   TT_INVALIDATE_TIMER(_slideshowTimer);
   TT_INVALIDATE_TIMER(_loadTimer);
   TT_RELEASE_SAFELY(_thumbsController);
@@ -679,7 +679,7 @@ static const NSInteger kActivityLabelTag = 96;
 }
 
 - (TTThumbsViewController*)createThumbsViewController {
-  return [[[TTThumbsViewController alloc] initWithDelegate:self] autorelease];
+  return [[[TTThumbsViewController alloc] init/*WithDelegate:self*/] autorelease];
 }
 
 - (void)didMoveToPhoto:(id<TTPhoto>)photo fromPhoto:(id<TTPhoto>)fromPhoto {
@@ -687,8 +687,7 @@ static const NSInteger kActivityLabelTag = 96;
 
 - (void)showActivity:(NSString*)title {
   if (title) {
-    TTActivityLabel* label = [[[TTActivityLabel alloc]
-                             initWithStyle:TTActivityLabelStyleBlackBezel] autorelease];
+    TTLabel* label = [[[TTLabel alloc] init] autorelease];
     label.tag = kActivityLabelTag;
     label.text = title;
     label.frame = _scrollView.frame;

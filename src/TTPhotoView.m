@@ -2,7 +2,6 @@
 #import "PhotoViewer/TTDefaultStyleSheet.h"
 #import "PhotoViewer/TTImageView.h"
 #import "PhotoViewer/TTLabel.h"
-#import "PhotoViewer/TTActivityLabel.h"
 #import "PhotoViewer/TTURLCache.h"
 #import "PhotoViewer/TTURLRequestQueue.h"
 
