@@ -1,10 +1,10 @@
-#import "Three20/TTPhotoView.h"
-#import "Three20/TTDefaultStyleSheet.h"
-#import "Three20/TTImageView.h"
-#import "Three20/TTLabel.h"
-#import "Three20/TTActivityLabel.h"
-#import "Three20/TTURLCache.h"
-#import "Three20/TTURLRequestQueue.h"
+#import "PhotoViewer/TTPhotoView.h"
+#import "PhotoViewer/TTDefaultStyleSheet.h"
+#import "PhotoViewer/TTImageView.h"
+#import "PhotoViewer/TTLabel.h"
+#import "PhotoViewer/TTActivityLabel.h"
+#import "PhotoViewer/TTURLCache.h"
+#import "PhotoViewer/TTURLRequestQueue.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

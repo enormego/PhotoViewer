@@ -1,6 +1,6 @@
-#import "Three20/TTStyle.h"
-#import "Three20/TTShape.h"
-#import "Three20/TTURLCache.h"
+#import "PhotoViewer/TTStyle.h"
+#import "PhotoViewer/TTShape.h"
+#import "PhotoViewer/TTURLCache.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // global

@@ -1,8 +1,8 @@
-#include "Three20/TTLink.h"
-#include "Three20/TTNavigator.h"
-#include "Three20/TTShape.h"
-#include "Three20/TTView.h"
-#include "Three20/TTDefaultStyleSheet.h"
+#include "PhotoViewer/TTLink.h"
+#include "PhotoViewer/TTNavigator.h"
+#include "PhotoViewer/TTShape.h"
+#include "PhotoViewer/TTView.h"
+#include "PhotoViewer/TTDefaultStyleSheet.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

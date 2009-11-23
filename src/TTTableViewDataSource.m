@@ -1,9 +1,9 @@
-#import "Three20/TTTableViewDataSource.h"
-#import "Three20/TTTableItem.h"
-#import "Three20/TTTableItemCell.h"
-#import "Three20/TTURLCache.h"
-#import "Three20/TTTextEditor.h"
-#import "Three20/TTStyledText.h"
+#import "PhotoViewer/TTTableViewDataSource.h"
+#import "PhotoViewer/TTTableItem.h"
+#import "PhotoViewer/TTTableItemCell.h"
+#import "PhotoViewer/TTURLCache.h"
+#import "PhotoViewer/TTTextEditor.h"
+#import "PhotoViewer/TTStyledText.h"
 #import <objc/runtime.h>
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

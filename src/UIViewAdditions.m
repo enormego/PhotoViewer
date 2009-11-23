@@ -1,4 +1,4 @@
-#import "Three20/TTGlobal.h"
+#import "PhotoViewer/TTGlobal.h"
 
 
 // Remove GSEvent and UITouchAdditions from Release builds

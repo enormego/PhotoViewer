@@ -1,6 +1,6 @@
-#import "Three20/TTSearchDisplayController.h"
-#import "Three20/TTTableViewController.h"
-#import "Three20/TTTableViewDataSource.h"
+#import "PhotoViewer/TTSearchDisplayController.h"
+#import "PhotoViewer/TTTableViewController.h"
+#import "PhotoViewer/TTTableViewDataSource.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // global

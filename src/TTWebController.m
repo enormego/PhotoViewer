@@ -1,8 +1,8 @@
-#import "Three20/TTWebController.h"
-#import "Three20/TTDefaultStyleSheet.h"
-#import "Three20/TTURLCache.h"
-#import "Three20/TTNavigator.h"
-#import "Three20/TTURLMap.h"
+#import "PhotoViewer/TTWebController.h"
+#import "PhotoViewer/TTDefaultStyleSheet.h"
+#import "PhotoViewer/TTURLCache.h"
+#import "PhotoViewer/TTNavigator.h"
+#import "PhotoViewer/TTURLMap.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -1,5 +1,5 @@
-#import "Three20/TTNavigator.h"
-#import "Three20/TTURLMap.h"
+#import "PhotoViewer/TTNavigator.h"
+#import "PhotoViewer/TTURLMap.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

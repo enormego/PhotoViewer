@@ -1,5 +1,5 @@
-#include "Three20/TTTableHeaderView.h"
-#include "Three20/TTDefaultStyleSheet.h"
+#include "PhotoViewer/TTTableHeaderView.h"
+#include "PhotoViewer/TTDefaultStyleSheet.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

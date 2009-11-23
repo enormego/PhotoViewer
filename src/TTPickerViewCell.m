@@ -1,5 +1,5 @@
-#import "Three20/TTPickerViewCell.h"
-#import "Three20/TTDefaultStyleSheet.h"
+#import "PhotoViewer/TTPickerViewCell.h"
+#import "PhotoViewer/TTDefaultStyleSheet.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

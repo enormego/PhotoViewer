@@ -1,6 +1,6 @@
-#import "Three20/TTView.h"
-#import "Three20/TTStyle.h"
-#import "Three20/TTLayout.h"
+#import "PhotoViewer/TTView.h"
+#import "PhotoViewer/TTStyle.h"
+#import "PhotoViewer/TTLayout.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

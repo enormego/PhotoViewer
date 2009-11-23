@@ -1,5 +1,5 @@
-#import "Three20/TTAlertViewController.h"
-#import "Three20/TTNavigator.h"
+#import "PhotoViewer/TTAlertViewController.h"
+#import "PhotoViewer/TTNavigator.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

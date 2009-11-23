@@ -1,5 +1,5 @@
-#import "Three20/TTSearchlightLabel.h"
-#import "Three20/TTDefaultStyleSheet.h"
+#import "PhotoViewer/TTSearchlightLabel.h"
+#import "PhotoViewer/TTDefaultStyleSheet.h"
 
 @implementation TTSearchlightLabel
 

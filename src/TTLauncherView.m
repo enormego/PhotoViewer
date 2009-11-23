@@ -1,7 +1,7 @@
-#import "Three20/TTLauncherView.h"
-#import "Three20/TTLauncherItem.h"
-#import "Three20/TTLauncherButton.h"
-#import "Three20/TTPageControl.h"
+#import "PhotoViewer/TTLauncherView.h"
+#import "PhotoViewer/TTLauncherItem.h"
+#import "PhotoViewer/TTLauncherButton.h"
+#import "PhotoViewer/TTPageControl.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // global

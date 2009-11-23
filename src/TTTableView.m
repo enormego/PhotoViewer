@@ -1,7 +1,7 @@
-#import "Three20/TTTableView.h"
-#import "Three20/TTStyledNode.h"
-#import "Three20/TTStyledTextLabel.h"
-#import "Three20/TTTableViewDelegate.h"
+#import "PhotoViewer/TTTableView.h"
+#import "PhotoViewer/TTStyledNode.h"
+#import "PhotoViewer/TTStyledTextLabel.h"
+#import "PhotoViewer/TTTableViewDelegate.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // global

@@ -1,5 +1,5 @@
-#import "Three20/TTGlobal.h"
-#import "Three20/TTNavigator.h"
+#import "PhotoViewer/TTGlobal.h"
+#import "PhotoViewer/TTNavigator.h"
 #import <objc/runtime.h>
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

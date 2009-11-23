@@ -1,9 +1,9 @@
-#import "Three20/TTPostController.h"
-#import "Three20/TTStyle.h"
-#import "Three20/TTStyleSheet.h"
-#import "Three20/TTNavigator.h"
-#import "Three20/TTActivityLabel.h"
-#import "Three20/TTView.h"
+#import "PhotoViewer/TTPostController.h"
+#import "PhotoViewer/TTStyle.h"
+#import "PhotoViewer/TTStyleSheet.h"
+#import "PhotoViewer/TTNavigator.h"
+#import "PhotoViewer/TTActivityLabel.h"
+#import "PhotoViewer/TTView.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // global

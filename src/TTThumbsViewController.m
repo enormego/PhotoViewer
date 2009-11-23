@@ -1,10 +1,10 @@
-#import "Three20/TTThumbsViewController.h"
-#import "Three20/TTPhotoViewController.h"
-#import "Three20/TTURLRequest.h"
-#import "Three20/TTNavigator.h"
-#import "Three20/TTTableItem.h"
-#import "Three20/TTURLCache.h"
-#import "Three20/TTStyleSheet.h"
+#import "PhotoViewer/TTThumbsViewController.h"
+#import "PhotoViewer/TTPhotoViewController.h"
+#import "PhotoViewer/TTURLRequest.h"
+#import "PhotoViewer/TTNavigator.h"
+#import "PhotoViewer/TTTableItem.h"
+#import "PhotoViewer/TTURLCache.h"
+#import "PhotoViewer/TTStyleSheet.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // global

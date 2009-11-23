@@ -1,7 +1,7 @@
-#import "Three20/TTStyledLayout.h"
-#import "Three20/TTStyledNode.h"
-#import "Three20/TTStyledFrame.h"
-#import "Three20/TTDefaultStyleSheet.h"
+#import "PhotoViewer/TTStyledLayout.h"
+#import "PhotoViewer/TTStyledNode.h"
+#import "PhotoViewer/TTStyledFrame.h"
+#import "PhotoViewer/TTDefaultStyleSheet.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

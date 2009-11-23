@@ -1,8 +1,8 @@
-#import "Three20/TTMessageController.h"
-#import "Three20/TTDefaultStyleSheet.h"
-#import "Three20/TTPickerTextField.h"
-#import "Three20/TTTextEditor.h"
-#import "Three20/TTActivityLabel.h"
+#import "PhotoViewer/TTMessageController.h"
+#import "PhotoViewer/TTDefaultStyleSheet.h"
+#import "PhotoViewer/TTPickerTextField.h"
+#import "PhotoViewer/TTTextEditor.h"
+#import "PhotoViewer/TTActivityLabel.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

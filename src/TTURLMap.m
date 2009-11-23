@@ -1,5 +1,5 @@
-#import "Three20/TTURLMap.h"
-#import "Three20/TTURLPattern.h"
+#import "PhotoViewer/TTURLMap.h"
+#import "PhotoViewer/TTURLPattern.h"
 #import <objc/runtime.h>
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

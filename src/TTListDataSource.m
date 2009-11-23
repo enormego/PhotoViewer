@@ -1,5 +1,5 @@
-#import "Three20/TTListDataSource.h"
-#import "Three20/TTTableItem.h"
+#import "PhotoViewer/TTListDataSource.h"
+#import "PhotoViewer/TTTableItem.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -1,6 +1,6 @@
-#import "Three20/TTStyledNode.h"
-#import "Three20/TTURLCache.h"
-#import "Three20/TTNavigator.h"
+#import "PhotoViewer/TTStyledNode.h"
+#import "PhotoViewer/TTURLCache.h"
+#import "PhotoViewer/TTNavigator.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -1,6 +1,6 @@
-#import "Three20/TTURLRequest.h"
-#import "Three20/TTURLResponse.h"
-#import "Three20/TTURLRequestQueue.h"
+#import "PhotoViewer/TTURLRequest.h"
+#import "PhotoViewer/TTURLResponse.h"
+#import "PhotoViewer/TTURLRequestQueue.h"
 #import <CommonCrypto/CommonDigest.h>
 
 //////////////////////////////////////////////////////////////////////////////////////////////////

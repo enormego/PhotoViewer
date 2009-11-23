@@ -1,8 +1,8 @@
-#include "Three20/TTButton.h"
-#include "Three20/TTDefaultStyleSheet.h"
-#include "Three20/TTURLRequest.h"
-#include "Three20/TTURLResponse.h"
-#include "Three20/TTURLCache.h"
+#include "PhotoViewer/TTButton.h"
+#include "PhotoViewer/TTDefaultStyleSheet.h"
+#include "PhotoViewer/TTURLRequest.h"
+#include "PhotoViewer/TTURLResponse.h"
+#include "PhotoViewer/TTURLCache.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // global

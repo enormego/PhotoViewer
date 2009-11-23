@@ -1,6 +1,6 @@
-#import "Three20/TTThumbsTableViewCell.h"
-#import "Three20/TTThumbView.h"
-#import "Three20/TTPhotoSource.h"
+#import "PhotoViewer/TTThumbsTableViewCell.h"
+#import "PhotoViewer/TTThumbView.h"
+#import "PhotoViewer/TTPhotoSource.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

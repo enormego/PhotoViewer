@@ -1,9 +1,9 @@
-#import "Three20/TTNavigator.h"
-#import "Three20/TTURLMap.h"
-#import "Three20/TTURLPattern.h"
-#import "Three20/TTTableViewController.h"
-#import "Three20/TTPopupViewController.h"
-#import "Three20/TTSearchDisplayController.h"
+#import "PhotoViewer/TTNavigator.h"
+#import "PhotoViewer/TTURLMap.h"
+#import "PhotoViewer/TTURLPattern.h"
+#import "PhotoViewer/TTTableViewController.h"
+#import "PhotoViewer/TTPopupViewController.h"
+#import "PhotoViewer/TTSearchDisplayController.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

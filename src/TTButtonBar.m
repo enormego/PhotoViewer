@@ -1,5 +1,5 @@
-#import "Three20/TTButtonBar.h"
-#import "Three20/TTButton.h"
+#import "PhotoViewer/TTButtonBar.h"
+#import "PhotoViewer/TTButton.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // global

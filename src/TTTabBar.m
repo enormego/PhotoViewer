@@ -1,8 +1,8 @@
-#import "Three20/TTTabBar.h"
-#import "Three20/TTImageView.h"
-#import "Three20/TTLabel.h"
-#import "Three20/TTLayout.h"
-#import "Three20/TTDefaultStyleSheet.h"
+#import "PhotoViewer/TTTabBar.h"
+#import "PhotoViewer/TTImageView.h"
+#import "PhotoViewer/TTLabel.h"
+#import "PhotoViewer/TTLayout.h"
+#import "PhotoViewer/TTDefaultStyleSheet.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // global

@@ -1,6 +1,6 @@
-#include "Three20/TTTableItem.h"
-#include "Three20/TTStyledNode.h"
-#include "Three20/TTStyledText.h"
+#include "PhotoViewer/TTTableItem.h"
+#include "PhotoViewer/TTStyledNode.h"
+#include "PhotoViewer/TTStyledText.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

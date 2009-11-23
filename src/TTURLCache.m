@@ -1,4 +1,4 @@
-#import "Three20/TTURLCache.h"
+#import "PhotoViewer/TTURLCache.h"
 #import <CommonCrypto/CommonDigest.h>
 #import <QuartzCore/QuartzCore.h>
 

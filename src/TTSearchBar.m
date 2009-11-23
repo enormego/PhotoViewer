@@ -1,8 +1,8 @@
-#import "Three20/TTSearchBar.h"
-#import "Three20/TTSearchTextField.h"
-#import "Three20/TTView.h"
-#import "Three20/TTDefaultStyleSheet.h"
-#import "Three20/TTButton.h"
+#import "PhotoViewer/TTSearchBar.h"
+#import "PhotoViewer/TTSearchTextField.h"
+#import "PhotoViewer/TTView.h"
+#import "PhotoViewer/TTDefaultStyleSheet.h"
+#import "PhotoViewer/TTButton.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

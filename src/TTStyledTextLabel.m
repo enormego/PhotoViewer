@@ -1,9 +1,9 @@
-#import "Three20/TTStyledTextLabel.h"
-#import "Three20/TTStyledNode.h"
-#import "Three20/TTStyledFrame.h"
-#import "Three20/TTStyledText.h"
-#import "Three20/TTDefaultStyleSheet.h"
-#import "Three20/TTTableView.h"
+#import "PhotoViewer/TTStyledTextLabel.h"
+#import "PhotoViewer/TTStyledNode.h"
+#import "PhotoViewer/TTStyledFrame.h"
+#import "PhotoViewer/TTStyledText.h"
+#import "PhotoViewer/TTDefaultStyleSheet.h"
+#import "PhotoViewer/TTTableView.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // global

@@ -1,5 +1,5 @@
-#import "Three20/TTActionSheetController.h"
-#import "Three20/TTNavigator.h"
+#import "PhotoViewer/TTActionSheetController.h"
+#import "PhotoViewer/TTNavigator.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

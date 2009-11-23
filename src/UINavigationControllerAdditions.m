@@ -1,7 +1,7 @@
-#import "Three20/TTGlobal.h"
-#import "Three20/TTURLRequestQueue.h"
-#import "Three20/TTNavigator.h"
-#import "Three20/TTURLMap.h"
+#import "PhotoViewer/TTGlobal.h"
+#import "PhotoViewer/TTURLRequestQueue.h"
+#import "PhotoViewer/TTNavigator.h"
+#import "PhotoViewer/TTURLMap.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

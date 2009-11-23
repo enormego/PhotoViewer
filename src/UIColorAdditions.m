@@ -1,4 +1,4 @@
-#import "Three20/TTGlobal.h"
+#import "PhotoViewer/TTGlobal.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Color algorithms from http://www.cs.rit.edu/~ncs/color/t_convert.html

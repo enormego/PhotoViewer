@@ -1,5 +1,5 @@
-#import "Three20/TTLabel.h"
-#import "Three20/TTDefaultStyleSheet.h"
+#import "PhotoViewer/TTLabel.h"
+#import "PhotoViewer/TTDefaultStyleSheet.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -1,5 +1,5 @@
-#import "Three20/TTStyledTextParser.h"
-#import "Three20/TTStyledNode.h"
+#import "PhotoViewer/TTStyledTextParser.h"
+#import "PhotoViewer/TTStyledNode.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

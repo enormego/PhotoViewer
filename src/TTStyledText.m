@@ -1,11 +1,11 @@
-#import "Three20/TTStyledText.h"
-#import "Three20/TTStyledNode.h"
-#import "Three20/TTStyledFrame.h"
-#import "Three20/TTStyledLayout.h"
-#import "Three20/TTStyledTextParser.h"
-#import "Three20/TTURLRequest.h"
-#import "Three20/TTURLResponse.h"
-#import "Three20/TTURLCache.h"
+#import "PhotoViewer/TTStyledText.h"
+#import "PhotoViewer/TTStyledNode.h"
+#import "PhotoViewer/TTStyledFrame.h"
+#import "PhotoViewer/TTStyledLayout.h"
+#import "PhotoViewer/TTStyledTextParser.h"
+#import "PhotoViewer/TTURLRequest.h"
+#import "PhotoViewer/TTURLResponse.h"
+#import "PhotoViewer/TTURLCache.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

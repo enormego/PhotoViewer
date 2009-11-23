@@ -1,5 +1,5 @@
-#import "Three20/TTThumbView.h"
-#import "Three20/TTDefaultStyleSheet.h"
+#import "PhotoViewer/TTThumbView.h"
+#import "PhotoViewer/TTDefaultStyleSheet.h"
 
 @implementation TTThumbView
 

@@ -1,5 +1,5 @@
-#import "Three20/TTTextEditor.h"
-#import "Three20/TTDefaultStyleSheet.h"
+#import "PhotoViewer/TTTextEditor.h"
+#import "PhotoViewer/TTDefaultStyleSheet.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

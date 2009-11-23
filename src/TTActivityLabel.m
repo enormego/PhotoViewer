@@ -1,7 +1,7 @@
-#import "Three20/TTActivityLabel.h"
-#import "Three20/TTView.h"
-#import "Three20/TTDefaultStyleSheet.h"
-#import "Three20/TTButton.h"
+#import "PhotoViewer/TTActivityLabel.h"
+#import "PhotoViewer/TTView.h"
+#import "PhotoViewer/TTDefaultStyleSheet.h"
+#import "PhotoViewer/TTButton.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

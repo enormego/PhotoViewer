@@ -1,9 +1,9 @@
-#import "Three20/TTSearchTextField.h"
-#import "Three20/TTNavigator.h"
-#import "Three20/TTView.h"
-#import "Three20/TTDefaultStyleSheet.h"
-#import "Three20/TTTableView.h"
-#import "Three20/TTTableItemCell.h"
+#import "PhotoViewer/TTSearchTextField.h"
+#import "PhotoViewer/TTNavigator.h"
+#import "PhotoViewer/TTView.h"
+#import "PhotoViewer/TTDefaultStyleSheet.h"
+#import "PhotoViewer/TTTableView.h"
+#import "PhotoViewer/TTTableItemCell.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -1,7 +1,7 @@
-#import "Three20/TTImageView.h"
-#import "Three20/TTURLCache.h"
-#import "Three20/TTURLResponse.h"
-#import "Three20/TTShape.h"
+#import "PhotoViewer/TTImageView.h"
+#import "PhotoViewer/TTURLCache.h"
+#import "PhotoViewer/TTURLResponse.h"
+#import "PhotoViewer/TTShape.h"
 #import "QuartzCore/CALayer.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////

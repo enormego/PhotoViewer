@@ -1,6 +1,6 @@
-#include "Three20/TTPageControl.h"
-#include "Three20/TTStyleSheet.h"
-#include "Three20/TTStyle.h"
+#include "PhotoViewer/TTPageControl.h"
+#include "PhotoViewer/TTStyleSheet.h"
+#include "PhotoViewer/TTStyle.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
