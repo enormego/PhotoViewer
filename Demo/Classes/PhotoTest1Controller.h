@@ -1,4 +1,4 @@
-#import <PhotoViewer/PhotoViewer.h>
+#import "PhotoViewer.h"
 
-@interface PhotoTest1Controller : TTPhotoViewController
+@interface PhotoTest1Controller : PVPhotoViewController
 @end

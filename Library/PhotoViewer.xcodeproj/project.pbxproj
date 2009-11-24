@@ -37,7 +37,6 @@
 		284F7C1F10BB2E1300B01F9B /* UIViewControllerAdditions.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BE8AA1920F428A4900FD8C43 /* UIViewControllerAdditions.h */; };
 		284F7C2010BB2E1300B01F9B /* UIToolbarAdditions.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEAF21390F4D32E100D75F3B /* UIToolbarAdditions.h */; };
 		284F7C2110BB2E1300B01F9B /* PVURLResponse.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEDCF3280F4EBE2F0060B7D1 /* PVURLResponse.h */; };
-		284F7C2210BB2E1300B01F9B /* PVLabel.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BEB460820F8EE14C004B34A0 /* PVLabel.h */; };
 		284F7C2310BB2E1300B01F9B /* PVModel.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = BE23E797100B13E200F40C3B /* PVModel.h */; };
 		284F7C2410BB2E1300B01F9B /* PVThumbsViewController.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = 286D1C7C10BAEAEE00093AD8 /* PVThumbsViewController.h */; };
 		284F7CE610BB350A00B01F9B /* PVGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F480F352E64000DE5D2 /* PVGlobal.m */; };
@@ -52,7 +51,6 @@
 		284F7CEF10BB350A00B01F9B /* UIViewControllerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8AA1900F428A3700FD8C43 /* UIViewControllerAdditions.m */; };
 		284F7CF010BB350A00B01F9B /* UIToolbarAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAF211F0F4D329600D75F3B /* UIToolbarAdditions.m */; };
 		284F7CF110BB350A00B01F9B /* PVURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDCF3260F4EBE1D0060B7D1 /* PVURLResponse.m */; };
-		284F7CF210BB350A00B01F9B /* PVLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB460840F8EE156004B34A0 /* PVLabel.m */; };
 		284F7CF310BB350A00B01F9B /* PVModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52E993100D8EF800E03DB7 /* PVModel.m */; };
 		284F7CF410BB350A00B01F9B /* PVThumbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 286D1C7D10BAEAEE00093AD8 /* PVThumbsViewController.m */; };
 		284F7CF610BB350A00B01F9B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -62,11 +60,13 @@
 		284F7DAE10BB3EB900B01F9B /* pv_img_photoDefault.png in Copy Resources */ = {isa = PBXBuildFile; fileRef = 284F7DA910BB3EAD00B01F9B /* pv_img_photoDefault.png */; };
 		284F7DAF10BB3EB900B01F9B /* pv_img_previousIcon.png in Copy Resources */ = {isa = PBXBuildFile; fileRef = 284F7DAA10BB3EAD00B01F9B /* pv_img_previousIcon.png */; };
 		286D1C7F10BAEAEE00093AD8 /* PVThumbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 286D1C7D10BAEAEE00093AD8 /* PVThumbsViewController.m */; };
+		28B23E7B10BC281000E21B6E /* PVLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B23E7A10BC281000E21B6E /* PVLabel.m */; };
+		28B23E9410BC2AA200E21B6E /* PVLabel.h in Copy Header Files */ = {isa = PBXBuildFile; fileRef = 28B23E7910BC281000E21B6E /* PVLabel.h */; };
+		28B23F3E10BC329F00E21B6E /* PVLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B23E7A10BC281000E21B6E /* PVLabel.m */; };
 		BE52E994100D8EF800E03DB7 /* PVModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE52E993100D8EF800E03DB7 /* PVModel.m */; };
 		BE8A9C170F4143C800FD8C43 /* PVURLRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8A9C160F4143C800FD8C43 /* PVURLRequestQueue.m */; };
 		BE8AA1910F428A3700FD8C43 /* UIViewControllerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8AA1900F428A3700FD8C43 /* UIViewControllerAdditions.m */; };
 		BEAF21260F4D329600D75F3B /* UIToolbarAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAF211F0F4D329600D75F3B /* UIToolbarAdditions.m */; };
-		BEB460850F8EE156004B34A0 /* PVLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB460840F8EE156004B34A0 /* PVLabel.m */; };
 		BEDCF3270F4EBE1D0060B7D1 /* PVURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDCF3260F4EBE1D0060B7D1 /* PVURLResponse.m */; };
 		BEF31F720F352E64000DE5D2 /* PVGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F480F352E64000DE5D2 /* PVGlobal.m */; };
 		BEF31F730F352E64000DE5D2 /* PVImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF31F490F352E64000DE5D2 /* PVImageView.m */; };
@@ -88,6 +88,7 @@
 			dstPath = __FRAMEWORK_HEADERS;
 			dstSubfolderSpec = 16;
 			files = (
+				28B23E9410BC2AA200E21B6E /* PVLabel.h in Copy Header Files */,
 				284F7C1D10BB2E1300B01F9B /* PhotoViewer.h in Copy Header Files */,
 				284F7C1410BB2E1300B01F9B /* PVGlobal.h in Copy Header Files */,
 				284F7C1510BB2E1300B01F9B /* PVImageView.h in Copy Header Files */,
@@ -102,7 +103,6 @@
 				284F7C1F10BB2E1300B01F9B /* UIViewControllerAdditions.h in Copy Header Files */,
 				284F7C2010BB2E1300B01F9B /* UIToolbarAdditions.h in Copy Header Files */,
 				284F7C2110BB2E1300B01F9B /* PVURLResponse.h in Copy Header Files */,
-				284F7C2210BB2E1300B01F9B /* PVLabel.h in Copy Header Files */,
 				284F7C2310BB2E1300B01F9B /* PVModel.h in Copy Header Files */,
 				284F7C2410BB2E1300B01F9B /* PVThumbsViewController.h in Copy Header Files */,
 			);
@@ -134,6 +134,8 @@
 		286D1C7C10BAEAEE00093AD8 /* PVThumbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVThumbsViewController.h; sourceTree = "<group>"; };
 		286D1C7D10BAEAEE00093AD8 /* PVThumbsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVThumbsViewController.m; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28B23E7910BC281000E21B6E /* PVLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVLabel.h; sourceTree = "<group>"; };
+		28B23E7A10BC281000E21B6E /* PVLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVLabel.m; sourceTree = "<group>"; };
 		BE23E797100B13E200F40C3B /* PVModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVModel.h; sourceTree = "<group>"; };
 		BE52E993100D8EF800E03DB7 /* PVModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVModel.m; sourceTree = "<group>"; };
 		BE8A9C160F4143C800FD8C43 /* PVURLRequestQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVURLRequestQueue.m; sourceTree = "<group>"; };
@@ -142,8 +144,6 @@
 		BE8AA1920F428A4900FD8C43 /* UIViewControllerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerAdditions.h; sourceTree = "<group>"; };
 		BEAF211F0F4D329600D75F3B /* UIToolbarAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIToolbarAdditions.m; sourceTree = "<group>"; };
 		BEAF21390F4D32E100D75F3B /* UIToolbarAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIToolbarAdditions.h; sourceTree = "<group>"; };
-		BEB460820F8EE14C004B34A0 /* PVLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVLabel.h; sourceTree = "<group>"; };
-		BEB460840F8EE156004B34A0 /* PVLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVLabel.m; sourceTree = "<group>"; };
 		BEDCF3260F4EBE1D0060B7D1 /* PVURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVURLResponse.m; sourceTree = "<group>"; };
 		BEDCF3280F4EBE2F0060B7D1 /* PVURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVURLResponse.h; sourceTree = "<group>"; };
 		BEF31F3A0F352DF5000DE5D2 /* libPhotoViewer-simulator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPhotoViewer-simulator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,8 +251,8 @@
 		BEB460380F8EDE60004B34A0 /* Labels */ = {
 			isa = PBXGroup;
 			children = (
-				BEB460820F8EE14C004B34A0 /* PVLabel.h */,
-				BEB460840F8EE156004B34A0 /* PVLabel.m */,
+				28B23E7910BC281000E21B6E /* PVLabel.h */,
+				28B23E7A10BC281000E21B6E /* PVLabel.m */,
 			);
 			name = Labels;
 			sourceTree = "<group>";
@@ -405,9 +405,9 @@
 				284F7CEF10BB350A00B01F9B /* UIViewControllerAdditions.m in Sources */,
 				284F7CF010BB350A00B01F9B /* UIToolbarAdditions.m in Sources */,
 				284F7CF110BB350A00B01F9B /* PVURLResponse.m in Sources */,
-				284F7CF210BB350A00B01F9B /* PVLabel.m in Sources */,
 				284F7CF310BB350A00B01F9B /* PVModel.m in Sources */,
 				284F7CF410BB350A00B01F9B /* PVThumbsViewController.m in Sources */,
+				28B23F3E10BC329F00E21B6E /* PVLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,9 +427,9 @@
 				BE8AA1910F428A3700FD8C43 /* UIViewControllerAdditions.m in Sources */,
 				BEAF21260F4D329600D75F3B /* UIToolbarAdditions.m in Sources */,
 				BEDCF3270F4EBE1D0060B7D1 /* PVURLResponse.m in Sources */,
-				BEB460850F8EE156004B34A0 /* PVLabel.m in Sources */,
 				BE52E994100D8EF800E03DB7 /* PVModel.m in Sources */,
 				286D1C7F10BAEAEE00093AD8 /* PVThumbsViewController.m in Sources */,
+				28B23E7B10BC281000E21B6E /* PVLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

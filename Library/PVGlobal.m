@@ -225,6 +225,7 @@ NSLocale* PVCurrentLocale() {
 }
 
 NSString* PVLocalizedString(NSString* key, NSString* comment) {
+	return key;/*
   static NSBundle* bundle = nil;
   if (!bundle) {
     NSString* path = [[[NSBundle mainBundle] resourcePath]
@@ -232,7 +233,7 @@ NSString* PVLocalizedString(NSString* key, NSString* comment) {
     bundle = [[NSBundle bundleWithPath:path] retain];
   }
   
-  return [bundle localizedStringForKey:key value:key table:nil];
+  return [bundle localizedStringForKey:key value:key table:nil];*/
 }
 
 NSString* PVFormatInteger(NSInteger num) {

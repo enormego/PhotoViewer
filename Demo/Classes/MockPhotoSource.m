@@ -11,32 +11,34 @@
   _fakeLoadTimer = nil;
 
   if (_type & MockPhotoSourceLoadError) {
-    [_delegates perform:@selector(model:didFailLoadWithError:) withObject:self withObject:nil];
+	  for(id<PVModelDelegate> delegate in _delegates) {
+		  [delegate model:self didFailLoadWithError:nil];
+	  }
   } else {
     NSMutableArray* newPhotos = [NSMutableArray array];
 
     for (int i = 0; i < _photos.count; ++i) {
-      id<TTPhoto> photo = [_photos objectAtIndex:i];
+      id<PVPhoto> photo = [_photos objectAtIndex:i];
       if ((NSNull*)photo != [NSNull null]) {
         [newPhotos addObject:photo];
       }
     }
 
     [newPhotos addObjectsFromArray:_tempPhotos];
-    TT_RELEASE_SAFELY(_tempPhotos);
+    PV_RELEASE_SAFELY(_tempPhotos);
 
     [_photos release];
     _photos = [newPhotos retain];
     
     for (int i = 0; i < _photos.count; ++i) {
-      id<TTPhoto> photo = [_photos objectAtIndex:i];
+      id<PVPhoto> photo = [_photos objectAtIndex:i];
       if ((NSNull*)photo != [NSNull null]) {
         photo.photoSource = self;
         photo.index = i;
       }
     }
 
-    [_delegates perform:@selector(modelDidFinishLoad:) withObject:self];
+	  [_delegates makeObjectsPerformSelector:@selector(modelDidFinishLoad:) withObject:self];
   }
 }
 
@@ -53,7 +55,7 @@
     _fakeLoadTimer = nil;
 
     for (int i = 0; i < _photos.count; ++i) {
-      id<TTPhoto> photo = [_photos objectAtIndex:i];
+      id<PVPhoto> photo = [_photos objectAtIndex:i];
       if ((NSNull*)photo != [NSNull null]) {
         photo.photoSource = self;
         photo.index = i;
@@ -73,14 +75,14 @@
 
 - (void)dealloc {
   [_fakeLoadTimer invalidate];
-  TT_RELEASE_SAFELY(_photos);
-  TT_RELEASE_SAFELY(_tempPhotos);
-  TT_RELEASE_SAFELY(_title);
+  PV_RELEASE_SAFELY(_photos);
+  PV_RELEASE_SAFELY(_tempPhotos);
+  PV_RELEASE_SAFELY(_title);
   [super dealloc];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTModel
+// PVModel
 
 - (BOOL)isLoading {
   return !!_fakeLoadTimer;
@@ -90,11 +92,11 @@
   return !!_photos;
 }
 
-- (void)load:(TTURLRequestCachePolicy)cachePolicy more:(BOOL)more {
-  if (cachePolicy & TTURLRequestCachePolicyNetwork) {
-    [_delegates perform:@selector(modelDidStartLoad:) withObject:self];
+- (void)load:(PVURLRequestCachePolicy)cachePolicy more:(BOOL)more {
+  if (cachePolicy & PVURLRequestCachePolicyNetwork) {
+    [_delegates makeObjectsPerformSelector:@selector(modelDidStartLoad:) withObject:self];
     
-    TT_RELEASE_SAFELY(_photos);
+    PV_RELEASE_SAFELY(_photos);
     _fakeLoadTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self
       selector:@selector(fakeLoadReady) userInfo:nil repeats:NO];
   }
@@ -106,7 +108,7 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTPhotoSource
+// PVPhotoSource
 
 - (NSInteger)numberOfPhotos {
   if (_tempPhotos) {
@@ -120,7 +122,7 @@
   return _photos.count-1;
 }
 
-- (id<TTPhoto>)photoAtIndex:(NSInteger)index {
+- (id<PVPhoto>)photoAtIndex:(NSInteger)index {
   if (index < _photos.count) {
     id photo = [_photos objectAtIndex:index];
     if (photo == [NSNull null]) {
@@ -163,24 +165,24 @@
 }
 
 - (void)dealloc {
-  TT_RELEASE_SAFELY(_URL);
-  TT_RELEASE_SAFELY(_smallURL);
-  TT_RELEASE_SAFELY(_thumbURL);
-  TT_RELEASE_SAFELY(_caption);
+  PV_RELEASE_SAFELY(_URL);
+  PV_RELEASE_SAFELY(_smallURL);
+  PV_RELEASE_SAFELY(_thumbURL);
+  PV_RELEASE_SAFELY(_caption);
   [super dealloc];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// TTPhoto
+// PVPhoto
 
-- (NSString*)URLForVersion:(TTPhotoVersion)version {
-  if (version == TTPhotoVersionLarge) {
+- (NSString*)URLForVersion:(PVPhotoVersion)version {
+  if (version == PVPhotoVersionLarge) {
     return _URL;
-  } else if (version == TTPhotoVersionMedium) {
+  } else if (version == PVPhotoVersionMedium) {
     return _URL;
-  } else if (version == TTPhotoVersionSmall) {
+  } else if (version == PVPhotoVersionSmall) {
     return _smallURL;
-  } else if (version == TTPhotoVersionThumbnail) {
+  } else if (version == PVPhotoVersionThumbnail) {
     return _thumbURL;
   } else {
     return nil;

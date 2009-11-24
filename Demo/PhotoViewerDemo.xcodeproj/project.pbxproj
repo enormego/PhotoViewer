@@ -11,15 +11,14 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		284F7E0510BB3F9A00B01F9B /* libPhotoViewer-device.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 284F7DFF10BB3F9A00B01F9B /* libPhotoViewer-device.a */; };
-		284F7E0610BB3F9A00B01F9B /* libPhotoViewer-simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 284F7E0010BB3F9A00B01F9B /* libPhotoViewer-simulator.a */; };
-		284F7E0710BB3F9A00B01F9B /* pv_img_nextIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 284F7E0210BB3F9A00B01F9B /* pv_img_nextIcon.png */; };
-		284F7E0810BB3F9A00B01F9B /* pv_img_photoDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 284F7E0310BB3F9A00B01F9B /* pv_img_photoDefault.png */; };
-		284F7E0910BB3F9A00B01F9B /* pv_img_previousIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 284F7E0410BB3F9A00B01F9B /* pv_img_previousIcon.png */; };
+		28333DC310BB47B1002BC377 /* libPhotoViewer-device.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28333DBD10BB47B1002BC377 /* libPhotoViewer-device.a */; };
+		28333DC410BB47B1002BC377 /* libPhotoViewer-simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28333DBE10BB47B1002BC377 /* libPhotoViewer-simulator.a */; };
+		28333DC510BB47B1002BC377 /* pv_img_nextIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28333DC010BB47B1002BC377 /* pv_img_nextIcon.png */; };
+		28333DC610BB47B1002BC377 /* pv_img_photoDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 28333DC110BB47B1002BC377 /* pv_img_photoDefault.png */; };
+		28333DC710BB47B1002BC377 /* pv_img_previousIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28333DC210BB47B1002BC377 /* pv_img_previousIcon.png */; };
 		286D1B8510BADD7A00093AD8 /* MockPhotoSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 286D1B7E10BADD7A00093AD8 /* MockPhotoSource.m */; };
 		286D1B8610BADD7A00093AD8 /* PhotoTest1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 286D1B8110BADD7A00093AD8 /* PhotoTest1Controller.m */; };
 		286D1B8710BADD7A00093AD8 /* PhotoTest2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 286D1B8410BADD7A00093AD8 /* PhotoTest2Controller.m */; };
-		286D1BB110BADD9800093AD8 /* PhotoViewer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 286D1BB010BADD9800093AD8 /* PhotoViewer.bundle */; };
 		286D1BDB10BADEC700093AD8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286D1BDA10BADEC700093AD8 /* QuartzCore.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
@@ -33,35 +32,34 @@
 		1D3623250D0F684500981E51 /* PhotoViewerDemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewerDemoAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* PhotoViewerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoViewerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		284F7DEE10BB3F9A00B01F9B /* PhotoViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewer.h; sourceTree = "<group>"; };
-		284F7DEF10BB3F9A00B01F9B /* PVGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVGlobal.h; sourceTree = "<group>"; };
-		284F7DF010BB3F9A00B01F9B /* PVImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVImageView.h; sourceTree = "<group>"; };
-		284F7DF110BB3F9A00B01F9B /* PVLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVLabel.h; sourceTree = "<group>"; };
-		284F7DF210BB3F9A00B01F9B /* PVModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVModel.h; sourceTree = "<group>"; };
-		284F7DF310BB3F9A00B01F9B /* PVPhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVPhotoSource.h; sourceTree = "<group>"; };
-		284F7DF410BB3F9A00B01F9B /* PVPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVPhotoView.h; sourceTree = "<group>"; };
-		284F7DF510BB3F9A00B01F9B /* PVPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVPhotoViewController.h; sourceTree = "<group>"; };
-		284F7DF610BB3F9A00B01F9B /* PVScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVScrollView.h; sourceTree = "<group>"; };
-		284F7DF710BB3F9A00B01F9B /* PVThumbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVThumbsViewController.h; sourceTree = "<group>"; };
-		284F7DF810BB3F9A00B01F9B /* PVURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVURLCache.h; sourceTree = "<group>"; };
-		284F7DF910BB3F9A00B01F9B /* PVURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVURLRequest.h; sourceTree = "<group>"; };
-		284F7DFA10BB3F9A00B01F9B /* PVURLRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVURLRequestQueue.h; sourceTree = "<group>"; };
-		284F7DFB10BB3F9A00B01F9B /* PVURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVURLResponse.h; sourceTree = "<group>"; };
-		284F7DFC10BB3F9A00B01F9B /* PVView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVView.h; sourceTree = "<group>"; };
-		284F7DFD10BB3F9A00B01F9B /* UIToolbarAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIToolbarAdditions.h; sourceTree = "<group>"; };
-		284F7DFE10BB3F9A00B01F9B /* UIViewControllerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerAdditions.h; sourceTree = "<group>"; };
-		284F7DFF10BB3F9A00B01F9B /* libPhotoViewer-device.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPhotoViewer-device.a"; sourceTree = "<group>"; };
-		284F7E0010BB3F9A00B01F9B /* libPhotoViewer-simulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPhotoViewer-simulator.a"; sourceTree = "<group>"; };
-		284F7E0210BB3F9A00B01F9B /* pv_img_nextIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pv_img_nextIcon.png; sourceTree = "<group>"; };
-		284F7E0310BB3F9A00B01F9B /* pv_img_photoDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pv_img_photoDefault.png; sourceTree = "<group>"; };
-		284F7E0410BB3F9A00B01F9B /* pv_img_previousIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pv_img_previousIcon.png; sourceTree = "<group>"; };
+		28333DAC10BB47B1002BC377 /* PhotoViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewer.h; sourceTree = "<group>"; };
+		28333DAD10BB47B1002BC377 /* PVGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVGlobal.h; sourceTree = "<group>"; };
+		28333DAE10BB47B1002BC377 /* PVImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVImageView.h; sourceTree = "<group>"; };
+		28333DAF10BB47B1002BC377 /* PVLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVLabel.h; sourceTree = "<group>"; };
+		28333DB010BB47B1002BC377 /* PVModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVModel.h; sourceTree = "<group>"; };
+		28333DB110BB47B1002BC377 /* PVPhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVPhotoSource.h; sourceTree = "<group>"; };
+		28333DB210BB47B1002BC377 /* PVPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVPhotoView.h; sourceTree = "<group>"; };
+		28333DB310BB47B1002BC377 /* PVPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVPhotoViewController.h; sourceTree = "<group>"; };
+		28333DB410BB47B1002BC377 /* PVScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVScrollView.h; sourceTree = "<group>"; };
+		28333DB510BB47B1002BC377 /* PVThumbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVThumbsViewController.h; sourceTree = "<group>"; };
+		28333DB610BB47B1002BC377 /* PVURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVURLCache.h; sourceTree = "<group>"; };
+		28333DB710BB47B1002BC377 /* PVURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVURLRequest.h; sourceTree = "<group>"; };
+		28333DB810BB47B1002BC377 /* PVURLRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVURLRequestQueue.h; sourceTree = "<group>"; };
+		28333DB910BB47B1002BC377 /* PVURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVURLResponse.h; sourceTree = "<group>"; };
+		28333DBA10BB47B1002BC377 /* PVView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVView.h; sourceTree = "<group>"; };
+		28333DBB10BB47B1002BC377 /* UIToolbarAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIToolbarAdditions.h; sourceTree = "<group>"; };
+		28333DBC10BB47B1002BC377 /* UIViewControllerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerAdditions.h; sourceTree = "<group>"; };
+		28333DBD10BB47B1002BC377 /* libPhotoViewer-device.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPhotoViewer-device.a"; sourceTree = "<group>"; };
+		28333DBE10BB47B1002BC377 /* libPhotoViewer-simulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPhotoViewer-simulator.a"; sourceTree = "<group>"; };
+		28333DC010BB47B1002BC377 /* pv_img_nextIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pv_img_nextIcon.png; sourceTree = "<group>"; };
+		28333DC110BB47B1002BC377 /* pv_img_photoDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pv_img_photoDefault.png; sourceTree = "<group>"; };
+		28333DC210BB47B1002BC377 /* pv_img_previousIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pv_img_previousIcon.png; sourceTree = "<group>"; };
 		286D1B7D10BADD7A00093AD8 /* MockPhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockPhotoSource.h; sourceTree = "<group>"; };
 		286D1B7E10BADD7A00093AD8 /* MockPhotoSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockPhotoSource.m; sourceTree = "<group>"; };
 		286D1B8010BADD7A00093AD8 /* PhotoTest1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTest1Controller.h; sourceTree = "<group>"; };
 		286D1B8110BADD7A00093AD8 /* PhotoTest1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTest1Controller.m; sourceTree = "<group>"; };
 		286D1B8310BADD7A00093AD8 /* PhotoTest2Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTest2Controller.h; sourceTree = "<group>"; };
 		286D1B8410BADD7A00093AD8 /* PhotoTest2Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTest2Controller.m; sourceTree = "<group>"; };
-		286D1BB010BADD9800093AD8 /* PhotoViewer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PhotoViewer.bundle; path = ../src/PhotoViewer.bundle; sourceTree = SOURCE_ROOT; };
 		286D1BDA10BADEC700093AD8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* PhotoViewerDemo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewerDemo_Prefix.pch; sourceTree = "<group>"; };
@@ -82,8 +80,8 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				286D1BDB10BADEC700093AD8 /* QuartzCore.framework in Frameworks */,
-				284F7E0510BB3F9A00B01F9B /* libPhotoViewer-device.a in Frameworks */,
-				284F7E0610BB3F9A00B01F9B /* libPhotoViewer-simulator.a in Frameworks */,
+				28333DC310BB47B1002BC377 /* libPhotoViewer-device.a in Frameworks */,
+				28333DC410BB47B1002BC377 /* libPhotoViewer-simulator.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,48 +108,48 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		284F7DEC10BB3F9A00B01F9B /* PhotoViewer.fmwk */ = {
+		28333DAA10BB47B1002BC377 /* PhotoViewer.fmwk */ = {
 			isa = PBXGroup;
 			children = (
-				284F7DED10BB3F9A00B01F9B /* Headers */,
-				284F7DFF10BB3F9A00B01F9B /* libPhotoViewer-device.a */,
-				284F7E0010BB3F9A00B01F9B /* libPhotoViewer-simulator.a */,
-				284F7E0110BB3F9A00B01F9B /* Resources */,
+				28333DAB10BB47B1002BC377 /* Headers */,
+				28333DBD10BB47B1002BC377 /* libPhotoViewer-device.a */,
+				28333DBE10BB47B1002BC377 /* libPhotoViewer-simulator.a */,
+				28333DBF10BB47B1002BC377 /* Resources */,
 			);
 			name = PhotoViewer.fmwk;
-			path = "../src/build/Release-universal/PhotoViewer.fmwk";
+			path = "../Library/build/Release-universal/PhotoViewer.fmwk";
 			sourceTree = SOURCE_ROOT;
 		};
-		284F7DED10BB3F9A00B01F9B /* Headers */ = {
+		28333DAB10BB47B1002BC377 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				284F7DEE10BB3F9A00B01F9B /* PhotoViewer.h */,
-				284F7DEF10BB3F9A00B01F9B /* PVGlobal.h */,
-				284F7DF010BB3F9A00B01F9B /* PVImageView.h */,
-				284F7DF110BB3F9A00B01F9B /* PVLabel.h */,
-				284F7DF210BB3F9A00B01F9B /* PVModel.h */,
-				284F7DF310BB3F9A00B01F9B /* PVPhotoSource.h */,
-				284F7DF410BB3F9A00B01F9B /* PVPhotoView.h */,
-				284F7DF510BB3F9A00B01F9B /* PVPhotoViewController.h */,
-				284F7DF610BB3F9A00B01F9B /* PVScrollView.h */,
-				284F7DF710BB3F9A00B01F9B /* PVThumbsViewController.h */,
-				284F7DF810BB3F9A00B01F9B /* PVURLCache.h */,
-				284F7DF910BB3F9A00B01F9B /* PVURLRequest.h */,
-				284F7DFA10BB3F9A00B01F9B /* PVURLRequestQueue.h */,
-				284F7DFB10BB3F9A00B01F9B /* PVURLResponse.h */,
-				284F7DFC10BB3F9A00B01F9B /* PVView.h */,
-				284F7DFD10BB3F9A00B01F9B /* UIToolbarAdditions.h */,
-				284F7DFE10BB3F9A00B01F9B /* UIViewControllerAdditions.h */,
+				28333DAC10BB47B1002BC377 /* PhotoViewer.h */,
+				28333DAD10BB47B1002BC377 /* PVGlobal.h */,
+				28333DAE10BB47B1002BC377 /* PVImageView.h */,
+				28333DAF10BB47B1002BC377 /* PVLabel.h */,
+				28333DB010BB47B1002BC377 /* PVModel.h */,
+				28333DB110BB47B1002BC377 /* PVPhotoSource.h */,
+				28333DB210BB47B1002BC377 /* PVPhotoView.h */,
+				28333DB310BB47B1002BC377 /* PVPhotoViewController.h */,
+				28333DB410BB47B1002BC377 /* PVScrollView.h */,
+				28333DB510BB47B1002BC377 /* PVThumbsViewController.h */,
+				28333DB610BB47B1002BC377 /* PVURLCache.h */,
+				28333DB710BB47B1002BC377 /* PVURLRequest.h */,
+				28333DB810BB47B1002BC377 /* PVURLRequestQueue.h */,
+				28333DB910BB47B1002BC377 /* PVURLResponse.h */,
+				28333DBA10BB47B1002BC377 /* PVView.h */,
+				28333DBB10BB47B1002BC377 /* UIToolbarAdditions.h */,
+				28333DBC10BB47B1002BC377 /* UIViewControllerAdditions.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
 		};
-		284F7E0110BB3F9A00B01F9B /* Resources */ = {
+		28333DBF10BB47B1002BC377 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				284F7E0210BB3F9A00B01F9B /* pv_img_nextIcon.png */,
-				284F7E0310BB3F9A00B01F9B /* pv_img_photoDefault.png */,
-				284F7E0410BB3F9A00B01F9B /* pv_img_previousIcon.png */,
+				28333DC010BB47B1002BC377 /* pv_img_nextIcon.png */,
+				28333DC110BB47B1002BC377 /* pv_img_photoDefault.png */,
+				28333DC210BB47B1002BC377 /* pv_img_previousIcon.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -209,7 +207,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				286D1BB010BADD9800093AD8 /* PhotoViewer.bundle */,
 				28F335F01007B36200424DE2 /* RootViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* PhotoViewerDemo-Info.plist */,
@@ -220,7 +217,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				284F7DEC10BB3F9A00B01F9B /* PhotoViewer.fmwk */,
+				28333DAA10BB47B1002BC377 /* PhotoViewer.fmwk */,
 				286D1BDA10BADEC700093AD8 /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -280,10 +277,9 @@
 			files = (
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
-				286D1BB110BADD9800093AD8 /* PhotoViewer.bundle in Resources */,
-				284F7E0710BB3F9A00B01F9B /* pv_img_nextIcon.png in Resources */,
-				284F7E0810BB3F9A00B01F9B /* pv_img_photoDefault.png in Resources */,
-				284F7E0910BB3F9A00B01F9B /* pv_img_previousIcon.png in Resources */,
+				28333DC510BB47B1002BC377 /* pv_img_nextIcon.png in Resources */,
+				28333DC610BB47B1002BC377 /* pv_img_photoDefault.png in Resources */,
+				28333DC710BB47B1002BC377 /* pv_img_previousIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +320,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../src/build/Debug-iphonesimulator/PhotoViewer.pkgg\"",
 					"\"$(SRCROOT)/../src/build/Release-universal/PhotoViewer.fmwk\"",
+					"\"$(SRCROOT)/../Library/build/Release-universal/PhotoViewer.fmwk\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -349,6 +346,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../src/build/Debug-iphonesimulator/PhotoViewer.pkgg\"",
 					"\"$(SRCROOT)/../src/build/Release-universal/PhotoViewer.fmwk\"",
+					"\"$(SRCROOT)/../Library/build/Release-universal/PhotoViewer.fmwk\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",

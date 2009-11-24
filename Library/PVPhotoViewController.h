@@ -1,3 +1,5 @@
+#import <UIKit/UIKit.h>
+
 #import "PVPhotoSource.h"
 #import "PVScrollView.h"
 #import "PVThumbsViewController.h"
@@ -41,7 +43,12 @@
 		unsigned int isShowingLoading:1;
 		unsigned int isShowingModel:1;
 		unsigned int isShowingError:1;
-	} _flags;	
+	} _flags;
+	
+	BOOL _storedOldStyles;
+	UIStatusBarStyle _oldStatusBarSyle;
+	UIBarStyle _oldNavBarStyle;
+	UIColor* _oldNavBarTintColor;
 }
 
 /**

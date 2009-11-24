@@ -1,87 +1,108 @@
+//
+//  PVLabel.m
+//  PhotoViewer
+//
+//  Created by Shaun Harrison on 11/24/09.
+//  Copyright 2009 enormego. All rights reserved.
+//
+
 #import "PVLabel.h"
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
 @implementation PVLabel
-
-@synthesize font = _font, text = _text;
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// NSObject
-
-- (id)initWithText:(NSString*)text {
-  if (self = [self init]) {
-    self.text = text;
-  }
-  return self;
-}
+@synthesize font=_font, text=_text, textAlignment=_textAlignment, textColor=_textColor, shadowOffset=_shadowOffset, shadowColor=_shadowColor, lineBreakMode=_lineBreakMode, contentInset=_contentInset;
 
 - (id)initWithFrame:(CGRect)frame {
-  if (self = [super initWithFrame:frame]) {
-    _text = nil;
-    _font = nil;
-  }
-  return self;
+    if (self = [super initWithFrame:frame]) {
+		self.font = [UIFont boldSystemFontOfSize:12.0f];
+		self.textAlignment = UITextAlignmentCenter;
+		self.textColor = [UIColor blackColor];
+		self.lineBreakMode = UILineBreakModeTailTruncation;
+    }
+	
+    return self;
 }
 
-- (void)dealloc {
-  PV_RELEASE_SAFELY(_text);
-  PV_RELEASE_SAFELY(_font);
-  [super dealloc];
+- (id)initWithText:(NSString*)text {
+	if((self = [self initWithFrame:CGRectZero])) {
+		self.text = text;
+	}
+	
+	return self;
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// UIView
+- (void)setText:(NSString *)text {
+	[_text release];
+	_text = [text copy];
+	[self setNeedsDisplay];
+}
+
+#pragma mark -
+#pragma mark Drawing methods
 
 - (void)drawRect:(CGRect)rect {
-	[self.text drawInRect:rect withFont:self.font];
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	
+	CGContextSaveGState(context);
+	
+	if(!CGSizeEqualToSize(self.shadowOffset, CGSizeZero) && self.shadowColor) {
+		CGContextSetShadowWithColor(context, CGSizeMake(self.shadowOffset.width, -self.shadowOffset.height), 0.0f, self.shadowColor.CGColor);
+	}
+	
+	[self.textColor set];
+	
+	CGRect adjustedRect = rect;
+	adjustedRect.origin.y += self.contentInset.top;
+	adjustedRect.origin.x += self.contentInset.left;
+	adjustedRect.size.height -= self.contentInset.top + self.contentInset.bottom;
+	adjustedRect.size.width -= self.contentInset.left + self.contentInset.right;	
+
+	[self.text drawInRect:adjustedRect withFont:self.font lineBreakMode:self.lineBreakMode alignment:self.textAlignment];
+	
+	CGContextRestoreGState(context);
 }
 
 - (CGSize)sizeThatFits:(CGSize)size {
-	return [self.text sizeWithFont:self.font];
+	CGSize adjustedSize = size;
+	
+	if(adjustedSize.height <= 0.0f) {
+		adjustedSize.height = CGFLOAT_MAX;	
+	}
+	
+	adjustedSize.height -= self.contentInset.top + self.contentInset.bottom;
+	adjustedSize.width -= self.contentInset.left + self.contentInset.right;	
+	
+	CGSize fitSize = [self.text sizeWithFont:self.font constrainedToSize:CGSizeMake(adjustedSize.width, adjustedSize.height) lineBreakMode:self.lineBreakMode];
+	
+	fitSize.height += self.contentInset.top + self.contentInset.bottom;
+	fitSize.width += self.contentInset.left + self.contentInset.right;
+	
+	return fitSize;
 }
 
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
-// UIAccessibility
+#pragma mark -
+#pragma mark Accessibility methods
 
 - (BOOL)isAccessibilityElement {
-  return YES;
+	return YES;
 }
 
 - (NSString *)accessibilityLabel {
-  return _text;
+	return _text;
 }
 
 - (UIAccessibilityTraits)accessibilityTraits {
-  return [super accessibilityTraits] | UIAccessibilityTraitStaticText;
+	return [super accessibilityTraits] | UIAccessibilityTraitStaticText;
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// public
+#pragma mark -
 
-- (UIFont*)font {
-  if (!_font) {
-	  _font = [[UIFont boldSystemFontOfSize:12.0f] retain];
-  }
-	
-  return _font;
+- (void)dealloc {
+	self.font = nil;
+	self.text = nil;
+	self.textColor = nil;
+	self.shadowColor = nil;
+    [super dealloc];
 }
 
-- (void)setFont:(UIFont*)font {
-  if (font != _font) {
-    [_font release];
-    _font = [font retain];
-    [self setNeedsDisplay];
-  }
-}
-
-- (void)setText:(NSString*)text {
-  if (text != _text) {
-    [_text release];
-    _text = [text copy];
-    [self setNeedsDisplay];
-  }
-}
 
 @end

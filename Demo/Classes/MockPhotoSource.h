@@ -1,4 +1,4 @@
-#import <PhotoViewer/PhotoViewer.h>
+#import "PhotoViewer.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -11,7 +11,7 @@ typedef enum {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-@interface MockPhotoSource : TTURLRequestModel <TTPhotoSource> {
+@interface MockPhotoSource : PVURLRequestModel <PVPhotoSource> {
   MockPhotoSourceType _type;
   NSString* _title;
   NSMutableArray* _photos;
@@ -26,8 +26,8 @@ typedef enum {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-@interface MockPhoto : NSObject <TTPhoto> {
-  id<TTPhotoSource> _photoSource;
+@interface MockPhoto : NSObject <PVPhoto> {
+  id<PVPhotoSource> _photoSource;
   NSString* _thumbURL;
   NSString* _smallURL;
   NSString* _URL;

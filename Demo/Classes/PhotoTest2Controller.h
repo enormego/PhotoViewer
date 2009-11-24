@@ -1,6 +1,6 @@
-#import <PhotoViewer/PhotoViewer.h>
+#import "PhotoViewer.h"
 
-@interface PhotoTest2Controller : TTThumbsViewController {
+@interface PhotoTest2Controller : PVThumbsViewController {
 }
 
 @end
