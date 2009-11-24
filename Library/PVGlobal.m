@@ -177,42 +177,6 @@ void PVNetworkRequestStopped() {
   }
 }
 
-void PVAlert(NSString* message) {
-  UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:PVLocalizedString(@"Alert", @"")
-                                             message:message delegate:nil
-                                             cancelButtonTitle:PVLocalizedString(@"OK", @"")
-                                             otherButtonTitles:nil] autorelease];
-  [alert show];
-}
-
-void PVAlertError(NSString* message) {
-  UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:PVLocalizedString(@"Alert", @"")
-                                              message:message delegate:nil
-                                              cancelButtonTitle:PVLocalizedString(@"OK", @"")
-                                              otherButtonTitles:nil] autorelease];
-  [alert show];
-}
-
-float PVOSVersion() {
-  return [[[UIDevice currentDevice] systemVersion] floatValue];
-}
-
-BOOL PVOSVersionIsAtLeast(float version) {
-  #ifdef __IPHONE_3_0
-    return 3.0 >= version;
-  #endif
-  #ifdef __IPHONE_2_2
-    return 2.2 >= version;
-  #endif
-  #ifdef __IPHONE_2_1
-    return 2.1 >= version;
-  #endif
-  #ifdef __IPHONE_2_0
-    return 2.0 >= version;
-  #endif
-  return NO;
-}
-
 NSLocale* PVCurrentLocale() {
   NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
   NSArray* languages = [defaults objectForKey:@"AppleLanguages"];

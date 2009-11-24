@@ -4,39 +4,6 @@
 #import "UIToolbarAdditions.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Logging Helpers
-
-// Deprecated, please see Three20/PVDebug for more details.
-#ifdef DEBUG
-#define PVLOG NSLog
-#else
-#define PVLOG    
-#endif
-
-// Deprecated, please see Three20/PVDebug for more details.
-#define PVWARN PVLOG
-
-
-// Helper
-
-#define PVLOGRECT(rect) \
-  PVDINFO(@"%s x=%f, y=%f, w=%f, h=%f", #rect, rect.origin.x, rect.origin.y, \
-    rect.size.width, rect.size.height)
-
-#define PVLOGPOINT(pt) \
-  PVDINFO(@"%s x=%f, y=%f", #pt, pt.x, pt.y)
-
-#define PVLOGSIZE(size) \
-  PVDINFO(@"%s w=%f, h=%f", #size, size.width, size.height)
-
-#define PVLOGEDGES(edges) \
-  PVDINFO(@"%s left=%f, right=%f, top=%f, bottom=%f", #edges, edges.left, edges.right, \
-    edges.top, edges.bottom)
-
-#define PVLOGHSV(_COLOR) \
-  PVDINFO(@"%s h=%f, s=%f, v=%f", #_COLOR, _COLOR.hue, _COLOR.saturation, _COLOR.value)
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 // Errors
 
 #define PV_ERROR_DOMAIN @"google.com"
@@ -52,41 +19,6 @@
 #define PV_KEYBOARD_HEIGHT 216
 #define PV_LANDSCAPE_KEYBOARD_HEIGHT 160
 #define PV_ROUNDED -1
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Color helpers
-
-#define RGBCOLOR(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
-#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
-
-#define HSVCOLOR(h,s,v) [UIColor colorWithHue:h saturation:s value:v alpha:1]
-#define HSVACOLOR(h,s,v,a) [UIColor colorWithHue:h saturation:s value:v alpha:a]
-
-#define RGBA(r,g,b,a) r/255.0, g/255.0, b/255.0, a
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Style helpers
-
-#define PVSTYLE(_SELECTOR) [[PVStyleSheet globalStyleSheet] styleWithSelector:@#_SELECTOR]
-
-#define PVSTYLESTATE(_SELECTOR, _STATE) [[PVStyleSheet globalStyleSheet] \
-                                           styleWithSelector:@#_SELECTOR forState:_STATE]
-
-#define PVSTYLESHEET ((id)[PVStyleSheet globalStyleSheet])
-
-#define PVSTYLEVAR(_VARNAME) [PVSTYLESHEET _VARNAME]
-
-#define PVLOGVIEWS(_VIEW) \
-  { for (UIView* view = _VIEW; view; view = view.superview) { PVDINFO(@"%@", view); } }
-
-#define PVIMAGE(_URL) [[PVURLCache sharedCache] imageForURL:_URL]
-
-typedef enum {
-  PVPositionStatic,
-  PVPositionAbsolute,
-  PVPositionFloatLeft,
-  PVPositionFloatRight,
-} PVPosition;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Networking
@@ -106,16 +38,6 @@ typedef enum {
 #define PV_DEFAULT_CACHE_INVALIDATION_AGE (60*60*24) // 1 day
 #define PV_DEFAULT_CACHE_EXPIRATION_AGE (60*60*24*7) // 1 week
 #define PV_CACHE_EXPIRATION_AGE_NEVER (1.0 / 0.0)    // inf
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Time
-
-#define PV_MINUTE 60
-#define PV_HOUR (60*PV_MINUTE)
-#define PV_DAY (24*PV_HOUR)
-#define PV_WEEK (7*PV_DAY)
-#define PV_MONTH (30.5*PV_DAY)
-#define PV_YEAR (365*PV_DAY)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Animation
@@ -265,22 +187,6 @@ void PVNetworkRequestStarted();
  * The status bar activity indicator will be spinning while there are active requests.
  */
 void PVNetworkRequestStopped();
-
-/**
- * A convenient way to show a UIAlertView with a message;
- */
-void PVAlert(NSString* message);
-void PVAlertError(NSString* message);
-
-/**
- * Gets the current runtime version of iPhone OS.
- */
-float PVOSVersion();
-
-/**
- * Checks if the link-time version of the OS is at least a certain version.
- */
-BOOL PVOSVersionIsAtLeast(float version);
 
 /**
  * Gets the current system locale chosen by the user.
