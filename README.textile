@@ -10,7 +10,7 @@ We're also pretty sure that we've removed all of the issues that three20 is havi
 
 h1. Building the Framework
 
-We absolute *hate* the way that you have to include three20 in your apps.  So we've tried something different.  Instead of setting up header search paths, including resource bundles, and adding the three20 xcode project file to your project, we're created a "fmwk" bundle, so all you'll need to do is drag that into your project, and you're good to go.
+We absolutely *hate* the way that you have to include three20 in your apps.  So we've tried something different.  Instead of setting up header search paths, including resource bundles, and adding the three20 xcode project file to your project, we're created a "fmwk" bundle, so all you'll need to do is drag that into your project, and you're good to go.
 
 Due to the nature of Xcode's build system, there isn't a good "one step" build, so to build the framework, follow these steps:
 
