@@ -10,7 +10,7 @@ We're also pretty sure that we've removed all of the issues that three20 is havi
 
 h1. Building the Framework
 
-We absolute *hate* the way that you have to include three20 in your apps.  So we've tried something different.  Instead of setting up header search paths, including resource bundles, and adding the three20 xcode project file to your project, we're created a "frmwk" bundle, so all you'll need to do is drag that into your project, and you're good to go.
+We absolute *hate* the way that you have to include three20 in your apps.  So we've tried something different.  Instead of setting up header search paths, including resource bundles, and adding the three20 xcode project file to your project, we're created a "fmwk" bundle, so all you'll need to do is drag that into your project, and you're good to go.
 
 Due to the nature of Xcode's build system, there isn't a good "one step" build, so to build the framework, follow these steps:
 
@@ -25,7 +25,7 @@ Due to the nature of Xcode's build system, there isn't a good "one step" build, 
 # Switch *Active Target* to *PhotoViewerFramework*
 # Hit *cmd+b* to build the "fmwk" bundle
 
-Once you've completed this, in your build folder where will be a folder called *"Release-universal"* (or Debug-universal if you used Debug),  in that folder is the *PhotoViewer.fmwk* bundle, just drag that to your app's Xcode Project, and you should be good to go.
+Once you've completed this, in your build folder there will be a folder called *"Release-universal"* (or Debug-universal if you used Debug),  in that folder is the *PhotoViewer.fmwk* bundle, just drag that to your app's Xcode Project, and you should be good to go.
 
 As with every static library, *Photo Viewer* requires you to add the "ObjC" linker flag to "Other Link Flags" in your targets build settings, if you haven't added it already.
 
