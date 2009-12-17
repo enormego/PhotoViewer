@@ -2,7 +2,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-static const NSInteger kOffscreenPages = 1;
+static const NSInteger kOffscreenPages = 3;
 static const CGFloat kDefaultPageSpacing = 40.0;
 static const CGFloat kFlickThreshold = 60.0;
 static const CGFloat kTapZoom = 0.75;
@@ -377,8 +377,17 @@ static const NSTimeInterval kOvershoot = 2;
     }
 
     _pageArrayIndex = [self arrayIndexForPageIndex:pageIndex relativeToIndex:_centerPageIndex];
-    _centerPageIndex = pageIndex;
+	_centerPageIndex = pageIndex;
+	  
+#pragma mark CHANGE
+#pragma mark -
+	  [self pageAtIndex:_centerPageIndex - 1 create:YES];
+	  [self pageAtIndex:_centerPageIndex + 1 create:YES];
+#pragma mark -
   }
+
+
+  
 }
 
 - (void)layoutPage {
@@ -1100,7 +1109,7 @@ static const NSTimeInterval kOvershoot = 2;
       [visiblePages setObject:page forKey:[NSNumber numberWithInt:i]];
     }
   }
-  
+
   return visiblePages;
 }
 

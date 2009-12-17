@@ -154,9 +154,10 @@
     ? _captionLabel.frame.origin.y - floor(_statusSpinner.frame.size.height + _statusSpinner.frame.size.height/2)
     : screenOffset + imageBottom + floor(_statusSpinner.frame.size.height/2);
 	
-	_statusSpinner.frame =
-    CGRectMake(self.bounds.origin.x + floor(self.bounds.size.width/2 - _statusSpinner.frame.size.width/2), spinnerTop, _statusSpinner.frame.size.width, _statusSpinner.frame.size.height);
 	
+	_statusSpinner.frame =
+    CGRectMake(self.bounds.origin.x + floor(self.bounds.size.width/2 - _statusSpinner.frame.size.width/2), 350.0f, _statusSpinner.frame.size.width, _statusSpinner.frame.size.height);
+
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -201,7 +202,7 @@
 
 - (BOOL)loadPreview:(BOOL)fromNetwork {
 	if (![self loadVersion:PVPhotoVersionLarge fromNetwork:NO]) {
-		if (![self loadVersion:PVPhotoVersionSmall fromNetwork:NO]) {
+		if (![self loadVersion:PVPhotoVersionSmall fromNetwork:YES]) {
 			if (![self loadVersion:PVPhotoVersionThumbnail fromNetwork:fromNetwork]) {
 				return NO;
 			}
@@ -219,6 +220,7 @@
 }
 
 - (void)showProgress:(CGFloat)progress {
+	NSLog(@"show progress %f", progress);
 	if (progress >= 0) {
 		if (!_statusSpinner) {
 			_statusSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:

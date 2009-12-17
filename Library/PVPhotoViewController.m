@@ -8,8 +8,8 @@
 #pragma mark -
 #pragma mark global
 
-static const NSTimeInterval kPhotoLoadLongDelay = 0.5;
-static const NSTimeInterval kPhotoLoadShortDelay = 0.25;
+static const NSTimeInterval kPhotoLoadLongDelay = 0.05;
+static const NSTimeInterval kPhotoLoadShortDelay = 0.01;
 static const NSTimeInterval kSlideshowInterval = 2;
 static const NSInteger kActivityLabelTag = 96;
 
@@ -52,11 +52,12 @@ model = _model, modelError = _modelError;
 		} else {
 			[photoView loadPreview:YES];
 		}
+		[photoView loadImage];
 	}
 	
 	if (_delayLoad) {
 		_delayLoad = NO;
-		[self startImageLoadTimer:kPhotoLoadLongDelay];
+		[self startImageLoadTimer:kPhotoLoadShortDelay];
 	} else {
 		[centerPhotoView loadImage];
 	}
@@ -81,6 +82,7 @@ model = _model, modelError = _modelError;
     self.navigationItem.rightBarButtonItem = nil;
 	//}
 	
+	
 	UIBarButtonItem* playButton = [_toolbar itemWithTag:1];
 	playButton.enabled = _photoSource.numberOfPhotos > 1;
 	_previousButton.enabled = _centerPhotoIndex > 0;
@@ -88,6 +90,7 @@ model = _model, modelError = _modelError;
 }
 
 - (void)updateToolbarWithOrientation:(UIInterfaceOrientation)interfaceOrientation {
+
 	CGRect toolbarRect = _toolbar.frame;
 	if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
 		toolbarRect.size.height = PV_TOOLBAR_HEIGHT;
@@ -111,6 +114,8 @@ model = _model, modelError = _modelError;
 	_centerPhoto = [photo retain];
 	[self didMoveToPhoto:_centerPhoto fromPhoto:previousPhoto];
 }
+
+#pragma mark -
 
 - (void)moveToPhotoAtIndex:(NSInteger)photoIndex withDelay:(BOOL)withDelay {
 	_centerPhotoIndex = photoIndex == PV_NULL_PHOTO_INDEX ? 0 : photoIndex;
@@ -385,11 +390,13 @@ model = _model, modelError = _modelError;
 																	  target:nil
 																	  action:nil] autorelease];
 	
+	UIBarButtonItem* actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(displayAction:)];
 	_toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, screenFrame.size.height - PV_ROW_HEIGHT, screenFrame.size.width, PV_ROW_HEIGHT)];
 	_toolbar.barStyle = self.navigationController.navigationBar.barStyle;
 	_toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin;
-	_toolbar.items = [NSArray arrayWithObjects:space, _previousButton, space, _nextButton, space, nil];
+	_toolbar.items = [NSArray arrayWithObjects:space, _previousButton, space, _nextButton, space, actionButton, nil];
 	[_innerView addSubview:_toolbar];    
+	[actionButton release];
 }
 
 - (void)viewDidUnload {
@@ -456,12 +463,58 @@ model = _model, modelError = _modelError;
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 										 duration:(NSTimeInterval)duration {
+	
+#pragma mark -
+#pragma mark CHANGE: zoom out to fix scaling bug
+	[_scrollView zoomToFit];
+#pragma mark -
+
 	[super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
 	[self updateToolbarWithOrientation:toInterfaceOrientation];
 }
 
 - (UIView *)rotatingFooterView {
 	return _toolbar;
+}
+
+#pragma mark -
+#pragma mark Save / Copy Methods
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+	if (!error) {
+		return;
+	}
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Image failed to save" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+}
+
+-(void)saveImage{
+	UIImageWriteToSavedPhotosAlbum(self.centerPhotoView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)copyImage{
+	[[UIPasteboard generalPasteboard] setData:UIImagePNGRepresentation(self.centerPhotoView.image) forPasteboardType:@"public.png"];
+}
+
+#pragma mark -
+#pragma mark ActionSheet Methods
+
+- (void)displayAction:(id)sender{
+	
+	UIActionSheet *pvActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Save", @"Copy", nil];
+	[pvActionSheet showInView:self.view];
+	[pvActionSheet release];
+	
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+	
+	switch (buttonIndex) {
+		case 1: [self copyImage]; break;
+		case 0: [self saveImage]; break;
+		default: break;
+	}
 }
 
 #pragma mark -
@@ -504,6 +557,7 @@ model = _model, modelError = _modelError;
 #pragma mark PVModelViewController
 
 - (BOOL)shouldLoad {
+	NSLog(@"should load called");
 	return NO;
 }
 
@@ -609,14 +663,15 @@ model = _model, modelError = _modelError;
 #pragma mark PVScrollViewDelegate
 
 - (void)scrollView:(PVScrollView*)scrollView didMoveToPageAtIndex:(NSInteger)pageIndex {
+	[self loadImages];
 	if (pageIndex != _centerPhotoIndex) {
-		[self moveToPhotoAtIndex:pageIndex withDelay:YES];
+		[self moveToPhotoAtIndex:pageIndex withDelay:NO];
 		[self refresh];
 	}
 }
 
 - (void)scrollViewWillBeginDragging:(PVScrollView *)scrollView {
-	[self cancelImageLoadTimer];
+	//[self cancelImageLoadTimer];
 	[self showCaptions:NO];
 	[self showBars:NO animated:YES];
 }
@@ -969,9 +1024,9 @@ model = _model, modelError = _modelError;
 	BOOL loading = self.model.isLoading;
 	BOOL loaded = self.model.isLoaded;
 	if (!loading && !loaded && [self shouldLoad]) {
-		[self.model load:PVURLRequestCachePolicyDefault more:NO];
+		[self.model load:PVURLRequestCachePolicyDefault more:YES];
 	} else if (!loading && loaded && [self shouldReload]) {
-		[self.model load:PVURLRequestCachePolicyNetwork more:NO];
+		[self.model load:PVURLRequestCachePolicyNetwork more:YES];
 	} else if (!loading && [self shouldLoadMore]) {
 		[self.model load:PVURLRequestCachePolicyDefault more:YES];
 	} else {

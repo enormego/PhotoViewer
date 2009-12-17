@@ -7,7 +7,7 @@
 
 @class PVScrollView, PVPhotoView;
 
-@interface PVPhotoViewController : UIViewController <PVModelDelegate, PVScrollViewDelegate, PVScrollViewDataSource/*, PVThumbsViewControllerDelegate*/> {
+@interface PVPhotoViewController : UIViewController <PVModelDelegate, PVScrollViewDelegate, PVScrollViewDataSource/*, PVThumbsViewControllerDelegate*/, UIActionSheetDelegate> {
 	id<PVPhotoSource> _photoSource;
 	id<PVPhoto> _centerPhoto;
 	NSInteger _centerPhotoIndex;
