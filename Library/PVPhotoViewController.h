@@ -48,6 +48,7 @@
 	BOOL _storedOldStyles;
 	UIStatusBarStyle _oldStatusBarSyle;
 	UIBarStyle _oldNavBarStyle;
+	BOOL _oldNavBarTranslucent;
 	UIColor* _oldNavBarTintColor;
 }
 

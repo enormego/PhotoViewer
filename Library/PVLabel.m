@@ -17,6 +17,7 @@
 		self.textAlignment = UITextAlignmentCenter;
 		self.textColor = [UIColor blackColor];
 		self.lineBreakMode = UILineBreakModeTailTruncation;
+		self.contentMode = UIViewContentModeRedraw;
     }
 	
     return self;

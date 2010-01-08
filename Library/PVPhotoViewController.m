@@ -419,13 +419,16 @@ model = _model, modelError = _modelError;
 		_oldNavBarTintColor = self.navigationController.navigationBar.tintColor;
 		_oldNavBarStyle = self.navigationController.navigationBar.barStyle;
 		_oldStatusBarSyle = [UIApplication sharedApplication].statusBarStyle;
+		_oldNavBarTranslucent = self.navigationController.navigationBar.translucent;
 	}
 	
 	[self updateView];
 	
 	[super viewWillAppear:animated];
 	
+	self.navigationController.navigationBar.tintColor = nil;
 	self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+	self.navigationController.navigationBar.translucent = YES;
 	_toolbar.barStyle = UIBarStyleBlackTranslucent;
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:animated];
 	
@@ -449,6 +452,7 @@ model = _model, modelError = _modelError;
 	if(!self.modalViewController) {
 		self.navigationController.navigationBar.barStyle = _oldNavBarStyle;
 		self.navigationController.navigationBar.tintColor = _oldNavBarTintColor;
+		self.navigationController.navigationBar.translucent = _oldNavBarTranslucent;
 		[[UIApplication sharedApplication] setStatusBarStyle:_oldStatusBarSyle animated:animated];
 	}
 	

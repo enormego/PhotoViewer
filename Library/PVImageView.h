@@ -4,12 +4,12 @@
 @protocol PVImageViewDelegate;
 
 @interface PVImageView : PVView <PVURLRequestDelegate> {
-  id<PVImageViewDelegate> _delegate;
-  PVURLRequest* _request;
-  NSString* _URL;
-  UIImage* _image;
-  UIImage* _defaultImage;
-  BOOL _autoresizesToImage;
+	id<PVImageViewDelegate> _delegate;
+	PVURLRequest* _request;
+	NSString* _URL;
+	UIImage* _image;
+	UIImage* _defaultImage;
+	BOOL _autoresizesToImage;
 }
 
 @property(nonatomic,assign) id<PVImageViewDelegate> delegate;
@@ -29,10 +29,7 @@
 
 @end
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
 @protocol PVImageViewDelegate <NSObject>
-
 @optional
 
 - (void)imageView:(PVImageView*)imageView didLoadImage:(UIImage*)image;

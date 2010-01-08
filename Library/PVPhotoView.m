@@ -157,7 +157,6 @@
 	
 	_statusSpinner.frame =
     CGRectMake(self.bounds.origin.x + floor(self.bounds.size.width/2 - _statusSpinner.frame.size.width/2), 350.0f, _statusSpinner.frame.size.width, _statusSpinner.frame.size.height);
-
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
