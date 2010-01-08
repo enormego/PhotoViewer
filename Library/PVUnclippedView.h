@@ -1,4 +1,4 @@
-#import "Three20/PVGlobal.h"
+#import "PVGlobal.h"
 
 /**
  * A utility view that will cause all of its ancestors to stop clipping, ensuring that

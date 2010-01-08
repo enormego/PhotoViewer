@@ -1,4 +1,4 @@
-#import "Three20/PVUnclippedView.h"
+#import "PVUnclippedView.h"
 
 @implementation PVUnclippedView
 
