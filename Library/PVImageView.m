@@ -64,6 +64,7 @@
 	_request = [request retain];
 	
 	[self imageViewDidStartLoad];
+	
 	if([_delegate respondsToSelector:@selector(imageViewDidStartLoad:)]) {
 		[_delegate imageViewDidStartLoad:self];
 	}
@@ -80,6 +81,7 @@
 	PV_RELEASE_SAFELY(_request);
 	
 	[self imageViewDidFailLoadWithError:error];
+	
 	if([_delegate respondsToSelector:@selector(imageView:didFailLoadWithError:)]) {
 		[_delegate imageView:self didFailLoadWithError:error];
 	}
@@ -89,6 +91,7 @@
 	PV_RELEASE_SAFELY(_request);
 	
 	[self imageViewDidFailLoadWithError:nil];
+	
 	if([_delegate respondsToSelector:@selector(imageView:didFailLoadWithError:)]) {
 		[_delegate imageView:self didFailLoadWithError:nil];
 	}
@@ -117,30 +120,31 @@
 }
 
 - (void)setImage:(UIImage*)image {
-	if(image != _image) {
-		[_image release];
-		_image = [image retain];
-		
-		[self updateLayer];
-		
-		CGRect frame = self.frame;
-		if(_autoresizesToImage) {
+	if(image == _image) return;
+	
+	[_image release];
+	_image = [image retain];
+	
+	[self updateLayer];
+	
+	CGRect frame = self.frame;
+	
+	if(_autoresizesToImage) {
+		self.frame = CGRectMake(frame.origin.x, frame.origin.y, image.size.width, image.size.height);
+	} else {
+		if(!frame.size.width && !frame.size.height) {
 			self.frame = CGRectMake(frame.origin.x, frame.origin.y, image.size.width, image.size.height);
-		} else {
-			if(!frame.size.width && !frame.size.height) {
-				self.frame = CGRectMake(frame.origin.x, frame.origin.y, image.size.width, image.size.height);
-			} else if(frame.size.width && !frame.size.height) {
-				self.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, floor((image.size.height/image.size.width) * frame.size.width));
-			} else if(frame.size.height && !frame.size.width) {
-				self.frame = CGRectMake(frame.origin.x, frame.origin.y, floor((image.size.width/image.size.height) * frame.size.height), frame.size.height);
-			}
+		} else if(frame.size.width && !frame.size.height) {
+			self.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, floor((image.size.height/image.size.width) * frame.size.width));
+		} else if(frame.size.height && !frame.size.width) {
+			self.frame = CGRectMake(frame.origin.x, frame.origin.y, floor((image.size.width/image.size.height) * frame.size.height), frame.size.height);
 		}
-		
-		if(!_defaultImage || image != _defaultImage) {
-			[self imageViewDidLoadImage:image];
-			if([_delegate respondsToSelector:@selector(imageView:didLoadImage:)]) {
-				[_delegate imageView:self didLoadImage:image];
-			}
+	}
+	
+	if(!_defaultImage || image != _defaultImage) {
+		[self imageViewDidLoadImage:image];
+		if([_delegate respondsToSelector:@selector(imageView:didLoadImage:)]) {
+			[_delegate imageView:self didLoadImage:image];
 		}
 	}
 }

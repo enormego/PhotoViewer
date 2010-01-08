@@ -125,6 +125,7 @@ model = _model, modelError = _modelError;
 
 - (void)showPhoto:(id<PVPhoto>)photo inView:(PVPhotoView*)photoView {
 	photoView.photo = photo;
+	
 	if (!photoView.photo && _statusText) {
 		[photoView showStatus:_statusText];
 	}
@@ -668,6 +669,7 @@ model = _model, modelError = _modelError;
 
 - (void)scrollView:(PVScrollView*)scrollView didMoveToPageAtIndex:(NSInteger)pageIndex {
 	[self loadImages];
+	
 	if (pageIndex != _centerPhotoIndex) {
 		[self moveToPhotoAtIndex:pageIndex withDelay:NO];
 		[self refresh];
@@ -766,17 +768,17 @@ model = _model, modelError = _modelError;
 }
 
 - (void)setCenterPhoto:(id<PVPhoto>)photo {
-	if (_centerPhoto != photo) {
-		if (photo.photoSource != _photoSource) {
-			[_photoSource release];
-			_photoSource = [photo.photoSource retain];
-			
-			[self moveToPhotoAtIndex:photo.index withDelay:NO];
-			self.model = _photoSource;
-		} else {
-			[self moveToPhotoAtIndex:photo.index withDelay:NO];
-			[self refresh];
-		}
+	if (_centerPhoto == photo) return;
+	
+	if (photo.photoSource != _photoSource) {
+		[_photoSource release];
+		_photoSource = [photo.photoSource retain];
+		
+		[self moveToPhotoAtIndex:photo.index withDelay:NO];
+		self.model = _photoSource;
+	} else {
+		[self moveToPhotoAtIndex:photo.index withDelay:NO];
+		[self refresh];
 	}
 }
 
@@ -811,7 +813,8 @@ model = _model, modelError = _modelError;
 	}
 }
 
-// Model View Controller
+#pragma mark -
+#pragma mark Model View Controller
 - (void)resetViewStates {
 	if (_flags.isShowingLoading) {
 		[self showLoading:NO];

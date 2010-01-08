@@ -75,7 +75,7 @@
 }
 
 #pragma mark -
-#pragma mark UIImageView
+#pragma mark PVImageView
 
 - (void)setImage:(UIImage*)image {
 	if (image != _defaultImage || !_photo || self.URL != [_photo URLForVersion:PVPhotoVersionLarge]) {
@@ -84,6 +84,7 @@
 		} else {
 			self.contentMode = UIViewContentModeScaleAspectFill;
 		}
+		
 		[super setImage:image];
 	}
 }
@@ -106,6 +107,7 @@
 
 - (void)imageViewDidFailLoadWithError:(NSError*)error {
 	[self showProgress:0];
+	
 	if (error) {
 		[self showStatus:PVDescriptionForError(error)];
 	}
@@ -219,7 +221,6 @@
 }
 
 - (void)showProgress:(CGFloat)progress {
-	NSLog(@"show progress %f", progress);
 	if (progress >= 0) {
 		if (!_statusSpinner) {
 			_statusSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:
