@@ -391,11 +391,17 @@ model = _model, modelError = _modelError;
 																	  target:nil
 																	  action:nil] autorelease];
 	
+	UIBarButtonItem* fixedSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+																	  target:nil
+																	  action:nil] autorelease];
+	fixedSpace.width = 26.0f; // Balances out action button
+	
 	UIBarButtonItem* actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(displayAction:)];
+	
 	_toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, screenFrame.size.height - PV_ROW_HEIGHT, screenFrame.size.width, PV_ROW_HEIGHT)];
 	_toolbar.barStyle = self.navigationController.navigationBar.barStyle;
 	_toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin;
-	_toolbar.items = [NSArray arrayWithObjects:space, _previousButton, space, _nextButton, space, actionButton, nil];
+	_toolbar.items = [NSArray arrayWithObjects:fixedSpace, space, _previousButton, space, _nextButton, space, actionButton, nil];
 	[_innerView addSubview:_toolbar];    
 	[actionButton release];
 }
@@ -506,11 +512,10 @@ model = _model, modelError = _modelError;
 #pragma mark ActionSheet Methods
 
 - (void)displayAction:(id)sender{
-	
 	UIActionSheet *pvActionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Save", @"Copy", nil];
+	pvActionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
 	[pvActionSheet showInView:self.view];
 	[pvActionSheet release];
-	
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
