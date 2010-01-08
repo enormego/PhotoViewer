@@ -77,6 +77,9 @@
 	fitSize.height += self.contentInset.top + self.contentInset.bottom;
 	fitSize.width += self.contentInset.left + self.contentInset.right;
 	
+	fitSize.width = ceilf(fitSize.width);
+	fitSize.height = ceilf(fitSize.height);
+	
 	return fitSize;
 }
 
