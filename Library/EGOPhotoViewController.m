@@ -118,23 +118,53 @@
 - (void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
 
-	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+	if(!_storedOldStyles) {
+		_oldStatusBarSyle = [UIApplication sharedApplication].statusBarStyle;
+		
+		_oldNavBarTintColor = [self.navigationController.navigationBar.tintColor retain];
+		_oldNavBarStyle = self.navigationController.navigationBar.barStyle;
+		_oldNavBarTranslucent = self.navigationController.navigationBar.translucent;
+		
+		_oldToolBarTintColor = [self.navigationController.toolbar.tintColor retain];
+		_oldToolBarStyle = self.navigationController.toolbar.barStyle;
+		_oldToolBarTranslucent = self.navigationController.toolbar.translucent;
+		_oldToolBarHidden = [self.navigationController isToolbarHidden];
+		
+		_storedOldStyles = YES;
+	}	
+	
+	self.navigationController.navigationBar.tintColor = nil;
 	self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 	self.navigationController.navigationBar.translucent = YES;
+
+	self.navigationController.toolbar.tintColor = nil;
 	self.navigationController.toolbar.barStyle = UIBarStyleBlack;
 	self.navigationController.toolbar.translucent = YES;
 	
 	[self.navigationController setToolbarHidden:NO animated:YES];
 	
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+
 	[self layoutScrollViewSubviewsAnimated:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
 	[self killTimer];
-	[[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
-	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-	self.navigationController.navigationBar.translucent = NO;
-	self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+	
+	self.navigationController.navigationBar.barStyle = _oldNavBarStyle;
+	self.navigationController.navigationBar.tintColor = _oldNavBarTintColor;
+	self.navigationController.navigationBar.translucent = _oldNavBarTranslucent;
+	
+	if(!_oldToolBarHidden) {
+		self.navigationController.toolbar.barStyle = _oldNavBarStyle;
+		self.navigationController.toolbar.tintColor = _oldNavBarTintColor;
+		self.navigationController.toolbar.translucent = _oldNavBarTranslucent;
+	}
+	
+	[[UIApplication sharedApplication] setStatusBarHidden:NO animated:animated];
+	[[UIApplication sharedApplication] setStatusBarStyle:_oldStatusBarSyle animated:animated];
+	
+	[self.navigationController setToolbarHidden:_oldToolBarHidden animated:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -556,6 +586,9 @@
 	[_photoSource release], _photoSource=nil;
 	[_captionView release], _captionView=nil;
 	[_scrollView release], _scrollView=nil;
+	[_oldToolBarTintColor release], _oldToolBarTintColor = nil;
+	[_oldNavBarTintColor release], _oldNavBarTintColor = nil;
+	
     [super dealloc];
 }
 

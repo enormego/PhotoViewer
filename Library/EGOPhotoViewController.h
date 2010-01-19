@@ -13,7 +13,7 @@
 @class EGOPhotoImageView, EGOPhotoSource, EGOPhoto, EGOPhotoCaptionView;
 
 @interface EGOPhotoViewController : UIViewController<UIScrollViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
-
+@private
 	EGOPhotoSource *_photoSource;
 	NSMutableArray *_photoViews;
 	EGOPhotoCaptionView *_captionView;
@@ -27,6 +27,15 @@
 	UIBarButtonItem *rightButton;
 	UIBarButtonItem *actionButton;
 
+	BOOL _storedOldStyles;
+	UIStatusBarStyle _oldStatusBarSyle;
+	UIBarStyle _oldNavBarStyle;
+	BOOL _oldNavBarTranslucent;
+	UIColor* _oldNavBarTintColor;	
+	UIBarStyle _oldToolBarStyle;
+	BOOL _oldToolBarTranslucent;
+	UIColor* _oldToolBarTintColor;	
+	BOOL _oldToolBarHidden;
 }
 
 - (id)initWithPhotoSource:(EGOPhotoSource*)aSource;  //  multiple photos
