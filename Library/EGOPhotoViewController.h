@@ -12,7 +12,7 @@
 
 @class EGOPhotoImageView, EGOPhotoSource, EGOPhoto, EGOPhotoCaptionView;
 
-@interface EGOPhotoController : UIViewController<UIScrollViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
+@interface EGOPhotoViewController : UIViewController<UIScrollViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
 
 	EGOPhotoSource *_photoSource;
 	NSMutableArray *_photoViews;

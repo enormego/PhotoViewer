@@ -6,7 +6,7 @@
 //  Copyright 2010 enormego. All rights reserved.
 //
 
-#import "EGOPhotoController.h"
+#import "EGOPhotoViewController.h"
 #import "EGOPhotoImageView.h"
 #import "EGOCache.h"
 #import "EGOPhoto.h"
@@ -15,7 +15,7 @@
 
 #define IMAGE_GAP 30
 
-@interface EGOPhotoController (Private)
+@interface EGOPhotoViewController (Private)
 - (void)loadScrollViewWithPage:(NSInteger)page;
 - (void)layoutScrollViewSubviewsAnimated:(BOOL)animated;
 - (void)setupScrollViewContentSize;
@@ -29,7 +29,7 @@
 @end
 
 
-@implementation EGOPhotoController
+@implementation EGOPhotoViewController
 
 @synthesize scrollView=_scrollView, photoSource=_photoSource, photoViews=_photoViews, captionView=_captionView;
 

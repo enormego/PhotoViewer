@@ -7,7 +7,7 @@
 //
 
 #import "RootViewController.h"
-#import "EGOPhotoController.h"
+#import "EGOPhotoViewController.h"
 #import "EGOPhotoSource.h"
 #import "EGOPhoto.h"
 
@@ -111,7 +111,7 @@
 		EGOPhoto *photo4 = [[EGOPhoto alloc] initWithImageURL:[NSURL URLWithString:@"http://qkpic.com/13493"] name:@"title title title"];
 		EGOPhotoSource *source = [[EGOPhotoSource alloc] initWithEGOPhotos:[NSArray arrayWithObjects:photo, photo2, photo3, photo4, photo, photo2, photo3, photo4, nil]];
 		
-		EGOPhotoController *photoController = [[EGOPhotoController alloc] initWithPhotoSource:source];
+		EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
 		[self.navigationController pushViewController:photoController animated:YES];
 		[photoController release];
 		[photo release];
@@ -124,7 +124,7 @@
 		
 		EGOPhoto *photo = [[EGOPhoto alloc] initWithImageURL:[NSURL URLWithString:@"https://s3.amazonaws.com/twitter_production/profile_images/425948730/DF-Star-Logo.png"]];
 		EGOPhotoSource *source = [[EGOPhotoSource alloc] initWithEGOPhotos:[NSArray arrayWithObjects:photo, nil]];
-		EGOPhotoController *photoController = [[EGOPhotoController alloc] initWithPhotoSource:source];
+		EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
 		[self.navigationController pushViewController:photoController animated:YES];
 		[photoController release];
 		[photo release];
