@@ -33,30 +33,6 @@
 
 @synthesize scrollView=_scrollView, photoSource=_photoSource, photoViews=_photoViews, captionView=_captionView;
 
-- (NSArray*)photoToolbarItems{
-	
-	if ([self.photoSource count] > 1) {
-		
-		actionButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonHit:)] autorelease];
-		UIBarButtonItem *fixedSpaceCenter = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
-		fixedSpaceCenter.width = 80.0f;
-		
-		UIBarButtonItem *fixedSpaceRight = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
-		fixedSpaceRight.width = 30.0f;
-		
-		UIBarButtonItem *flexableSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
-		leftButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"left.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveBack:)] autorelease];
-		rightButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"right.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveForward:)] autorelease];
-		
-		return [NSArray arrayWithObjects:actionButton, flexableSpace, leftButton, fixedSpaceCenter, rightButton, flexableSpace, fixedSpaceRight, nil];
-	}
-		
-	//  single photo view, remove back/forward buttons
-	UIBarButtonItem *flexableSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
-	actionButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonHit:)] autorelease];
-	return [NSArray arrayWithObjects:actionButton, flexableSpace, nil];
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
 		self.wantsFullScreenLayout = YES;
@@ -74,8 +50,7 @@
 }
 
 - (id)initWithPhotoSource:(EGOPhotoSource*)aSource{
-	if (self = [self initWithNibName:@"EGOPhotoController" bundle:[NSBundle mainBundle]]) {
-
+	if (self = [self initWithNibName:@"EGOPhotoViewController" bundle:[NSBundle mainBundle]]) {
 		_photoSource = [aSource retain];
 				
 		//  load photoviews lazily
@@ -89,16 +64,40 @@
 		_captionView = [[EGOPhotoCaptionView alloc] initWithFrame:CGRectZero];
 		[self.view insertSubview:_captionView atIndex:4];
 	}
+	
 	return self;
 }
 
 - (id)initWithImageURL:(NSURL*)aURL {
-	
-	EGOPhoto *aPhoto = [[EGOPhoto alloc] initWithURL:aURL];
+	EGOPhoto *aPhoto = [[EGOPhoto alloc] initWithImageURL:aURL];
 	EGOPhotoSource *source = [[[EGOPhotoSource alloc] initWithEGOPhotos:[NSArray arrayWithObject:aPhoto]] autorelease];
 	[aPhoto release];
 	
 	return [self initWithPhotoSource:source];
+}
+
+- (NSArray*)photoToolbarItems{
+	
+	if ([self.photoSource count] > 1) {
+		
+		actionButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonHit:)] autorelease];
+		UIBarButtonItem *fixedSpaceCenter = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
+		fixedSpaceCenter.width = 80.0f;
+		
+		UIBarButtonItem *fixedSpaceRight = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
+		fixedSpaceRight.width = 30.0f;
+		
+		UIBarButtonItem *flexableSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
+		leftButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"left.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveBack:)] autorelease];
+		rightButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"right.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveForward:)] autorelease];
+		
+		return [NSArray arrayWithObjects:actionButton, flexableSpace, leftButton, fixedSpaceCenter, rightButton, flexableSpace, fixedSpaceRight, nil];
+	}
+	
+	//  single photo view, remove back/forward buttons
+	UIBarButtonItem *flexableSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
+	actionButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonHit:)] autorelease];
+	return [NSArray arrayWithObjects:actionButton, flexableSpace, nil];
 }
 
 - (void)viewDidLoad {
