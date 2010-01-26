@@ -1,9 +1,9 @@
 //
-//  EGOPhotoImageView.h
-//  EGOPhotoViewer
+//  EGOImageLoadConnection.h
+//  EGOImageLoading
 //
-//  Created by Devin Doty on 1/13/2010.
-//  Copyright (c) 2008-2009 enormego
+//  Created by Shaun Harrison on 12/1/09.
+//  Copyright (c) 2009-2010 enormego
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,28 +24,37 @@
 //  THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
-#import "EGOImageLoader.h"
+#import <Foundation/Foundation.h>
 
-@class EGOPhoto, EGOPhotoScrollView, EGOPhotoCaptionView;
+@protocol EGOImageLoadConnectionDelegate;
 
-@interface EGOPhotoImageView : UIView <EGOImageLoaderObserver, UIScrollViewDelegate>{
+@interface EGOImageLoadConnection : NSObject {
 @private
-	EGOPhotoScrollView *_scrollView;
-	EGOPhoto *photo;
-	UIImageView *_imageView;
-	UIActivityIndicatorView *activityView;
+	NSURL* _imageURL;
+	NSURLResponse* _response;
+	NSMutableData* _responseData;
+	NSURLConnection* _connection;
+	NSTimeInterval _timeoutInterval;
 	
+	id<EGOImageLoadConnectionDelegate> _delegate;
 }
 
-@property(nonatomic,retain) EGOPhoto *photo;
-@property(nonatomic,retain) UIImageView *imageView;
-@property(nonatomic,retain) EGOPhotoScrollView *scrollView;
+- (id)initWithImageURL:(NSURL*)aURL delegate:(id)delegate;
 
-- (void)setPhoto:(EGOPhoto*)aPhoto;
-- (void)killScrollViewZoom;
-- (void)layoutScrollViewAnimated:(BOOL)animated;
-- (void)prepareForReusue;
-- (void)rotateToOrientation:(UIInterfaceOrientation)orientation;
+- (void)start;
+- (void)cancel;
 
+@property(nonatomic,readonly) NSData* responseData;
+@property(nonatomic,readonly,getter=imageURL) NSURL* imageURL;
+
+@property(nonatomic,retain) NSURLResponse* response;
+@property(nonatomic,assign) id<EGOImageLoadConnectionDelegate> delegate;
+
+@property(nonatomic,assign) NSTimeInterval timeoutInterval; // Default is 30 seconds
+
+@end
+
+@protocol EGOImageLoadConnectionDelegate<NSObject>
+- (void)imageLoadConnectionDidFinishLoading:(EGOImageLoadConnection *)connection;
+- (void)imageLoadConnection:(EGOImageLoadConnection *)connection didFailWithError:(NSError *)error;	
 @end

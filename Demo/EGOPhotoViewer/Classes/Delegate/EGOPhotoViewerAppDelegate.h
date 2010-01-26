@@ -1,5 +1,5 @@
 //
-//  EGOPhotoImageView.h
+//  EGOPhotoViewerAppDelegate.h
 //  EGOPhotoViewer
 //
 //  Created by Devin Doty on 1/13/2010.
@@ -24,28 +24,14 @@
 //  THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
-#import "EGOImageLoader.h"
-
-@class EGOPhoto, EGOPhotoScrollView, EGOPhotoCaptionView;
-
-@interface EGOPhotoImageView : UIView <EGOImageLoaderObserver, UIScrollViewDelegate>{
-@private
-	EGOPhotoScrollView *_scrollView;
-	EGOPhoto *photo;
-	UIImageView *_imageView;
-	UIActivityIndicatorView *activityView;
-	
+@interface EGOPhotoViewerAppDelegate : NSObject <UIApplicationDelegate> {
+    
+    UIWindow *window;
+    UINavigationController *navigationController;
 }
 
-@property(nonatomic,retain) EGOPhoto *photo;
-@property(nonatomic,retain) UIImageView *imageView;
-@property(nonatomic,retain) EGOPhotoScrollView *scrollView;
-
-- (void)setPhoto:(EGOPhoto*)aPhoto;
-- (void)killScrollViewZoom;
-- (void)layoutScrollViewAnimated:(BOOL)animated;
-- (void)prepareForReusue;
-- (void)rotateToOrientation:(UIInterfaceOrientation)orientation;
+@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
 @end
+

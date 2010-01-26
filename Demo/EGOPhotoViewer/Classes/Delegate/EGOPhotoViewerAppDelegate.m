@@ -1,6 +1,7 @@
 //
-//  EGOPhotoImageView.h
+//  EGOPhotoViewerAppDelegate.m
 //  EGOPhotoViewer
+//
 //
 //  Created by Devin Doty on 1/13/2010.
 //  Copyright (c) 2008-2009 enormego
@@ -24,28 +25,42 @@
 //  THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
-#import "EGOImageLoader.h"
+#import "EGOPhotoViewerAppDelegate.h"
+#import "RootViewController.h"
 
-@class EGOPhoto, EGOPhotoScrollView, EGOPhotoCaptionView;
 
-@interface EGOPhotoImageView : UIView <EGOImageLoaderObserver, UIScrollViewDelegate>{
-@private
-	EGOPhotoScrollView *_scrollView;
-	EGOPhoto *photo;
-	UIImageView *_imageView;
-	UIActivityIndicatorView *activityView;
+@implementation EGOPhotoViewerAppDelegate
+
+@synthesize window;
+@synthesize navigationController;
+
+
+#pragma mark -
+#pragma mark Application lifecycle
+
+- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+    
+    // Override point for customization after app launch    
 	
+	[window addSubview:[navigationController view]];
+    [window makeKeyAndVisible];
 }
 
-@property(nonatomic,retain) EGOPhoto *photo;
-@property(nonatomic,retain) UIImageView *imageView;
-@property(nonatomic,retain) EGOPhotoScrollView *scrollView;
 
-- (void)setPhoto:(EGOPhoto*)aPhoto;
-- (void)killScrollViewZoom;
-- (void)layoutScrollViewAnimated:(BOOL)animated;
-- (void)prepareForReusue;
-- (void)rotateToOrientation:(UIInterfaceOrientation)orientation;
+- (void)applicationWillTerminate:(UIApplication *)application {
+	// Save data if appropriate
+}
+
+
+#pragma mark -
+#pragma mark Memory management
+
+- (void)dealloc {
+	[navigationController release];
+	[window release];
+	[super dealloc];
+}
+
 
 @end
+
