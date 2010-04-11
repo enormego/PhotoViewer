@@ -87,13 +87,14 @@
 		UIBarButtonItem *flexableSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
 		UIBarButtonItem *fixedSpaceCenter = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
 		fixedSpaceCenter.width = 80.0f;
-		
+		UIBarButtonItem *fixedSpaceLeft = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
+		fixedSpaceLeft.width = 40.0f;
 		actionButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"actionButton.png"] style:UIBarButtonItemStylePlain target:self action:@selector(actionButtonHit:)] autorelease];
 		
 		leftButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"left.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveBack:)] autorelease];
 		rightButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"right.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveForward:)] autorelease];
 		
-		return [NSArray arrayWithObjects:flexableSpace, leftButton, fixedSpaceCenter, rightButton, flexableSpace, actionButton, nil];
+		return [NSArray arrayWithObjects:fixedSpaceLeft, flexableSpace, leftButton, fixedSpaceCenter, rightButton, flexableSpace, actionButton, nil];
 		
 	}
 	

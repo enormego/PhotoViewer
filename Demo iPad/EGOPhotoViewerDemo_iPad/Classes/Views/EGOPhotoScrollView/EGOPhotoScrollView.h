@@ -1,5 +1,5 @@
 //
-//  EGOPhoto.h
+//  EGOPhotoScrollView.h
 //  EGOPhotoViewer
 //
 //  Created by Devin Doty on 1/13/2010.
@@ -24,41 +24,11 @@
 //  THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
-@interface EGOPhoto : NSObject {
-	
-	NSURL *_imageURL;
-	NSString *_imageName;
-	UIImage *_image;
-	BOOL _failed;
+@interface EGOPhotoScrollView : UIScrollView {
 
 }
-
-/*
- * info is already loaded, including image
- */
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName image:(UIImage*)aImage;
-
-/*
- * url and image name
- */
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName;
-
-/*
- * just a url is provided
- */
-- (id)initWithImageURL:(NSURL*)aURL;
-
-/*
- * image is stored local
- */
-- (id)initWithImage:(UIImage*)aImage;
-
-@property(nonatomic,retain) NSURL *imageURL;
-@property(nonatomic,retain) NSString *imageName;
-@property(nonatomic,retain) UIImage *image;
-@property(nonatomic,assign,getter=didFail) BOOL _failed;
 
 @end

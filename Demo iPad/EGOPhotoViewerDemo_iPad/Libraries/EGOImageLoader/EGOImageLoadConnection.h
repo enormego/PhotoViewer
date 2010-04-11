@@ -1,9 +1,9 @@
 //
-//  EGOPhoto.h
-//  EGOPhotoViewer
+//  EGOImageLoadConnection.h
+//  EGOImageLoading
 //
-//  Created by Devin Doty on 1/13/2010.
-//  Copyright (c) 2008-2009 enormego
+//  Created by Shaun Harrison on 12/1/09.
+//  Copyright (c) 2009-2010 enormego
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,39 +26,35 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol EGOImageLoadConnectionDelegate;
 
-@interface EGOPhoto : NSObject {
+@interface EGOImageLoadConnection : NSObject {
+@private
+	NSURL* _imageURL;
+	NSURLResponse* _response;
+	NSMutableData* _responseData;
+	NSURLConnection* _connection;
+	NSTimeInterval _timeoutInterval;
 	
-	NSURL *_imageURL;
-	NSString *_imageName;
-	UIImage *_image;
-	BOOL _failed;
-
+	id<EGOImageLoadConnectionDelegate> _delegate;
 }
 
-/*
- * info is already loaded, including image
- */
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName image:(UIImage*)aImage;
+- (id)initWithImageURL:(NSURL*)aURL delegate:(id)delegate;
 
-/*
- * url and image name
- */
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName;
+- (void)start;
+- (void)cancel;
 
-/*
- * just a url is provided
- */
-- (id)initWithImageURL:(NSURL*)aURL;
+@property(nonatomic,readonly) NSData* responseData;
+@property(nonatomic,readonly,getter=imageURL) NSURL* imageURL;
 
-/*
- * image is stored local
- */
-- (id)initWithImage:(UIImage*)aImage;
+@property(nonatomic,retain) NSURLResponse* response;
+@property(nonatomic,assign) id<EGOImageLoadConnectionDelegate> delegate;
 
-@property(nonatomic,retain) NSURL *imageURL;
-@property(nonatomic,retain) NSString *imageName;
-@property(nonatomic,retain) UIImage *image;
-@property(nonatomic,assign,getter=didFail) BOOL _failed;
+@property(nonatomic,assign) NSTimeInterval timeoutInterval; // Default is 30 seconds
 
+@end
+
+@protocol EGOImageLoadConnectionDelegate<NSObject>
+- (void)imageLoadConnectionDidFinishLoading:(EGOImageLoadConnection *)connection;
+- (void)imageLoadConnection:(EGOImageLoadConnection *)connection didFailWithError:(NSError *)error;	
 @end

@@ -1,5 +1,5 @@
 //
-//  EGOPhoto.h
+//  EGOPhotoSource.m
 //  EGOPhotoViewer
 //
 //  Created by Devin Doty on 1/13/2010.
@@ -24,41 +24,37 @@
 //  THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import "EGOPhotoSource.h"
+#import "EGOImageLoader.h"
+#import "EGOCache.h"
+#import "EGOPhoto.h"
 
+@implementation EGOPhotoSource
 
-@interface EGOPhoto : NSObject {
-	
-	NSURL *_imageURL;
-	NSString *_imageName;
-	UIImage *_image;
-	BOOL _failed;
+@synthesize photos=_photos;
 
+- (id)initWithEGOPhotos:(NSArray*)thePhotos{
+	if (self = [super init]) {
+		_photos = [thePhotos retain];
+	}
+	return self;
 }
 
-/*
- * info is already loaded, including image
- */
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName image:(UIImage*)aImage;
+- (EGOPhoto*)photoAtIndex:(NSInteger)index{
+	return [self.photos objectAtIndex:index];
+}
 
-/*
- * url and image name
- */
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName;
+- (NSInteger)count{
+	return [self.photos count];
+}
 
-/*
- * just a url is provided
- */
-- (id)initWithImageURL:(NSURL*)aURL;
+- (NSString*)description{
+	return [NSString stringWithFormat:@"%@, %i Photos", [super description], [self.photos count], nil];
+}
 
-/*
- * image is stored local
- */
-- (id)initWithImage:(UIImage*)aImage;
-
-@property(nonatomic,retain) NSURL *imageURL;
-@property(nonatomic,retain) NSString *imageName;
-@property(nonatomic,retain) UIImage *image;
-@property(nonatomic,assign,getter=didFail) BOOL _failed;
+- (void)dealloc{
+	[_photos release], _photos=nil;
+	[super dealloc];
+}
 
 @end

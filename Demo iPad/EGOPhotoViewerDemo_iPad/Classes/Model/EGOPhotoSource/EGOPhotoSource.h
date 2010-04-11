@@ -1,5 +1,5 @@
 //
-//  EGOPhoto.h
+//  EGOPhotoSource.h
 //  EGOPhotoViewer
 //
 //  Created by Devin Doty on 1/13/2010.
@@ -26,39 +26,18 @@
 
 #import <Foundation/Foundation.h>
 
+@class EGOPhoto;
 
-@interface EGOPhoto : NSObject {
+@interface EGOPhotoSource : NSObject {
+@private
+	NSArray *_photos;
 	
-	NSURL *_imageURL;
-	NSString *_imageName;
-	UIImage *_image;
-	BOOL _failed;
-
 }
 
-/*
- * info is already loaded, including image
- */
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName image:(UIImage*)aImage;
+@property(nonatomic,retain) NSArray *photos;
 
-/*
- * url and image name
- */
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName;
-
-/*
- * just a url is provided
- */
-- (id)initWithImageURL:(NSURL*)aURL;
-
-/*
- * image is stored local
- */
-- (id)initWithImage:(UIImage*)aImage;
-
-@property(nonatomic,retain) NSURL *imageURL;
-@property(nonatomic,retain) NSString *imageName;
-@property(nonatomic,retain) UIImage *image;
-@property(nonatomic,assign,getter=didFail) BOOL _failed;
+- (id)initWithEGOPhotos:(NSArray*)photos;
+- (EGOPhoto*)photoAtIndex:(NSInteger)index;
+- (NSInteger)count;
 
 @end

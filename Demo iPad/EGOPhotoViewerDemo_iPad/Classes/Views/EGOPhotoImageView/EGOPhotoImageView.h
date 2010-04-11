@@ -1,5 +1,5 @@
 //
-//  EGOPhoto.h
+//  EGOPhotoImageView.h
 //  EGOPhotoViewer
 //
 //  Created by Devin Doty on 1/13/2010.
@@ -24,41 +24,28 @@
 //  THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "EGOImageLoader.h"
 
+@class EGOPhoto, EGOPhotoScrollView, EGOPhotoCaptionView;
 
-@interface EGOPhoto : NSObject {
+@interface EGOPhotoImageView : UIView <EGOImageLoaderObserver, UIScrollViewDelegate>{
+@private
+	EGOPhotoScrollView *_scrollView;
+	EGOPhoto *photo;
+	UIImageView *_imageView;
+	UIActivityIndicatorView *activityView;
 	
-	NSURL *_imageURL;
-	NSString *_imageName;
-	UIImage *_image;
-	BOOL _failed;
-
 }
 
-/*
- * info is already loaded, including image
- */
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName image:(UIImage*)aImage;
+@property(nonatomic,retain) EGOPhoto *photo;
+@property(nonatomic,retain) UIImageView *imageView;
+@property(nonatomic,retain) EGOPhotoScrollView *scrollView;
 
-/*
- * url and image name
- */
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName;
-
-/*
- * just a url is provided
- */
-- (id)initWithImageURL:(NSURL*)aURL;
-
-/*
- * image is stored local
- */
-- (id)initWithImage:(UIImage*)aImage;
-
-@property(nonatomic,retain) NSURL *imageURL;
-@property(nonatomic,retain) NSString *imageName;
-@property(nonatomic,retain) UIImage *image;
-@property(nonatomic,assign,getter=didFail) BOOL _failed;
+- (void)setPhoto:(EGOPhoto*)aPhoto;
+- (void)killScrollViewZoom;
+- (void)layoutScrollViewAnimated:(BOOL)animated;
+- (void)prepareForReusue;
+- (void)rotateToOrientation:(UIInterfaceOrientation)orientation;
 
 @end
