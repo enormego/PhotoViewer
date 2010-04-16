@@ -77,6 +77,7 @@
 	return [self initWithPhotoSource:source];
 }
 
+
 #pragma mark -
 #pragma mark View Controller Methods
 
@@ -87,13 +88,14 @@
 		UIBarButtonItem *flexableSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
 		UIBarButtonItem *fixedSpaceCenter = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
 		fixedSpaceCenter.width = 80.0f;
-		
+		UIBarButtonItem *fixedSpaceLeft = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
+		fixedSpaceLeft.width = 40.0f;
 		actionButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"actionButton.png"] style:UIBarButtonItemStylePlain target:self action:@selector(actionButtonHit:)] autorelease];
 		
 		leftButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"left.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveBack:)] autorelease];
 		rightButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"right.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveForward:)] autorelease];
 		
-		return [NSArray arrayWithObjects:flexableSpace, leftButton, fixedSpaceCenter, rightButton, flexableSpace, actionButton, nil];
+		return [NSArray arrayWithObjects:fixedSpaceLeft, flexableSpace, leftButton, fixedSpaceCenter, rightButton, flexableSpace, actionButton, nil];
 		
 	}
 	
@@ -129,6 +131,14 @@
 	//[self setupScrollViewContentSize];
 	[self setToolbarItems:[self photoToolbarItems]]; 
 	[self moveToPhotoAtIndex:0 animated:NO];
+	
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(done:)];
+		self.navigationItem.rightBarButtonItem = doneButton;
+		[doneButton release];
+	}
+#endif
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -244,6 +254,10 @@
 		}
 	}
 	_rotating = NO;
+}
+
+- (void)done:(id)sender{
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 

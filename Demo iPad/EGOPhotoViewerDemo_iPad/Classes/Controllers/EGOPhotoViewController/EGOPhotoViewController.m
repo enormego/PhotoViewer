@@ -77,6 +77,7 @@
 	return [self initWithPhotoSource:source];
 }
 
+
 #pragma mark -
 #pragma mark View Controller Methods
 
@@ -130,6 +131,14 @@
 	//[self setupScrollViewContentSize];
 	[self setToolbarItems:[self photoToolbarItems]]; 
 	[self moveToPhotoAtIndex:0 animated:NO];
+	
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(done:)];
+		self.navigationItem.rightBarButtonItem = doneButton;
+		[doneButton release];
+	}
+#endif
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -245,6 +254,10 @@
 		}
 	}
 	_rotating = NO;
+}
+
+- (void)done:(id)sender{
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 
