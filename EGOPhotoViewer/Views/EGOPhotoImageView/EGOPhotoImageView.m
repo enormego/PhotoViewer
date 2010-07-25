@@ -107,7 +107,7 @@
 		_loading = YES;
 		[_activityView startAnimating];
 		self.userInteractionEnabled= NO;
-		self.imageView.image = kPhotoLoadingPlaceholder;
+		self.imageView.image = kEGOPhotoLoadingPlaceholder;
 	}
 	
 	[self layoutScrollViewAnimated:NO];
@@ -213,7 +213,7 @@
 	if ([notification userInfo] == nil) return;
 	if(![[[notification userInfo] objectForKey:@"imageURL"] isEqual:self.photo.URL]) return;
 	
-	self.imageView.image = kPhotoErrorPlaceholder;
+	self.imageView.image = kEGOPhotoErrorPlaceholder;
 	self.photo.failed = YES;
 	[self layoutScrollViewAnimated:NO];
 	self.userInteractionEnabled = NO;

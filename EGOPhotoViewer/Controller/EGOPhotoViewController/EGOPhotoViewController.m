@@ -5,6 +5,24 @@
 //  Created by Devin Doty on 1/8/10.
 //  Copyright 2010 enormego. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
+//
 
 #import "EGOPhotoViewController.h"
 
@@ -290,8 +308,8 @@
 		UIBarButtonItem *fixedLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
 		fixedLeft.width = 40.0f;
 		
-		UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"left.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveBack:)];
-		UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"right.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveForward:)];
+		UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"egopv_left.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveBack:)];
+		UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"egopv_right.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveForward:)];
 		
 		[self setToolbarItems:[NSArray arrayWithObjects:fixedLeft, flex, left, fixedCenter, right, flex, action, nil]];
 		
@@ -504,10 +522,10 @@
 			CGFloat originX = self.scrollView.bounds.size.width * page;
 			
 			if (page < _pageIndex) {
-				originX -= IMAGE_GAP;
+				originX -= EGOPV_IMAGE_GAP;
 			} 
 			if (page > _pageIndex) {
-				originX += IMAGE_GAP;
+				originX += EGOPV_IMAGE_GAP;
 			}
 			
 			if ([self.photoViews objectAtIndex:page] == [NSNull null]){
@@ -613,9 +631,9 @@
 	NSInteger centerPageIndex = _pageIndex;
 	CGFloat xOrigin = (frame.size.width * page);
 	if (page > centerPageIndex) {
-		xOrigin = (frame.size.width * page) + IMAGE_GAP;
+		xOrigin = (frame.size.width * page) + EGOPV_IMAGE_GAP;
 	} else if (page < centerPageIndex) {
-		xOrigin = (frame.size.width * page) - IMAGE_GAP;
+		xOrigin = (frame.size.width * page) - EGOPV_IMAGE_GAP;
 	}
 		
 	frame.origin.x = xOrigin;

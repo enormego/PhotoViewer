@@ -62,7 +62,7 @@
 	}
 
 	CGRect rect;
-	rect.size = CGSizeMake(self.frame.size.width / ZOOM_SCALE, self.frame.size.height / ZOOM_SCALE);
+	rect.size = CGSizeMake(self.frame.size.width / EGOPV_ZOOM_SCALE, self.frame.size.height / EGOPV_ZOOM_SCALE);
 	rect.origin.x = MAX((center.x - (rect.size.width / 2.0f)), 0.0f);		
 	rect.origin.y = MAX((center.y - (rect.size.height / 2.0f)), 0.0f);
 	
@@ -74,11 +74,11 @@
 				
 		if (center.x < (self.frame.size.width / 2.0f)) {
 			
-			rect.origin.x += (borderX/ZOOM_SCALE);
+			rect.origin.x += (borderX/EGOPV_ZOOM_SCALE);
 			
 		} else {
 			
-			rect.origin.x -= ((borderX/ZOOM_SCALE) + rect.size.width);
+			rect.origin.x -= ((borderX/EGOPV_ZOOM_SCALE) + rect.size.width);
 			
 		}	
 	}
@@ -87,11 +87,11 @@
 				
 		if (center.y < (self.frame.size.height / 2.0f)) {
 			
-			rect.origin.y += (borderY/ZOOM_SCALE);
+			rect.origin.y += (borderY/EGOPV_ZOOM_SCALE);
 			
 		} else {
 
-			rect.origin.y -= ((borderY/ZOOM_SCALE) + rect.size.height);
+			rect.origin.y -= ((borderY/EGOPV_ZOOM_SCALE) + rect.size.height);
 			
 		}
 		
