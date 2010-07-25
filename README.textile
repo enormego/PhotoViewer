@@ -1,3 +1,6 @@
+h1. IMPORTANT
+*This branch is no longer maintained.  PhotoViewer started out as a stripped down version of three20's PhotoViewer.  After countless hours trying to optimize and improve upon three20's PhotoViewer, we ultimately decided it would be best to write our own from scratch utilizing our other open source libraries we've written along the way: EGOCache, EGOImageLoading, etc.  Please switch to the "master" branch to view EGOPhotoViewer.*
+
 h1. Photo Viewer
 
 *Photo Viewer* is the photo viewer from Facebook's three20 library, torn out, and freed of it's dependency on three20.  We've removed most of the bulk code, and it's weighing in at a lean 800KB vs. three20's 4.7MB, which is an awful lot for a simple photo viewer.
