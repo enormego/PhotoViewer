@@ -5,9 +5,28 @@
 //  Created by Devin Doty on 1/8/10.
 //  Copyright 2010 enormego. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
+//
 
 #import "EGOPhotoViewController.h"
-
+#import "EGOQuickPhoto.h"
+#import "EGOQuickPhotoSource.h"
 
 @interface EGOPhotoViewController (Private)
 - (void)loadScrollViewWithPage:(NSInteger)page;
@@ -27,6 +46,18 @@
 @synthesize scrollView=_scrollView;
 @synthesize photoSource=_photoSource; 
 @synthesize photoViews=_photoViews;
+
+- (id)initWithPhoto:(id<EGOPhoto>)aPhoto {
+	return [self initWithPhotoSource:[[[EGOQuickPhotoSource alloc] initWithPhotos:[NSArray arrayWithObjects:aPhoto,nil]] autorelease]];
+}
+
+- (id)initWithImage:(UIImage*)anImage {
+	return [self initWithPhoto:[[[EGOQuickPhoto alloc] initWithImage:anImage] autorelease]];
+}
+
+- (id)initWithImageURL:(NSURL*)anImageURL {
+	return [self initWithPhoto:[[[EGOQuickPhoto alloc] initWithImageURL:anImageURL] autorelease]];
+}
 
 - (id)initWithPhotoSource:(id <EGOPhotoSource> )aSource{
 	if (self = [super init]) {
@@ -504,10 +535,10 @@
 			CGFloat originX = self.scrollView.bounds.size.width * page;
 			
 			if (page < _pageIndex) {
-				originX -= IMAGE_GAP;
+				originX -= EGOPV_IMAGE_GAP;
 			} 
 			if (page > _pageIndex) {
-				originX += IMAGE_GAP;
+				originX += EGOPV_IMAGE_GAP;
 			}
 			
 			if ([self.photoViews objectAtIndex:page] == [NSNull null]){
@@ -613,9 +644,9 @@
 	NSInteger centerPageIndex = _pageIndex;
 	CGFloat xOrigin = (frame.size.width * page);
 	if (page > centerPageIndex) {
-		xOrigin = (frame.size.width * page) + IMAGE_GAP;
+		xOrigin = (frame.size.width * page) + EGOPV_IMAGE_GAP;
 	} else if (page < centerPageIndex) {
-		xOrigin = (frame.size.width * page) - IMAGE_GAP;
+		xOrigin = (frame.size.width * page) - EGOPV_IMAGE_GAP;
 	}
 		
 	frame.origin.x = xOrigin;

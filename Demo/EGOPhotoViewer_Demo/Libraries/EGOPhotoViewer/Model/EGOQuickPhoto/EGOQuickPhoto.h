@@ -1,5 +1,5 @@
 //
-//  EGOPhotoGlobal.h
+//  EGOQuickPhoto.h
 //  EGOPhotoViewer
 //
 //  Created by Devin Doty on 7/3/10.
@@ -24,39 +24,23 @@
 //  THE SOFTWARE.
 //
 
-// Frameworks
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
+#import "EGOPhotoGlobal.h"
 
-// Controller
-#import "EGOPhotoViewController.h"
 
-// Views
-#import "EGOPhotoScrollView.h"
-#import "EGOPhotoImageView.h"
-#import "EGOPhotoCaptionView.h"
+@interface EGOQuickPhoto : NSObject <EGOPhoto>{
+@private
+	NSURL *_URL;
+	NSString *_caption;
+	CGSize _size;
+	UIImage *_image;
+	
+	BOOL _failed;
+}
 
-// Model
-#import "EGOPhotoSource.h"
+- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName image:(UIImage*)aImage;
+- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName;
+- (id)initWithImageURL:(NSURL*)aURL;
+- (id)initWithImage:(UIImage*)aImage;
 
-// Loading and Disk I/O 
-#import "EGOImageLoadConnection.h"
-#import "EGOImageLoader.h"
-#import "EGOCache.h"
-
-#ifndef kPhotoErrorPlaceholder
-	#define kPhotoErrorPlaceholder [UIImage imageNamed:@"error_placeholder.png"]
-#endif
-
-#ifndef kPhotoLoadingPlaceholder
-	#define kPhotoLoadingPlaceholder [UIImage imageNamed:@"photo_placeholder.png"]
-#endif
-
-#ifndef EGOPV_IMAGE_GAP
-	#define EGOPV_IMAGE_GAP 30
-#endif
-
-#ifndef EGOPV_ZOOM_SCALE
-	#define EGOPV_ZOOM_SCALE 2.5
-#endif
+@end

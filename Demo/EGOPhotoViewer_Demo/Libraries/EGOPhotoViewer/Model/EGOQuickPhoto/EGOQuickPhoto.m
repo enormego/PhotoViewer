@@ -1,5 +1,5 @@
 //
-//  EGOPhotoGlobal.h
+//  EGOQuickPhoto.m
 //  EGOPhotoViewer
 //
 //  Created by Devin Doty on 7/3/10.
@@ -24,39 +24,40 @@
 //  THE SOFTWARE.
 //
 
-// Frameworks
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
+#import "EGOQuickPhoto.h"
 
-// Controller
-#import "EGOPhotoViewController.h"
+@implementation EGOQuickPhoto
+@synthesize URL=_URL, caption=_caption, image=_image, size=_size, failed=_failed;
 
-// Views
-#import "EGOPhotoScrollView.h"
-#import "EGOPhotoImageView.h"
-#import "EGOPhotoCaptionView.h"
+- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName image:(UIImage*)aImage {
+	if (self = [super init]) {
+		_URL = [aURL retain];
+		_caption = [aName retain];
+		_image = [aImage retain];
+		
+	}
+	
+	return self;
+}
 
-// Model
-#import "EGOPhotoSource.h"
+- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName {
+	return [self initWithImageURL:aURL name:aName image:nil];
+}
 
-// Loading and Disk I/O 
-#import "EGOImageLoadConnection.h"
-#import "EGOImageLoader.h"
-#import "EGOCache.h"
+- (id)initWithImageURL:(NSURL*)aURL {
+	return [self initWithImageURL:aURL name:nil image:nil];
+}
 
-#ifndef kPhotoErrorPlaceholder
-	#define kPhotoErrorPlaceholder [UIImage imageNamed:@"error_placeholder.png"]
-#endif
+- (id)initWithImage:(UIImage*)aImage {
+	return [self initWithImageURL:nil name:nil image:aImage];
+}
 
-#ifndef kPhotoLoadingPlaceholder
-	#define kPhotoLoadingPlaceholder [UIImage imageNamed:@"photo_placeholder.png"]
-#endif
+- (void)dealloc {
+	[_URL release], _URL=nil;
+	[_image release], _image=nil;
+	[_caption release], _caption=nil;
+	
+	[super dealloc];
+}
 
-#ifndef EGOPV_IMAGE_GAP
-	#define EGOPV_IMAGE_GAP 30
-#endif
-
-#ifndef EGOPV_ZOOM_SCALE
-	#define EGOPV_ZOOM_SCALE 2.5
-#endif
+@end
