@@ -2,14 +2,14 @@
 
 Created by **enormego**
 
-**EGOPhotoViewer** is a quick and easy to use photo viewer for iOS, with full support for iPhone, iPhone, and iPad.  **EGOPhotoViewer** was originally started as a stripped down version of **three20**'s PhotoViewer.  We ultimately decided the **three20** code base wasn't flexible enough and scrapped the project all together.  We rewrote PhotoViewer as EGOPhotoViewer from scratch based upon our reliable open source libraries EGOCache and **EGOImageLoading**.
+**EGOPhotoViewer** is a quick and easy to use photo viewer for iOS, with full support for iPhone, iPhone, and iPad.  **EGOPhotoViewer** was originally started as a stripped down version of **three20**'s PhotoViewer.  We ultimately decided the **three20** code base wasn't flexible enough and scrapped the project all together.  We rewrote PhotoViewer as EGOPhotoViewer from scratch, based upon our reliable open source libraries **EGOCache** and **EGOImageLoading**.
 
 # Documentation
 We haven't yet had a chance to document **EGOPhotoViewer**, but you should be able to find everything you need in the header files and demo app.
 
 # License
 
-EGOPhotoViewer is available under the MIT license:
+**EGOPhotoViewer** is available under the MIT license:
 
 *Copyright (c) 2010 enormego*
 
