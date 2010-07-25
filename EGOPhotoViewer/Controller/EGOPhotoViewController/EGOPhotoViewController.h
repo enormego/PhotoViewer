@@ -35,7 +35,7 @@
 	EGOPhotoCaptionView *_captionView;
 	NSMutableArray *_photoViews;
 	UIScrollView *_scrollView;	
-
+	
 	NSInteger _pageIndex;
 	BOOL _rotating;
 	BOOL _barsHidden;
@@ -43,7 +43,7 @@
 	UIBarButtonItem *_leftButton;
 	UIBarButtonItem *_rightButton;
 	UIBarButtonItem *_actionButton;
-
+	
 	BOOL _storedOldStyles;
 	UIStatusBarStyle _oldStatusBarSyle;
 	UIBarStyle _oldNavBarStyle;
@@ -53,10 +53,15 @@
 	BOOL _oldToolBarTranslucent;
 	UIColor* _oldToolBarTintColor;	
 	BOOL _oldToolBarHidden;
-	
-	UIView *_popover;
 
+	BOOL _autoresizedPopover;
+	id _popover;
 }
+
+- (id)initWithPhoto:(id<EGOPhoto>)aPhoto;
+
+- (id)initWithImage:(UIImage*)anImage;
+- (id)initWithImageURL:(NSURL*)anImageURL;
 
 - (id)initWithPhotoSource:(id <EGOPhotoSource>)aPhotoSource;
 - (id)initWithPopoverController:(id)aPopoverController photoSource:(id <EGOPhotoSource>)aPhotoSource;
