@@ -43,7 +43,7 @@
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-				
+		
 		self.backgroundColor = [UIColor blackColor];
 		self.userInteractionEnabled = NO; // this will get set when the image is loaded/set
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -73,6 +73,15 @@
 		
 	}
     return self;
+}
+
+- (void)layoutSubviews{
+	[super layoutSubviews];
+		
+	if (_scrollView.zoomScale == 1.0f) {
+		[self layoutScrollViewAnimated:YES];
+	}
+	
 }
 
 - (void)setPhoto:(id <EGOPhoto>)aPhoto{
@@ -156,7 +165,7 @@
 		[UIView beginAnimations:nil context:NULL];
 		[UIView setAnimationDuration:0.0001];
 	}
-	
+		
 	CGFloat hfactor = self.imageView.image.size.width / self.frame.size.width;
 	CGFloat vfactor = self.imageView.image.size.height / self.frame.size.height;
 	
@@ -176,6 +185,50 @@
 	if (animated) {
 		[UIView commitAnimations];
 	}
+}
+
+- (CGSize)sizeForPopover{
+	
+	CGSize popoverSize = EGOPV_MAX_POPOVER_SIZE;
+	
+	if (!self.imageView.image) {
+		return popoverSize;
+	}
+	
+	CGSize imageSize = self.imageView.image.size;
+	
+	if(imageSize.width > popoverSize.width || imageSize.height > popoverSize.height) {
+		
+		if(imageSize.width > imageSize.height) {
+			popoverSize.height = floorf((popoverSize.width * imageSize.height) / imageSize.width);
+		} else {
+			popoverSize.width = floorf((popoverSize.height * imageSize.width) / imageSize.height);
+		}
+		
+	} else {
+		
+		popoverSize = imageSize;
+		
+	}
+	
+	if (popoverSize.width < EGOPV_MIN_POPOVER_SIZE.width || popoverSize.height < EGOPV_MIN_POPOVER_SIZE.height) {
+		
+		CGFloat hfactor = popoverSize.width / EGOPV_MIN_POPOVER_SIZE.width;
+		CGFloat vfactor = popoverSize.height / EGOPV_MIN_POPOVER_SIZE.height;
+		
+		CGFloat factor = MAX(hfactor, vfactor);
+		
+		CGFloat newWidth = popoverSize.width / factor;
+		CGFloat newHeight = popoverSize.height / factor;
+		
+		popoverSize.width = newWidth;
+		popoverSize.height = newHeight;
+		
+	} 
+	
+	
+	return popoverSize;
+	
 }
 
 

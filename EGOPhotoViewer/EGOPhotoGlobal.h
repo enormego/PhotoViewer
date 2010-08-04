@@ -64,3 +64,11 @@
 #ifndef EGOPV_ZOOM_SCALE
 	#define EGOPV_ZOOM_SCALE 2.5
 #endif
+
+#ifndef EGOPV_MAX_POPOVER_SIZE
+#define EGOPV_MAX_POPOVER_SIZE CGSizeMake(480.0f, 480.0f)
+#endif
+
+#ifndef EGOPV_MIN_POPOVER_SIZE
+#define EGOPV_MIN_POPOVER_SIZE CGSizeMake(320.0f, 320.0f)
+#endif
