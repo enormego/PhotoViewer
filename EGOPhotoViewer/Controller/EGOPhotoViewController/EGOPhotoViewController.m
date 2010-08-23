@@ -91,14 +91,6 @@
 	self.view.backgroundColor = [UIColor blackColor];
 	self.wantsFullScreenLayout = YES;
 	
-	if (!_captionView) {
-		
-		_captionView = [[EGOPhotoCaptionView alloc] initWithFrame:CGRectMake(0.0f, self.view.frame.size.height, self.view.frame.size.width, 1.0f)];
-		[self.view insertSubview:_captionView atIndex:4];
-		[_captionView release];
-		
-	}
-	
 	if (!_scrollView) {
 		
 		_scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
@@ -118,6 +110,15 @@
 		_scrollView.backgroundColor = self.view.backgroundColor;
 		[self.view addSubview:_scrollView];
 
+	}
+	
+	if (!_captionView) {
+		
+		EGOPhotoCaptionView *view = [[EGOPhotoCaptionView alloc] initWithFrame:CGRectMake(0.0f, self.view.frame.size.height, self.view.frame.size.width, 1.0f)];
+		[self.view addSubview:view];
+		_captionView=view;
+		[_captionView release];
+		
 	}
 	
 	//  load photoviews lazily
@@ -270,9 +271,7 @@
 			[view rotateToOrientation:toInterfaceOrientation];
 		}
 	}
-	
-	_captionView.frame = CGRectMake(0.0f, self.view.frame.size.height - (self.navigationController.toolbar.frame.size.height + 40.0f), self.view.frame.size.width, 40.0f);
-	
+		
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
@@ -325,8 +324,8 @@
 		UIBarButtonItem *fixedLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
 		fixedLeft.width = 40.0f;
 		
-		UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"left.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveBack:)];
-		UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"right.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveForward:)];
+		UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"egopv_left.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveBack:)];
+		UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"egopv_right.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveForward:)];
 		
 		[self setToolbarItems:[NSArray arrayWithObjects:fixedLeft, flex, left, fixedCenter, right, flex, action, nil]];
 		
@@ -371,6 +370,7 @@
 	if (hidden&&_barsHidden) return;
 	
 	if (_popover && [self.photoSource numberOfPhotos] == 0) {
+		[_captionView setCaptionHidden:hidden];
 		return;
 	}
 	
@@ -481,7 +481,7 @@
 	}
 	
 	if (_captionView) {
-		[_captionView setCaptionText:[[self.photoSource photoAtIndex:[self centerPhotoIndex]] caption]];
+		[_captionView setCaptionText:[[self.photoSource photoAtIndex:_pageIndex] caption] hidden:_barsHidden];
 	}
 	
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
@@ -557,6 +557,9 @@
 - (void)setupScrollViewContentSize{
 	
 	CGFloat toolbarSize = self.navigationController.toolbar.frame.size.height;
+	if(_popover){
+		toolbarSize=0.0f;
+	}
 	CGRect rect = [[UIScreen mainScreen] bounds];
 	
 #if	__IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
