@@ -33,7 +33,7 @@
     if (self = [super initWithFrame:frame]) {
 		
 		self.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.3f];
-		self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 		
 		_textLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, self.frame.size.width - 40.0f, 40.0f)];
 		_textLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
@@ -112,9 +112,8 @@
 	} else {
 		
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-		CGFloat toolbarSize;
-		toolbarSize = UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ? 32.0f : 44.0f;
 		
+		CGFloat toolbarSize = UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ? 32.0f : 44.0f;
 		self.frame = CGRectMake(0.0f, self.superview.frame.size.height - (toolbarSize + self.frame.size.height), self.frame.size.width, self.frame.size.height);
 		
 	}
@@ -122,6 +121,7 @@
 	[UIView commitAnimations];
 	
 	_hidden=hidden;
+	
 }
 
 

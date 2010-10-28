@@ -26,10 +26,24 @@
 
 #import "EGOPhotoImageView.h"
 
-#define ZOOM_VIEW_TAG 101
+#define ZOOM_VIEW_TAG 0x101
+
+@interface RotateGesture : UIRotationGestureRecognizer {}
+@end
+
+@implementation RotateGesture
+- (BOOL)canBePreventedByGestureRecognizer:(UIGestureRecognizer*)gesture{
+	return NO;
+}
+- (BOOL)canPreventGestureRecognizer:(UIGestureRecognizer *)preventedGestureRecognizer{
+	return YES;
+}
+@end
+
 
 @interface EGOPhotoImageView (Private)
 - (void)layoutScrollViewAnimated:(BOOL)animated;
+- (void)setupImageViewWithImage:(UIImage *)aImage;
 - (CABasicAnimation*)fadeAnimation;
 @end
 
@@ -45,31 +59,36 @@
     if (self = [super initWithFrame:frame]) {
 		
 		self.backgroundColor = [UIColor blackColor];
-		self.userInteractionEnabled = NO; // this will get set when the image is loaded/set
+		self.userInteractionEnabled = NO;
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+		self.opaque = YES;
 		
-		_scrollView = [[EGOPhotoScrollView alloc] initWithFrame:self.bounds];
-		_scrollView.backgroundColor = [UIColor blackColor];
-		_scrollView.delegate = self;
-		[self addSubview:_scrollView];
-		
-		_imageView = [[UIImageView alloc] initWithFrame:self.bounds];
-		_imageView.contentMode = UIViewContentModeScaleAspectFit;
-		_imageView.tag = ZOOM_VIEW_TAG;
-		[_scrollView addSubview:_imageView];
+		EGOPhotoScrollView *scrollView = [[EGOPhotoScrollView alloc] initWithFrame:self.bounds];
+		scrollView.backgroundColor = [UIColor blackColor];
+		scrollView.opaque = YES;
+		scrollView.delegate = self;
+		[self addSubview:scrollView];
+		_scrollView = [scrollView retain];
+		[scrollView release];
 
-		_activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+		UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+		imageView.opaque = YES;
+		imageView.contentMode = UIViewContentModeScaleAspectFit;
+		imageView.tag = ZOOM_VIEW_TAG;
+		[_scrollView addSubview:imageView];
+		_imageView = [imageView retain];
+		[imageView release];
 		
-		CGFloat offset = 80.0f;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-			offset=120.0f;
-		}
-#endif
-		_activityView.frame = CGRectMake((CGRectGetWidth(self.frame) / 2) - 11.0f, (CGRectGetHeight(self.frame) / 2) + offset , 22.0f, 22.0f);
-		_activityView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
-		[self addSubview:_activityView];
-		[_activityView release];
+		UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+		activityView.frame = CGRectMake((CGRectGetWidth(self.frame) / 2) - 11.0f, CGRectGetHeight(self.frame) - 100.0f , 22.0f, 22.0f);
+		activityView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+		[self addSubview:activityView];
+		_activityView = [activityView retain];
+		[activityView release];
+		
+		RotateGesture *gesture = [[RotateGesture alloc] initWithTarget:self action:@selector(rotate:)];
+		[self addGestureRecognizer:gesture];
+		[gesture release];
 		
 	}
     return self;
@@ -97,9 +116,46 @@
 	_photo = [aPhoto retain];
 	
 	if (self.photo.image) {
+		
 		self.imageView.image = self.photo.image;
+		
 	} else {
-		self.imageView.image = [[EGOImageLoader sharedImageLoader] imageForURL:self.photo.URL shouldLoadWithObserver:self];
+		
+		if ([self.photo.URL isFileURL]) {
+			
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40000
+			
+			if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 4.0) {
+								
+				__block UIImage *_image = nil;
+				dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+					
+					_image = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.photo.URL]];
+					self.imageView.image = _image;
+					
+					dispatch_async(dispatch_get_main_queue(), ^{
+						if (_image) {
+							[self setupImageViewWithImage:_image];
+						}
+					});
+								   
+				});
+		
+			} else {
+				
+				self.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.photo.URL]];
+				
+			}
+
+#else
+			self.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.photo.URL]];
+#endif
+			
+			
+		} else {
+			self.imageView.image = [[EGOImageLoader sharedImageLoader] imageForURL:self.photo.URL shouldLoadWithObserver:self];
+		}
+		
 	}
 	
 	if (self.imageView.image) {
@@ -122,11 +178,11 @@
 	[self layoutScrollViewAnimated:NO];
 }
 
-- (void)setupImageViewWithImage:(UIImage*)theImage {	
+- (void)setupImageViewWithImage:(UIImage*)aImage {	
 	
 	_loading = NO;
 	[_activityView stopAnimating];
-	self.imageView.image = theImage; 
+	self.imageView.image = aImage; 
 	[self layoutScrollViewAnimated:NO];
 	
 	[[self layer] addAnimation:[self fadeAnimation] forKey:@"opacity"];
@@ -143,6 +199,35 @@
 
 
 #pragma mark -
+#pragma mark Parent Controller Fading
+
+- (void)fadeView{
+	
+	self.backgroundColor = [UIColor clearColor];
+	self.superview.backgroundColor = self.backgroundColor;
+	self.superview.superview.backgroundColor = self.backgroundColor;
+	
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
+	[animation setValue:[NSNumber numberWithInt:101] forKey:@"AnimationType"];
+	animation.delegate = self;
+	animation.fromValue = (id)[UIColor clearColor].CGColor;
+	animation.toValue = (id)[UIColor blackColor].CGColor;
+	animation.duration = 0.4f;
+	[self.layer addAnimation:animation forKey:@"FadeAnimation"];
+	
+	
+}
+
+- (void)resetBackgroundColors{
+	
+	self.backgroundColor = [UIColor blackColor];
+	self.superview.backgroundColor = self.backgroundColor;
+	self.superview.superview.backgroundColor = self.backgroundColor;
+
+}
+
+
+#pragma mark -
 #pragma mark Layout
 
 - (void)rotateToOrientation:(UIInterfaceOrientation)orientation{
@@ -155,7 +240,9 @@
 		self.scrollView.frame = CGRectMake((self.bounds.size.width / 2) - (width / 2), (self.bounds.size.height / 2) - (height / 2), width, height);
 		
 	} else {
+		
 		[self layoutScrollViewAnimated:NO];
+		
 	}
 }
 
@@ -178,9 +265,11 @@
 	CGFloat topOffset = (self.frame.size.height - newHeight) / 2;
 	
 	self.scrollView.frame = CGRectMake(leftOffset, topOffset, newWidth, newHeight);
+	self.scrollView.layer.position = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
 	self.scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
 	self.scrollView.contentOffset = CGPointMake(0.0f, 0.0f);
 	self.imageView.frame = self.scrollView.bounds;
+
 
 	if (animated) {
 		[UIView commitAnimations];
@@ -280,11 +369,16 @@
 #pragma mark -
 #pragma mark UIScrollView Delegate Methods
 
-- (void)reallyKillZoom{
+- (void)killZoomAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context{
 	
-	[self.scrollView setZoomScale:1.0f animated:NO];
-	self.imageView.frame = self.scrollView.bounds;
-	[self layoutScrollViewAnimated:NO];
+	if([finished boolValue]){
+		
+		[self.scrollView setZoomScale:1.0f animated:NO];
+		self.imageView.frame = self.scrollView.bounds;
+		[self layoutScrollViewAnimated:NO];
+		
+	}
+	
 }
 
 - (void)killScrollViewZoom{
@@ -293,7 +387,7 @@
 
 	[UIView beginAnimations:nil context:NULL];
 	[UIView setAnimationDuration:0.3];
-	[UIView setAnimationDidStopSelector:@selector(reallyKillZoom)];
+	[UIView setAnimationDidStopSelector:@selector(killZoomAnimationDidStop:finished:context:)];
 	[UIView setAnimationDelegate:self];
 
 	CGFloat hfactor = self.imageView.image.size.width / self.frame.size.width;
@@ -317,9 +411,28 @@
 	return [self.scrollView viewWithTag:ZOOM_VIEW_TAG];
 }
 
+- (CGRect)frameToFitCurrentView{
+	
+	CGFloat heightFactor = self.imageView.image.size.height / self.frame.size.height;
+	CGFloat widthFactor = self.imageView.image.size.width / self.frame.size.width;
+	
+	CGFloat scaleFactor = MAX(heightFactor, widthFactor);
+	
+	CGFloat newHeight = self.imageView.image.size.height / scaleFactor;
+	CGFloat newWidth = self.imageView.image.size.width / scaleFactor;
+	
+	
+	CGRect rect = CGRectMake((self.frame.size.width - newWidth)/2, (self.frame.size.height-newHeight)/2, newWidth, newHeight);
+	
+	return rect;
+	
+}
+
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale{
 			
 	if (scrollView.zoomScale > 1.0f) {		
+		
+		
 		CGFloat height, width, originX, originY;
 		height = MIN(CGRectGetHeight(self.imageView.frame) + self.imageView.frame.origin.x, CGRectGetHeight(self.bounds));
 		width = MIN(CGRectGetWidth(self.imageView.frame) + self.imageView.frame.origin.y, CGRectGetWidth(self.bounds));
@@ -353,6 +466,7 @@
 
 		CGRect frame = self.scrollView.frame;
 		self.scrollView.frame = CGRectMake((self.bounds.size.width / 2) - (width / 2), (self.bounds.size.height / 2) - (height / 2), width, height);
+		self.scrollView.layer.position = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
 		if (!CGRectEqualToRect(frame, self.scrollView.frame)) {		
 			
 			CGFloat offsetY, offsetX;
@@ -382,6 +496,55 @@
 
 
 #pragma mark -
+#pragma mark RotateGesture
+
+- (void)rotate:(UIRotationGestureRecognizer*)gesture{
+
+	if (gesture.state == UIGestureRecognizerStateBegan) {
+		
+		[self.layer removeAllAnimations];
+		_beginRadians = gesture.rotation;
+		self.layer.transform = CATransform3DMakeRotation(_beginRadians, 0.0f, 0.0f, 1.0f);
+		
+	} else if (gesture.state == UIGestureRecognizerStateChanged) {
+		
+		self.layer.transform = CATransform3DMakeRotation((_beginRadians + gesture.rotation), 0.0f, 0.0f, 1.0f);
+
+	} else {
+		
+		CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
+		animation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+		animation.duration = 0.3f;
+		animation.removedOnCompletion = NO;
+		animation.fillMode = kCAFillModeForwards;
+		animation.delegate = self;
+		[animation setValue:[NSNumber numberWithInt:202] forKey:@"AnimationType"];
+		[self.layer addAnimation:animation forKey:@"RotateAnimation"];
+		
+	} 
+
+	
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+	
+	if (flag) {
+		
+		if ([[anim valueForKey:@"AnimationType"] integerValue] == 101) {
+			
+			[self resetBackgroundColors];
+			
+		} else if ([[anim valueForKey:@"AnimationType"] integerValue] == 202) {
+			
+			self.layer.transform = CATransform3DIdentity;
+			
+		}
+	}
+	
+}
+
+
+#pragma mark -
 #pragma mark Dealloc
 
 - (void)dealloc {
@@ -392,6 +555,7 @@
 	
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	
+	[_activityView release], _activityView=nil;
 	[_imageView release]; _imageView=nil;
 	[_scrollView release]; _scrollView=nil;
 	[_photo release]; _photo=nil;

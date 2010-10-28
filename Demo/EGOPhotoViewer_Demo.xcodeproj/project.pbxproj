@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* EGOPhotoViewer_DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* EGOPhotoViewer_DemoAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2804200B108E984D000629CD /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28042008108E984D000629CD /* RootViewController.m */; };
 		2804200C108E984D000629CD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2804200A108E984D000629CD /* DetailViewController.m */; };
 		2804203C108E9BAB000629CD /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2804203B108E9BAB000629CD /* DetailView.xib */; };
@@ -26,29 +24,33 @@
 		286B602D11FCCF7400556D9E /* EGOPhotoCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 286B601D11FCCF7400556D9E /* EGOPhotoCaptionView.m */; };
 		286B602E11FCCF7400556D9E /* EGOPhotoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 286B602011FCCF7400556D9E /* EGOPhotoImageView.m */; };
 		286B602F11FCCF7400556D9E /* EGOPhotoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 286B602311FCCF7400556D9E /* EGOPhotoScrollView.m */; };
-		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		D0B84E5411DFFCB400F4CEF6 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B84E4E11DFFCB400F4CEF6 /* EGOCache.m */; };
 		D0B84E5511DFFCB400F4CEF6 /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B84E5111DFFCB400F4CEF6 /* EGOImageLoadConnection.m */; };
 		D0B84E5611DFFCB400F4CEF6 /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B84E5311DFFCB400F4CEF6 /* EGOImageLoader.m */; };
 		D0B84E7711DFFD5000F4CEF6 /* MyPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B84E7411DFFD5000F4CEF6 /* MyPhoto.m */; };
 		D0B84E7811DFFD5000F4CEF6 /* MyPhotoSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B84E7611DFFD5000F4CEF6 /* MyPhotoSource.m */; };
-		D0B84E8211DFFD9700F4CEF6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B84E8111DFFD9700F4CEF6 /* QuartzCore.framework */; };
-		D0B84E8611DFFD9E00F4CEF6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B84E8511DFFD9E00F4CEF6 /* MessageUI.framework */; };
 		D0B84E9411DFFDF800F4CEF6 /* RootViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B84E9211DFFDF800F4CEF6 /* RootViewController_iPhone.m */; };
 		D0B84E9511DFFDF800F4CEF6 /* RootViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B84E9311DFFDF800F4CEF6 /* RootViewController_iPhone.xib */; };
 		D0B84EE611DFFF6200F4CEF6 /* photosButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B84EE511DFFF6200F4CEF6 /* photosButton.png */; };
 		D0B84EE911DFFF6700F4CEF6 /* local_image_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0B84EE711DFFF6700F4CEF6 /* local_image_1.jpg */; };
 		D0B84EEA11DFFF6700F4CEF6 /* local_image_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0B84EE811DFFF6700F4CEF6 /* local_image_2.jpg */; };
 		D0B84F0D11E0004800F4CEF6 /* MainWindowiPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B84F0C11E0004800F4CEF6 /* MainWindowiPhone.xib */; };
+		D0FC1D1A12761B16006C2A0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FC1D1912761B16006C2A0F /* Foundation.framework */; };
+		D0FC1D1E12761B1C006C2A0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FC1D1D12761B1C006C2A0F /* UIKit.framework */; };
+		D0FC1D2012761B22006C2A0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FC1D1F12761B22006C2A0F /* CoreGraphics.framework */; };
+		D0FC1D2212761B27006C2A0F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FC1D2112761B27006C2A0F /* QuartzCore.framework */; };
+		D0FC1D2412761B2D006C2A0F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FC1D2312761B2D006C2A0F /* MessageUI.framework */; };
+		D0FC1E1212761BC2006C2A0F /* egopv_photo_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FC1E1112761BC2006C2A0F /* egopv_photo_placeholder@2x.png */; };
+		D0FC1E6312761DCA006C2A0F /* egopv_fullscreen_button.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FC1E6012761DCA006C2A0F /* egopv_fullscreen_button.png */; };
+		D0FC1E6412761DCA006C2A0F /* egopv_fullscreen_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FC1E6112761DCA006C2A0F /* egopv_fullscreen_button@2x.png */; };
+		D0FC1E6512761DCA006C2A0F /* egopv_minimize_fullscreen_button.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FC1E6212761DCA006C2A0F /* egopv_minimize_fullscreen_button.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* EGOPhotoViewer_DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOPhotoViewer_DemoAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* EGOPhotoViewer_DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOPhotoViewer_DemoAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* EGOPhotoViewer_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EGOPhotoViewer_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28042007108E984D000629CD /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		28042008108E984D000629CD /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		28042009108E984D000629CD /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -74,7 +76,6 @@
 		286B602011FCCF7400556D9E /* EGOPhotoImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOPhotoImageView.m; sourceTree = "<group>"; };
 		286B602211FCCF7400556D9E /* EGOPhotoScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOPhotoScrollView.h; sourceTree = "<group>"; };
 		286B602311FCCF7400556D9E /* EGOPhotoScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOPhotoScrollView.m; sourceTree = "<group>"; };
-		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* EGOPhotoViewer_Demo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOPhotoViewer_Demo_Prefix.pch; sourceTree = "<group>"; };
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -89,8 +90,6 @@
 		D0B84E7411DFFD5000F4CEF6 /* MyPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPhoto.m; sourceTree = "<group>"; };
 		D0B84E7511DFFD5000F4CEF6 /* MyPhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPhotoSource.h; sourceTree = "<group>"; };
 		D0B84E7611DFFD5000F4CEF6 /* MyPhotoSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPhotoSource.m; sourceTree = "<group>"; };
-		D0B84E8111DFFD9700F4CEF6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		D0B84E8511DFFD9E00F4CEF6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D0B84E9111DFFDF800F4CEF6 /* RootViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController_iPhone.h; sourceTree = "<group>"; };
 		D0B84E9211DFFDF800F4CEF6 /* RootViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController_iPhone.m; sourceTree = "<group>"; };
 		D0B84E9311DFFDF800F4CEF6 /* RootViewController_iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController_iPhone.xib; sourceTree = "<group>"; };
@@ -98,6 +97,16 @@
 		D0B84EE711DFFF6700F4CEF6 /* local_image_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = local_image_1.jpg; sourceTree = "<group>"; };
 		D0B84EE811DFFF6700F4CEF6 /* local_image_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = local_image_2.jpg; sourceTree = "<group>"; };
 		D0B84F0C11E0004800F4CEF6 /* MainWindowiPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindowiPhone.xib; sourceTree = "<group>"; };
+		D0FC1D1912761B16006C2A0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D0FC1D1D12761B1C006C2A0F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D0FC1D1F12761B22006C2A0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D0FC1D2112761B27006C2A0F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D0FC1D2312761B2D006C2A0F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		D0FC1E0E12761BAF006C2A0F /* egopv_error_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "egopv_error_placeholder@2x.png"; sourceTree = "<group>"; };
+		D0FC1E1112761BC2006C2A0F /* egopv_photo_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "egopv_photo_placeholder@2x.png"; sourceTree = "<group>"; };
+		D0FC1E6012761DCA006C2A0F /* egopv_fullscreen_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = egopv_fullscreen_button.png; sourceTree = "<group>"; };
+		D0FC1E6112761DCA006C2A0F /* egopv_fullscreen_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "egopv_fullscreen_button@2x.png"; sourceTree = "<group>"; };
+		D0FC1E6212761DCA006C2A0F /* egopv_minimize_fullscreen_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = egopv_minimize_fullscreen_button.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,11 +114,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
-				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
-				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
-				D0B84E8211DFFD9700F4CEF6 /* QuartzCore.framework in Frameworks */,
-				D0B84E8611DFFD9E00F4CEF6 /* MessageUI.framework in Frameworks */,
+				D0FC1D1A12761B16006C2A0F /* Foundation.framework in Frameworks */,
+				D0FC1D1E12761B1C006C2A0F /* UIKit.framework in Frameworks */,
+				D0FC1D2012761B22006C2A0F /* CoreGraphics.framework in Frameworks */,
+				D0FC1D2212761B27006C2A0F /* QuartzCore.framework in Frameworks */,
+				D0FC1D2412761B2D006C2A0F /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +209,11 @@
 		286B601311FCCF7400556D9E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D0FC1E6012761DCA006C2A0F /* egopv_fullscreen_button.png */,
+				D0FC1E6112761DCA006C2A0F /* egopv_fullscreen_button@2x.png */,
+				D0FC1E6212761DCA006C2A0F /* egopv_minimize_fullscreen_button.png */,
+				D0FC1E1112761BC2006C2A0F /* egopv_photo_placeholder@2x.png */,
+				D0FC1E0E12761BAF006C2A0F /* egopv_error_placeholder@2x.png */,
 				286B601411FCCF7400556D9E /* egopv_error_placeholder.png */,
 				286B601511FCCF7400556D9E /* egopv_left.png */,
 				286B601611FCCF7400556D9E /* egopv_left@2x.png */,
@@ -256,8 +270,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				D0B84E8111DFFD9700F4CEF6 /* QuartzCore.framework */,
-				D0B84E8511DFFD9E00F4CEF6 /* MessageUI.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -288,9 +300,11 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
-				1D30AB110D05D00D00671497 /* Foundation.framework */,
-				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+				D0FC1D1912761B16006C2A0F /* Foundation.framework */,
+				D0FC1D1D12761B1C006C2A0F /* UIKit.framework */,
+				D0FC1D1F12761B22006C2A0F /* CoreGraphics.framework */,
+				D0FC1D2112761B27006C2A0F /* QuartzCore.framework */,
+				D0FC1D2312761B2D006C2A0F /* MessageUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -373,6 +387,7 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "EGOPhotoViewer_Demo" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -408,6 +423,10 @@
 				286B602A11FCCF7400556D9E /* egopv_photo_placeholder.png in Resources */,
 				286B602B11FCCF7400556D9E /* egopv_right.png in Resources */,
 				286B602C11FCCF7400556D9E /* egopv_right@2x.png in Resources */,
+				D0FC1E1212761BC2006C2A0F /* egopv_photo_placeholder@2x.png in Resources */,
+				D0FC1E6312761DCA006C2A0F /* egopv_fullscreen_button.png in Resources */,
+				D0FC1E6412761DCA006C2A0F /* egopv_fullscreen_button@2x.png in Resources */,
+				D0FC1E6512761DCA006C2A0F /* egopv_minimize_fullscreen_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +463,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Devin Doty (294DDWXTAY)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -451,6 +471,8 @@
 				GCC_PREFIX_HEADER = EGOPhotoViewer_Demo_Prefix.pch;
 				INFOPLIST_FILE = "EGOPhotoViewer_Demo-Info.plist";
 				PRODUCT_NAME = EGOPhotoViewer_Demo;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C1BF0C20-972E-4EB9-A0A7-E37FC9DCADAF";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -477,7 +499,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -493,7 +515,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
