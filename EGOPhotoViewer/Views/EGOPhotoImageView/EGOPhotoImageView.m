@@ -43,6 +43,7 @@
 
 @interface EGOPhotoImageView (Private)
 - (void)layoutScrollViewAnimated:(BOOL)animated;
+- (void)handleFailedImage;
 - (void)setupImageViewWithImage:(UIImage *)aImage;
 - (CABasicAnimation*)fadeAnimation;
 @end
@@ -127,16 +128,23 @@
 			
 			if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 4.0) {
 								
-				__block UIImage *_image = nil;
 				dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 					
-					_image = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.photo.URL]];
-					self.imageView.image = _image;
+					UIImage *_image = nil;
+					NSData *_data = [NSData dataWithContentsOfURL:self.photo.URL];
+					if (!_data) {
+						[self handleFailedImage];
+					} else {
+						_image = [UIImage imageWithData:_data];
+					}
 					
 					dispatch_async(dispatch_get_main_queue(), ^{
-						if (_image) {
+						
+						if (_image!=nil) {
 							[self setupImageViewWithImage:_image];
 						}
+						
+						
 					});
 								   
 				});
@@ -179,7 +187,8 @@
 }
 
 - (void)setupImageViewWithImage:(UIImage*)aImage {	
-	
+	if (!aImage) return; 
+
 	_loading = NO;
 	[_activityView stopAnimating];
 	self.imageView.image = aImage; 
@@ -194,6 +203,16 @@
 	
 	//  reset view
 	self.tag = -1;
+	
+}
+
+- (void)handleFailedImage{
+	
+	self.imageView.image = kEGOPhotoErrorPlaceholder;
+	self.photo.failed = YES;
+	[self layoutScrollViewAnimated:NO];
+	self.userInteractionEnabled = NO;
+	[_activityView stopAnimating];
 	
 }
 
@@ -355,12 +374,7 @@
 	if ([notification userInfo] == nil) return;
 	if(![[[notification userInfo] objectForKey:@"imageURL"] isEqual:self.photo.URL]) return;
 	
-	self.imageView.image = kEGOPhotoErrorPlaceholder;
-	self.photo.failed = YES;
-	[self layoutScrollViewAnimated:NO];
-	self.userInteractionEnabled = NO;
-	[_activityView stopAnimating];
-	
+	[self handleFailedImage];
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"EGOPhotoDidFinishLoading" object:[NSDictionary dictionaryWithObjectsAndKeys:self.photo, @"photo", [NSNumber numberWithBool:YES], @"failed", nil]];
 	
 }
