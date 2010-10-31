@@ -138,9 +138,7 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	
-	NSLog(@"DID SELECT");
-	
+		
   	if (indexPath.row == 0) {
 		
 		MyPhoto *photo = [[MyPhoto alloc] initWithImageURL:[NSURL URLWithString:@"http://a3.twimg.com/profile_images/66601193/cactus.jpg"] name:@" laksd;lkas;dlkaslkd ;a"];
@@ -148,8 +146,6 @@
 		MyPhotoSource *source = [[MyPhotoSource alloc] initWithPhotos:[NSArray arrayWithObjects:photo, photo2, photo, photo2, photo, photo2, photo, photo2, nil]];
 		
 		EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
-		
-		NSLog(@"nav: %@", [self.navigationController description]);
 		[self.navigationController pushViewController:photoController animated:YES];
 		
 		[photoController release];

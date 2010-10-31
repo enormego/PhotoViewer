@@ -146,12 +146,13 @@
 		navController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 		navController.modalPresentationStyle = UIModalPresentationFullScreen;
 		[self presentModalViewController:navController animated:YES];
-		
+				
 		[navController release];
 		[photoController release];
 		[photo release];
 		[photo2 release];
 		[source release];
+		
 		
 	} else if (indexPath.row == 1) {
 		
