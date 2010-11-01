@@ -350,7 +350,7 @@
 		fixedLeft.width = 40.0f;
 		
 		if (_popover && [self.photoSource numberOfPhotos] > 1) {
-			UIBarButtonItem *scaleButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"egopv_fullscreen_button.png.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(toggleFullScreen:)];
+			UIBarButtonItem *scaleButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"egopv_fullscreen_button.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(toggleFullScreen:)];
 			self.navigationItem.rightBarButtonItem = scaleButton;
 			[scaleButton release];
 		}		
