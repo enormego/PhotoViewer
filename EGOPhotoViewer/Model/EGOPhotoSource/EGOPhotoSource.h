@@ -31,7 +31,7 @@
 /*
  * Array containing photo data objects.
  */
-@property(nonatomic,readonly) NSArray *photos;
+@property(nonatomic,readonly,retain) NSArray *photos;
 
 /*
  * Number of photos.
@@ -54,12 +54,12 @@
 /*
  * URL of the image, varied URL size should set according to display size. 
  */
-@property(nonatomic,readonly) NSURL *URL;
+@property(nonatomic,readonly,retain) NSURL *URL;
 
 /*
  * The caption of the image.
  */
-@property(nonatomic,readonly) NSString *caption;
+@property(nonatomic,readonly,retain) NSString *caption;
 
 /*
  * Size of the image, CGRectZero if image is nil.
