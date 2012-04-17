@@ -933,7 +933,7 @@
 	
 	MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
 	[mailViewController setSubject:@"Shared Photo"];
-	[mailViewController addAttachmentData:[NSData dataWithData:UIImagePNGRepresentation(((EGOPhotoImageView*)[self.photoViews objectAtIndex:_pageIndex]).imageView.image)] mimeType:@"png" fileName:@"Photo.png"];
+	[mailViewController addAttachmentData:[NSData dataWithData:UIImagePNGRepresentation(((EGOPhotoImageView*)[self.photoViews objectAtIndex:_pageIndex]).imageView.image)] mimeType:@"image/png" fileName:@"Photo.png"];
 	mailViewController.mailComposeDelegate = self;
 	
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
