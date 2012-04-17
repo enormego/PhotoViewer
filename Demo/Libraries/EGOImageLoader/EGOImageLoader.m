@@ -115,7 +115,7 @@ inline static NSString* keyForURL(NSURL* url) {
 - (UIImage*)imageForURL:(NSURL*)aURL shouldLoadWithObserver:(id<EGOImageLoaderObserver>)observer {
 	if(!aURL) return nil;
 	
-	id anImage = [[EGOCache currentCache] imageForKey:keyForURL(aURL)];
+	UIImage* anImage = [[EGOCache currentCache] imageForKey:keyForURL(aURL)];
 	
 	if(anImage) {
 		return anImage;
@@ -152,7 +152,6 @@ inline static NSString* keyForURL(NSURL* url) {
 		
 		[[NSNotificationCenter defaultCenter] performSelectorOnMainThread:@selector(postNotification:) withObject:notification waitUntilDone:YES];
 	} else {
-		
 		[[EGOCache currentCache] setData:connection.responseData forKey:keyForURL(connection.imageURL) withTimeoutInterval:604800];
 		
 		[currentConnections removeObjectForKey:connection.imageURL];

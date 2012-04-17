@@ -123,7 +123,7 @@
 	UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:navController];
 	popover.delegate = self;
 	[popover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-	popoverController = popover;
+	self.popoverController = popover;
 	
 	[photoController release];
 	[navController release];
