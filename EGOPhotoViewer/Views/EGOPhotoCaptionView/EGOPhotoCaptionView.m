@@ -39,7 +39,7 @@
 		_textLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, self.frame.size.width - 40.0f, 40.0f)];
 		_textLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 		_textLabel.backgroundColor = [UIColor clearColor];
-		_textLabel.textAlignment = UITextAlignmentCenter;
+		_textLabel.textAlignment = NSTextAlignmentCenter;
 		_textLabel.textColor = [UIColor whiteColor];
 		_textLabel.shadowColor = [UIColor blackColor];
 		_textLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);

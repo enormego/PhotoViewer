@@ -313,7 +313,7 @@
 }
 
 - (void)done:(id)sender {
-	[self dismissModalViewControllerAnimated:YES];
+	[self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 - (void)setupToolbar {
@@ -535,14 +535,14 @@
 	if (!_fullScreen) {
 		
 		NSInteger pageIndex = 0;
-		if (self.modalViewController && [self.modalViewController isKindOfClass:[UINavigationController class]]) {
-			UIViewController *controller = [((UINavigationController*)self.modalViewController) visibleViewController];
+		if (self.presentedViewController && [self.presentedViewController isKindOfClass:[UINavigationController class]]) {
+			UIViewController *controller = [((UINavigationController*)self.presentedViewController) visibleViewController];
 			if ([controller isKindOfClass:[self class]]) {
 				pageIndex = [(EGOPhotoViewController*)controller currentPhotoIndex];
 			}
 		}		
 		[self moveToPhotoAtIndex:pageIndex animated:NO];
-		[self.navigationController dismissModalViewControllerAnimated:NO];
+		[self.navigationController dismissViewControllerAnimated:NO completion:^{}];
 		
 	}
 	
@@ -609,7 +609,7 @@
 			UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
 			
 			navController.modalPresentationStyle = UIModalPresentationFullScreen;
-			[self.navigationController presentModalViewController:navController animated:NO];
+			[self.navigationController presentViewController:navController animated:YES completion:^{}];
 			[controller moveToPhotoAtIndex:_pageIndex animated:NO];
 			
 			[navController release];
@@ -942,14 +942,14 @@
 	}
 #endif
 	
-	[self presentModalViewController:mailViewController animated:YES];
+	[self presentViewController:mailViewController animated:YES completion:^{}];
 	[mailViewController release];
 	
 }
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error{
 	
-	[self dismissModalViewControllerAnimated:YES];
+	[self dismissViewControllerAnimated:YES completion:^{}];
 	
 	NSString *mailError = nil;
 	
