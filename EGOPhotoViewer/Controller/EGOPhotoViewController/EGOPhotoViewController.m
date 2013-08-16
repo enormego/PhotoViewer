@@ -684,7 +684,8 @@
 	}
 	
 	if ([self.photoSource numberOfPhotos] > 1) {
-		self.title = [NSString stringWithFormat:@"%i of %i", _pageIndex+1, [self.photoSource numberOfPhotos]];
+        NSString *ofStr = NSLocalizedString(@"of", @"num of num");
+		self.title = [NSString stringWithFormat:@"%i %@ %i", _pageIndex+1, ofStr, [self.photoSource numberOfPhotos]];
 	} else {
 		self.title = @"";
 	}
