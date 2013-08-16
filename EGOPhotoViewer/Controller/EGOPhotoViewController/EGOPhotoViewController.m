@@ -684,7 +684,8 @@
 	}
 	
 	if ([self.photoSource numberOfPhotos] > 1) {
-		self.title = [NSString stringWithFormat:@"%i of %i", _pageIndex+1, [self.photoSource numberOfPhotos]];
+        NSString *ofStr = NSLocalizedString(@"of", @"num of num");
+		self.title = [NSString stringWithFormat:@"%i %@ %i", _pageIndex+1, ofStr, [self.photoSource numberOfPhotos]];
 	} else {
 		self.title = @"";
 	}
@@ -932,7 +933,8 @@
 - (void)emailPhoto{
 	
 	MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
-	[mailViewController setSubject:@"Shared Photo"];
+    NSString *subjectStr = NSLocalizedString(@"Shared Photo", @"Shared Photo, email subject");
+	[mailViewController setSubject:subjectStr];
 	[mailViewController addAttachmentData:[NSData dataWithData:UIImagePNGRepresentation(((EGOPhotoImageView*)[self.photoViews objectAtIndex:_pageIndex]).imageView.image)] mimeType:@"image/png" fileName:@"Photo.png"];
 	mailViewController.mailComposeDelegate = self;
 	
@@ -952,17 +954,19 @@
 	[self dismissModalViewControllerAnimated:YES];
 	
 	NSString *mailError = nil;
+    NSString *errorStr = NSLocalizedString(@"Failed sending media, please try again...", @"Error message");
+    NSString *okStr = NSLocalizedString(@"OK", @"OK");
 	
 	switch (result) {
 		case MFMailComposeResultSent: ; break;
-		case MFMailComposeResultFailed: mailError = @"Failed sending media, please try again...";
+		case MFMailComposeResultFailed: mailError = errorStr;
 			break;
 		default:
 			break;
 	}
 	
 	if (mailError != nil) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:mailError delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:mailError delegate:nil cancelButtonTitle:okStr otherButtonTitles:nil];
 		[alert show];
 		[alert release];
 	}
@@ -976,28 +980,33 @@
 - (void)actionButtonHit:(id)sender{
 	
 	UIActionSheet *actionSheet;
+    
+    NSString *saveStr = NSLocalizedString(@"Save", @"Save");
+    NSString *copyStr = NSLocalizedString(@"Copy", @"Copy");
+    NSString *emailStr = NSLocalizedString(@"Email", @"Email");
+    NSString *cancelStr = NSLocalizedString(@"Cancel", @"Cancel");
 	
 	if ([MFMailComposeViewController canSendMail]) {
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad && !_popover) {
-			actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Save", @"Copy", @"Email", nil];
+			actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:saveStr, copyStr, emailStr, nil];
 		} else {
-			actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Save", @"Copy", @"Email", nil];
+			actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:cancelStr destructiveButtonTitle:nil otherButtonTitles:saveStr, copyStr, emailStr, nil];
 		}
 #else
-		actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Save", @"Copy", @"Email", nil];
+		actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:cancelStr destructiveButtonTitle:nil otherButtonTitles:saveStr, copyStr, emailStr, nil];
 #endif
 		
 	} else {
 		
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad && !_popover) {
-			actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Save", @"Copy", nil];
+			actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:saveStr, copyStr, nil];
 		} else {
-			actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Save", @"Copy", nil];
+			actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:cancelStr destructiveButtonTitle:nil otherButtonTitles:saveStr, copyStr, nil];
 		}
 #else
-		actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Save", @"Copy", nil];
+		actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:cancelStr destructiveButtonTitle:nil otherButtonTitles:saveStr, copyStr, nil];
 #endif
 		
 	}
