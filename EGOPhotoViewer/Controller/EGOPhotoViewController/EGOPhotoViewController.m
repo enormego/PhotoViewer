@@ -1050,7 +1050,7 @@
 	_captionView=nil;
 	[_photoViews release], _photoViews=nil;
 	[_photoSource release], _photoSource=nil;
-	[_scrollView release], _scrollView=nil;
+	_scrollView.delegate = nil, [_scrollView release], _scrollView=nil;
 	[_oldToolBarTintColor release], _oldToolBarTintColor = nil;
 	[_oldNavBarTintColor release], _oldNavBarTintColor = nil;
 	
